@@ -5,6 +5,7 @@ using ProfAly.CMS.Application;
 using ProfAly.CMS.Domain.Common;
 using ProfAly.CMS.Infrastructure;
 using ProfAly.CMS.Infrastructure.Identity;
+using ProfAly.CMS.Infrastructure.Persistence.Seeding;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -57,9 +58,19 @@ builder.Services.AddRazorPages()
 builder.Services.AddAuthorizationBuilder()
     .AddPolicy(Policies.RequireSuperAdmin, policy => policy.RequireRole(Roles.SuperAdmin));
 
-builder.Services.AddHealthChecks();
+// Health checks (the "database" check is registered in AddInfrastructure).
 
 var app = builder.Build();
+
+// ---------------------------------------------------------------------------
+// Database initialization pipeline (Stage 3): ensure App_Data exists, apply
+// migrations (create on first run), validate connectivity, run seeders.
+// ---------------------------------------------------------------------------
+using (var scope = app.Services.CreateScope())
+{
+    var initializer = scope.ServiceProvider.GetRequiredService<DatabaseInitializer>();
+    await initializer.RunAsync();
+}
 
 // ---------------------------------------------------------------------------
 // HTTP pipeline.

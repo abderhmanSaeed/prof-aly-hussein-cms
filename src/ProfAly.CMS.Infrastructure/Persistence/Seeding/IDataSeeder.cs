@@ -1,15 +1,15 @@
 namespace ProfAly.CMS.Infrastructure.Persistence.Seeding;
 
 /// <summary>
-/// Seed-infrastructure contract (Stage 2 scaffolding only — no seed data yet).
-/// Concrete seeders (SiteSettings/Profile/reference data and the content import)
-/// are added in Stage 3+. Implementations are discovered and run in <see cref="Order"/>
-/// by the database initializer at startup.
+/// A unit of idempotent seed work. Implementations declare their dependencies via
+/// the constructor (DbContext, Identity managers, configuration, logger) and are run
+/// in ascending <see cref="Order"/> by the <see cref="DatabaseInitializer"/> after
+/// migrations are applied. Each seeder must be safe to run repeatedly.
 /// </summary>
 public interface IDataSeeder
 {
-    /// <summary>Lower runs first. Lets dependent seeders order themselves.</summary>
+    /// <summary>Lower runs first.</summary>
     int Order { get; }
 
-    Task SeedAsync(AppDbContext context, CancellationToken cancellationToken = default);
+    Task SeedAsync(CancellationToken cancellationToken = default);
 }

@@ -5,8 +5,10 @@ using Microsoft.Extensions.DependencyInjection;
 using ProfAly.CMS.Application.Abstractions;
 using ProfAly.CMS.Infrastructure.Identity;
 using ProfAly.CMS.Infrastructure.Persistence;
+using ProfAly.CMS.Infrastructure.Persistence.HealthChecks;
 using ProfAly.CMS.Infrastructure.Persistence.Interceptors;
 using ProfAly.CMS.Infrastructure.Persistence.Seeding;
+using ProfAly.CMS.Infrastructure.Persistence.Seeding.Seeders;
 using ProfAly.CMS.Infrastructure.Storage;
 
 namespace ProfAly.CMS.Infrastructure;
@@ -21,6 +23,8 @@ public static class DependencyInjection
         this IServiceCollection services,
         IConfiguration configuration)
     {
+        services.Configure<AdminAccountOptions>(configuration.GetSection(AdminAccountOptions.SectionName));
+
         AddPersistence(services, configuration);
         AddIdentity(services);
         AddFileStorage(services, configuration);
@@ -36,8 +40,14 @@ public static class DependencyInjection
             .UseSqlite(connectionString)
             .AddInterceptors(new SqlitePragmaInterceptor()));
 
-        // Seed infrastructure (scaffolding only — no seeders registered yet).
+        // Initialization pipeline + ordered seeders (Stage 3).
         services.AddScoped<DatabaseInitializer>();
+        services.AddScoped<IDataSeeder, RoleSeeder>();
+        services.AddScoped<IDataSeeder, SuperAdminSeeder>();
+        services.AddScoped<IDataSeeder, SiteSettingsSeeder>();
+
+        // Database connectivity health check (endpoint mapped in the web host).
+        services.AddHealthChecks().AddCheck<DatabaseHealthCheck>("database", tags: new[] { "ready" });
     }
 
     private static void AddIdentity(IServiceCollection services)
