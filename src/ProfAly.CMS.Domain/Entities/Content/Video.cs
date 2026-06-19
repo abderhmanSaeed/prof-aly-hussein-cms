@@ -1,5 +1,5 @@
 using ProfAly.CMS.Domain.Common;
-using ContentTypeEnum = ProfAly.CMS.Domain.Enums.ContentType;
+using ProfAly.CMS.Domain.Enums;
 
 namespace ProfAly.CMS.Domain.Entities.Content;
 
@@ -9,10 +9,12 @@ namespace ProfAly.CMS.Domain.Entities.Content;
 /// </summary>
 public class Video : ContentItem
 {
+    public Video() : base(ContentType.Video)
+    {
+    }
+
     /// <summary>11-character YouTube video id (required).</summary>
     public string YouTubeVideoId { get; set; } = string.Empty;
-
-    public override ContentTypeEnum ContentType => ContentTypeEnum.Video;
 
     public override IReadOnlyList<string> Validate()
     {

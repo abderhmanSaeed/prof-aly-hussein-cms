@@ -1,4 +1,4 @@
-using ContentTypeEnum = ProfAly.CMS.Domain.Enums.ContentType;
+using ProfAly.CMS.Domain.Enums;
 
 namespace ProfAly.CMS.Domain.Entities.Content;
 
@@ -8,5 +8,7 @@ namespace ProfAly.CMS.Domain.Entities.Content;
 /// </summary>
 public class Book : ContentItem
 {
-    public override ContentTypeEnum ContentType => ContentTypeEnum.Book;
+    public Book() : base(ContentType.Book)
+    {
+    }
 }

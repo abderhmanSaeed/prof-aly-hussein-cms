@@ -1,4 +1,4 @@
-using ContentTypeEnum = ProfAly.CMS.Domain.Enums.ContentType;
+using ProfAly.CMS.Domain.Enums;
 
 namespace ProfAly.CMS.Domain.Entities.Content;
 
@@ -8,8 +8,10 @@ namespace ProfAly.CMS.Domain.Entities.Content;
 /// </summary>
 public class EnrichmentItem : ContentItem
 {
+    public EnrichmentItem() : base(ContentType.EnrichmentItem)
+    {
+    }
+
     /// <summary>Resource-type label (non-translatable).</summary>
     public string? ResourceType { get; set; }
-
-    public override ContentTypeEnum ContentType => ContentTypeEnum.EnrichmentItem;
 }

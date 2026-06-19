@@ -5,6 +5,8 @@ using Microsoft.Extensions.DependencyInjection;
 using ProfAly.CMS.Application.Abstractions;
 using ProfAly.CMS.Infrastructure.Identity;
 using ProfAly.CMS.Infrastructure.Persistence;
+using ProfAly.CMS.Infrastructure.Persistence.Interceptors;
+using ProfAly.CMS.Infrastructure.Persistence.Seeding;
 using ProfAly.CMS.Infrastructure.Storage;
 
 namespace ProfAly.CMS.Infrastructure;
@@ -30,7 +32,12 @@ public static class DependencyInjection
         var connectionString = configuration.GetConnectionString("DefaultConnection")
             ?? "Data Source=App_Data/app.db";
 
-        services.AddDbContext<AppDbContext>(options => options.UseSqlite(connectionString));
+        services.AddDbContext<AppDbContext>(options => options
+            .UseSqlite(connectionString)
+            .AddInterceptors(new SqlitePragmaInterceptor()));
+
+        // Seed infrastructure (scaffolding only — no seeders registered yet).
+        services.AddScoped<DatabaseInitializer>();
     }
 
     private static void AddIdentity(IServiceCollection services)

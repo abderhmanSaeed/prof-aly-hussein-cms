@@ -1,5 +1,4 @@
 using ProfAly.CMS.Domain.Enums;
-using ContentTypeEnum = ProfAly.CMS.Domain.Enums.ContentType;
 
 namespace ProfAly.CMS.Domain.Entities.Content;
 
@@ -10,9 +9,11 @@ namespace ProfAly.CMS.Domain.Entities.Content;
 /// </summary>
 public class Thesis : ContentItem
 {
+    public Thesis() : base(ContentType.Thesis)
+    {
+    }
+
     public DegreeLevel DegreeLevel { get; set; }
 
     public RelationshipType RelationshipType { get; set; }
-
-    public override ContentTypeEnum ContentType => ContentTypeEnum.Thesis;
 }

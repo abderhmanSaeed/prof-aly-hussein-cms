@@ -1,5 +1,5 @@
 using ProfAly.CMS.Domain.Common;
-using ContentTypeEnum = ProfAly.CMS.Domain.Enums.ContentType;
+using ProfAly.CMS.Domain.Enums;
 
 namespace ProfAly.CMS.Domain.Entities.Content;
 
@@ -12,6 +12,15 @@ namespace ProfAly.CMS.Domain.Entities.Content;
 /// </summary>
 public abstract class ContentItem : AuditableEntity, IValidatableEntity
 {
+    /// <summary>Each subtype fixes its content type, which is also the persisted discriminator.</summary>
+    protected ContentItem(ContentType contentType) => ContentType = contentType;
+
+    /// <summary>
+    /// The content type. Doubles as the TPH discriminator (column "ContentType", stored
+    /// as TEXT). Set by the subtype constructor and managed by EF during materialization.
+    /// </summary>
+    public ContentType ContentType { get; private set; }
+
     public int? CoverImageId { get; set; }
 
     public MediaFile? CoverImage { get; set; }
@@ -44,12 +53,6 @@ public abstract class ContentItem : AuditableEntity, IValidatableEntity
     public ICollection<ContentItemCategory> Categories { get; set; } = new List<ContentItemCategory>();
 
     public ICollection<ContentEvent> Events { get; set; } = new List<ContentEvent>();
-
-    /// <summary>
-    /// Convenience discriminator for code/queries. Get-only, so EF does not map it;
-    /// the persisted discriminator column ("ContentType") is configured in Stage 2.
-    /// </summary>
-    public abstract ContentTypeEnum ContentType { get; }
 
     /// <summary>
     /// Base invariants: publication year (if present) must be within range. Subtypes

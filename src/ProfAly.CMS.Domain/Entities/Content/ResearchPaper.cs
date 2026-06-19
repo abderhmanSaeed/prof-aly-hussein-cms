@@ -1,5 +1,5 @@
 using ProfAly.CMS.Domain.Common;
-using ContentTypeEnum = ProfAly.CMS.Domain.Enums.ContentType;
+using ProfAly.CMS.Domain.Enums;
 
 namespace ProfAly.CMS.Domain.Entities.Content;
 
@@ -9,9 +9,11 @@ namespace ProfAly.CMS.Domain.Entities.Content;
 /// </summary>
 public class ResearchPaper : ContentItem
 {
-    public string? Doi { get; set; }
+    public ResearchPaper() : base(ContentType.ResearchPaper)
+    {
+    }
 
-    public override ContentTypeEnum ContentType => ContentTypeEnum.ResearchPaper;
+    public string? Doi { get; set; }
 
     public override IReadOnlyList<string> Validate()
     {
