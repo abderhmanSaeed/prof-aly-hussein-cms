@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using ProfAly.CMS.Application.Abstractions;
 using ProfAly.CMS.Infrastructure.Identity;
 using ProfAly.CMS.Infrastructure.Persistence;
+using ProfAly.CMS.Infrastructure.Persistence.Backup;
 using ProfAly.CMS.Infrastructure.Persistence.HealthChecks;
 using ProfAly.CMS.Infrastructure.Persistence.Interceptors;
 using ProfAly.CMS.Infrastructure.Persistence.Seeding;
@@ -39,6 +40,9 @@ public static class DependencyInjection
         services.AddDbContext<AppDbContext>(options => options
             .UseSqlite(connectionString)
             .AddInterceptors(new SqlitePragmaInterceptor()));
+
+        // Database Safety Layer: automatic timestamped backups (App_Data/Backups).
+        services.AddScoped<IDatabaseBackupService, SqliteDatabaseBackupService>();
 
         // Initialization pipeline + ordered seeders (Stage 3).
         services.AddScoped<DatabaseInitializer>();

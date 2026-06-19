@@ -50,30 +50,32 @@
     <link rel="stylesheet" href="~/css/public.css" asp-append-version="true" />
 </head>
 <body>
+    <a class="skip-link" href="#main">@L["Skip_To_Content"]</a>
     <header class="site-nav">
-        <div class="container nav-inner">
+        <nav class="container nav-inner" aria-label="@siteTitle">
             <a class="brand" asp-page="/Public/Home" asp-route-culture="@culture">
                 <span class="brand-mark" aria-hidden="true">ع</span>
                 <span class="brand-text"><span>@siteTitle</span><span class="sub">@ViewData["Tagline"]</span></span>
             </a>
-            <ul class="nav-menu">
+            <ul class="nav-menu" id="primary-nav">
                 @foreach (var item in nav)
                 {
-                    <li><a class="@(currentPage == item.Page ? "active" : "")" asp-page="@item.Page" asp-route-culture="@culture">@L[item.Key]</a></li>
+                    <li><a class="@(currentPage == item.Page ? "active" : "")" asp-page="@item.Page" asp-route-culture="@culture" aria-current="@(currentPage == item.Page ? "page" : null)">@L[item.Key]</a></li>
                 }
             </ul>
             <div class="nav-actions">
                 <button class="icon-btn theme-toggle" type="button" title="Theme" aria-label="Theme">&#9681;</button>
                 @foreach (var c in SupportedCultures.All)
                 {
-                    <a class="lang-link @(c == culture ? "active" : "")" asp-page="@currentPage" asp-route-culture="@c">@c.ToUpperInvariant()</a>
+                    <a class="lang-link @(c == culture ? "active" : "")" asp-page="@currentPage" asp-route-culture="@c"
+                       hreflang="@c" lang="@c" aria-current="@(c == culture ? "true" : null)">@c.ToUpperInvariant()</a>
                 }
-                <button class="icon-btn nav-burger d-md-none" type="button" aria-label="Menu">&#9776;</button>
+                <button class="icon-btn nav-burger d-lg-none" type="button" aria-label="Menu" aria-controls="primary-nav" aria-expanded="false">&#9776;</button>
             </div>
-        </div>
+        </nav>
     </header>
 
-    <main id="main">
+    <main id="main" tabindex="-1">
         @RenderBody()
     </main>
 
@@ -83,15 +85,15 @@
                 <div class="col-12 col-lg-5">
                     <div class="brand"><span class="brand-mark" aria-hidden="true">ع</span><span class="brand-text"><span>@siteTitle</span><span class="sub">@ViewData["Tagline"]</span></span></div>
                 </div>
-                <div class="col-6 col-lg-4">
-                    <h2 class="footer-h">@L["Nav_Home"]</h2>
+                <nav class="col-6 col-lg-4" aria-label="@L["Footer_Explore"]">
+                    <h2 class="footer-h">@L["Footer_Explore"]</h2>
                     <ul class="footer-links">
                         @foreach (var item in nav.Take(6))
                         {
                             <li><a asp-page="@item.Page" asp-route-culture="@culture">@L[item.Key]</a></li>
                         }
                     </ul>
-                </div>
+                </nav>
                 <div class="col-6 col-lg-3">
                     <h2 class="footer-h">@L["Contact_Intro"]</h2>
                     <ul class="footer-contact">

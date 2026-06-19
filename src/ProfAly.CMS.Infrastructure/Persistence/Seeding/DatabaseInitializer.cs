@@ -1,6 +1,7 @@
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using ProfAly.CMS.Application.Abstractions;
 
 namespace ProfAly.CMS.Infrastructure.Persistence.Seeding;
 
@@ -14,15 +15,18 @@ public sealed class DatabaseInitializer
 {
     private readonly AppDbContext _context;
     private readonly IEnumerable<IDataSeeder> _seeders;
+    private readonly IDatabaseBackupService _backup;
     private readonly ILogger<DatabaseInitializer> _logger;
 
     public DatabaseInitializer(
         AppDbContext context,
         IEnumerable<IDataSeeder> seeders,
+        IDatabaseBackupService backup,
         ILogger<DatabaseInitializer> logger)
     {
         _context = context;
         _seeders = seeders;
+        _backup = backup;
         _logger = logger;
     }
 
@@ -31,6 +35,11 @@ public sealed class DatabaseInitializer
         _logger.LogInformation("Database initialization starting.");
 
         EnsureDataDirectoryExists();
+
+        // Database Safety Layer: back up an existing database BEFORE any migration or
+        // seeding runs. No-op on first run (the service returns null when no file exists).
+        await _backup.CreateBackupAsync("startup", cancellationToken);
+
         await ApplyMigrationsAsync(cancellationToken);
         await ValidateConnectionAsync(cancellationToken);
         await RunSeedersAsync(cancellationToken);

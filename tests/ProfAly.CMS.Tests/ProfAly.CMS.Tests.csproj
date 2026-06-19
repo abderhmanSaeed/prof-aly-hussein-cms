@@ -16,6 +16,12 @@
     <Using Include="Xunit" />
   </ItemGroup>
 
+  <!-- Shared framework gives the test project the Microsoft.Extensions.* (Configuration,
+       Logging) used to exercise the Database Safety Layer end-to-end. -->
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\..\src\ProfAly.CMS.Domain\ProfAly.CMS.Domain.csproj" />
     <ProjectReference Include="..\..\src\ProfAly.CMS.Application\ProfAly.CMS.Application.csproj" />

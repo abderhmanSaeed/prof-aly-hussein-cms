@@ -67,6 +67,9 @@ public class AppDbContext : IdentityDbContext<ApplicationUser>
     public DbSet<ContentEvent> ContentEvent => Set<ContentEvent>();
     public DbSet<PageView> PageView => Set<PageView>();
 
+    // System-level operational flags (e.g. StaticContentImported) — Database Safety Layer.
+    public DbSet<SystemSetting> SystemSetting => Set<SystemSetting>();
+
     protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
     {
         base.ConfigureConventions(configurationBuilder);

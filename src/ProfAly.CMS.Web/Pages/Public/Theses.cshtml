@@ -26,29 +26,36 @@
             <button class="filter-tab" data-cat="ongoing" type="button">@L["Rel_Ongoing"]</button>
         </div>
 
-        <div class="table-wrap">
-            <table class="theses-table">
-                <thead>
-                    <tr>
-                        <th>@L["F_Researcher"]</th><th>@L["F_Title"]</th><th>@L["F_Degree"]</th>
-                        <th>@L["F_Relationship"]</th><th>@L["F_PublicationYear"]</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @if (Model.Items.Count == 0) { <tr><td colspan="5" class="empty-state">@L["Pub_NoItems"]</td></tr> }
-                    @foreach (var item in Model.Items)
-                    {
-                        var t = Localized.Pick(item.Translations, Model.Culture);
-                        <tr data-thesis-row data-cat="@Cat(item.RelationshipType)">
-                            <td>@t?.ResearcherName</td>
-                            <td>@t?.Title</td>
-                            <td><span class="badge-deg badge-@(item.DegreeLevel == DegreeLevel.PhD ? "PhD" : "MA")">@(item.DegreeLevel == DegreeLevel.PhD ? L["Deg_PhD"] : L["Deg_Master"])</span></td>
-                            <td>@CatLabel(item.RelationshipType)</td>
-                            <td>@item.PublicationYear</td>
+        @if (Model.Items.Count == 0)
+        {
+            <p class="empty-state">@L["Pub_NoItems"]</p>
+        }
+        else
+        {
+            <div class="table-wrap">
+                <table class="theses-table">
+                    <caption class="visually-hidden">@L["Theses_Title"]</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">@L["F_Researcher"]</th><th scope="col">@L["F_Title"]</th><th scope="col">@L["F_Degree"]</th>
+                            <th scope="col">@L["F_Relationship"]</th><th scope="col">@L["F_PublicationYear"]</th>
                         </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Items)
+                        {
+                            var t = Localized.Pick(item.Translations, Model.Culture);
+                            <tr data-thesis-row data-cat="@Cat(item.RelationshipType)">
+                                <td data-label="@L["F_Researcher"].Value">@t?.ResearcherName</td>
+                                <td data-label="@L["F_Title"].Value">@t?.Title</td>
+                                <td data-label="@L["F_Degree"].Value"><span class="badge-deg badge-@(item.DegreeLevel == DegreeLevel.PhD ? "PhD" : "MA")">@(item.DegreeLevel == DegreeLevel.PhD ? L["Deg_PhD"] : L["Deg_Master"])</span></td>
+                                <td data-label="@L["F_Relationship"].Value">@CatLabel(item.RelationshipType)</td>
+                                <td data-label="@L["F_PublicationYear"].Value">@item.PublicationYear</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
     </div>
 </section>

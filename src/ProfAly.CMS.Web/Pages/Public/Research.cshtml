@@ -15,19 +15,29 @@
 
 <section class="section">
     <div class="container">
-        @if (Model.Items.Count == 0) { <p class="empty-state">@L["Pub_NoItems"]</p> }
-        <ul class="pub-list">
-            @foreach (var item in Model.Items)
-            {
-                var t = Localized.Pick(item.Translations, Model.Culture);
-                <li class="pub-item">
-                    <span class="pub-year">@item.PublicationYear</span>
-                    <div class="pub-body">
-                        <h3 class="pub-title">@t?.Title</h3>
-                        @if (!string.IsNullOrEmpty(t?.Journal)) { <p class="pub-venue">@t.Journal</p> }
-                    </div>
-                </li>
-            }
-        </ul>
+        @if (Model.Items.Count == 0)
+        {
+            <div class="empty-state">
+                <p class="empty-title">@L["Research_EmptyTitle"]</p>
+                <p class="m-0">@L["Research_EmptyBody"]</p>
+                <a class="btn btn-primary" asp-page="/Public/Publications" asp-route-culture="@Model.Culture">@L["Publications_Title"]</a>
+            </div>
+        }
+        else
+        {
+            <ul class="pub-list">
+                @foreach (var item in Model.Items)
+                {
+                    var t = Localized.Pick(item.Translations, Model.Culture);
+                    <li class="pub-item">
+                        <span class="pub-year">@item.PublicationYear</span>
+                        <div class="pub-body">
+                            <h3 class="pub-title">@t?.Title</h3>
+                            @if (!string.IsNullOrEmpty(t?.Journal)) { <p class="pub-venue">@t.Journal</p> }
+                        </div>
+                    </li>
+                }
+            </ul>
+        }
     </div>
 </section>

@@ -158,4 +158,8 @@
   <data name="Contact_Intro" xml:space="preserve"><value>Coordonnées</value></data>
   <data name="Hero_CtaResearch" xml:space="preserve"><value>Voir les publications</value></data>
   <data name="Hero_CtaContact" xml:space="preserve"><value>Me contacter</value></data>
+  <data name="Skip_To_Content" xml:space="preserve"><value>Aller au contenu</value></data>
+  <data name="Footer_Explore" xml:space="preserve"><value>Explorer</value></data>
+  <data name="Research_EmptyTitle" xml:space="preserve"><value>Aucun article de recherche publié pour l'instant</value></data>
+  <data name="Research_EmptyBody" xml:space="preserve"><value>Les articles de revue évalués par les pairs figurent dans la page Publications.</value></data>
 </root>

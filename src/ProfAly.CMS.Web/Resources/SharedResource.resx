@@ -170,4 +170,8 @@
   <data name="Contact_Intro" xml:space="preserve"><value>Contact details</value></data>
   <data name="Hero_CtaResearch" xml:space="preserve"><value>View publications</value></data>
   <data name="Hero_CtaContact" xml:space="preserve"><value>Contact me</value></data>
+  <data name="Skip_To_Content" xml:space="preserve"><value>Skip to content</value></data>
+  <data name="Footer_Explore" xml:space="preserve"><value>Explore</value></data>
+  <data name="Research_EmptyTitle" xml:space="preserve"><value>No research papers published yet</value></data>
+  <data name="Research_EmptyBody" xml:space="preserve"><value>Peer-reviewed journal articles are listed under Publications.</value></data>
 </root>

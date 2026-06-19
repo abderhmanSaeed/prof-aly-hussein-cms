@@ -4,6 +4,7 @@ using System.Text.Json;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using ProfAly.CMS.Application.Abstractions;
 using ProfAly.CMS.Domain.Common;
 using ProfAly.CMS.Domain.Entities;
 using ProfAly.CMS.Domain.Entities.Content;
@@ -24,12 +25,18 @@ public sealed class StaticContentImporter : IDataSeeder
 {
     private readonly AppDbContext _db;
     private readonly IConfiguration _config;
+    private readonly IDatabaseBackupService _backup;
     private readonly ILogger<StaticContentImporter> _logger;
 
-    public StaticContentImporter(AppDbContext db, IConfiguration config, ILogger<StaticContentImporter> logger)
+    public StaticContentImporter(
+        AppDbContext db,
+        IConfiguration config,
+        IDatabaseBackupService backup,
+        ILogger<StaticContentImporter> logger)
     {
         _db = db;
         _config = config;
+        _backup = backup;
         _logger = logger;
     }
 
@@ -39,8 +46,35 @@ public sealed class StaticContentImporter : IDataSeeder
 
     public async Task SeedAsync(CancellationToken cancellationToken = default)
     {
-        if (!_config.GetValue("Seed:ImportStaticContent", false))
+        var enabled = _config.GetValue("Seed:ImportStaticContent", false);
+        var force = _config.GetValue("Seed:ForceImport", false);
+
+        // Import protection #1 — must be explicitly enabled (or forced).
+        if (!enabled && !force)
         {
+            return;
+        }
+
+        // Import protection #2 — run only once. The StaticContentImported flag persists
+        // across restarts; only Seed:ForceImport=true bypasses it.
+        var alreadyImported = await _db.SystemSetting
+            .AnyAsync(s => s.Key == SystemSettingKeys.StaticContentImported && s.Value == "true", cancellationToken);
+        if (alreadyImported && !force)
+        {
+            _logger.LogInformation("Static content already imported (StaticContentImported=true); skipping. Set Seed:ForceImport=true to re-run.");
+            return;
+        }
+
+        // Import protection #3 — import only when the database has no content. If content
+        // exists (e.g. imported before this flag existed, or manually entered), record the
+        // marker and skip rather than risk touching real data.
+        var hasContent = await _db.Profile.AnyAsync(cancellationToken)
+            || await _db.ContentItem.AnyAsync(cancellationToken)
+            || await _db.ActivityGroup.AnyAsync(cancellationToken);
+        if (hasContent && !force)
+        {
+            _logger.LogInformation("Database already contains content; marking StaticContentImported and skipping (use Seed:ForceImport=true to override).");
+            await MarkImportedAsync(cancellationToken);
             return;
         }
 
@@ -51,12 +85,32 @@ public sealed class StaticContentImporter : IDataSeeder
             return;
         }
 
+        // Database Safety Layer — back up before mutating content.
+        await _backup.CreateBackupAsync("pre-import", cancellationToken);
+
         _logger.LogInformation("Importing static content…");
         await ImportProfileAsync(data, cancellationToken);
         await ImportListsAsync(data, cancellationToken);
         await ImportActivitiesAsync(data, cancellationToken);
         await ImportContentAsync(data, cancellationToken);
+        await MarkImportedAsync(cancellationToken);
         _logger.LogInformation("Static content import complete.");
+    }
+
+    private async Task MarkImportedAsync(CancellationToken cancellationToken)
+    {
+        var row = await _db.SystemSetting.FindAsync(new object?[] { SystemSettingKeys.StaticContentImported }, cancellationToken);
+        if (row is null)
+        {
+            _db.SystemSetting.Add(new SystemSetting { Key = SystemSettingKeys.StaticContentImported, Value = "true", UpdatedUtc = DateTime.UtcNow });
+        }
+        else
+        {
+            row.Value = "true";
+            row.UpdatedUtc = DateTime.UtcNow;
+        }
+
+        await _db.SaveChangesAsync(cancellationToken);
     }
 
     // ---------------- Profile ----------------

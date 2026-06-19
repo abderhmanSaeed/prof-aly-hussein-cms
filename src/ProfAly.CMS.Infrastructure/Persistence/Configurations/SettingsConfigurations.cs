@@ -46,3 +46,13 @@ public sealed class SiteSettingsTranslationConfiguration : IEntityTypeConfigurat
         b.HasIndex(x => new { x.SiteSettingsId, x.Culture }).IsUnique();
     }
 }
+
+public sealed class SystemSettingConfiguration : IEntityTypeConfiguration<SystemSetting>
+{
+    public void Configure(EntityTypeBuilder<SystemSetting> b)
+    {
+        b.HasKey(x => x.Key);
+        b.Property(x => x.Key).HasMaxLength(128);
+        b.Property(x => x.Value).HasMaxLength(1024);
+    }
+}

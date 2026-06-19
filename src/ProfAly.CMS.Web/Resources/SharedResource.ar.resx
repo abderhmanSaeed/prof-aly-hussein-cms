@@ -158,4 +158,8 @@
   <data name="Contact_Intro" xml:space="preserve"><value>بيانات التواصل</value></data>
   <data name="Hero_CtaResearch" xml:space="preserve"><value>استعراض الأبحاث</value></data>
   <data name="Hero_CtaContact" xml:space="preserve"><value>تواصل معي</value></data>
+  <data name="Skip_To_Content" xml:space="preserve"><value>تخطٍّ إلى المحتوى</value></data>
+  <data name="Footer_Explore" xml:space="preserve"><value>استكشف</value></data>
+  <data name="Research_EmptyTitle" xml:space="preserve"><value>لا توجد أبحاث منشورة بعد</value></data>
+  <data name="Research_EmptyBody" xml:space="preserve"><value>البحوث المحكَّمة في الدوريات مُدرجة ضمن صفحة المنشورات.</value></data>
 </root>
