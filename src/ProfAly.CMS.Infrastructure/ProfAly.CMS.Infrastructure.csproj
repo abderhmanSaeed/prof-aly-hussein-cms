@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Infrastructure layer: EF Core (SQLite) DbContext, Identity stores,
+       file-storage implementation, and DI composition. -->
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ProfAly.CMS.Application\ProfAly.CMS.Application.csproj" />
+    <ProjectReference Include="..\ProfAly.CMS.Domain\ProfAly.CMS.Domain.csproj" />
+  </ItemGroup>
+
+  <!-- Infrastructure references the ASP.NET Core shared framework for Identity
+       and DI/Configuration/Logging/Hosting abstractions used in composition. -->
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,23 @@
+root = true
+
+[*.cs]
+indent_style = space
+indent_size = 4
+charset = utf-8-bom
+end_of_line = crlf
+insert_final_newline = true
+
+# .NET analyzers are ON (latest-recommended). The rules below are intentionally
+# quieted for this project's style/scale — recorded as a Stage 0 convention.
+dotnet_diagnostic.CA1707.severity = none   # underscores in test method names (idiomatic xUnit)
+dotnet_diagnostic.CA1848.severity = none   # LoggerMessage delegates — unnecessary at this scale
+dotnet_diagnostic.CA1873.severity = none   # logging-argument evaluation cost — n/a here
+dotnet_diagnostic.CA1861.severity = none   # constant array args in tests
+
+[*.{json,csproj,props,targets}]
+indent_style = space
+indent_size = 2
+
+[*.{cshtml,html,css,js}]
+indent_style = space
+indent_size = 2

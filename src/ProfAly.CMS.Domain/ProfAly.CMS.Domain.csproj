@@ -1,0 +1,7 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Domain layer: entities, enums, invariants. No external dependencies.
+       Framework / nullable / usings are inherited from Directory.Build.props.
+       Business entities are added in Stage 1 (not part of this skeleton). -->
+
+</Project>

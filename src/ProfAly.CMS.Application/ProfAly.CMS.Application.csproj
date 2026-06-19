@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Application layer: use-case services, DTOs, and abstractions (interfaces).
+       Depends only on Domain. Concrete services are added from Stage 5. -->
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ProfAly.CMS.Domain\ProfAly.CMS.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

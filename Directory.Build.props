@@ -1,0 +1,17 @@
+<Project>
+
+  <!-- Solution-wide build conventions (doc 15, Stage 0 step 4).
+       Target framework is centralized here so every project tracks .NET 8 LTS
+       (the deliberate choice in 00_README.md / 02_System_Architecture.md). -->
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <AnalysisLevel>latest-recommended</AnalysisLevel>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <InvariantGlobalization>false</InvariantGlobalization>
+  </PropertyGroup>
+
+</Project>
