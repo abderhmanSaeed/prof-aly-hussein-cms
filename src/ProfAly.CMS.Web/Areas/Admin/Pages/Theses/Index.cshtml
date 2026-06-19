@@ -3,7 +3,7 @@
 @using ProfAly.CMS.Domain.Common
 @using ProfAly.CMS.Domain.Enums
 @model ProfAly.CMS.Web.Areas.Admin.Pages.Theses.IndexModel
-@inject IViewLocalizer L
+@inject Microsoft.Extensions.Localization.IStringLocalizer<ProfAly.CMS.Web.SharedResource> L
 @{ ViewData["Title"] = L["Theses_Title"].Value;
    string RelText(RelationshipType r) => (r == RelationshipType.Supervised ? L["Rel_Supervised"] : r == RelationshipType.Examined ? L["Rel_Examined"] : L["Rel_Ongoing"]).Value;
 }

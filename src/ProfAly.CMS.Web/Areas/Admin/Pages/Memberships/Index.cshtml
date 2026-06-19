@@ -3,7 +3,7 @@
 @using ProfAly.CMS.Domain.Common
 @using ProfAly.CMS.Domain.Enums
 @model ProfAly.CMS.Web.Areas.Admin.Pages.Memberships.IndexModel
-@inject IViewLocalizer L
+@inject Microsoft.Extensions.Localization.IStringLocalizer<ProfAly.CMS.Web.SharedResource> L
 @{
     ViewData["Title"] = L["Memberships_Title"].Value;
 }

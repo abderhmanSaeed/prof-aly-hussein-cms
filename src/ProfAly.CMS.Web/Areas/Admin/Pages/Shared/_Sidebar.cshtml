@@ -1,5 +1,5 @@
 @using Microsoft.AspNetCore.Mvc.Localization
-@inject IViewLocalizer L
+@inject Microsoft.Extensions.Localization.IStringLocalizer<ProfAly.CMS.Web.SharedResource> L
 @{
     var page = ViewContext.RouteData.Values["page"]?.ToString() ?? string.Empty;
     var currentType = ViewContext.RouteData.Values["type"]?.ToString()

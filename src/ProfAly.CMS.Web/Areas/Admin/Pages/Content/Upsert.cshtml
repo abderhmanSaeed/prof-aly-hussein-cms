@@ -1,7 +1,7 @@
 @page
 @using Microsoft.AspNetCore.Mvc.Localization
 @model ProfAly.CMS.Web.Areas.Admin.Pages.Content.UpsertModel
-@inject IViewLocalizer L
+@inject Microsoft.Extensions.Localization.IStringLocalizer<ProfAly.CMS.Web.SharedResource> L
 @{
     ViewData["Title"] = (Model.IsEdit ? L["Edit"].Value : L["CreateNew"].Value) + " · " + L[Model.TitleKey].Value;
     var cultures = Model.Cultures;

@@ -2,7 +2,7 @@
 @using Microsoft.AspNetCore.Mvc.Localization
 @using ProfAly.CMS.Domain.Enums
 @model ProfAly.CMS.Web.Areas.Admin.Pages.Teaching.UpsertModel
-@inject IViewLocalizer L
+@inject Microsoft.Extensions.Localization.IStringLocalizer<ProfAly.CMS.Web.SharedResource> L
 @{
     ViewData["Title"] = (Model.IsEdit ? L["Edit"].Value : L["CreateNew"].Value) + " · " + L["Teaching_Title"].Value;
     var cultures = Model.Cultures;

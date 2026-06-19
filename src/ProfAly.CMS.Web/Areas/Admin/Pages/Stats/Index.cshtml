@@ -2,7 +2,7 @@
 @using Microsoft.AspNetCore.Mvc.Localization
 @using ProfAly.CMS.Domain.Common
 @model ProfAly.CMS.Web.Areas.Admin.Pages.Stats.IndexModel
-@inject IViewLocalizer L
+@inject Microsoft.Extensions.Localization.IStringLocalizer<ProfAly.CMS.Web.SharedResource> L
 @{
     ViewData["Title"] = L["Stats_Title"].Value;
 }
