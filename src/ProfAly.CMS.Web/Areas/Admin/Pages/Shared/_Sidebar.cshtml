@@ -1,31 +1,52 @@
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer L
 @{
-    var page = ViewContext.RouteData.Values["page"]?.ToString();
-    var isDashboard = string.Equals(page, "/Index", StringComparison.OrdinalIgnoreCase);
+    var page = ViewContext.RouteData.Values["page"]?.ToString() ?? string.Empty;
 
-    // Mirrors 06_Admin_Dashboard_Structure.md. Only the Dashboard is wired in the
-    // shell; the rest are placeholders enabled as their stages are implemented.
-    var groups = new (string Title, (string Label, bool Enabled)[] Items)[]
+    // (Label, Page route, active-prefix, enabled). Page=null → placeholder ("soon").
+    var groups = new (string Title, (string Label, string? Page, string Prefix, bool Enabled)[] Items)[]
     {
-        ("", new[] { ("Dashboard", true) }),
+        ("", new[]
+        {
+            ("Dashboard", (string?)"/Index", "/Index", true),
+        }),
         ("Content — Profile & Pages", new[]
         {
-            ("Home", false), ("About / Profile", false), ("Qualifications", false), ("Skills", false),
-            ("Experience", false), ("Memberships", false), ("Activities", false), ("Teaching", false)
+            ("Home", (string?)null, "", false),
+            (L["Profile_Title"].Value, "/Profile/Index", "/Profile", true),
+            (L["Qualifications_Title"].Value, "/Qualifications/Index", "/Qualifications", true),
+            (L["Skills_Title"].Value, "/Skills/Index", "/Skills", true),
+            ("Experience", (string?)null, "", false),
+            (L["Memberships_Title"].Value, "/Memberships/Index", "/Memberships", true),
+            (L["Stats_Title"].Value, "/Stats/Index", "/Stats", true),
+            (L["Credibility_Title"].Value, "/Credibility/Index", "/Credibility", true),
+            ("Activities", (string?)null, "", false),
+            ("Teaching", (string?)null, "", false),
         }),
         ("Content — Collections", new[]
         {
-            ("Research", false), ("Publications", false), ("Books", false), ("Theses", false),
-            ("Projects", false), ("Videos", false), ("Resources", false), ("Enrichment", false)
+            ("Research", (string?)null, "", false), ("Publications", (string?)null, "", false),
+            ("Books", (string?)null, "", false), ("Theses", (string?)null, "", false),
+            ("Projects", (string?)null, "", false), ("Videos", (string?)null, "", false),
+            ("Resources", (string?)null, "", false), ("Enrichment", (string?)null, "", false),
         }),
-        ("Organization", new[] { ("Categories", false), ("Media Library", false) }),
+        ("Organization", new[] { ("Categories", (string?)null, "", false), ("Media Library", (string?)null, "", false) }),
         ("Site", new[]
         {
-            ("Header", false), ("Footer", false), ("Profile & Contact", false),
-            ("Appearance / Theme", false), ("SEO", false), ("Redirects", false)
+            ("Header", (string?)null, "", false), ("Footer", (string?)null, "", false),
+            ("Profile & Contact", (string?)null, "", false), ("Appearance / Theme", (string?)null, "", false),
+            ("SEO", (string?)null, "", false), ("Redirects", (string?)null, "", false),
         }),
-        ("Communication", new[] { ("Contact Messages", false) }),
-        ("System", new[] { ("Statistics", false), ("Backup & Restore", false), ("Account & Security", false) }),
+        ("Communication", new[] { ("Contact Messages", (string?)null, "", false) }),
+        ("System", new[]
+        {
+            ("Site Statistics", (string?)null, "", false), ("Backup & Restore", (string?)null, "", false),
+            ("Account & Security", (string?)null, "", false),
+        }),
     };
+
+    bool IsActive(string prefix) =>
+        prefix == "/Index" ? page == "/Index" : page.StartsWith(prefix, StringComparison.OrdinalIgnoreCase);
 }
 
 <div class="admin-brand">
@@ -46,9 +67,9 @@
             }
             @foreach (var item in group.Items)
             {
-                if (item.Label == "Dashboard")
+                if (item.Enabled && item.Page is not null)
                 {
-                    <a class="nav-link-item @(isDashboard ? "active" : "")" asp-area="Admin" asp-page="/Index">
+                    <a class="nav-link-item @(IsActive(item.Prefix) ? "active" : "")" asp-area="Admin" asp-page="@item.Page">
                         <span>@item.Label</span>
                     </a>
                 }

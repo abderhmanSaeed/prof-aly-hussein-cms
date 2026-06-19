@@ -87,5 +87,6 @@ public static class DependencyInjection
     {
         services.Configure<FileStorageOptions>(configuration.GetSection(FileStorageOptions.SectionName));
         services.AddSingleton<IFileStorage, LocalFileStorage>();
+        services.AddScoped<IMediaUploadService, MediaUploadService>();
     }
 }

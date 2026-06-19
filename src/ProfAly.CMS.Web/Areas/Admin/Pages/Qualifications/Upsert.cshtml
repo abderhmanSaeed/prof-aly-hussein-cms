@@ -1,0 +1,60 @@
+@page
+@using Microsoft.AspNetCore.Mvc.Localization
+@model ProfAly.CMS.Web.Areas.Admin.Pages.Qualifications.UpsertModel
+@inject IViewLocalizer L
+@{
+    ViewData["Title"] = (Model.IsEdit ? L["Edit"].Value : L["CreateNew"].Value) + " · " + L["Qualifications_Title"].Value;
+    var cultures = Model.Cultures;
+}
+
+<h1 class="page-title">@ViewData["Title"]</h1>
+
+<form method="post" class="tile" style="max-width:760px">
+    <div asp-validation-summary="All" class="alert alert-danger py-2 px-3 small"
+         style="@(ViewData.ModelState.IsValid ? "display:none" : "")"></div>
+    <input type="hidden" asp-for="Input.Id" />
+
+    <div class="mb-3" style="max-width:160px">
+        <label asp-for="Input.Year" class="form-label">@L["F_Year"]</label>
+        <input asp-for="Input.Year" type="number" class="form-control" dir="ltr" />
+        <span asp-validation-for="Input.Year" class="text-danger small"></span>
+    </div>
+
+    <ul class="nav nav-tabs" role="tablist">
+        @for (var i = 0; i < cultures.Count; i++)
+        {
+            var c = cultures[i];
+            var label = c == "ar" ? L["LangArabic"] : c == "fr" ? L["LangFrench"] : L["LangEnglish"];
+            <li class="nav-item"><button class="nav-link @(i == 0 ? "active" : "")" type="button"
+                data-bs-toggle="tab" data-bs-target="#t-@c">@label</button></li>
+        }
+    </ul>
+    <div class="tab-content border border-top-0 p-3 mb-3">
+        @for (var i = 0; i < cultures.Count; i++)
+        {
+            var c = cultures[i];
+            <div class="tab-pane fade @(i == 0 ? "show active" : "")" id="t-@c" dir="@(c == "ar" ? "rtl" : "ltr")">
+                <input type="hidden" asp-for="Input.Translations[i].Culture" />
+                <div class="mb-2">
+                    <label asp-for="Input.Translations[i].Degree" class="form-label">@L["F_Degree"]</label>
+                    <input asp-for="Input.Translations[i].Degree" class="form-control" />
+                    <span asp-validation-for="Input.Translations[i].Degree" class="text-danger small"></span>
+                </div>
+                <div class="mb-2">
+                    <label asp-for="Input.Translations[i].Institution" class="form-label">@L["F_Institution"]</label>
+                    <input asp-for="Input.Translations[i].Institution" class="form-control" />
+                    <span asp-validation-for="Input.Translations[i].Institution" class="text-danger small"></span>
+                </div>
+                <div class="mb-2">
+                    <label asp-for="Input.Translations[i].Grade" class="form-label">@L["F_Grade"]</label>
+                    <input asp-for="Input.Translations[i].Grade" class="form-control" />
+                </div>
+            </div>
+        }
+    </div>
+
+    <button type="submit" class="btn btn-primary">@L["Save"]</button>
+    <a class="btn btn-outline-secondary" asp-page="Index">@L["Cancel"]</a>
+</form>
+
+@section Scripts { <partial name="_ValidationScriptsPartial" /> }

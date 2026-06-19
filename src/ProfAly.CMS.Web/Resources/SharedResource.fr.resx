@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+
+  <data name="Save" xml:space="preserve"><value>Enregistrer</value></data>
+  <data name="Cancel" xml:space="preserve"><value>Annuler</value></data>
+  <data name="CreateNew" xml:space="preserve"><value>Créer</value></data>
+  <data name="Edit" xml:space="preserve"><value>Modifier</value></data>
+  <data name="Delete" xml:space="preserve"><value>Supprimer</value></data>
+  <data name="Back" xml:space="preserve"><value>Retour à la liste</value></data>
+  <data name="MoveUp" xml:space="preserve"><value>Monter</value></data>
+  <data name="MoveDown" xml:space="preserve"><value>Descendre</value></data>
+  <data name="Actions" xml:space="preserve"><value>Actions</value></data>
+  <data name="Order" xml:space="preserve"><value>Ordre</value></data>
+  <data name="ConfirmDelete" xml:space="preserve"><value>Supprimer cet élément ?</value></data>
+  <data name="NoItems" xml:space="preserve"><value>Aucun élément pour l'instant.</value></data>
+  <data name="Saved" xml:space="preserve"><value>Enregistré avec succès.</value></data>
+  <data name="LangArabic" xml:space="preserve"><value>Arabe</value></data>
+  <data name="LangEnglish" xml:space="preserve"><value>Anglais</value></data>
+  <data name="LangFrench" xml:space="preserve"><value>Français</value></data>
+  <data name="DefaultLangNote" xml:space="preserve"><value>Les champs en arabe (langue par défaut) sont obligatoires ; l'anglais et le français peuvent être complétés plus tard.</value></data>
+
+  <data name="Field_Required" xml:space="preserve"><value>Ce champ est obligatoire.</value></data>
+  <data name="Field_Email_Invalid" xml:space="preserve"><value>Saisissez une adresse e-mail valide.</value></data>
+  <data name="Field_Url_Invalid" xml:space="preserve"><value>Saisissez une URL valide.</value></data>
+  <data name="Field_Year_Range" xml:space="preserve"><value>Saisissez une année valide.</value></data>
+  <data name="Upload_Empty" xml:space="preserve"><value>Veuillez choisir un fichier.</value></data>
+  <data name="Upload_TooLarge" xml:space="preserve"><value>Le fichier est trop volumineux.</value></data>
+  <data name="Upload_InvalidType_Image" xml:space="preserve"><value>Seules les images JPG, PNG ou WebP sont autorisées.</value></data>
+  <data name="Upload_InvalidType_Pdf" xml:space="preserve"><value>Seuls les fichiers PDF sont autorisés.</value></data>
+  <data name="Upload_Failed" xml:space="preserve"><value>Le fichier n'a pas pu être téléversé.</value></data>
+
+  <data name="Profile_Title" xml:space="preserve"><value>Profil</value></data>
+  <data name="Qualifications_Title" xml:space="preserve"><value>Qualifications</value></data>
+  <data name="Skills_Title" xml:space="preserve"><value>Compétences</value></data>
+  <data name="Memberships_Title" xml:space="preserve"><value>Adhésions</value></data>
+  <data name="Stats_Title" xml:space="preserve"><value>Statistiques</value></data>
+  <data name="Credibility_Title" xml:space="preserve"><value>Références</value></data>
+
+  <data name="Profile_Photo" xml:space="preserve"><value>Photo de profil</value></data>
+  <data name="Profile_Cv" xml:space="preserve"><value>CV (PDF) pour cette langue</value></data>
+  <data name="F_FullName" xml:space="preserve"><value>Nom complet</value></data>
+  <data name="F_ShortName" xml:space="preserve"><value>Nom court</value></data>
+  <data name="F_JobTitle" xml:space="preserve"><value>Titre</value></data>
+  <data name="F_Positioning" xml:space="preserve"><value>Slogan de présentation</value></data>
+  <data name="F_ShortBio" xml:space="preserve"><value>Courte biographie</value></data>
+  <data name="F_FullBio" xml:space="preserve"><value>Biographie complète</value></data>
+  <data name="F_Nationality" xml:space="preserve"><value>Nationalité</value></data>
+  <data name="F_Marital" xml:space="preserve"><value>État civil</value></data>
+  <data name="F_Location" xml:space="preserve"><value>Localisation</value></data>
+  <data name="F_Languages" xml:space="preserve"><value>Langues</value></data>
+  <data name="F_DateOfBirth" xml:space="preserve"><value>Date de naissance</value></data>
+  <data name="F_Email" xml:space="preserve"><value>E-mail</value></data>
+  <data name="F_Phone" xml:space="preserve"><value>Téléphone</value></data>
+  <data name="F_Year" xml:space="preserve"><value>Année</value></data>
+  <data name="F_Degree" xml:space="preserve"><value>Diplôme</value></data>
+  <data name="F_Institution" xml:space="preserve"><value>Établissement</value></data>
+  <data name="F_Grade" xml:space="preserve"><value>Mention</value></data>
+  <data name="F_Name" xml:space="preserve"><value>Nom</value></data>
+  <data name="F_Kind" xml:space="preserve"><value>Type</value></data>
+  <data name="Kind_Society" xml:space="preserve"><value>Société savante</value></data>
+  <data name="Kind_Board" xml:space="preserve"><value>Comité de rédaction</value></data>
+  <data name="F_Value" xml:space="preserve"><value>Valeur</value></data>
+  <data name="F_Suffix" xml:space="preserve"><value>Suffixe</value></data>
+  <data name="F_Label" xml:space="preserve"><value>Libellé</value></data>
+  <data name="F_Logo" xml:space="preserve"><value>Logo (facultatif)</value></data>
+</root>

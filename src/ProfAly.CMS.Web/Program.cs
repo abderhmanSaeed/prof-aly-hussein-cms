@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Localization.Routing;
 using ProfAly.CMS.Application;
 using ProfAly.CMS.Domain.Common;
+using ProfAly.CMS.Web;
 using ProfAly.CMS.Infrastructure;
 using ProfAly.CMS.Infrastructure.Identity;
 using ProfAly.CMS.Infrastructure.Persistence.Seeding;
@@ -49,7 +50,8 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
 // ---------------------------------------------------------------------------
 builder.Services.AddRazorPages()
     .AddViewLocalization()
-    .AddDataAnnotationsLocalization()
+    .AddDataAnnotationsLocalization(options =>
+        options.DataAnnotationLocalizerProvider = (_, factory) => factory.Create(typeof(SharedResource)))
     .AddRazorPagesOptions(options =>
     {
         options.Conventions.AuthorizeAreaFolder("Admin", "/", Policies.RequireSuperAdmin);
@@ -83,6 +85,16 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+
+// Serve uploaded media (images/PDFs) from the uploads root at /uploads (doc 09 §6).
+// Only the uploads subtree is exposed — the SQLite DB in App_Data stays private.
+var uploadsRoot = Path.GetFullPath(builder.Configuration["FileStorage:RootPath"] ?? "App_Data/uploads");
+Directory.CreateDirectory(uploadsRoot);
+app.UseStaticFiles(new Microsoft.AspNetCore.Builder.StaticFileOptions
+{
+    FileProvider = new Microsoft.Extensions.FileProviders.PhysicalFileProvider(uploadsRoot),
+    RequestPath = "/uploads",
+});
 
 app.UseRouting();
 

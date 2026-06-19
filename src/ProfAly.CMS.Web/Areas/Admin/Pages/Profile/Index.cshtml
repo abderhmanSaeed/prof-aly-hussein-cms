@@ -1,0 +1,128 @@
+@page
+@using Microsoft.AspNetCore.Mvc.Localization
+@model ProfAly.CMS.Web.Areas.Admin.Pages.Profile.IndexModel
+@inject IViewLocalizer L
+@{
+    ViewData["Title"] = L["Profile_Title"].Value;
+    var cultures = Model.Cultures;
+}
+
+<h1 class="page-title">@L["Profile_Title"]</h1>
+<p class="page-sub">@L["DefaultLangNote"]</p>
+
+@if (!string.IsNullOrEmpty(Model.StatusMessage))
+{
+    <div class="alert alert-success py-2 px-3">@Model.StatusMessage</div>
+}
+
+<form method="post" enctype="multipart/form-data" class="tile" style="max-width:920px">
+    <div asp-validation-summary="All" class="alert alert-danger py-2 px-3 small"
+         style="@(ViewData.ModelState.IsValid ? "display:none" : "")"></div>
+
+    <div class="row g-3 mb-3">
+        <div class="col-md-4">
+            <label class="form-label">@L["Profile_Photo"]</label>
+            @if (!string.IsNullOrEmpty(Model.PhotoPath))
+            {
+                <div class="mb-2"><img src="@Model.PhotoPath" alt="" style="max-height:120px;border-radius:8px" /></div>
+            }
+            <input asp-for="Input.PhotoFile" type="file" accept="image/*" class="form-control" />
+            <span asp-validation-for="Input.PhotoFile" class="text-danger small"></span>
+        </div>
+        <div class="col-md-3">
+            <label asp-for="Input.DateOfBirth" class="form-label">@L["F_DateOfBirth"]</label>
+            <input asp-for="Input.DateOfBirth" type="date" class="form-control" dir="ltr" />
+        </div>
+        <div class="col-md-3">
+            <label asp-for="Input.Email" class="form-label">@L["F_Email"]</label>
+            <input asp-for="Input.Email" class="form-control" dir="ltr" />
+            <span asp-validation-for="Input.Email" class="text-danger small"></span>
+        </div>
+        <div class="col-md-2">
+            <label asp-for="Input.Phone" class="form-label">@L["F_Phone"]</label>
+            <input asp-for="Input.Phone" class="form-control" dir="ltr" />
+        </div>
+    </div>
+
+    <ul class="nav nav-tabs" role="tablist">
+        @for (var i = 0; i < cultures.Count; i++)
+        {
+            var c = cultures[i];
+            var label = c == "ar" ? L["LangArabic"] : c == "fr" ? L["LangFrench"] : L["LangEnglish"];
+            <li class="nav-item" role="presentation">
+                <button class="nav-link @(i == 0 ? "active" : "")" type="button" data-bs-toggle="tab"
+                        data-bs-target="#tab-@c" role="tab">@label</button>
+            </li>
+        }
+    </ul>
+
+    <div class="tab-content border border-top-0 p-3 mb-3">
+        @for (var i = 0; i < cultures.Count; i++)
+        {
+            var c = cultures[i];
+            var rtl = c == "ar" ? "rtl" : "ltr";
+            <div class="tab-pane fade @(i == 0 ? "show active" : "")" id="tab-@c" role="tabpanel" dir="@rtl">
+                <input type="hidden" asp-for="Input.Translations[i].Culture" />
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label asp-for="Input.Translations[i].FullName" class="form-label">@L["F_FullName"]</label>
+                        <input asp-for="Input.Translations[i].FullName" class="form-control" />
+                        <span asp-validation-for="Input.Translations[i].FullName" class="text-danger small"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label asp-for="Input.Translations[i].ShortName" class="form-label">@L["F_ShortName"]</label>
+                        <input asp-for="Input.Translations[i].ShortName" class="form-control" />
+                    </div>
+                    <div class="col-md-12">
+                        <label asp-for="Input.Translations[i].Title" class="form-label">@L["F_JobTitle"]</label>
+                        <input asp-for="Input.Translations[i].Title" class="form-control" />
+                        <span asp-validation-for="Input.Translations[i].Title" class="text-danger small"></span>
+                    </div>
+                    <div class="col-md-12">
+                        <label asp-for="Input.Translations[i].Positioning" class="form-label">@L["F_Positioning"]</label>
+                        <input asp-for="Input.Translations[i].Positioning" class="form-control" />
+                    </div>
+                    <div class="col-md-12">
+                        <label asp-for="Input.Translations[i].ShortBio" class="form-label">@L["F_ShortBio"]</label>
+                        <textarea asp-for="Input.Translations[i].ShortBio" class="form-control" rows="2"></textarea>
+                    </div>
+                    <div class="col-md-12">
+                        <label asp-for="Input.Translations[i].FullBio" class="form-label">@L["F_FullBio"]</label>
+                        <textarea asp-for="Input.Translations[i].FullBio" class="form-control" rows="5"></textarea>
+                    </div>
+                    <div class="col-md-3">
+                        <label asp-for="Input.Translations[i].Nationality" class="form-label">@L["F_Nationality"]</label>
+                        <input asp-for="Input.Translations[i].Nationality" class="form-control" />
+                    </div>
+                    <div class="col-md-3">
+                        <label asp-for="Input.Translations[i].MaritalStatus" class="form-label">@L["F_Marital"]</label>
+                        <input asp-for="Input.Translations[i].MaritalStatus" class="form-control" />
+                    </div>
+                    <div class="col-md-3">
+                        <label asp-for="Input.Translations[i].Location" class="form-label">@L["F_Location"]</label>
+                        <input asp-for="Input.Translations[i].Location" class="form-control" />
+                    </div>
+                    <div class="col-md-3">
+                        <label asp-for="Input.Translations[i].Languages" class="form-label">@L["F_Languages"]</label>
+                        <input asp-for="Input.Translations[i].Languages" class="form-control" />
+                    </div>
+                    <div class="col-md-12">
+                        <label class="form-label">@L["Profile_Cv"]</label>
+                        @if (Model.CvPaths.TryGetValue(c, out var cv) && !string.IsNullOrEmpty(cv))
+                        {
+                            <div class="mb-1"><a href="@cv" target="_blank" rel="noopener">PDF</a></div>
+                        }
+                        <input asp-for="Input.Translations[i].CvFile" type="file" accept="application/pdf" class="form-control" />
+                        <span asp-validation-for="Input.Translations[i].CvFile" class="text-danger small"></span>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <button type="submit" class="btn btn-primary">@L["Save"]</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
