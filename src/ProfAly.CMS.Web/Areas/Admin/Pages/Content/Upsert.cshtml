@@ -1,0 +1,149 @@
+@page
+@using Microsoft.AspNetCore.Mvc.Localization
+@model ProfAly.CMS.Web.Areas.Admin.Pages.Content.UpsertModel
+@inject IViewLocalizer L
+@{
+    ViewData["Title"] = (Model.IsEdit ? L["Edit"].Value : L["CreateNew"].Value) + " · " + L[Model.TitleKey].Value;
+    var cultures = Model.Cultures;
+}
+
+<h1 class="page-title">@ViewData["Title"]</h1>
+
+<form method="post" enctype="multipart/form-data" class="tile" style="max-width:980px">
+    <div asp-validation-summary="All" class="alert alert-danger py-2 px-3 small"
+         style="@(ViewData.ModelState.IsValid ? "display:none" : "")"></div>
+    <input type="hidden" asp-for="Input.Id" />
+
+    <div class="row g-3 mb-3">
+        <div class="col-md-2">
+            <label asp-for="Input.PublicationYear" class="form-label">@L["F_PublicationYear"]</label>
+            <input asp-for="Input.PublicationYear" type="number" class="form-control" dir="ltr" />
+        </div>
+        <div class="col-md-5">
+            <label asp-for="Input.ExternalUrl" class="form-label">@L["F_ExternalUrl"]</label>
+            <input asp-for="Input.ExternalUrl" class="form-control" dir="ltr" />
+        </div>
+        @if (Model.IsPaper)
+        {
+            <div class="col-md-5">
+                <label asp-for="Input.Doi" class="form-label">@L["F_Doi"]</label>
+                <input asp-for="Input.Doi" class="form-control" dir="ltr" placeholder="10.xxxx/..." />
+            </div>
+        }
+    </div>
+
+    <div class="row g-3 mb-3">
+        <div class="col-md-4">
+            <label class="form-label">@L["F_Cover"]</label>
+            @if (!string.IsNullOrEmpty(Model.CoverPath)) { <div class="mb-1"><img src="@Model.CoverPath" alt="" style="max-height:90px;border-radius:6px" /></div> }
+            <input asp-for="Input.CoverFile" type="file" accept="image/*" class="form-control" />
+            <span asp-validation-for="Input.CoverFile" class="text-danger small"></span>
+        </div>
+        <div class="col-md-4">
+            <label class="form-label">@L["F_Pdf"]</label>
+            @if (!string.IsNullOrEmpty(Model.PdfPath)) { <div class="mb-1"><a href="@Model.PdfPath" target="_blank" rel="noopener">PDF</a></div> }
+            <input asp-for="Input.PdfFile" type="file" accept="application/pdf" class="form-control" />
+            <span asp-validation-for="Input.PdfFile" class="text-danger small"></span>
+        </div>
+        <div class="col-md-4">
+            <label asp-for="Input.CategoryIds" class="form-label">@L["F_Categories"]</label>
+            <select asp-for="Input.CategoryIds" multiple class="form-select" size="4">
+                @foreach (var c in Model.AllCategories)
+                {
+                    <option value="@c.Id">@c.Name</option>
+                }
+            </select>
+        </div>
+    </div>
+
+    <div class="d-flex gap-4 mb-3">
+        <div class="form-check">
+            <input asp-for="Input.IsPublished" class="form-check-input" />
+            <label asp-for="Input.IsPublished" class="form-check-label">@L["F_Published"]</label>
+        </div>
+        <div class="form-check">
+            <input asp-for="Input.IsFeatured" class="form-check-input" />
+            <label asp-for="Input.IsFeatured" class="form-check-label">@L["F_Featured"]</label>
+        </div>
+    </div>
+
+    <ul class="nav nav-tabs" role="tablist">
+        @for (var i = 0; i < cultures.Count; i++)
+        {
+            var c = cultures[i];
+            var label = c == "ar" ? L["LangArabic"] : c == "fr" ? L["LangFrench"] : L["LangEnglish"];
+            <li class="nav-item"><button class="nav-link @(i == 0 ? "active" : "")" type="button"
+                data-bs-toggle="tab" data-bs-target="#t-@c">@label</button></li>
+        }
+    </ul>
+    <div class="tab-content border border-top-0 p-3 mb-3">
+        @for (var i = 0; i < cultures.Count; i++)
+        {
+            var c = cultures[i];
+            <div class="tab-pane fade @(i == 0 ? "show active" : "")" id="t-@c" dir="@(c == "ar" ? "rtl" : "ltr")">
+                <input type="hidden" asp-for="Input.Translations[i].Culture" />
+                <div class="row g-2">
+                    <div class="col-md-8">
+                        <label asp-for="Input.Translations[i].Title" class="form-label">@L["F_Title"]</label>
+                        <input asp-for="Input.Translations[i].Title" class="form-control" />
+                        <span asp-validation-for="Input.Translations[i].Title" class="text-danger small"></span>
+                    </div>
+                    <div class="col-md-4">
+                        <label asp-for="Input.Translations[i].Slug" class="form-label">@L["F_Slug"]</label>
+                        <input asp-for="Input.Translations[i].Slug" class="form-control" dir="ltr" placeholder="auto" />
+                    </div>
+                    <div class="col-12">
+                        <label asp-for="Input.Translations[i].Summary" class="form-label">@L["F_Summary"]</label>
+                        <textarea asp-for="Input.Translations[i].Summary" class="form-control" rows="2"></textarea>
+                    </div>
+                    <div class="col-12">
+                        <label asp-for="Input.Translations[i].Body" class="form-label">@L["F_Body"]</label>
+                        <textarea asp-for="Input.Translations[i].Body" class="form-control" rows="5"></textarea>
+                    </div>
+
+                    @if (Model.IsBook)
+                    {
+                        <div class="col-md-6">
+                            <label asp-for="Input.Translations[i].Publisher" class="form-label">@L["F_Publisher"]</label>
+                            <input asp-for="Input.Translations[i].Publisher" class="form-control" />
+                        </div>
+                        <div class="col-md-6">
+                            <label asp-for="Input.Translations[i].AuthorshipRole" class="form-label">@L["F_AuthorshipRole"]</label>
+                            <input asp-for="Input.Translations[i].AuthorshipRole" class="form-control" />
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="col-md-6">
+                            <label asp-for="Input.Translations[i].Journal" class="form-label">@L["F_Journal"]</label>
+                            <input asp-for="Input.Translations[i].Journal" class="form-control" />
+                        </div>
+                        <div class="col-md-6">
+                            <label asp-for="Input.Translations[i].Authors" class="form-label">@L["F_Authors"]</label>
+                            <input asp-for="Input.Translations[i].Authors" class="form-control" />
+                        </div>
+                    }
+
+                    <div class="col-12"><hr class="my-2" /><span class="text-muted small">@L["Seo_Section"]</span></div>
+                    <div class="col-md-4">
+                        <label asp-for="Input.Translations[i].MetaTitle" class="form-label">@L["F_MetaTitle"]</label>
+                        <input asp-for="Input.Translations[i].MetaTitle" class="form-control" />
+                    </div>
+                    <div class="col-md-4">
+                        <label asp-for="Input.Translations[i].MetaDescription" class="form-label">@L["F_MetaDescription"]</label>
+                        <input asp-for="Input.Translations[i].MetaDescription" class="form-control" />
+                    </div>
+                    <div class="col-md-4">
+                        <label asp-for="Input.Translations[i].MetaKeywords" class="form-label">@L["F_MetaKeywords"]</label>
+                        <input asp-for="Input.Translations[i].MetaKeywords" class="form-control" />
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <button type="submit" class="btn btn-primary">@L["Save"]</button>
+    <a class="btn btn-outline-secondary" asp-page="Index" asp-route-type="@Model.Type">@L["Cancel"]</a>
+</form>
+
+@section Scripts { <partial name="_ValidationScriptsPartial" /> }

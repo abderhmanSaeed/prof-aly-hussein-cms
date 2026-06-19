@@ -67,4 +67,34 @@
   <data name="F_Suffix" xml:space="preserve"><value>اللاحقة</value></data>
   <data name="F_Label" xml:space="preserve"><value>التسمية</value></data>
   <data name="F_Logo" xml:space="preserve"><value>الشعار (اختياري)</value></data>
+
+  <data name="Books_Title" xml:space="preserve"><value>المؤلَّفات</value></data>
+  <data name="Publications_Title" xml:space="preserve"><value>الأبحاث المنشورة</value></data>
+  <data name="Research_Title" xml:space="preserve"><value>الأبحاث العلمية</value></data>
+  <data name="Categories_Title" xml:space="preserve"><value>التصنيفات</value></data>
+  <data name="F_Title" xml:space="preserve"><value>العنوان</value></data>
+  <data name="F_Slug" xml:space="preserve"><value>المُعرّف (الرابط)</value></data>
+  <data name="F_Summary" xml:space="preserve"><value>الملخص</value></data>
+  <data name="F_Body" xml:space="preserve"><value>المحتوى</value></data>
+  <data name="F_Journal" xml:space="preserve"><value>الدورية / جهة النشر</value></data>
+  <data name="F_Authors" xml:space="preserve"><value>المؤلفون</value></data>
+  <data name="F_Publisher" xml:space="preserve"><value>الناشر</value></data>
+  <data name="F_AuthorshipRole" xml:space="preserve"><value>صفة التأليف</value></data>
+  <data name="F_Doi" xml:space="preserve"><value>المُعرِّف الرقمي (DOI)</value></data>
+  <data name="F_PublicationYear" xml:space="preserve"><value>السنة</value></data>
+  <data name="F_ExternalUrl" xml:space="preserve"><value>رابط خارجي</value></data>
+  <data name="F_Cover" xml:space="preserve"><value>صورة الغلاف</value></data>
+  <data name="F_Pdf" xml:space="preserve"><value>ملف PDF</value></data>
+  <data name="F_Categories" xml:space="preserve"><value>التصنيفات</value></data>
+  <data name="F_Published" xml:space="preserve"><value>منشور</value></data>
+  <data name="F_Featured" xml:space="preserve"><value>مميَّز</value></data>
+  <data name="F_MetaTitle" xml:space="preserve"><value>عنوان SEO</value></data>
+  <data name="F_MetaDescription" xml:space="preserve"><value>وصف SEO</value></data>
+  <data name="F_MetaKeywords" xml:space="preserve"><value>كلمات مفتاحية</value></data>
+  <data name="Seo_Section" xml:space="preserve"><value>تحسين محركات البحث</value></data>
+  <data name="Status_Draft" xml:space="preserve"><value>مسودة</value></data>
+  <data name="Status_Published" xml:space="preserve"><value>منشور</value></data>
+  <data name="Toggle_Publish" xml:space="preserve"><value>نشر / إلغاء النشر</value></data>
+  <data name="Toggle_Feature" xml:space="preserve"><value>تبديل التمييز</value></data>
+  <data name="F_Category_Slug" xml:space="preserve"><value>المُعرّف</value></data>
 </root>

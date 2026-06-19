@@ -79,4 +79,34 @@
   <data name="F_Suffix" xml:space="preserve"><value>Suffix</value></data>
   <data name="F_Label" xml:space="preserve"><value>Label</value></data>
   <data name="F_Logo" xml:space="preserve"><value>Logo (optional)</value></data>
+
+  <data name="Books_Title" xml:space="preserve"><value>Books</value></data>
+  <data name="Publications_Title" xml:space="preserve"><value>Publications</value></data>
+  <data name="Research_Title" xml:space="preserve"><value>Research</value></data>
+  <data name="Categories_Title" xml:space="preserve"><value>Categories</value></data>
+  <data name="F_Title" xml:space="preserve"><value>Title</value></data>
+  <data name="F_Slug" xml:space="preserve"><value>Slug (URL)</value></data>
+  <data name="F_Summary" xml:space="preserve"><value>Summary</value></data>
+  <data name="F_Body" xml:space="preserve"><value>Body</value></data>
+  <data name="F_Journal" xml:space="preserve"><value>Journal / venue</value></data>
+  <data name="F_Authors" xml:space="preserve"><value>Authors</value></data>
+  <data name="F_Publisher" xml:space="preserve"><value>Publisher</value></data>
+  <data name="F_AuthorshipRole" xml:space="preserve"><value>Authorship role</value></data>
+  <data name="F_Doi" xml:space="preserve"><value>DOI</value></data>
+  <data name="F_PublicationYear" xml:space="preserve"><value>Year</value></data>
+  <data name="F_ExternalUrl" xml:space="preserve"><value>External link</value></data>
+  <data name="F_Cover" xml:space="preserve"><value>Cover image</value></data>
+  <data name="F_Pdf" xml:space="preserve"><value>PDF file</value></data>
+  <data name="F_Categories" xml:space="preserve"><value>Categories</value></data>
+  <data name="F_Published" xml:space="preserve"><value>Published</value></data>
+  <data name="F_Featured" xml:space="preserve"><value>Featured</value></data>
+  <data name="F_MetaTitle" xml:space="preserve"><value>Meta title</value></data>
+  <data name="F_MetaDescription" xml:space="preserve"><value>Meta description</value></data>
+  <data name="F_MetaKeywords" xml:space="preserve"><value>Meta keywords</value></data>
+  <data name="Seo_Section" xml:space="preserve"><value>SEO</value></data>
+  <data name="Status_Draft" xml:space="preserve"><value>Draft</value></data>
+  <data name="Status_Published" xml:space="preserve"><value>Published</value></data>
+  <data name="Toggle_Publish" xml:space="preserve"><value>Publish / Unpublish</value></data>
+  <data name="Toggle_Feature" xml:space="preserve"><value>Toggle featured</value></data>
+  <data name="F_Category_Slug" xml:space="preserve"><value>Slug</value></data>
 </root>
