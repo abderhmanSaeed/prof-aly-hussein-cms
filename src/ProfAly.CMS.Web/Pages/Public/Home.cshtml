@@ -1,0 +1,113 @@
+@page "/{culture:regex(^(ar|en|fr)$)}"
+@model ProfAly.CMS.Web.Pages.Public.HomeModel
+@{
+    var p = Localized.Pick(Model.Profile?.Translations, Model.Culture);
+    var bioFirst = p?.FullBio?.Split("\n\n", StringSplitOptions.RemoveEmptyEntries).FirstOrDefault() ?? p?.ShortBio;
+    var photo = Model.Profile?.Photo is null ? null : "/uploads/" + Model.Profile.Photo.RelativePath;
+    ViewData["Title"] = p?.FullName ?? "Prof. Aly Hussein";
+    ViewData["Description"] = p?.Positioning ?? p?.ShortBio;
+}
+
+<section class="hero">
+    <div class="container">
+        <div class="hero-grid">
+            <div>
+                <span class="hero-eyebrow">@ViewData["Tagline"]</span>
+                <h1 class="hero-name">@p?.FullName</h1>
+                <p class="hero-title">@p?.Title</p>
+                <p class="hero-positioning">@p?.Positioning</p>
+                <div class="hero-cta">
+                    <a class="btn btn-primary" asp-page="/Public/Publications" asp-route-culture="@Model.Culture">@L["Hero_CtaResearch"]</a>
+                    <a class="btn btn-outline" asp-page="/Public/Contact" asp-route-culture="@Model.Culture">@L["Hero_CtaContact"]</a>
+                </div>
+            </div>
+            <div class="hero-portrait">
+                @if (photo is not null) { <img src="@photo" alt="@p?.FullName" /> }
+                else { <div style="display:grid;place-items:center;height:100%;font-family:var(--font-head);font-size:5rem;color:var(--primary)">ع</div> }
+            </div>
+        </div>
+    </div>
+</section>
+
+@if (Model.Credibility.Count > 0)
+{
+    <section class="section section--alt">
+        <div class="container">
+            <div class="section-head center"><span class="eyebrow">@L["Pub_Institutions"]</span></div>
+            <div class="cred-row">
+                @foreach (var c in Model.Credibility)
+                {
+                    <span class="chip">@(Localized.Pick(c.Translations, Model.Culture)?.Name)</span>
+                }
+            </div>
+        </div>
+    </section>
+}
+
+@if (Model.Stats.Count > 0)
+{
+    <section class="section">
+        <div class="container">
+            <div class="section-head center"><span class="eyebrow">@L["Pub_InNumbers"]</span><h2 class="section-title">@L["Pub_InNumbers"]</h2></div>
+            <div class="stats-row">
+                @foreach (var s in Model.Stats)
+                {
+                    <div class="stat-card">
+                        <div class="stat-num" data-target="@s.Value" data-suffix="@s.Suffix">0</div>
+                        <div class="stat-label">@(Localized.Pick(s.Translations, Model.Culture)?.Label)</div>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+}
+
+@if (!string.IsNullOrWhiteSpace(bioFirst))
+{
+    <section class="section section--alt">
+        <div class="container">
+            <div class="section-head"><span class="eyebrow">@L["Pub_AboutShort"]</span><h2 class="section-title">@L["Pub_AboutShort"]</h2></div>
+            <p style="max-width:760px">@bioFirst</p>
+            <a class="btn btn-outline" asp-page="/Public/About" asp-route-culture="@Model.Culture">@L["Pub_ReadBio"]</a>
+        </div>
+    </section>
+}
+
+@if (Model.FeaturedBooks.Count > 0)
+{
+    <section class="section">
+        <div class="container">
+            <div class="section-head center"><span class="eyebrow">@L["Pub_FeaturedBooks"]</span><h2 class="section-title">@L["Pub_FeaturedBooks"]</h2></div>
+            <div class="card-grid">
+                @foreach (var b in Model.FeaturedBooks)
+                {
+                    var bt = Localized.Pick(b.Translations, Model.Culture);
+                    <article class="book-card">
+                        <div class="book-cover">
+                            <span class="book-flag">@L["F_Featured"]</span>
+                            @if (b.CoverImage is not null) { <img src="/uploads/@b.CoverImage.RelativePath" alt="@bt?.Title" style="width:100%;height:100%;object-fit:cover" /> }
+                            else { <span class="initial">@(bt?.Title?.Trim().Substring(0, 1))</span> <span class="year">@b.PublicationYear</span> }
+                        </div>
+                        <div class="book-info">
+                            <h3 class="book-title">@bt?.Title</h3>
+                            <p class="book-pub">@bt?.Publisher</p>
+                        </div>
+                    </article>
+                }
+            </div>
+            <div class="text-center mt-section"><a class="btn btn-outline" asp-page="/Public/Books" asp-route-culture="@Model.Culture">@L["Pub_ViewAll"]</a></div>
+        </div>
+    </section>
+}
+
+<section class="section section--alt">
+    <div class="container">
+        <div class="cta-band">
+            <h2>@p?.FullName</h2>
+            <p>@p?.Positioning</p>
+            <a class="btn btn-gold" asp-page="/Public/Contact" asp-route-culture="@Model.Culture">@L["Hero_CtaContact"]</a>
+        </div>
+    </div>
+</section>
+
+@section Scripts { }

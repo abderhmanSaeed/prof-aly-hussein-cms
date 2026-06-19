@@ -28,6 +28,11 @@ builder.Services.AddApplication();                         // application servic
 // ---------------------------------------------------------------------------
 builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
 
+// Emit Arabic/non-Latin text as raw UTF-8 (not numeric HTML entities), matching the
+// static site and improving SEO/readability.
+builder.Services.AddSingleton<System.Text.Encodings.Web.HtmlEncoder>(
+    System.Text.Encodings.Web.HtmlEncoder.Create(System.Text.Unicode.UnicodeRanges.All));
+
 var supportedCultures = SupportedCultures.All
     .Select(c => new CultureInfo(c))
     .ToList();

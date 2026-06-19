@@ -123,4 +123,39 @@
   <data name="Deg_PhD" xml:space="preserve"><value>دكتوراه</value></data>
   <data name="F_ActivityText" xml:space="preserve"><value>نص النشاط</value></data>
   <data name="ManageItems" xml:space="preserve"><value>إدارة العناصر</value></data>
+
+  <data name="Nav_Home" xml:space="preserve"><value>الرئيسية</value></data>
+  <data name="Nav_About" xml:space="preserve"><value>نبذة</value></data>
+  <data name="Nav_Contact" xml:space="preserve"><value>تواصل</value></data>
+  <data name="Pub_ViewAll" xml:space="preserve"><value>عرض الكل</value></data>
+  <data name="Pub_ReadBio" xml:space="preserve"><value>اقرأ السيرة كاملة</value></data>
+  <data name="Pub_FeaturedBooks" xml:space="preserve"><value>مؤلَّفات مختارة</value></data>
+  <data name="Pub_InNumbers" xml:space="preserve"><value>مسيرة في أرقام</value></data>
+  <data name="Pub_Institutions" xml:space="preserve"><value>جهاتٌ ومؤسساتٌ تعاونت معها</value></data>
+  <data name="Pub_AboutShort" xml:space="preserve"><value>نبذة تعريفية</value></data>
+  <data name="Pub_Societies" xml:space="preserve"><value>الجمعيات العلمية</value></data>
+  <data name="Pub_Boards" xml:space="preserve"><value>هيئات التحرير والمراجعة</value></data>
+  <data name="Pub_Undergraduate" xml:space="preserve"><value>المرحلة الجامعية</value></data>
+  <data name="Pub_Graduate" xml:space="preserve"><value>الدراسات العليا والدبلومات</value></data>
+  <data name="Pub_NoItems" xml:space="preserve"><value>لا توجد عناصر لعرضها.</value></data>
+  <data name="About_Bio" xml:space="preserve"><value>السيرة الذاتية</value></data>
+  <data name="About_Personal" xml:space="preserve"><value>بيانات شخصية</value></data>
+  <data name="About_Qualifications" xml:space="preserve"><value>المؤهلات العلمية</value></data>
+  <data name="About_Skills" xml:space="preserve"><value>المهارات والكفايات</value></data>
+  <data name="About_Languages" xml:space="preserve"><value>اللغات</value></data>
+  <data name="Label_Born" xml:space="preserve"><value>تاريخ الميلاد</value></data>
+  <data name="Label_Nationality" xml:space="preserve"><value>الجنسية</value></data>
+  <data name="Label_Marital" xml:space="preserve"><value>الحالة الاجتماعية</value></data>
+  <data name="Label_Location" xml:space="preserve"><value>محل الإقامة</value></data>
+  <data name="Contact_Name" xml:space="preserve"><value>الاسم</value></data>
+  <data name="Contact_Email" xml:space="preserve"><value>البريد الإلكتروني</value></data>
+  <data name="Contact_Subject" xml:space="preserve"><value>الموضوع</value></data>
+  <data name="Contact_Message" xml:space="preserve"><value>الرسالة</value></data>
+  <data name="Contact_Send" xml:space="preserve"><value>إرسال الرسالة</value></data>
+  <data name="Contact_Success" xml:space="preserve"><value>تم إرسال رسالتك. شكرًا لك.</value></data>
+  <data name="Contact_Phone" xml:space="preserve"><value>الهاتف</value></data>
+  <data name="Contact_Location" xml:space="preserve"><value>الموقع</value></data>
+  <data name="Contact_Intro" xml:space="preserve"><value>بيانات التواصل</value></data>
+  <data name="Hero_CtaResearch" xml:space="preserve"><value>استعراض الأبحاث</value></data>
+  <data name="Hero_CtaContact" xml:space="preserve"><value>تواصل معي</value></data>
 </root>

@@ -1,0 +1,43 @@
+@page "/{culture:regex(^(ar|en|fr)$)}/teaching"
+@model ProfAly.CMS.Web.Pages.Public.TeachingModel
+@{
+    ViewData["Title"] = L["Teaching_Title"].Value;
+    ViewData["Description"] = L["Teaching_Title"].Value;
+}
+
+<section class="page-hero">
+    <div class="container">
+        <nav class="crumbs"><a asp-page="/Public/Home" asp-route-culture="@Model.Culture">@L["Nav_Home"]</a> / @L["Teaching_Title"]</nav>
+        <span class="eyebrow">@L["Teaching_Title"]</span>
+        <h1>@L["Teaching_Title"]</h1>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-6">
+                <h2 class="section-title">@L["Pub_Undergraduate"]</h2>
+                <ul class="pub-list">
+                    @foreach (var c in Model.Undergraduate)
+                    {
+                        var t = Localized.Pick(c.Translations, Model.Culture);
+                        <li class="pub-item"><div class="pub-body"><h3 class="pub-title" style="font-size:1rem">@t?.CourseName</h3>@if (!string.IsNullOrEmpty(t?.Institution)){<p class="pub-venue">@t.Institution</p>}</div></li>
+                    }
+                    @if (Model.Undergraduate.Count == 0) { <li class="empty-state">@L["Pub_NoItems"]</li> }
+                </ul>
+            </div>
+            <div class="col-lg-6">
+                <h2 class="section-title">@L["Pub_Graduate"]</h2>
+                <ul class="pub-list">
+                    @foreach (var c in Model.Graduate)
+                    {
+                        var t = Localized.Pick(c.Translations, Model.Culture);
+                        <li class="pub-item"><div class="pub-body"><h3 class="pub-title" style="font-size:1rem">@t?.CourseName</h3>@if (!string.IsNullOrEmpty(t?.Institution)){<p class="pub-venue">@t.Institution</p>}</div></li>
+                    }
+                    @if (Model.Graduate.Count == 0) { <li class="empty-state">@L["Pub_NoItems"]</li> }
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>

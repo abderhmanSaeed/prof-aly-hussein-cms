@@ -135,4 +135,39 @@
   <data name="Deg_PhD" xml:space="preserve"><value>PhD</value></data>
   <data name="F_ActivityText" xml:space="preserve"><value>Activity text</value></data>
   <data name="ManageItems" xml:space="preserve"><value>Manage items</value></data>
+
+  <data name="Nav_Home" xml:space="preserve"><value>Home</value></data>
+  <data name="Nav_About" xml:space="preserve"><value>About</value></data>
+  <data name="Nav_Contact" xml:space="preserve"><value>Contact</value></data>
+  <data name="Pub_ViewAll" xml:space="preserve"><value>View all</value></data>
+  <data name="Pub_ReadBio" xml:space="preserve"><value>Read full biography</value></data>
+  <data name="Pub_FeaturedBooks" xml:space="preserve"><value>Featured books</value></data>
+  <data name="Pub_InNumbers" xml:space="preserve"><value>A career in numbers</value></data>
+  <data name="Pub_Institutions" xml:space="preserve"><value>Institutions &amp; organizations</value></data>
+  <data name="Pub_AboutShort" xml:space="preserve"><value>About</value></data>
+  <data name="Pub_Societies" xml:space="preserve"><value>Scientific societies</value></data>
+  <data name="Pub_Boards" xml:space="preserve"><value>Editorial &amp; review boards</value></data>
+  <data name="Pub_Undergraduate" xml:space="preserve"><value>Undergraduate</value></data>
+  <data name="Pub_Graduate" xml:space="preserve"><value>Graduate &amp; Diploma</value></data>
+  <data name="Pub_NoItems" xml:space="preserve"><value>No items to display.</value></data>
+  <data name="About_Bio" xml:space="preserve"><value>Biography</value></data>
+  <data name="About_Personal" xml:space="preserve"><value>Personal details</value></data>
+  <data name="About_Qualifications" xml:space="preserve"><value>Qualifications</value></data>
+  <data name="About_Skills" xml:space="preserve"><value>Skills &amp; competencies</value></data>
+  <data name="About_Languages" xml:space="preserve"><value>Languages</value></data>
+  <data name="Label_Born" xml:space="preserve"><value>Date of birth</value></data>
+  <data name="Label_Nationality" xml:space="preserve"><value>Nationality</value></data>
+  <data name="Label_Marital" xml:space="preserve"><value>Marital status</value></data>
+  <data name="Label_Location" xml:space="preserve"><value>Location</value></data>
+  <data name="Contact_Name" xml:space="preserve"><value>Name</value></data>
+  <data name="Contact_Email" xml:space="preserve"><value>Email</value></data>
+  <data name="Contact_Subject" xml:space="preserve"><value>Subject</value></data>
+  <data name="Contact_Message" xml:space="preserve"><value>Message</value></data>
+  <data name="Contact_Send" xml:space="preserve"><value>Send message</value></data>
+  <data name="Contact_Success" xml:space="preserve"><value>Your message has been sent. Thank you.</value></data>
+  <data name="Contact_Phone" xml:space="preserve"><value>Phone</value></data>
+  <data name="Contact_Location" xml:space="preserve"><value>Location</value></data>
+  <data name="Contact_Intro" xml:space="preserve"><value>Contact details</value></data>
+  <data name="Hero_CtaResearch" xml:space="preserve"><value>View publications</value></data>
+  <data name="Hero_CtaContact" xml:space="preserve"><value>Contact me</value></data>
 </root>

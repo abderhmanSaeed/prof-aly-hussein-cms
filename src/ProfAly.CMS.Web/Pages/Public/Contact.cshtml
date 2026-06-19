@@ -1,0 +1,65 @@
+@page "/{culture:regex(^(ar|en|fr)$)}/contact"
+@model ProfAly.CMS.Web.Pages.Public.ContactModel
+@{
+    ViewData["Title"] = L["Nav_Contact"].Value;
+    ViewData["Description"] = L["Contact_Intro"].Value;
+}
+
+<section class="page-hero">
+    <div class="container">
+        <nav class="crumbs"><a asp-page="/Public/Home" asp-route-culture="@Model.Culture">@L["Nav_Home"]</a> / @L["Nav_Contact"]</nav>
+        <span class="eyebrow">@L["Nav_Contact"]</span>
+        <h1>@L["Nav_Contact"]</h1>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-5">
+                <div class="panel">
+                    <h2 class="panel-title">@L["Contact_Intro"]</h2>
+                    <ul class="footer-contact" style="gap:.75rem">
+                        @if (!string.IsNullOrEmpty(Model.ContactEmail)) { <li><strong>@L["Contact_Email"]:</strong> <a href="mailto:@Model.ContactEmail">@Model.ContactEmail</a></li> }
+                        @if (!string.IsNullOrEmpty(Model.ContactPhoneValue)) { <li><strong>@L["Contact_Phone"]:</strong> <a href="tel:@Model.ContactPhoneValue" dir="ltr">@Model.ContactPhoneValue</a></li> }
+                        @if (!string.IsNullOrEmpty(Model.Location)) { <li><strong>@L["Contact_Location"]:</strong> @Model.Location</li> }
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                @if (!string.IsNullOrEmpty(Model.StatusMessage))
+                {
+                    <div class="alert alert-success">@Model.StatusMessage</div>
+                }
+                <form method="post" class="panel">
+                    <div asp-validation-summary="All" class="alert alert-danger py-2 px-3 small" style="@(ViewData.ModelState.IsValid ? "display:none" : "")"></div>
+                    <div class="mb-3">
+                        <label asp-for="Input.Name" class="form-label">@L["Contact_Name"]</label>
+                        <input asp-for="Input.Name" class="form-control" />
+                        <span asp-validation-for="Input.Name" class="text-danger small"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="Input.Email" class="form-label">@L["Contact_Email"]</label>
+                        <input asp-for="Input.Email" class="form-control" dir="ltr" />
+                        <span asp-validation-for="Input.Email" class="text-danger small"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="Input.Subject" class="form-label">@L["Contact_Subject"]</label>
+                        <input asp-for="Input.Subject" class="form-control" />
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="Input.Message" class="form-label">@L["Contact_Message"]</label>
+                        <textarea asp-for="Input.Message" class="form-control" rows="5"></textarea>
+                        <span asp-validation-for="Input.Message" class="text-danger small"></span>
+                    </div>
+                    <div style="position:absolute;left:-9999px" aria-hidden="true">
+                        <label>Website<input asp-for="Input.Website" tabindex="-1" autocomplete="off" /></label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">@L["Contact_Send"]</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts { <partial name="_ValidationScriptsPartial" /> }

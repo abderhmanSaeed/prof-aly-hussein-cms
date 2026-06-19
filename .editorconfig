@@ -14,6 +14,7 @@ dotnet_diagnostic.CA1848.severity = none   # LoggerMessage delegates — unneces
 dotnet_diagnostic.CA1873.severity = none   # logging-argument evaluation cost — n/a here
 dotnet_diagnostic.CA1861.severity = none   # constant array args in tests
 dotnet_diagnostic.CA1725.severity = none   # param name match — 'b' is idiomatic in EF type configs
+dotnet_diagnostic.CA1716.severity = none   # "Public" page-folder namespace is intentional/conventional
 
 [*.{json,csproj,props,targets}]
 indent_style = space

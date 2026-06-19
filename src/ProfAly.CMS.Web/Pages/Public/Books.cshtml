@@ -1,0 +1,49 @@
+@page "/{culture:regex(^(ar|en|fr)$)}/books"
+@model ProfAly.CMS.Web.Pages.Public.BooksModel
+@{
+    ViewData["Title"] = L["Books_Title"].Value;
+    ViewData["Description"] = L["Books_Title"].Value;
+}
+
+<section class="page-hero">
+    <div class="container">
+        <nav class="crumbs"><a asp-page="/Public/Home" asp-route-culture="@Model.Culture">@L["Nav_Home"]</a> / @L["Books_Title"]</nav>
+        <span class="eyebrow">@L["Books_Title"]</span>
+        <h1>@L["Books_Title"]</h1>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        @if (Model.Books.Count == 0) { <p class="empty-state">@L["Pub_NoItems"]</p> }
+        <div class="card-grid">
+            @foreach (var b in Model.Books)
+            {
+                var t = Localized.Pick(b.Translations, Model.Culture);
+                <article class="book-card">
+                    <div class="book-cover">
+                        @if (b.IsFeatured) { <span class="book-flag">@L["F_Featured"]</span> }
+                        @if (b.CoverImage is not null) { <img src="/uploads/@b.CoverImage.RelativePath" alt="@t?.Title" style="width:100%;height:100%;object-fit:cover" /> }
+                        else { <span class="initial">@(t?.Title?.Trim().Substring(0, 1))</span> <span class="year">@b.PublicationYear</span> }
+                    </div>
+                    <div class="book-info">
+                        <h3 class="book-title">@t?.Title</h3>
+                        <p class="book-pub">@t?.Publisher</p>
+                        <p class="book-role">@t?.AuthorshipRole</p>
+                    </div>
+                </article>
+            }
+        </div>
+
+        @if (Model.TotalPages > 1)
+        {
+            <nav class="text-center mt-section" aria-label="Pagination">
+                @for (var i = 1; i <= Model.TotalPages; i++)
+                {
+                    <a class="btn @(i == Model.PageNum ? "btn-primary" : "btn-outline")" style="margin:.2rem"
+                       asp-page="/Public/Books" asp-route-culture="@Model.Culture" asp-route-p="@i">@i</a>
+                }
+            </nav>
+        }
+    </div>
+</section>

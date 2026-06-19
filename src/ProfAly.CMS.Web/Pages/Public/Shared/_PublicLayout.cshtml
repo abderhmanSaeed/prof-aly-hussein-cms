@@ -1,0 +1,111 @@
+@using System.Globalization
+@{
+    var culture = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
+    if (!SupportedCultures.IsSupported(culture)) { culture = SupportedCultures.Default; }
+    var dir = culture == "ar" ? "rtl" : "ltr";
+    var currentPage = ViewContext.RouteData.Values["page"]?.ToString() ?? "/Public/Home";
+
+    string PathFor(string targetCulture)
+    {
+        var path = ViewContext.HttpContext.Request.Path.Value ?? "/";
+        var segs = path.Split('/', StringSplitOptions.RemoveEmptyEntries).ToList();
+        if (segs.Count > 0 && SupportedCultures.IsSupported(segs[0])) { segs[0] = targetCulture; }
+        else { segs.Insert(0, targetCulture); }
+        return "/" + string.Join('/', segs);
+    }
+    var req = ViewContext.HttpContext.Request;
+    var baseUrl = $"{req.Scheme}://{req.Host}";
+    var siteTitle = ViewData["SiteTitle"] as string ?? "Prof. Aly Hussein";
+
+    var nav = new (string Key, string Page)[]
+    {
+        ("Nav_Home", "/Public/Home"), ("Nav_About", "/Public/About"), ("Experience_Title", "/Public/Experience"),
+        ("Activities_Title", "/Public/Activities"), ("Research_Title", "/Public/Research"),
+        ("Publications_Title", "/Public/Publications"), ("Books_Title", "/Public/Books"),
+        ("Theses_Title", "/Public/Theses"), ("Teaching_Title", "/Public/Teaching"), ("Nav_Contact", "/Public/Contact"),
+    };
+}
+<!doctype html>
+<html lang="@culture" dir="@dir" data-lang="@culture" data-theme="light">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewData["Title"] · @siteTitle</title>
+    <meta name="description" content="@ViewData["Description"]" />
+    <link rel="canonical" href="@(baseUrl + PathFor(culture))" />
+    @foreach (var c in SupportedCultures.All)
+    {
+        <link rel="alternate" hreflang="@c" href="@(baseUrl + PathFor(c))" />
+    }
+    <link rel="alternate" hreflang="x-default" href="@(baseUrl + PathFor(SupportedCultures.Default))" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="@ViewData["Title"]" />
+    <meta property="og:description" content="@ViewData["Description"]" />
+    <meta name="theme-color" content="#0B5D3B" />
+    <script>(function(){try{var t=localStorage.getItem("theme")||"light";document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700&family=Cormorant+Garamond:wght@600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap@(culture == "ar" ? ".rtl" : "").min.css" />
+    <link rel="stylesheet" href="~/css/public.css" asp-append-version="true" />
+</head>
+<body>
+    <header class="site-nav">
+        <div class="container nav-inner">
+            <a class="brand" asp-page="/Public/Home" asp-route-culture="@culture">
+                <span class="brand-mark" aria-hidden="true">ع</span>
+                <span class="brand-text"><span>@siteTitle</span><span class="sub">@ViewData["Tagline"]</span></span>
+            </a>
+            <ul class="nav-menu">
+                @foreach (var item in nav)
+                {
+                    <li><a class="@(currentPage == item.Page ? "active" : "")" asp-page="@item.Page" asp-route-culture="@culture">@L[item.Key]</a></li>
+                }
+            </ul>
+            <div class="nav-actions">
+                <button class="icon-btn theme-toggle" type="button" title="Theme" aria-label="Theme">&#9681;</button>
+                @foreach (var c in SupportedCultures.All)
+                {
+                    <a class="lang-link @(c == culture ? "active" : "")" asp-page="@currentPage" asp-route-culture="@c">@c.ToUpperInvariant()</a>
+                }
+                <button class="icon-btn nav-burger d-md-none" type="button" aria-label="Menu">&#9776;</button>
+            </div>
+        </div>
+    </header>
+
+    <main id="main">
+        @RenderBody()
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-12 col-lg-5">
+                    <div class="brand"><span class="brand-mark" aria-hidden="true">ع</span><span class="brand-text"><span>@siteTitle</span><span class="sub">@ViewData["Tagline"]</span></span></div>
+                </div>
+                <div class="col-6 col-lg-4">
+                    <h2 class="footer-h">@L["Nav_Home"]</h2>
+                    <ul class="footer-links">
+                        @foreach (var item in nav.Take(6))
+                        {
+                            <li><a asp-page="@item.Page" asp-route-culture="@culture">@L[item.Key]</a></li>
+                        }
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <h2 class="footer-h">@L["Contact_Intro"]</h2>
+                    <ul class="footer-contact">
+                        @if (ViewData["ContactEmail"] is string em && !string.IsNullOrEmpty(em)) { <li><a href="mailto:@em">@em</a></li> }
+                        @if (ViewData["ContactPhone"] is string ph && !string.IsNullOrEmpty(ph)) { <li><a href="tel:@ph" dir="ltr">@ph</a></li> }
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-base">© @DateTime.UtcNow.Year @siteTitle</div>
+        </div>
+    </footer>
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/public.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,75 @@
+@page "/{culture:regex(^(ar|en|fr)$)}/about"
+@using System.Globalization
+@model ProfAly.CMS.Web.Pages.Public.AboutModel
+@{
+    var p = Localized.Pick(Model.Profile?.Translations, Model.Culture);
+    ViewData["Title"] = L["Nav_About"].Value;
+    ViewData["Description"] = p?.ShortBio ?? p?.Positioning;
+    var paras = p?.FullBio?.Split("\n\n", StringSplitOptions.RemoveEmptyEntries) ?? Array.Empty<string>();
+}
+
+<section class="page-hero">
+    <div class="container">
+        <nav class="crumbs"><a asp-page="/Public/Home" asp-route-culture="@Model.Culture">@L["Nav_Home"]</a> / @L["Nav_About"]</nav>
+        <span class="eyebrow">@L["Nav_About"]</span>
+        <h1>@p?.FullName</h1>
+        <p class="section-lead">@p?.Title</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="row g-4 g-lg-5">
+            <div class="col-lg-7">
+                <span class="eyebrow">@L["About_Bio"]</span>
+                <h2 class="section-title">@L["About_Bio"]</h2>
+                @foreach (var para in paras) { <p>@para</p> }
+            </div>
+            <div class="col-lg-5">
+                <div class="panel">
+                    <h2 class="panel-title">@L["About_Personal"]</h2>
+                    <dl class="m-0">
+                        @if (Model.Profile?.DateOfBirth is { } dob) { <div class="meta-row"><dt>@L["Label_Born"]</dt><dd>@dob.ToString("d MMMM yyyy", CultureInfo.CurrentUICulture)</dd></div> }
+                        @if (!string.IsNullOrEmpty(p?.Nationality)) { <div class="meta-row"><dt>@L["Label_Nationality"]</dt><dd>@p.Nationality</dd></div> }
+                        @if (!string.IsNullOrEmpty(p?.MaritalStatus)) { <div class="meta-row"><dt>@L["Label_Marital"]</dt><dd>@p.MaritalStatus</dd></div> }
+                        @if (!string.IsNullOrEmpty(p?.Location)) { <div class="meta-row"><dt>@L["Label_Location"]</dt><dd>@p.Location</dd></div> }
+                    </dl>
+                </div>
+                @if (!string.IsNullOrEmpty(p?.Languages))
+                {
+                    <div class="panel"><h2 class="panel-title">@L["About_Languages"]</h2><p class="m-0">@p.Languages</p></div>
+                }
+                @if (Model.Skills.Count > 0)
+                {
+                    <div class="panel">
+                        <h2 class="panel-title">@L["About_Skills"]</h2>
+                        <ul class="chip-set">
+                            @foreach (var s in Model.Skills) { <li class="skill-chip">@(Localized.Pick(s.Translations, Model.Culture)?.Name)</li> }
+                        </ul>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+@if (Model.Qualifications.Count > 0)
+{
+    <section class="section section--alt">
+        <div class="container">
+            <div class="section-head"><span class="eyebrow">@L["About_Qualifications"]</span><h2 class="section-title">@L["About_Qualifications"]</h2></div>
+            <ul class="timeline">
+                @foreach (var q in Model.Qualifications)
+                {
+                    var qt = Localized.Pick(q.Translations, Model.Culture);
+                    <li class="tl-item">
+                        <span class="tl-period">@q.Year</span>
+                        <h3 class="tl-role">@qt?.Degree</h3>
+                        <p class="tl-org">@qt?.Institution</p>
+                        @if (!string.IsNullOrEmpty(qt?.Grade)) { <span class="skill-chip">@qt.Grade</span> }
+                    </li>
+                }
+            </ul>
+        </div>
+    </section>
+}

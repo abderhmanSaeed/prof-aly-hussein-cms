@@ -1,0 +1,56 @@
+@page "/{culture:regex(^(ar|en|fr)$)}/experience"
+@model ProfAly.CMS.Web.Pages.Public.ExperienceModel
+@{
+    ViewData["Title"] = L["Experience_Title"].Value;
+    ViewData["Description"] = L["Experience_Title"].Value;
+}
+
+<section class="page-hero">
+    <div class="container">
+        <nav class="crumbs"><a asp-page="/Public/Home" asp-route-culture="@Model.Culture">@L["Nav_Home"]</a> / @L["Experience_Title"]</nav>
+        <span class="eyebrow">@L["Experience_Title"]</span>
+        <h1>@L["Experience_Title"]</h1>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-7">
+                <ul class="timeline">
+                    @foreach (var e in Model.Entries)
+                    {
+                        var t = Localized.Pick(e.Translations, Model.Culture);
+                        <li class="tl-item">
+                            <span class="tl-period">@t?.PeriodLabel</span>
+                            <h3 class="tl-role">@t?.Role</h3>
+                            <p class="tl-org">@t?.Organization</p>
+                            @if (!string.IsNullOrEmpty(t?.Description)) { <p>@t.Description</p> }
+                        </li>
+                    }
+                    @if (Model.Entries.Count == 0) { <li class="empty-state">@L["Pub_NoItems"]</li> }
+                </ul>
+            </div>
+            <div class="col-lg-5">
+                @if (Model.Societies.Count > 0)
+                {
+                    <div class="panel">
+                        <h2 class="panel-title">@L["Pub_Societies"]</h2>
+                        <ul class="chip-set" style="flex-direction:column;align-items:flex-start">
+                            @foreach (var m in Model.Societies) { <li>@(Localized.Pick(m.Translations, Model.Culture)?.Name)</li> }
+                        </ul>
+                    </div>
+                }
+                @if (Model.Boards.Count > 0)
+                {
+                    <div class="panel">
+                        <h2 class="panel-title">@L["Pub_Boards"]</h2>
+                        <ul class="chip-set" style="flex-direction:column;align-items:flex-start">
+                            @foreach (var m in Model.Boards) { <li>@(Localized.Pick(m.Translations, Model.Culture)?.Name)</li> }
+                        </ul>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>

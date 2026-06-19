@@ -1,0 +1,34 @@
+@page "/{culture:regex(^(ar|en|fr)$)}/publications"
+@model ProfAly.CMS.Web.Pages.Public.PublicationsModel
+@{
+    ViewData["Title"] = L["Publications_Title"].Value;
+    ViewData["Description"] = L["Publications_Title"].Value;
+}
+
+<section class="page-hero">
+    <div class="container">
+        <nav class="crumbs"><a asp-page="/Public/Home" asp-route-culture="@Model.Culture">@L["Nav_Home"]</a> / @L["Publications_Title"]</nav>
+        <span class="eyebrow">@L["Publications_Title"]</span>
+        <h1>@L["Publications_Title"]</h1>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        @if (Model.Items.Count == 0) { <p class="empty-state">@L["Pub_NoItems"]</p> }
+        <ul class="pub-list">
+            @foreach (var item in Model.Items)
+            {
+                var t = Localized.Pick(item.Translations, Model.Culture);
+                <li class="pub-item">
+                    <span class="pub-year">@item.PublicationYear</span>
+                    <div class="pub-body">
+                        <h3 class="pub-title">@t?.Title</h3>
+                        @if (!string.IsNullOrEmpty(t?.Journal)) { <p class="pub-venue">@t.Journal</p> }
+                        @if (!string.IsNullOrEmpty(item.ExternalUrl)) { <a href="@item.ExternalUrl" target="_blank" rel="noopener">DOI / link</a> }
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+</section>

@@ -1,0 +1,44 @@
+@page "/{culture:regex(^(ar|en|fr)$)}/activities"
+@model ProfAly.CMS.Web.Pages.Public.ActivitiesModel
+@{
+    ViewData["Title"] = L["Activities_Title"].Value;
+    ViewData["Description"] = L["Activities_Title"].Value;
+}
+
+<section class="page-hero">
+    <div class="container">
+        <nav class="crumbs"><a asp-page="/Public/Home" asp-route-culture="@Model.Culture">@L["Nav_Home"]</a> / @L["Activities_Title"]</nav>
+        <span class="eyebrow">@L["Activities_Title"]</span>
+        <h1>@L["Activities_Title"]</h1>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        @if (Model.Groups.Count == 0) { <p class="empty-state">@L["Pub_NoItems"]</p> }
+        <div class="accordion" id="activitiesAcc">
+            @for (var i = 0; i < Model.Groups.Count; i++)
+            {
+                var g = Model.Groups[i];
+                var gName = Localized.Pick(g.Translations, Model.Culture)?.Name;
+                var items = g.Activities.OrderBy(a => a.SortOrder).ToList();
+                var open = i == 0;
+                <div class="accordion-item">
+                    <h3 class="accordion-header" id="h-@g.Id">
+                        <button class="accordion-button @(open ? "" : "collapsed")" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#c-@g.Id" aria-expanded="@(open ? "true" : "false")">
+                            <span class="acc-count">@items.Count</span> @gName
+                        </button>
+                    </h3>
+                    <div id="c-@g.Id" class="accordion-collapse collapse @(open ? "show" : "")" data-bs-parent="#activitiesAcc">
+                        <div class="accordion-body">
+                            <ul>
+                                @foreach (var a in items) { <li>@(Localized.Pick(a.Translations, Model.Culture)?.Text)</li> }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
