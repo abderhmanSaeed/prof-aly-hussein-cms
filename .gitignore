@@ -76,3 +76,6 @@ desktop.ini
 # ---- Logs ----
 *.log
 logs/
+
+# ---- Local credentials (never commit; contains a password) ----
+docs/32_Admin_Login_Credentials.md

@@ -1,4 +1,9 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <!-- Enables `dotnet user-secrets` for local dev (e.g. AdminAccount:Password). -->
+    <UserSecretsId>bf493374-61df-4e26-9de4-2a593060446b</UserSecretsId>
+  </PropertyGroup>
 
   <!-- Presentation layer: Razor Pages + Areas/Admin + composition root.
        Design package is referenced so `dotnet ef` can use Web as the
