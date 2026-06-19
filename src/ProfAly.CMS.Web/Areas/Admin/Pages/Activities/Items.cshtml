@@ -1,0 +1,37 @@
+@page
+@using Microsoft.AspNetCore.Mvc.Localization
+@using ProfAly.CMS.Domain.Common
+@model ProfAly.CMS.Web.Areas.Admin.Pages.Activities.ItemsModel
+@inject IViewLocalizer L
+@{ ViewData["Title"] = L["Activities_Title"].Value + " · " + Model.GroupName; }
+
+<div class="d-flex align-items-center mb-3">
+    <div>
+        <a asp-page="Index" class="small">&larr; @L["ActivityGroups_Title"]</a>
+        <h1 class="page-title mb-0">@Model.GroupName</h1>
+    </div>
+    <a class="btn btn-primary btn-sm ms-auto" asp-page="ItemUpsert" asp-route-groupId="@Model.GroupId">@L["CreateNew"]</a>
+</div>
+
+<div class="tile p-0">
+    <table class="table mb-0 align-middle">
+        <thead><tr><th>@L["F_ActivityText"]</th><th style="width:70px">@L["Order"]</th><th style="width:220px">@L["Actions"]</th></tr></thead>
+        <tbody>
+        @if (Model.Items.Count == 0) { <tr><td colspan="3" class="text-muted p-3">@L["NoItems"]</td></tr> }
+        @foreach (var item in Model.Items)
+        {
+            var text = (item.Translations.FirstOrDefault(t => t.Culture == SupportedCultures.Default) ?? item.Translations.FirstOrDefault())?.Text;
+            <tr>
+                <td>@text</td>
+                <td>@item.SortOrder</td>
+                <td>
+                    <a class="btn btn-sm btn-outline-secondary" asp-page="ItemUpsert" asp-route-groupId="@Model.GroupId" asp-route-id="@item.Id">@L["Edit"]</a>
+                    <form method="post" asp-page-handler="Move" asp-route-id="@item.Id" asp-route-dir="up" asp-route-groupId="@Model.GroupId" class="d-inline"><button class="btn btn-sm btn-outline-secondary" title="@L["MoveUp"]">&uarr;</button></form>
+                    <form method="post" asp-page-handler="Move" asp-route-id="@item.Id" asp-route-dir="down" asp-route-groupId="@Model.GroupId" class="d-inline"><button class="btn btn-sm btn-outline-secondary" title="@L["MoveDown"]">&darr;</button></form>
+                    <form method="post" asp-page-handler="Delete" asp-route-id="@item.Id" asp-route-groupId="@Model.GroupId" class="d-inline" onsubmit="return confirm('@L["ConfirmDelete"]');"><button class="btn btn-sm btn-outline-danger">@L["Delete"]</button></form>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>

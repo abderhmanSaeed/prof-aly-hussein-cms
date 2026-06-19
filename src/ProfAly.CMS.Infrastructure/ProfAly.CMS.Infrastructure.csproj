@@ -16,6 +16,11 @@
     <ProjectReference Include="..\ProfAly.CMS.Domain\ProfAly.CMS.Domain.csproj" />
   </ItemGroup>
 
+  <!-- Legacy static-site content (converted from data.js) for the import seeder. -->
+  <ItemGroup>
+    <EmbeddedResource Include="Persistence\Seeding\Data\static-content.json" />
+  </ItemGroup>
+
   <!-- Infrastructure references the ASP.NET Core shared framework for Identity
        and DI/Configuration/Logging/Hosting abstractions used in composition. -->
   <ItemGroup>

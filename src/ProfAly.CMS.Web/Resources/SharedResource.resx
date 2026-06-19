@@ -109,4 +109,30 @@
   <data name="Toggle_Publish" xml:space="preserve"><value>Publish / Unpublish</value></data>
   <data name="Toggle_Feature" xml:space="preserve"><value>Toggle featured</value></data>
   <data name="F_Category_Slug" xml:space="preserve"><value>Slug</value></data>
+
+  <data name="Experience_Title" xml:space="preserve"><value>Experience</value></data>
+  <data name="Teaching_Title" xml:space="preserve"><value>Teaching</value></data>
+  <data name="Theses_Title" xml:space="preserve"><value>Theses</value></data>
+  <data name="Activities_Title" xml:space="preserve"><value>Activities</value></data>
+  <data name="ActivityGroups_Title" xml:space="preserve"><value>Activity groups</value></data>
+  <data name="F_Role" xml:space="preserve"><value>Role / position</value></data>
+  <data name="F_Organization" xml:space="preserve"><value>Organization</value></data>
+  <data name="F_Description" xml:space="preserve"><value>Description</value></data>
+  <data name="F_PeriodLabel" xml:space="preserve"><value>Period (display)</value></data>
+  <data name="F_StartDate" xml:space="preserve"><value>Start date</value></data>
+  <data name="F_EndDate" xml:space="preserve"><value>End date</value></data>
+  <data name="F_Level" xml:space="preserve"><value>Level</value></data>
+  <data name="Level_Undergraduate" xml:space="preserve"><value>Undergraduate</value></data>
+  <data name="Level_Graduate" xml:space="preserve"><value>Graduate</value></data>
+  <data name="F_CourseName" xml:space="preserve"><value>Course name</value></data>
+  <data name="F_Period" xml:space="preserve"><value>Period</value></data>
+  <data name="F_Researcher" xml:space="preserve"><value>Researcher</value></data>
+  <data name="F_Relationship" xml:space="preserve"><value>Relationship</value></data>
+  <data name="Rel_Supervised" xml:space="preserve"><value>Supervised</value></data>
+  <data name="Rel_Examined" xml:space="preserve"><value>Examined</value></data>
+  <data name="Rel_Ongoing" xml:space="preserve"><value>In progress</value></data>
+  <data name="Deg_Master" xml:space="preserve"><value>Master</value></data>
+  <data name="Deg_PhD" xml:space="preserve"><value>PhD</value></data>
+  <data name="F_ActivityText" xml:space="preserve"><value>Activity text</value></data>
+  <data name="ManageItems" xml:space="preserve"><value>Manage items</value></data>
 </root>

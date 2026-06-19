@@ -45,6 +45,7 @@ public static class DependencyInjection
         services.AddScoped<IDataSeeder, RoleSeeder>();
         services.AddScoped<IDataSeeder, SuperAdminSeeder>();
         services.AddScoped<IDataSeeder, SiteSettingsSeeder>();
+        services.AddScoped<IDataSeeder, StaticContentImporter>();
 
         // Database connectivity health check (endpoint mapped in the web host).
         services.AddHealthChecks().AddCheck<DatabaseHealthCheck>("database", tags: new[] { "ready" });

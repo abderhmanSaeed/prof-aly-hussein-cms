@@ -1,0 +1,47 @@
+@page
+@using Microsoft.AspNetCore.Mvc.Localization
+@model ProfAly.CMS.Web.Areas.Admin.Pages.Experience.UpsertModel
+@inject IViewLocalizer L
+@{
+    ViewData["Title"] = (Model.IsEdit ? L["Edit"].Value : L["CreateNew"].Value) + " · " + L["Experience_Title"].Value;
+    var cultures = Model.Cultures;
+}
+
+<h1 class="page-title">@ViewData["Title"]</h1>
+
+<form method="post" class="tile" style="max-width:760px">
+    <div asp-validation-summary="All" class="alert alert-danger py-2 px-3 small" style="@(ViewData.ModelState.IsValid ? "display:none" : "")"></div>
+    <input type="hidden" asp-for="Input.Id" />
+
+    <div class="row g-3 mb-3">
+        <div class="col-auto"><label asp-for="Input.StartDate" class="form-label">@L["F_StartDate"]</label><input asp-for="Input.StartDate" type="date" class="form-control" dir="ltr" /></div>
+        <div class="col-auto"><label asp-for="Input.EndDate" class="form-label">@L["F_EndDate"]</label><input asp-for="Input.EndDate" type="date" class="form-control" dir="ltr" /></div>
+    </div>
+
+    <ul class="nav nav-tabs" role="tablist">
+        @for (var i = 0; i < cultures.Count; i++)
+        {
+            var c = cultures[i];
+            var label = c == "ar" ? L["LangArabic"] : c == "fr" ? L["LangFrench"] : L["LangEnglish"];
+            <li class="nav-item"><button class="nav-link @(i == 0 ? "active" : "")" type="button" data-bs-toggle="tab" data-bs-target="#t-@c">@label</button></li>
+        }
+    </ul>
+    <div class="tab-content border border-top-0 p-3 mb-3">
+        @for (var i = 0; i < cultures.Count; i++)
+        {
+            var c = cultures[i];
+            <div class="tab-pane fade @(i == 0 ? "show active" : "")" id="t-@c" dir="@(c == "ar" ? "rtl" : "ltr")">
+                <input type="hidden" asp-for="Input.Translations[i].Culture" />
+                <div class="mb-2"><label asp-for="Input.Translations[i].PeriodLabel" class="form-label">@L["F_PeriodLabel"]</label><input asp-for="Input.Translations[i].PeriodLabel" class="form-control" /></div>
+                <div class="mb-2"><label asp-for="Input.Translations[i].Role" class="form-label">@L["F_Role"]</label><input asp-for="Input.Translations[i].Role" class="form-control" /><span asp-validation-for="Input.Translations[i].Role" class="text-danger small"></span></div>
+                <div class="mb-2"><label asp-for="Input.Translations[i].Organization" class="form-label">@L["F_Organization"]</label><input asp-for="Input.Translations[i].Organization" class="form-control" /><span asp-validation-for="Input.Translations[i].Organization" class="text-danger small"></span></div>
+                <div class="mb-2"><label asp-for="Input.Translations[i].Description" class="form-label">@L["F_Description"]</label><textarea asp-for="Input.Translations[i].Description" class="form-control" rows="3"></textarea></div>
+            </div>
+        }
+    </div>
+
+    <button type="submit" class="btn btn-primary">@L["Save"]</button>
+    <a class="btn btn-outline-secondary" asp-page="Index">@L["Cancel"]</a>
+</form>
+
+@section Scripts { <partial name="_ValidationScriptsPartial" /> }

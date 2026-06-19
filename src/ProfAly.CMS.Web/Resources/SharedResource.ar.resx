@@ -97,4 +97,30 @@
   <data name="Toggle_Publish" xml:space="preserve"><value>نشر / إلغاء النشر</value></data>
   <data name="Toggle_Feature" xml:space="preserve"><value>تبديل التمييز</value></data>
   <data name="F_Category_Slug" xml:space="preserve"><value>المُعرّف</value></data>
+
+  <data name="Experience_Title" xml:space="preserve"><value>الخبرة الأكاديمية</value></data>
+  <data name="Teaching_Title" xml:space="preserve"><value>المقررات التدريسية</value></data>
+  <data name="Theses_Title" xml:space="preserve"><value>الرسائل العلمية</value></data>
+  <data name="Activities_Title" xml:space="preserve"><value>الأنشطة والمشروعات</value></data>
+  <data name="ActivityGroups_Title" xml:space="preserve"><value>مجموعات الأنشطة</value></data>
+  <data name="F_Role" xml:space="preserve"><value>المنصب / الوظيفة</value></data>
+  <data name="F_Organization" xml:space="preserve"><value>الجهة</value></data>
+  <data name="F_Description" xml:space="preserve"><value>الوصف</value></data>
+  <data name="F_PeriodLabel" xml:space="preserve"><value>الفترة (للعرض)</value></data>
+  <data name="F_StartDate" xml:space="preserve"><value>تاريخ البداية</value></data>
+  <data name="F_EndDate" xml:space="preserve"><value>تاريخ النهاية</value></data>
+  <data name="F_Level" xml:space="preserve"><value>المرحلة</value></data>
+  <data name="Level_Undergraduate" xml:space="preserve"><value>المرحلة الجامعية</value></data>
+  <data name="Level_Graduate" xml:space="preserve"><value>الدراسات العليا</value></data>
+  <data name="F_CourseName" xml:space="preserve"><value>اسم المقرر</value></data>
+  <data name="F_Period" xml:space="preserve"><value>الفترة</value></data>
+  <data name="F_Researcher" xml:space="preserve"><value>الباحث</value></data>
+  <data name="F_Relationship" xml:space="preserve"><value>الصفة</value></data>
+  <data name="Rel_Supervised" xml:space="preserve"><value>إشراف</value></data>
+  <data name="Rel_Examined" xml:space="preserve"><value>مناقشة</value></data>
+  <data name="Rel_Ongoing" xml:space="preserve"><value>قيد الإنجاز</value></data>
+  <data name="Deg_Master" xml:space="preserve"><value>ماجستير</value></data>
+  <data name="Deg_PhD" xml:space="preserve"><value>دكتوراه</value></data>
+  <data name="F_ActivityText" xml:space="preserve"><value>نص النشاط</value></data>
+  <data name="ManageItems" xml:space="preserve"><value>إدارة العناصر</value></data>
 </root>

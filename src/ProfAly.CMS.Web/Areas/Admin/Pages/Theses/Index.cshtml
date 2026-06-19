@@ -1,0 +1,56 @@
+@page
+@using Microsoft.AspNetCore.Mvc.Localization
+@using ProfAly.CMS.Domain.Common
+@using ProfAly.CMS.Domain.Enums
+@model ProfAly.CMS.Web.Areas.Admin.Pages.Theses.IndexModel
+@inject IViewLocalizer L
+@{ ViewData["Title"] = L["Theses_Title"].Value;
+   string RelText(RelationshipType r) => (r == RelationshipType.Supervised ? L["Rel_Supervised"] : r == RelationshipType.Examined ? L["Rel_Examined"] : L["Rel_Ongoing"]).Value;
+}
+
+<div class="d-flex align-items-center mb-3">
+    <h1 class="page-title mb-0">@L["Theses_Title"]</h1>
+    <a class="btn btn-primary btn-sm ms-auto" asp-page="Upsert">@L["CreateNew"]</a>
+</div>
+
+<form method="get" class="d-flex gap-2 mb-3">
+    <select name="Relationship" class="form-select form-select-sm" style="width:auto" onchange="this.form.submit()">
+        <option value="">@L["F_Relationship"]</option>
+        <option value="Supervised" selected="@(Model.Relationship == RelationshipType.Supervised)">@L["Rel_Supervised"]</option>
+        <option value="Examined" selected="@(Model.Relationship == RelationshipType.Examined)">@L["Rel_Examined"]</option>
+        <option value="Ongoing" selected="@(Model.Relationship == RelationshipType.Ongoing)">@L["Rel_Ongoing"]</option>
+    </select>
+    <select name="Degree" class="form-select form-select-sm" style="width:auto" onchange="this.form.submit()">
+        <option value="">@L["F_Degree"]</option>
+        <option value="Master" selected="@(Model.Degree == DegreeLevel.Master)">@L["Deg_Master"]</option>
+        <option value="PhD" selected="@(Model.Degree == DegreeLevel.PhD)">@L["Deg_PhD"]</option>
+    </select>
+</form>
+
+<div class="tile p-0">
+    <table class="table mb-0 align-middle">
+        <thead><tr><th>@L["F_Researcher"]</th><th>@L["F_Title"]</th><th>@L["F_Degree"]</th><th>@L["F_Relationship"]</th><th>@L["F_PublicationYear"]</th><th>@L["F_Published"]</th><th style="width:240px">@L["Actions"]</th></tr></thead>
+        <tbody>
+        @if (Model.Items.Count == 0) { <tr><td colspan="7" class="text-muted p-3">@L["NoItems"]</td></tr> }
+        @foreach (var item in Model.Items)
+        {
+            var tr = item.Translations.FirstOrDefault(t => t.Culture == SupportedCultures.Default) ?? item.Translations.FirstOrDefault();
+            <tr>
+                <td>@tr?.ResearcherName</td>
+                <td>@tr?.Title</td>
+                <td>@(item.DegreeLevel == DegreeLevel.PhD ? L["Deg_PhD"] : L["Deg_Master"])</td>
+                <td>@RelText(item.RelationshipType)</td>
+                <td>@item.PublicationYear</td>
+                <td>@if (item.IsPublished) { <span class="badge text-bg-success">@L["Status_Published"]</span> } else { <span class="badge text-bg-secondary">@L["Status_Draft"]</span> }</td>
+                <td>
+                    <a class="btn btn-sm btn-outline-secondary" asp-page="Upsert" asp-route-id="@item.Id">@L["Edit"]</a>
+                    <form method="post" asp-page-handler="TogglePublish" asp-route-id="@item.Id" class="d-inline"><button class="btn btn-sm btn-outline-secondary" title="@L["Toggle_Publish"]">⏻</button></form>
+                    <form method="post" asp-page-handler="Move" asp-route-id="@item.Id" asp-route-dir="up" class="d-inline"><button class="btn btn-sm btn-outline-secondary" title="@L["MoveUp"]">&uarr;</button></form>
+                    <form method="post" asp-page-handler="Move" asp-route-id="@item.Id" asp-route-dir="down" class="d-inline"><button class="btn btn-sm btn-outline-secondary" title="@L["MoveDown"]">&darr;</button></form>
+                    <form method="post" asp-page-handler="Delete" asp-route-id="@item.Id" class="d-inline" onsubmit="return confirm('@L["ConfirmDelete"]');"><button class="btn btn-sm btn-outline-danger">@L["Delete"]</button></form>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>

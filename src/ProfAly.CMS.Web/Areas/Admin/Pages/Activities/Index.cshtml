@@ -1,0 +1,36 @@
+@page
+@using Microsoft.AspNetCore.Mvc.Localization
+@using ProfAly.CMS.Domain.Common
+@model ProfAly.CMS.Web.Areas.Admin.Pages.Activities.IndexModel
+@inject IViewLocalizer L
+@{ ViewData["Title"] = L["Activities_Title"].Value; }
+
+<div class="d-flex align-items-center mb-3">
+    <h1 class="page-title mb-0">@L["ActivityGroups_Title"]</h1>
+    <a class="btn btn-primary btn-sm ms-auto" asp-page="GroupUpsert">@L["CreateNew"]</a>
+</div>
+
+<div class="tile p-0">
+    <table class="table mb-0 align-middle">
+        <thead><tr><th>@L["F_Name"]</th><th style="width:80px">#</th><th style="width:70px">@L["Order"]</th><th style="width:300px">@L["Actions"]</th></tr></thead>
+        <tbody>
+        @if (Model.Items.Count == 0) { <tr><td colspan="4" class="text-muted p-3">@L["NoItems"]</td></tr> }
+        @foreach (var item in Model.Items)
+        {
+            var name = (item.Translations.FirstOrDefault(t => t.Culture == SupportedCultures.Default) ?? item.Translations.FirstOrDefault())?.Name;
+            <tr>
+                <td>@name</td>
+                <td>@item.Activities.Count</td>
+                <td>@item.SortOrder</td>
+                <td>
+                    <a class="btn btn-sm btn-outline-primary" asp-page="Items" asp-route-groupId="@item.Id">@L["ManageItems"]</a>
+                    <a class="btn btn-sm btn-outline-secondary" asp-page="GroupUpsert" asp-route-id="@item.Id">@L["Edit"]</a>
+                    <form method="post" asp-page-handler="Move" asp-route-id="@item.Id" asp-route-dir="up" class="d-inline"><button class="btn btn-sm btn-outline-secondary" title="@L["MoveUp"]">&uarr;</button></form>
+                    <form method="post" asp-page-handler="Move" asp-route-id="@item.Id" asp-route-dir="down" class="d-inline"><button class="btn btn-sm btn-outline-secondary" title="@L["MoveDown"]">&darr;</button></form>
+                    <form method="post" asp-page-handler="Delete" asp-route-id="@item.Id" class="d-inline" onsubmit="return confirm('@L["ConfirmDelete"]');"><button class="btn btn-sm btn-outline-danger">@L["Delete"]</button></form>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
