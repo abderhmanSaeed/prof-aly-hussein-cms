@@ -1,0 +1,41 @@
+@page
+@model ProfAly.CMS.Web.Areas.Admin.Pages.IndexModel
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<h1 class="page-title">Welcome@(string.IsNullOrEmpty(Model.AdminName) ? "" : ", " + Model.AdminName)</h1>
+<p class="page-sub">Admin console shell — content management is added in the upcoming stages.</p>
+
+<div class="card-grid mb-4">
+    <div class="tile">
+        <h3>Content</h3>
+        <p>Books, publications, research, theses, projects, videos, resources, enrichment. <span class="badge-soon">soon</span></p>
+    </div>
+    <div class="tile">
+        <h3>Profile &amp; Pages</h3>
+        <p>Biography, qualifications, skills, experience, memberships, activities, teaching. <span class="badge-soon">soon</span></p>
+    </div>
+    <div class="tile">
+        <h3>Media Library</h3>
+        <p>Images and PDFs with usage tracking. <span class="badge-soon">soon</span></p>
+    </div>
+    <div class="tile">
+        <h3>Messages</h3>
+        <p>Contact inbox. <span class="badge-soon">soon</span></p>
+    </div>
+    <div class="tile">
+        <h3>Statistics</h3>
+        <p>Views, downloads, plays, top content. <span class="badge-soon">soon</span></p>
+    </div>
+    <div class="tile">
+        <h3>Backup &amp; Restore</h3>
+        <p>Export/import the full backup set. <span class="badge-soon">soon</span></p>
+    </div>
+</div>
+
+<div class="tile" style="max-width:540px">
+    <h3>Session</h3>
+    <p class="mb-1">Signed in as <strong>@Model.AdminName</strong> (role: SuperAdmin).</p>
+    <p class="mb-0">Interface language: <strong>@Model.CurrentCulture</strong>. Theme can be toggled from the top bar.</p>
+</div>

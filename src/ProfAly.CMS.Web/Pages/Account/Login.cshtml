@@ -1,0 +1,42 @@
+@page
+@model ProfAly.CMS.Web.Pages.Account.LoginModel
+@{
+    ViewData["Title"] = "Sign in";
+}
+
+<div class="auth-card">
+    <div class="brand-row">
+        <span class="mark" aria-hidden="true">ع</span>
+        <div>
+            <h1>Admin sign in</h1>
+            <p class="lead mb-0">Prof. Aly Hussein — Content Platform</p>
+        </div>
+    </div>
+
+    <form method="post">
+        <div asp-validation-summary="All" class="alert alert-danger py-2 px-3 small" role="alert"
+             style="@(ViewData.ModelState.IsValid ? "display:none" : "")"></div>
+
+        <div class="mb-3">
+            <label asp-for="Input.Email" class="form-label">Email</label>
+            <input asp-for="Input.Email" class="form-control" autocomplete="username" dir="ltr" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Input.Password" class="form-label">Password</label>
+            <input asp-for="Input.Password" class="form-control" autocomplete="current-password" dir="ltr" />
+        </div>
+
+        <div class="form-check mb-3">
+            <input asp-for="Input.RememberMe" class="form-check-input" />
+            <label asp-for="Input.RememberMe" class="form-check-label">Remember me</label>
+        </div>
+
+        <input type="hidden" name="returnUrl" value="@Model.ReturnUrl" />
+        <button type="submit" class="btn btn-primary w-100">Sign in</button>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

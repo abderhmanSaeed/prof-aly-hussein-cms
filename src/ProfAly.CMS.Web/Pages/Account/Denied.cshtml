@@ -1,0 +1,14 @@
+@page
+@model ProfAly.CMS.Web.Pages.Account.DeniedModel
+@{
+    ViewData["Title"] = "Access denied";
+}
+
+<div class="auth-card text-center">
+    <div class="brand-row justify-content-center">
+        <span class="mark" aria-hidden="true">ع</span>
+    </div>
+    <h1>Access denied</h1>
+    <p class="lead">Your account does not have permission to access the admin area.</p>
+    <a class="btn btn-primary w-100" asp-page="/Account/Login">Back to sign in</a>
+</div>

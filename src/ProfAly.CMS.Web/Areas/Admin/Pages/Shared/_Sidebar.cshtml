@@ -1,0 +1,65 @@
+@{
+    var page = ViewContext.RouteData.Values["page"]?.ToString();
+    var isDashboard = string.Equals(page, "/Index", StringComparison.OrdinalIgnoreCase);
+
+    // Mirrors 06_Admin_Dashboard_Structure.md. Only the Dashboard is wired in the
+    // shell; the rest are placeholders enabled as their stages are implemented.
+    var groups = new (string Title, (string Label, bool Enabled)[] Items)[]
+    {
+        ("", new[] { ("Dashboard", true) }),
+        ("Content — Profile & Pages", new[]
+        {
+            ("Home", false), ("About / Profile", false), ("Qualifications", false), ("Skills", false),
+            ("Experience", false), ("Memberships", false), ("Activities", false), ("Teaching", false)
+        }),
+        ("Content — Collections", new[]
+        {
+            ("Research", false), ("Publications", false), ("Books", false), ("Theses", false),
+            ("Projects", false), ("Videos", false), ("Resources", false), ("Enrichment", false)
+        }),
+        ("Organization", new[] { ("Categories", false), ("Media Library", false) }),
+        ("Site", new[]
+        {
+            ("Header", false), ("Footer", false), ("Profile & Contact", false),
+            ("Appearance / Theme", false), ("SEO", false), ("Redirects", false)
+        }),
+        ("Communication", new[] { ("Contact Messages", false) }),
+        ("System", new[] { ("Statistics", false), ("Backup & Restore", false), ("Account & Security", false) }),
+    };
+}
+
+<div class="admin-brand">
+    <span class="mark" aria-hidden="true">ع</span>
+    <span>
+        <span class="name d-block">Prof. Aly Hussein</span>
+        <span class="sub">Admin Console</span>
+    </span>
+</div>
+
+<nav aria-label="Admin">
+    @foreach (var group in groups)
+    {
+        <div class="nav-group">
+            @if (!string.IsNullOrEmpty(group.Title))
+            {
+                <div class="nav-group-title">@group.Title</div>
+            }
+            @foreach (var item in group.Items)
+            {
+                if (item.Label == "Dashboard")
+                {
+                    <a class="nav-link-item @(isDashboard ? "active" : "")" asp-area="Admin" asp-page="/Index">
+                        <span>@item.Label</span>
+                    </a>
+                }
+                else
+                {
+                    <span class="nav-link-item disabled" aria-disabled="true">
+                        <span>@item.Label</span>
+                        <span class="soon">soon</span>
+                    </span>
+                }
+            }
+        </div>
+    }
+</nav>

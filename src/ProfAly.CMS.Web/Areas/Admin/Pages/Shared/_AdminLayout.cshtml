@@ -1,0 +1,69 @@
+@using System.Globalization
+@{
+    var culture = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
+    var dir = culture == "ar" ? "rtl" : "ltr";
+    var returnUrl = Context.Request.Path + Context.Request.QueryString;
+    string[] cultures = { "ar", "en", "fr" };
+}
+<!doctype html>
+<html lang="@culture" dir="@dir" data-theme="light">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewData["Title"] · Admin — Prof. Aly Hussein</title>
+    <script>(function () { try { var t = localStorage.getItem("theme") || "light"; document.documentElement.setAttribute("data-theme", t); } catch (e) {} })();</script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/admin.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="admin-shell">
+        <aside class="admin-sidebar">
+            <partial name="_Sidebar" />
+        </aside>
+        <div class="sidebar-backdrop"></div>
+
+        <div class="admin-main">
+            <header class="admin-topbar">
+                <button class="icon-btn nav-burger" type="button" aria-label="Toggle menu">&#9776;</button>
+                <span class="title">@ViewData["Title"]</span>
+                <span class="spacer"></span>
+
+                <button class="icon-btn theme-toggle" type="button" title="Toggle theme" aria-label="Toggle theme">&#9681;</button>
+
+                <div class="dropdown lang-menu">
+                    <button class="icon-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Language">
+                        @culture.ToUpperInvariant()
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        @foreach (var c in cultures)
+                        {
+                            <li>
+                                <a class="dropdown-item @(c == culture ? "active" : "")"
+                                   asp-area="" asp-page="/Account/SetCulture" asp-route-culture="@c" asp-route-returnUrl="@returnUrl">
+                                    @(c == "ar" ? "العربية" : c == "fr" ? "Français" : "English")
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+
+                <span class="user-chip" title="Signed in">
+                    <span>@User.Identity?.Name</span>
+                </span>
+
+                <form method="post" asp-area="" asp-page="/Account/Logout" class="m-0">
+                    <button type="submit" class="btn btn-sm btn-outline-secondary">Sign out</button>
+                </form>
+            </header>
+
+            <main class="admin-content">
+                @RenderBody()
+            </main>
+        </div>
+    </div>
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/admin.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
