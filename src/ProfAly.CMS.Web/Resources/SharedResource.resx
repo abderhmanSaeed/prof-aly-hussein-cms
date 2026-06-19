@@ -174,4 +174,12 @@
   <data name="Footer_Explore" xml:space="preserve"><value>Explore</value></data>
   <data name="Research_EmptyTitle" xml:space="preserve"><value>No research papers published yet</value></data>
   <data name="Research_EmptyBody" xml:space="preserve"><value>Peer-reviewed journal articles are listed under Publications.</value></data>
+  <data name="Videos_Title" xml:space="preserve"><value>Videos</value></data>
+  <data name="Videos_Featured" xml:space="preserve"><value>Featured videos</value></data>
+  <data name="Videos_Related" xml:space="preserve"><value>Related videos</value></data>
+  <data name="Videos_WatchOnYouTube" xml:space="preserve"><value>Watch on YouTube</value></data>
+  <data name="F_YouTubeUrl" xml:space="preserve"><value>YouTube URL</value></data>
+  <data name="YouTube_Help" xml:space="preserve"><value>Paste any YouTube link (watch, youtu.be, embed, or shorts) — the video id is extracted automatically.</value></data>
+  <data name="YouTube_Invalid" xml:space="preserve"><value>Enter a valid YouTube URL or 11-character video id.</value></data>
+  <data name="F_PublishDate" xml:space="preserve"><value>Publish date</value></data>
 </root>

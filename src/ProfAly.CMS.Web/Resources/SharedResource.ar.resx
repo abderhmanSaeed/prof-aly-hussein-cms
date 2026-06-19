@@ -162,4 +162,12 @@
   <data name="Footer_Explore" xml:space="preserve"><value>استكشف</value></data>
   <data name="Research_EmptyTitle" xml:space="preserve"><value>لا توجد أبحاث منشورة بعد</value></data>
   <data name="Research_EmptyBody" xml:space="preserve"><value>البحوث المحكَّمة في الدوريات مُدرجة ضمن صفحة المنشورات.</value></data>
+  <data name="Videos_Title" xml:space="preserve"><value>مقاطع الفيديو</value></data>
+  <data name="Videos_Featured" xml:space="preserve"><value>مقاطع مختارة</value></data>
+  <data name="Videos_Related" xml:space="preserve"><value>مقاطع ذات صلة</value></data>
+  <data name="Videos_WatchOnYouTube" xml:space="preserve"><value>المشاهدة على يوتيوب</value></data>
+  <data name="F_YouTubeUrl" xml:space="preserve"><value>رابط يوتيوب</value></data>
+  <data name="YouTube_Help" xml:space="preserve"><value>الصق أي رابط يوتيوب (watch أو youtu.be أو embed أو shorts) — يُستخرج معرّف الفيديو تلقائيًا.</value></data>
+  <data name="YouTube_Invalid" xml:space="preserve"><value>أدخل رابط يوتيوب صحيحًا أو معرّف فيديو من 11 حرفًا.</value></data>
+  <data name="F_PublishDate" xml:space="preserve"><value>تاريخ النشر</value></data>
 </root>

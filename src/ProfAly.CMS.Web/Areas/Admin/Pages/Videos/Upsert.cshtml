@@ -1,0 +1,68 @@
+@page
+@using ProfAly.CMS.Domain.Common
+@inject Microsoft.Extensions.Localization.IStringLocalizer<ProfAly.CMS.Web.SharedResource> L
+@model ProfAly.CMS.Web.Areas.Admin.Pages.Videos.UpsertModel
+@{
+    ViewData["Title"] = (Model.IsEdit ? L["Edit"].Value : L["CreateNew"].Value) + " · " + L["Videos_Title"].Value;
+    var cultures = Model.Cultures;
+}
+
+<h1 class="page-title">@ViewData["Title"]</h1>
+
+<form method="post" class="tile" style="max-width:860px">
+    <div asp-validation-summary="All" class="alert alert-danger py-2 px-3 small" style="@(ViewData.ModelState.IsValid ? "display:none" : "")"></div>
+    <input type="hidden" asp-for="Input.Id" />
+
+    <div class="row g-3 mb-3">
+        <div class="col-12">
+            <label asp-for="Input.YouTubeUrl" class="form-label">@L["F_YouTubeUrl"]</label>
+            <input asp-for="Input.YouTubeUrl" class="form-control" dir="ltr" placeholder="https://www.youtube.com/watch?v=..." />
+            <span asp-validation-for="Input.YouTubeUrl" class="text-danger small"></span>
+            <div class="form-text">@L["YouTube_Help"]</div>
+        </div>
+        @if (!string.IsNullOrEmpty(Model.PreviewVideoId))
+        {
+            <div class="col-auto">
+                <img src="@YouTube.ThumbnailUrl(Model.PreviewVideoId)" alt="" style="width:200px;height:112px;object-fit:cover;border-radius:8px" />
+            </div>
+        }
+        <div class="col-auto">
+            <label asp-for="Input.PublishDate" class="form-label">@L["F_PublishDate"]</label>
+            <input asp-for="Input.PublishDate" type="date" class="form-control" dir="ltr" />
+        </div>
+        <div class="col-auto d-flex align-items-end gap-3">
+            <div class="form-check"><input asp-for="Input.IsFeatured" class="form-check-input" /><label asp-for="Input.IsFeatured" class="form-check-label">@L["F_Featured"]</label></div>
+            <div class="form-check"><input asp-for="Input.IsPublished" class="form-check-input" /><label asp-for="Input.IsPublished" class="form-check-label">@L["F_Published"]</label></div>
+        </div>
+    </div>
+
+    <ul class="nav nav-tabs" role="tablist">
+        @for (var i = 0; i < cultures.Count; i++)
+        {
+            var c = cultures[i];
+            var label = c == "ar" ? L["LangArabic"] : c == "fr" ? L["LangFrench"] : L["LangEnglish"];
+            <li class="nav-item"><button class="nav-link @(i == 0 ? "active" : "")" type="button" data-bs-toggle="tab" data-bs-target="#t-@c">@label</button></li>
+        }
+    </ul>
+    <div class="tab-content border border-top-0 p-3 mb-3">
+        @for (var i = 0; i < cultures.Count; i++)
+        {
+            var c = cultures[i];
+            <div class="tab-pane fade @(i == 0 ? "show active" : "")" id="t-@c" dir="@(c == "ar" ? "rtl" : "ltr")">
+                <input type="hidden" asp-for="Input.Translations[i].Culture" />
+                <div class="mb-2"><label asp-for="Input.Translations[i].Title" class="form-label">@L["F_Title"]</label><input asp-for="Input.Translations[i].Title" class="form-control" /><span asp-validation-for="Input.Translations[i].Title" class="text-danger small"></span></div>
+                <div class="mb-2"><label asp-for="Input.Translations[i].Description" class="form-label">@L["F_Description"]</label><textarea asp-for="Input.Translations[i].Description" class="form-control" rows="3"></textarea></div>
+                <hr class="my-2" />
+                <div class="text-muted small mb-2">SEO</div>
+                <div class="mb-2"><label asp-for="Input.Translations[i].MetaTitle" class="form-label">@L["F_MetaTitle"]</label><input asp-for="Input.Translations[i].MetaTitle" class="form-control" /></div>
+                <div class="mb-2"><label asp-for="Input.Translations[i].MetaDescription" class="form-label">@L["F_MetaDescription"]</label><textarea asp-for="Input.Translations[i].MetaDescription" class="form-control" rows="2"></textarea></div>
+                <div class="mb-2"><label asp-for="Input.Translations[i].MetaKeywords" class="form-label">@L["F_MetaKeywords"]</label><input asp-for="Input.Translations[i].MetaKeywords" class="form-control" /></div>
+            </div>
+        }
+    </div>
+
+    <button type="submit" class="btn btn-primary">@L["Save"]</button>
+    <a class="btn btn-outline-secondary" asp-page="Index">@L["Cancel"]</a>
+</form>
+
+@section Scripts { <partial name="_ValidationScriptsPartial" /> }

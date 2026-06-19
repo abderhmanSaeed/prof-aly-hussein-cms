@@ -1,0 +1,61 @@
+@page "/{culture:regex(^(ar|en|fr)$)}/videos/{slug}"
+@using ProfAly.CMS.Domain.Common
+@using ProfAly.CMS.Domain.Entities.Content
+@model ProfAly.CMS.Web.Pages.Public.VideoDetailModel
+@{
+    var t = Localized.Pick(Model.Video?.Translations, Model.Culture);
+    ViewData["Title"] = (t?.MetaTitle ?? t?.Title) ?? L["Videos_Title"].Value;
+    ViewData["Description"] = t?.MetaDescription ?? t?.Summary;
+}
+
+@functions {
+    string SlugOf(Video v) => (Localized.Pick(v.Translations, Model.Culture)?.Slug) ?? string.Empty;
+}
+
+<section class="page-hero">
+    <div class="container">
+        <nav class="crumbs">
+            <a asp-page="/Public/Home" asp-route-culture="@Model.Culture">@L["Nav_Home"]</a> /
+            <a asp-page="/Public/Videos" asp-route-culture="@Model.Culture">@L["Videos_Title"]</a> /
+            @t?.Title
+        </nav>
+        <h1>@t?.Title</h1>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-8">
+                <div class="video-embed">
+                    <iframe src="@YouTube.EmbedUrl(Model.Video!.YouTubeVideoId)"
+                            title="@t?.Title" loading="lazy"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                @if (Model.Video.EventDateUtc is { } d) { <p class="pub-venue mt-3">@d.ToString("d MMMM yyyy", System.Globalization.CultureInfo.CurrentUICulture)</p> }
+                @if (!string.IsNullOrWhiteSpace(t?.Summary))
+                {
+                    <div class="mt-3">@foreach (var para in t!.Summary!.Split("\n\n", StringSplitOptions.RemoveEmptyEntries)) { <p>@para</p> }</div>
+                }
+                <a class="btn btn-outline mt-2" href="@YouTube.WatchUrl(Model.Video.YouTubeVideoId)" target="_blank" rel="noopener">@L["Videos_WatchOnYouTube"]</a>
+            </div>
+            <div class="col-lg-4">
+                @if (Model.Related.Count > 0)
+                {
+                    <h2 class="panel-title">@L["Videos_Related"]</h2>
+                    <div class="d-grid gap-3">
+                        @foreach (var v in Model.Related)
+                        {
+                            var rt = Localized.Pick(v.Translations, Model.Culture);
+                            <a class="related-video" asp-page="/Public/VideoDetail" asp-route-culture="@Model.Culture" asp-route-slug="@SlugOf(v)">
+                                <img src="@YouTube.ThumbnailUrl(v.YouTubeVideoId)" alt="@rt?.Title" loading="lazy" />
+                                <span>@rt?.Title</span>
+                            </a>
+                        }
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>

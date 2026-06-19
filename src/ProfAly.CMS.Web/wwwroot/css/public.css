@@ -169,6 +169,19 @@ img { max-width: 100%; height: auto; display: block; }
 .footer-links a, .footer-contact a { color: var(--muted); font-size: .9rem; }
 .footer-base { border-block-start: 1px solid var(--line); margin-block-start: 1.5rem; padding-block-start: 1rem; color: var(--muted); font-size: .85rem; text-align: center; }
 
+/* Videos */
+.video-embed { position: relative; aspect-ratio: 16/9; border-radius: var(--radius); overflow: hidden; background: #000; box-shadow: var(--shadow); }
+.video-embed iframe { position: absolute; inset: 0; inline-size: 100%; block-size: 100%; border: 0; }
+.book-cover .video-play {
+  position: absolute; inset-block-start: 50%; inset-inline-start: 50%; transform: translate(-50%, -50%);
+  inline-size: 54px; block-size: 54px; border-radius: 50%; display: grid; place-items: center;
+  background: rgba(11,93,59,.85); color: #fff; font-size: 1.2rem; padding-inline-start: .15rem;
+}
+.related-video { display: flex; gap: .75rem; align-items: center; color: var(--ink); }
+.related-video img { inline-size: 120px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; flex: 0 0 auto; }
+.related-video span { font-size: .9rem; font-weight: 500; }
+.related-video:hover span { color: var(--primary); }
+
 .empty-state { color: var(--muted); text-align: center; padding: 2rem; }
 .mt-section { margin-block-start: clamp(2rem, 4vw, 3rem); }
 .text-center { text-align: center; }
