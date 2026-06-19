@@ -1,1737 +1,1865 @@
 {
- "profile": {
-  "name": {
-   "ar": "أ. د. علي محمد حسين سليمان",
-   "en": "Prof. Dr. Aly Mohamed Hussein Soliman"
+  "profile": {
+    "name": {
+      "ar": "أ. د. علي محمد حسين سليمان",
+      "en": "Prof. Dr. Aly Mohamed Hussein Soliman"
+    },
+    "shortName": {
+      "ar": "أ. د. علي حسين",
+      "en": "Prof. Aly Hussein"
+    },
+    "title": {
+      "ar": "أستاذ المناهج وطرق التدريس بكلية التربية، جامعة الأزهر بالقاهرة",
+      "en": "Professor of Curriculum & Teaching Methods, Faculty of Education, Al-Azhar University, Cairo"
+    },
+    "positioning": {
+      "ar": "باحث في المناهج وتعليم الدراسات الاجتماعية، وخبير اعتماد وجودة، ومدرب دولي في مجال التربية.",
+      "en": "Scholar of curriculum & social-studies education, accreditation expert, and international education trainer."
+    },
+    "phone": "01023044884",
+    "email": "aly_hussein66@yahoo.com",
+    "location": {
+      "ar": "القاهرة، مصر",
+      "en": "Cairo, Egypt"
+    },
+    "born": {
+      "ar": "٢٤ فبراير ١٩٦٦",
+      "en": "24 February 1966"
+    },
+    "nationality": {
+      "ar": "مصري",
+      "en": "Egyptian"
+    },
+    "marital": {
+      "ar": "متزوج",
+      "en": "Married"
+    },
+    "languages": {
+      "ar": "العربية (الأم)، الفرنسية (اللغة الثانية)",
+      "en": "Arabic (native), French (second language)"
+    }
   },
-  "shortName": {
-   "ar": "أ. د. علي حسين",
-   "en": "Prof. Aly Hussein"
+  "bio": {
+    "ar": [
+      "الأستاذ الدكتور علي محمد حسين سليمان أستاذٌ للمناهج وطرق التدريس بكلية التربية بجامعة الأزهر بالقاهرة، تمتد مسيرته الأكاديمية لأكثر من ثلاثين عامًا في خدمة التعليم والبحث التربوي. حصل على درجة الدكتوراه في فلسفة التربية من جامعة مونبلييه الثالثة بفرنسا عام ٢٠٠٥ بتقدير «مشرّف جدًا»، بعد مسيرة علمية متميزة بدأت بتخرجه الأول على دفعته في كلية الآداب والتربية بجامعة الأزهر.",
+      "تتركز اهتماماته البحثية في مناهج وتعليم الدراسات الاجتماعية والجغرافيا، وتوظيف التقنيات الحديثة والذكاء الاصطناعي في التعليم، وإعداد المعلم وتنميته مهنيًّا. أشرف وشارك في مناقشة أكثر من سبعٍ وخمسين رسالة ماجستير ودكتوراه، وألّف وشارك في تأليف أربعة عشر كتابًا ومؤلَّفًا أكاديميًّا، ونشر تسع دراسات محكَّمة في دوريات علمية مرموقة.",
+      "إلى جانب عمله الأكاديمي، يُعَدّ خبيرًا معتمدًا في ضمان الجودة والاعتماد، ومدرّبًا دوليًّا تعاون مع الهيئة القومية لضمان جودة التعليم، ومنظمة اليونسكو، ومكتب التربية العربي لدول الخليج، والمنظمة العربية للتربية والثقافة والعلوم، وعدد من المراكز الإقليمية والدولية في تطوير التعليم وبناء معايير الاعتماد."
+    ],
+    "en": [
+      "Prof. Dr. Aly Mohamed Hussein Soliman is a Professor of Curriculum & Teaching Methods at the Faculty of Education, Al-Azhar University in Cairo, with more than thirty years dedicated to education and educational research. He earned his PhD in the Philosophy of Education from Université Montpellier III, France, in 2005 with the distinction Très Honorable, following a distinguished path that began with graduating first in his class from the Faculty of Arts & Education at Al-Azhar.",
+      "His research centres on the curricula and teaching of social studies and geography, the integration of modern technologies and artificial intelligence in education, and teacher preparation and professional development. He has supervised and examined more than fifty-seven master's and doctoral theses, authored and co-authored fourteen academic books and texts, and published nine peer-reviewed studies in respected scholarly journals.",
+      "Alongside his academic work, he is a certified quality-assurance and accreditation expert and an international trainer who has collaborated with NAQAAE, UNESCO, the Arab Bureau of Education for the Gulf States (ABEGS), ALECSO, and several regional and international centres on education development and the building of accreditation standards."
+    ]
   },
-  "title": {
-   "ar": "أستاذ المناهج وطرق التدريس بكلية التربية، جامعة الأزهر بالقاهرة",
-   "en": "Professor of Curriculum & Teaching Methods, Faculty of Education, Al-Azhar University, Cairo"
-  },
-  "positioning": {
-   "ar": "باحث في المناهج وتعليم الدراسات الاجتماعية، وخبير اعتماد وجودة، ومدرب دولي في مجال التربية.",
-   "en": "Scholar of curriculum & social-studies education, accreditation expert, and international education trainer."
-  },
-  "phone": "01023044884",
-  "email": "aly_hussein66@yahoo.com",
-  "location": {
-   "ar": "القاهرة، مصر",
-   "en": "Cairo, Egypt"
-  },
-  "born": {
-   "ar": "٢٤ فبراير ١٩٦٦",
-   "en": "24 February 1966"
-  },
-  "nationality": {
-   "ar": "مصري",
-   "en": "Egyptian"
-  },
-  "marital": {
-   "ar": "متزوج",
-   "en": "Married"
-  },
-  "languages": {
-   "ar": "العربية (الأم)، الفرنسية (اللغة الثانية)",
-   "en": "Arabic (native), French (second language)"
-  }
- },
- "bio": {
-  "ar": [
-   "الأستاذ الدكتور علي محمد حسين سليمان أستاذٌ للمناهج وطرق التدريس بكلية التربية بجامعة الأزهر بالقاهرة، تمتد مسيرته الأكاديمية لأكثر من ثلاثين عامًا في خدمة التعليم والبحث التربوي. حصل على درجة الدكتوراه في فلسفة التربية من جامعة مونبلييه الثالثة بفرنسا عام ٢٠٠٥ بتقدير «مشرّف جدًا»، بعد مسيرة علمية متميزة بدأت بتخرجه الأول على دفعته في كلية الآداب والتربية بجامعة الأزهر.",
-   "تتركز اهتماماته البحثية في مناهج وتعليم الدراسات الاجتماعية والجغرافيا، وتوظيف التقنيات الحديثة والذكاء الاصطناعي في التعليم، وإعداد المعلم وتنميته مهنيًّا. أشرف وشارك في مناقشة أكثر من سبعٍ وخمسين رسالة ماجستير ودكتوراه، وألّف وشارك في تأليف أربعة عشر كتابًا ومؤلَّفًا أكاديميًّا، ونشر تسع دراسات محكَّمة في دوريات علمية مرموقة.",
-   "إلى جانب عمله الأكاديمي، يُعَدّ خبيرًا معتمدًا في ضمان الجودة والاعتماد، ومدرّبًا دوليًّا تعاون مع الهيئة القومية لضمان جودة التعليم، ومنظمة اليونسكو، ومكتب التربية العربي لدول الخليج، والمنظمة العربية للتربية والثقافة والعلوم، وعدد من المراكز الإقليمية والدولية في تطوير التعليم وبناء معايير الاعتماد."
+  "stats": [
+    {
+      "value": 30,
+      "suffix": "+",
+      "label": {
+        "ar": "عامًا في خدمة التعليم",
+        "en": "Years in education"
+      }
+    },
+    {
+      "value": 57,
+      "suffix": "",
+      "label": {
+        "ar": "رسالة أُشرف عليها ونوقشت",
+        "en": "Theses supervised / examined"
+      }
+    },
+    {
+      "value": 14,
+      "suffix": "",
+      "label": {
+        "ar": "كتابًا ومؤلَّفًا أكاديميًّا",
+        "en": "Books & academic texts"
+      }
+    },
+    {
+      "value": 9,
+      "suffix": "",
+      "label": {
+        "ar": "بحثًا علميًّا محكَّمًا",
+        "en": "Peer-reviewed papers"
+      }
+    },
+    {
+      "value": 2,
+      "suffix": "",
+      "label": {
+        "ar": "دولتا تأهيل أكاديمي (مصر، فرنسا)",
+        "en": "Countries of academic training"
+      }
+    }
   ],
-  "en": [
-   "Prof. Dr. Aly Mohamed Hussein Soliman is a Professor of Curriculum & Teaching Methods at the Faculty of Education, Al-Azhar University in Cairo, with more than thirty years dedicated to education and educational research. He earned his PhD in the Philosophy of Education from Université Montpellier III, France, in 2005 with the distinction Très Honorable, following a distinguished path that began with graduating first in his class from the Faculty of Arts & Education at Al-Azhar.",
-   "His research centres on the curricula and teaching of social studies and geography, the integration of modern technologies and artificial intelligence in education, and teacher preparation and professional development. He has supervised and examined more than fifty-seven master's and doctoral theses, authored and co-authored fourteen academic books and texts, and published nine peer-reviewed studies in respected scholarly journals.",
-   "Alongside his academic work, he is a certified quality-assurance and accreditation expert and an international trainer who has collaborated with NAQAAE, UNESCO, the Arab Bureau of Education for the Gulf States (ABEGS), ALECSO, and several regional and international centres on education development and the building of accreditation standards."
-  ]
- },
- "stats": [
-  {
-   "value": 30,
-   "suffix": "+",
-   "label": {
-    "ar": "عامًا في خدمة التعليم",
-    "en": "Years in education"
-   }
-  },
-  {
-   "value": 57,
-   "suffix": "",
-   "label": {
-    "ar": "رسالة أُشرف عليها ونوقشت",
-    "en": "Theses supervised / examined"
-   }
-  },
-  {
-   "value": 14,
-   "suffix": "",
-   "label": {
-    "ar": "كتابًا ومؤلَّفًا أكاديميًّا",
-    "en": "Books & academic texts"
-   }
-  },
-  {
-   "value": 9,
-   "suffix": "",
-   "label": {
-    "ar": "بحثًا علميًّا محكَّمًا",
-    "en": "Peer-reviewed papers"
-   }
-  },
-  {
-   "value": 2,
-   "suffix": "",
-   "label": {
-    "ar": "دولتا تأهيل أكاديمي (مصر، فرنسا)",
-    "en": "Countries of academic training"
-   }
-  }
- ],
- "credibility": [
-  {
-   "ar": "جامعة الأزهر",
-   "en": "Al-Azhar University"
-  },
-  {
-   "ar": "جامعة مونبلييه الثالثة",
-   "en": "Université Montpellier III"
-  },
-  {
-   "ar": "الهيئة القومية لضمان الجودة (NAQAAE)",
-   "en": "NAQAAE"
-  },
-  {
-   "ar": "اليونسكو",
-   "en": "UNESCO"
-  },
-  {
-   "ar": "المنظمة العربية (ألكسو)",
-   "en": "ALECSO"
-  }
- ],
- "qualifications": [
-  {
-   "year": 2005,
-   "grade": {
-    "ar": "مشرّف جدًا",
-    "en": "Très Honorable"
-   },
-   "degree": {
-    "ar": "دكتوراه الفلسفة في التربية (الجغرافيا)",
-    "en": "PhD, Philosophy of Education (Geography)"
-   },
-   "institution": {
-    "ar": "جامعة مونبلييه الثالثة، فرنسا",
-    "en": "Université Montpellier III, France"
-   }
-  },
-  {
-   "year": 1997,
-   "grade": {
-    "ar": "ممتاز (مع التوصية بتبادل الرسالة)",
-    "en": "Excellent (recommended for thesis exchange)"
-   },
-   "degree": {
-    "ar": "الماجستير في التربية وعلم النفس (مناهج وطرق تدريس الجغرافيا)",
-    "en": "MA, Education & Psychology (Curriculum & Geography Teaching Methods)"
-   },
-   "institution": {
-    "ar": "جامعة الأزهر",
-    "en": "Al-Azhar University"
-   }
-  },
-  {
-   "year": 1993,
-   "grade": {
-    "ar": "جيد جدًا",
-    "en": "Very Good"
-   },
-   "degree": {
-    "ar": "الدبلوم الخاص في التربية وعلم النفس",
-    "en": "Special Diploma in Education & Psychology"
-   },
-   "institution": {
-    "ar": "جامعة عين شمس",
-    "en": "Ain Shams University"
-   }
-  },
-  {
-   "year": 1989,
-   "grade": {
-    "ar": "ممتاز (الأول على الدفعة)",
-    "en": "Excellent (first in class)"
-   },
-   "degree": {
-    "ar": "ليسانس الآداب والتربية (الجغرافيا)",
-    "en": "BA, Arts & Education (Geography)"
-   },
-   "institution": {
-    "ar": "جامعة الأزهر",
-    "en": "Al-Azhar University"
-   }
-  }
- ],
- "career": [
-  {
-   "period": {
-    "ar": "يوليو ٢٠١٨ – حتى الآن",
-    "en": "Jul 2018 – present"
-   },
-   "role": {
-    "ar": "أستاذ المناهج وطرق التدريس",
-    "en": "Professor of Curriculum & Instruction"
-   },
-   "org": {
-    "ar": "كلية التربية، جامعة الأزهر، القاهرة",
-    "en": "Faculty of Education, Al-Azhar University, Cairo"
-   },
-   "desc": {
-    "ar": "قيادة التدريس والبحث العلمي والإشراف على الدراسات العليا وتطوير المناهج والمشاركة في المشروعات التعليمية الدولية.",
-    "en": "Leading teaching, research, postgraduate supervision, curriculum development, and international educational projects."
-   }
-  },
-  {
-   "period": {
-    "ar": "٢٠١٣ – ٢٠١٨",
-    "en": "2013 – 2018"
-   },
-   "role": {
-    "ar": "أستاذ مساعد للمناهج وطرق التدريس",
-    "en": "Associate Professor of Curriculum & Instruction"
-   },
-   "org": {
-    "ar": "كلية التربية، جامعة الأزهر، القاهرة",
-    "en": "Faculty of Education, Al-Azhar University, Cairo"
-   },
-   "desc": {
-    "ar": "إجراء البحوث العلمية والإشراف على طلاب الدراسات العليا والإسهام في تطوير المناهج وبرامج إعداد المعلم.",
-    "en": "Conducted research, supervised graduate students, and contributed to curriculum innovation and teacher preparation programs."
-   }
-  },
-  {
-   "period": {
-    "ar": "٢٠٠٥ – ٢٠١٣",
-    "en": "2005 – 2013"
-   },
-   "role": {
-    "ar": "مدرّس المناهج وطرق التدريس",
-    "en": "Lecturer (Mudarris) in Curriculum & Instruction"
-   },
-   "org": {
-    "ar": "كلية التربية، جامعة الأزهر، القاهرة",
-    "en": "Faculty of Education, Al-Azhar University, Cairo"
-   },
-   "desc": {
-    "ar": "تدريس مقررات المرحلة الجامعية والدراسات العليا ونشر البحوث في المناهج وطرق التدريس.",
-    "en": "Taught undergraduate and postgraduate courses and published research in curriculum and teaching methods."
-   }
-  },
-  {
-   "period": {
-    "ar": "٢٠٠٠ – ٢٠٠٥",
-    "en": "2000 – 2005"
-   },
-   "role": {
-    "ar": "باحث دكتوراه بجامعة مونبلييه الثالثة",
-    "en": "PhD Researcher at Montpellier III University"
-   },
-   "org": {
-    "ar": "مونبلييه، فرنسا",
-    "en": "Montpellier III, France"
-   },
-   "desc": {
-    "ar": "إنجاز بحث الدكتوراه في تعليم الجغرافيا بجامعة مونبلييه الثالثة بفرنسا.",
-    "en": "Completed doctoral research in Geography Education at Montpellier III University, France."
-   }
-  },
-  {
-   "period": {
-    "ar": "١٩٩٧ – ٢٠٠٠",
-    "en": "1997 – 2000"
-   },
-   "role": {
-    "ar": "مدرّس مساعد",
-    "en": "Assistant Lecturer"
-   },
-   "org": {
-    "ar": "قسم المناهج وطرق التدريس، كلية التربية، جامعة الأزهر",
-    "en": "Department of Curriculum & Instruction, Faculty of Education, Al-Azhar University"
-   },
-   "desc": {
-    "ar": "دعم أنشطة التدريس والبحث العلمي في مجال المناهج وطرق التدريس.",
-    "en": "Supported teaching and research activities in curriculum and teaching methods."
-   }
-  },
-  {
-   "period": {
-    "ar": "١٩٩٤ – ١٩٩٧",
-    "en": "1994 – 1997"
-   },
-   "role": {
-    "ar": "معيد",
-    "en": "Teaching Assistant"
-   },
-   "org": {
-    "ar": "قسم المناهج وطرق التدريس، كلية التربية، جامعة الأزهر",
-    "en": "Department of Curriculum & Instruction, Faculty of Education, Al-Azhar University"
-   },
-   "desc": {
-    "ar": "المشاركة في الدعم التدريسي والتطوير الأكاديمي داخل القسم.",
-    "en": "Participated in instructional support and academic development within the department."
-   }
-  },
-  {
-   "period": {
-    "ar": "١٩٩٢ – ١٩٩٤",
-    "en": "1992 – 1994"
-   },
-   "role": {
-    "ar": "مدرّس جغرافيا بالتعليم الثانوي العام",
-    "en": "Geography Teacher in General Secondary Education"
-   },
-   "org": {
-    "ar": "مصر الجديدة، القاهرة",
-    "en": "Heliopolis, Cairo"
-   },
-   "desc": {
-    "ar": "تدريس الجغرافيا بالمرحلة الثانوية واكتساب خبرة التدريس الصفي.",
-    "en": "Taught geography at the secondary education level and developed classroom teaching experience."
-   }
-  },
-  {
-   "period": {
-    "ar": "١٩٩٠ – ١٩٩٢",
-    "en": "1990 – 1992"
-   },
-   "role": {
-    "ar": "مدرّس دراسات اجتماعية بالتعليم الأساسي",
-    "en": "Social Studies Teacher in Basic Education"
-   },
-   "org": {
-    "ar": "مصر الجديدة، القاهرة",
-    "en": "Heliopolis, Cairo"
-   },
-   "desc": {
-    "ar": "تدريس الدراسات الاجتماعية بالتعليم الأساسي وبناء الخبرة التدريسية التأسيسية.",
-    "en": "Delivered social studies instruction in basic education and built foundational teaching expertise."
-   }
-  }
- ],
- "skills": [
-  {
-   "ar": "توظيف الحاسوب في التعليم والعمل الأكاديمي",
-   "en": "Computer use in education & academia"
-  },
-  {
-   "ar": "التواصل العلمي والثقافي والاجتماعي",
-   "en": "Scientific, cultural & social communication"
-  },
-  {
-   "ar": "كتابة التقارير العلمية والمقترحات البحثية",
-   "en": "Scientific report & proposal writing"
-  },
-  {
-   "ar": "القيادة والتنسيق في العمل الجماعي",
-   "en": "Leadership & coordination in teamwork"
-  },
-  {
-   "ar": "التعلّم الذاتي والتطوير المهني المستمر",
-   "en": "Self-learning & continuous professional development"
-  }
- ],
- "books": [
-  {
-   "year": 2026,
-   "featured": true,
-   "publisher": {
-    "ar": "بيداغوجيا، بيروت",
-    "en": "Pedagogy, Beirut"
-   },
-   "title": {
-    "ar": "نموذج جديد للأهداف التعليمية وانعكاساته التطبيقية على منظومة المناهج الدراسية",
-    "en": "A New Model for Educational Objectives & Its Applied Reflections on the Curriculum System"
-   },
-   "role": {
-    "ar": "تأليف منفرد",
-    "en": "Sole author"
-   }
-  },
-  {
-   "year": 2024,
-   "featured": true,
-   "publisher": {
-    "ar": "المعرفة بلا حدود، القاهرة",
-    "en": "Unlimited Knowledge, Cairo"
-   },
-   "title": {
-    "ar": "البيئة والتربية البيئية من منظور إسلامي",
-    "en": "Environment & Environmental Education from an Islamic Perspective"
-   },
-   "role": {
-    "ar": "تأليف منفرد",
-    "en": "Sole author"
-   }
-  },
-  {
-   "year": 2023,
-   "featured": false,
-   "publisher": {
-    "ar": "الدبلوم العام، جامعة الأزهر",
-    "en": "General Diploma, Al-Azhar"
-   },
-   "title": {
-    "ar": "طرق تدريس الدراسات الاجتماعية",
-    "en": "Social Studies Teaching Methods"
-   },
-   "role": {
-    "ar": "بالاشتراك مع أعضاء القسم",
-    "en": "With dept. members"
-   }
-  },
-  {
-   "year": 2016,
-   "featured": false,
-   "publisher": {
-    "ar": "الدبلوم العام، جامعة الأزهر",
-    "en": "General Diploma, Al-Azhar"
-   },
-   "title": {
-    "ar": "التدريس المصغّر",
-    "en": "Microteaching"
-   },
-   "role": {
-    "ar": "بالاشتراك مع أعضاء القسم",
-    "en": "With dept. members"
-   }
-  },
-  {
-   "year": 2015,
-   "featured": true,
-   "publisher": {
-    "ar": "دار المسيرة، الأردن",
-    "en": "Dar Al-Masirah, Jordan"
-   },
-   "title": {
-    "ar": "الاتجاهات الحديثة في تدريس الجغرافيا",
-    "en": "Modern Trends in Teaching Geography"
-   },
-   "role": {
-    "ar": "تأليف منفرد",
-    "en": "Sole author"
-   }
-  },
-  {
-   "year": 2015,
-   "featured": false,
-   "publisher": {
-    "ar": "ضمن «الاتجاهات الحديثة في تدريس الجغرافيا»، دار المسيرة، الأردن",
-    "en": "Within “Modern Trends in Teaching Geography”, Dar Al-Masirah, Jordan"
-   },
-   "title": {
-    "ar": "التجارب العالمية المعاصرة في إعداد المعلم (التجربة الفرنسية)",
-    "en": "Contemporary Global Experiences in Teacher Preparation (The French Experience)"
-   },
-   "role": {
-    "ar": "فصل مؤلَّف",
-    "en": "Authored chapter"
-   }
-  },
-  {
-   "year": 2015,
-   "featured": false,
-   "publisher": {
-    "ar": "جامعة الأزهر",
-    "en": "Al-Azhar University"
-   },
-   "title": {
-    "ar": "التربية البيئية (الفرقة الأولى، الخدمة الاجتماعية)",
-    "en": "Environmental Education (first-year Social Work)"
-   },
-   "role": {
-    "ar": "تأليف منفرد",
-    "en": "Sole author"
-   }
-  },
-  {
-   "year": 2014,
-   "featured": false,
-   "publisher": {
-    "ar": "جامعة الأزهر",
-    "en": "Al-Azhar University"
-   },
-   "title": {
-    "ar": "طرق تدريس الجغرافيا من منظور معاصر",
-    "en": "Geography Teaching Methods from a Contemporary Perspective"
-   },
-   "role": {
-    "ar": "تأليف منفرد",
-    "en": "Sole author"
-   }
-  },
-  {
-   "year": 2012,
-   "featured": false,
-   "publisher": {
-    "ar": "المكتب الجامعي الحديث، الإسكندرية",
-    "en": "Modern University Office, Alexandria"
-   },
-   "title": {
-    "ar": "التربية البيئية من منظور إسلامي",
-    "en": "Environmental Education from an Islamic Perspective"
-   },
-   "role": {
-    "ar": "تأليف منفرد",
-    "en": "Sole author"
-   }
-  },
-  {
-   "year": 2010,
-   "featured": false,
-   "publisher": {
-    "ar": "جامعة الأزهر",
-    "en": "Al-Azhar University"
-   },
-   "title": {
-    "ar": "طرق تدريس علم النفس (الفرقة الرابعة، علم النفس)",
-    "en": "Psychology Teaching Methods (4th-year Psychology)"
-   },
-   "role": {
-    "ar": "تأليف منفرد",
-    "en": "Sole author"
-   }
-  },
-  {
-   "year": 2009,
-   "featured": false,
-   "publisher": {
-    "ar": "منشور إلكترونيًّا",
-    "en": "Published online"
-   },
-   "title": {
-    "ar": "برنامج حاسوبي لتدريب المعلمين على اجتياز اختبارات الكادر",
-    "en": "Computer Program for Training Teachers to Pass Cadre Tests"
-   },
-   "role": {
-    "ar": "تأليف منفرد",
-    "en": "Sole author"
-   }
-  },
-  {
-   "year": 2008,
-   "featured": false,
-   "publisher": {
-    "ar": "جامعة الأزهر",
-    "en": "Al-Azhar University"
-   },
-   "title": {
-    "ar": "طرق تدريس الحاسب الآلي",
-    "en": "Computer Teaching Methods"
-   },
-   "role": {
-    "ar": "بالاشتراك مع أعضاء القسم",
-    "en": "With dept. members"
-   }
-  },
-  {
-   "year": 2006,
-   "featured": false,
-   "publisher": {
-    "ar": "جامعة الأزهر",
-    "en": "Al-Azhar University"
-   },
-   "title": {
-    "ar": "طرق تدريس الجغرافيا",
-    "en": "Geography Teaching Methods"
-   },
-   "role": {
-    "ar": "بالاشتراك مع أعضاء القسم",
-    "en": "With dept. members"
-   }
-  },
-  {
-   "year": 2006,
-   "featured": false,
-   "publisher": {
-    "ar": "جامعة الأزهر",
-    "en": "Al-Azhar University"
-   },
-   "title": {
-    "ar": "الحاسوب في التعليم — تطبيقات تربوية",
-    "en": "The Computer in Education — Educational Applications"
-   },
-   "role": {
-    "ar": "بالاشتراك مع أعضاء القسم",
-    "en": "With dept. members"
-   }
-  }
- ],
- "publications": [
-  {
-   "year": 2017,
-   "title": {
-    "ar": "استراتيجية الفصل المقلوب وتنمية مهارات التدريس وتوكيد الذات المهني لدى الطلاب المعلمين: دراسة تجريبية",
-    "en": "The Flipped Classroom Strategy and the Development of Teaching Skills and Professional Self-Assertion among Student Teachers: An Experimental Study"
-   },
-   "venue": {
-    "ar": "مجلة التربية، كلية التربية، جامعة الأزهر، العدد ١٧٦",
-    "en": "Journal of Education, Faculty of Education, Al-Azhar — Issue 176"
-   }
-  },
-  {
-   "year": 2017,
-   "title": {
-    "ar": "فاعلية التدريس القائم على المشروعات البحثية وحلقات النقاش في تنمية مهارات البحث العلمي والتفكير المنظومي لدى الطلاب المعلمين بالأزهر",
-    "en": "Effectiveness of Teaching Based on Research Projects and Discussion Seminars in Developing Scientific Research Skills and Systemic Thinking among Student Teachers at Al-Azhar"
-   },
-   "venue": {
-    "ar": "مجلة الجمعية التربوية للدراسات الاجتماعية، عين شمس، العدد ٩٢",
-    "en": "Journal of the Educational Association for Social Studies, Ain Shams — Issue 92"
-   }
-  },
-  {
-   "year": 2015,
-   "title": {
-    "ar": "برنامج تدريبي مقترح لتنمية مهارات التدريس الإبداعي لدى معلمي الدراسات الاجتماعية وأثره في التفكير الإبداعي والمهارات الحياتية لتلاميذهم",
-    "en": "A Proposed Training Program to Develop Creative Teaching Skills among Social Studies Teachers and Its Effect on Creative Thinking and Life Skills of Their Elementary Pupils"
-   },
-   "venue": {
-    "ar": "مجلة علوم الرياضة، جامعة طرابلس، ليبيا، العدد ٢٣",
-    "en": "Journal of Sport Sciences, University of Tripoli, Libya — Issue 23"
-   }
-  },
-  {
-   "year": 2015,
-   "title": {
-    "ar": "فاعلية برنامج تدريبي مقترح قائم على التدريس المصغّر في تنمية مهارات التدريس التأملي لدى الطلاب المعلمين بكليات التربية",
-    "en": "Effectiveness of a Proposed Microteaching-Based Training Program in Developing Reflective Teaching Skills among Student Teachers in Faculties of Education"
-   },
-   "venue": {
-    "ar": "مجلة الدراسات العربية في التربية وعلم النفس، رابطة التربويين العرب، العدد ١٨٦",
-    "en": "Journal of Arab Studies in Education & Psychology, Arab Educators Association — Issue 186"
-   }
-  },
-  {
-   "year": 2014,
-   "title": {
-    "ar": "برنامج تدريبي مقترح لتنمية مهارات البحث الإجرائي التشاركي والاتجاه نحو المهنة لدى معلمي الدراسات الاجتماعية: دراسة تجريبية",
-    "en": "A Proposed Training Program for Developing Participatory Action-Research Skills and Attitude toward the Profession among Social Studies Teachers: An Experimental Study"
-   },
-   "venue": {
-    "ar": "مجلة قطاع الدراسات التربوية، جامعة الأزهر، العدد ٤",
-    "en": "Journal of the Educational Studies Sector, Al-Azhar University — Issue 4"
-   }
-  },
-  {
-   "year": 2012,
-   "title": {
-    "ar": "برنامج تدريبي مقترح لتنمية مهارات ملف الإنجاز الإلكتروني لدى معلمي الدراسات الاجتماعية وأثره في التفكير التأملي والاتجاه نحو المهنة",
-    "en": "A Proposed Training Program to Develop E-Portfolio Skills for Social Studies Teachers and Its Effect on Reflective Thinking and Attitude toward the Profession"
-   },
-   "venue": {
-    "ar": "المجلة العلمية لبحوث التربية الرياضية، جامعة طرابلس، ليبيا، العدد ١٧",
-    "en": "Scientific Journal of Physical Education Research, University of Tripoli, Libya — Issue 17"
-   }
-  },
-  {
-   "year": 2011,
-   "title": {
-    "ar": "فاعلية التدريس القائم على الذكاءات المتعددة في تنمية مستويات التحصيل العليا والاتجاه نحو الدراسات الاجتماعية لدى تلاميذ المرحلة الابتدائية بالأزهر",
-    "en": "Effectiveness of Multiple-Intelligences-Based Teaching in Developing Higher Achievement Levels and Attitude toward Social Studies among Al-Azhar Elementary Pupils"
-   },
-   "venue": {
-    "ar": "مجلة التربية، جامعة الأزهر، العدد ١٤٦ (الجزء الثالث)",
-    "en": "Journal of Education, Al-Azhar — Issue 146 (Part 3)"
-   }
-  },
-  {
-   "year": 2010,
-   "title": {
-    "ar": "فاعلية وحدة تعليمية مقترحة لتنمية الوعي بمعايير الخرائط الإلكترونية ومهاراتها التطبيقية لدى الطلاب المعلمين بالأزهر",
-    "en": "Effectiveness of a Proposed Educational Unit for Developing Awareness of Electronic-Map Standards and Their Applied Skills among Student Teachers at Al-Azhar"
-   },
-   "venue": {
-    "ar": "مجلة التربية، جامعة الأزهر، العدد ١٤٤ (الجزء الثالث)",
-    "en": "Journal of Education, Al-Azhar — Issue 144 (Part 3)"
-   }
-  },
-  {
-   "year": 2009,
-   "title": {
-    "ar": "فاعلية خرائط المفاهيم والطريقة الاستقرائية في تنمية التحصيل المعرفي للمفاهيم الجغرافية والاتجاه نحو التعلّم لدى تلاميذ الصف الأول الإعدادي",
-    "en": "Effectiveness of Concept Maps and the Inductive Method in Developing Cognitive Achievement of Geographic Concepts and Attitude toward Learning among First-Year Preparatory Pupils"
-   },
-   "venue": {
-    "ar": "مجلة كلية التربية، جامعة الأزهر، العدد ١٤٣ (الجزء الثالث)",
-    "en": "Journal of the Faculty of Education, Al-Azhar — Issue 143 (Part 3)"
-   }
-  }
- ],
- "theses": [
-  {
-   "n": 1,
-   "category": "supervised",
-   "degree": "PhD",
-   "year": 2013,
-   "researcher": {
-    "ar": "سامح جمعة",
-    "en": "Sameh Gomaa"
-   },
-   "title": {
-    "ar": "فاعلية أنماط متنوعة من التعلّم/التدريس بمساعدة الحاسوب في تنمية كفايات القراءة الناقدة لدى طلاب شعبة اللغة الفرنسية بكليات التربية بالأزهر",
-    "en": "Effectiveness of diverse computer-assisted learning/teaching modes in developing critical-reading competencies of French-section students in Al-Azhar faculties of education"
-   }
-  },
-  {
-   "n": 2,
-   "category": "supervised",
-   "degree": "MA",
-   "year": 2013,
-   "researcher": {
-    "ar": "سامي عبداللطيف",
-    "en": "Sami Abdellatif"
-   },
-   "title": {
-    "ar": "أثر تنويع نمط الإرشاد في البرمجيات التعليمية على تنمية مهارات استخدام المستحدثات التكنولوجية لدى معلمي التربية الخاصة",
-    "en": "Effect of guidance-pattern variation in instructional software on developing technological-innovation-use skills among special-education teachers"
-   }
-  },
-  {
-   "n": 3,
-   "category": "supervised",
-   "degree": "MA",
-   "year": 2015,
-   "researcher": {
-    "ar": "حامد مصطفى",
-    "en": "Hamed Mostafa"
-   },
-   "title": {
-    "ar": "برنامج تعليمي قائم على «جوجل إيرث» في الجغرافيا لتنمية التفكير الجغرافي والاتجاه لدى تلاميذ الصف الثاني الإعدادي",
-    "en": "A Google Earth-based instructional program in geography to develop geographic thinking and attitude among 2nd-prep students"
-   }
-  },
-  {
-   "n": 4,
-   "category": "supervised",
-   "degree": "MA",
-   "year": 2016,
-   "researcher": {
-    "ar": "محمود كامل",
-    "en": "Mahmoud Kamel"
-   },
-   "title": {
-    "ar": "فاعلية كتاب إلكتروني متعدد الوسائط في تنمية مهارات تصميم وإنتاج المكتبات الإلكترونية لدى طلاب المكتبات والمعلومات وتكنولوجيا التعليم",
-    "en": "Effectiveness of a multimedia e-book in developing e-library design & production skills among library/info & ed-tech students"
-   }
-  },
-  {
-   "n": 5,
-   "category": "supervised",
-   "degree": "MA",
-   "year": 2016,
-   "researcher": {
-    "ar": "أبو زيد السباعي",
-    "en": "Abu Zeid El-Sebaei"
-   },
-   "title": {
-    "ar": "فاعلية الرحلات الميدانية في تنمية الذكاء الطبيعي لدى طلاب شعبة الجغرافيا",
-    "en": "Effectiveness of field trips in developing naturalistic intelligence among geography-section students"
-   }
-  },
-  {
-   "n": 6,
-   "category": "supervised",
-   "degree": "MA",
-   "year": 2017,
-   "researcher": {
-    "ar": "محمود فرغلي",
-    "en": "Mahmoud Farghaly"
-   },
-   "title": {
-    "ar": "فاعلية استراتيجية الاستقصاء الإلكتروني في تنمية التحصيل وحل المشكلات في الدراسات الاجتماعية لدى تلاميذ الحلقة الثانية من التعليم الأساسي",
-    "en": "Effectiveness of a web-inquiry strategy in developing achievement and problem-solving in social studies among 2nd-cycle basic-education pupils"
-   }
-  },
-  {
-   "n": 7,
-   "category": "supervised",
-   "degree": "MA",
-   "year": 2017,
-   "researcher": {
-    "ar": "أحمد مختار",
-    "en": "Ahmed Mokhtar"
-   },
-   "title": {
-    "ar": "فاعلية برنامج قائم على المشروعات في تنمية مهارات المساحة ورسم الخرائط لدى طلاب شعبة الجغرافيا",
-    "en": "Effectiveness of a project-based program in developing surveying & mapping skills among geography-section students"
-   }
-  },
-  {
-   "n": 8,
-   "category": "supervised",
-   "degree": "PhD",
-   "year": 2018,
-   "researcher": {
-    "ar": "محمد فرج",
-    "en": "Mohamed Farag"
-   },
-   "title": {
-    "ar": "فاعلية برنامج إلكتروني مقترح للخرائط الرقمية قائم على صور الأقمار الصناعية والصور الجوية لتنمية المهارات الجغرافية والوعي التكنولوجي",
-    "en": "Effectiveness of a proposed digital-maps e-program based on satellite imagery/aerial photos to develop geographic skills & tech awareness"
-   }
-  },
-  {
-   "n": 9,
-   "category": "supervised",
-   "degree": "MA",
-   "year": 2018,
-   "researcher": {
-    "ar": "محمد علي",
-    "en": "Mohamed Aly"
-   },
-   "title": {
-    "ar": "فاعلية استراتيجية السقالات التعليمية في تنمية التحصيل وحل المشكلات البيئية في الدراسات الاجتماعية لدى تلاميذ الصف الأول الإعدادي",
-    "en": "Effectiveness of an instructional-scaffolding strategy in developing achievement & environmental problem-solving in social studies among 1st-prep pupils"
-   }
-  },
-  {
-   "n": 10,
-   "category": "supervised",
-   "degree": "PhD",
-   "year": 2019,
-   "researcher": {
-    "ar": "سعد الزفتاوي",
-    "en": "Saad El-Zeftawy"
-   },
-   "title": {
-    "ar": "فاعلية برنامج تعلّم مدمج في تنمية الوعي بالتنمية المستدامة والمهارات الحياتية في الجغرافيا لدى طلاب المرحلة الثانوية",
-    "en": "Effectiveness of a blended-learning program in developing sustainable-development awareness & life skills in geography among secondary students"
-   }
-  },
-  {
-   "n": 11,
-   "category": "supervised",
-   "degree": "MA",
-   "year": 2020,
-   "researcher": {
-    "ar": "سعيد عادل",
-    "en": "Saeed Adel"
-   },
-   "title": {
-    "ar": "فاعلية الأنشطة الإثرائية في تنمية المهارات الجغرافية لدى تلاميذ المرحلة الابتدائية",
-    "en": "Effectiveness of enrichment activities in developing geographic skills among primary pupils"
-   }
-  },
-  {
-   "n": 12,
-   "category": "supervised",
-   "degree": "PhD",
-   "year": 2021,
-   "researcher": {
-    "ar": "محمود فرغلي",
-    "en": "Mahmoud Farghaly"
-   },
-   "title": {
-    "ar": "برنامج قائم على البحث الإجرائي أثناء التربية الميدانية لتنمية المهارات الجغرافية وتقدير الذات لدى الطلاب المعلمين",
-    "en": "A program based on action research during field training to develop geographic skills & self-esteem among student teachers"
-   }
-  },
-  {
-   "n": 13,
-   "category": "supervised",
-   "degree": "PhD",
-   "year": 2021,
-   "researcher": {
-    "ar": "محمد علي",
-    "en": "Mohamed Aly"
-   },
-   "title": {
-    "ar": "برنامج قائم على التدريس المصغّر لتنمية المهارات الإلكترونية والمواطنة الرقمية لدى الطلاب المعلمين",
-    "en": "A microteaching-based program to develop e-skills & digital citizenship among student teachers"
-   }
-  },
-  {
-   "n": 14,
-   "category": "supervised",
-   "degree": "PhD",
-   "year": 2021,
-   "researcher": {
-    "ar": "متولي شعبان",
-    "en": "Metwally Shaaban"
-   },
-   "title": {
-    "ar": "فاعلية برنامج تعلّم تكيُّفي في تنمية المهارات الجغرافية والتفكير البصري لدى التلاميذ ضعاف السمع بالمرحلة الابتدائية",
-    "en": "Effectiveness of an adaptive-learning program in developing geographic skills & visual thinking among hearing-impaired primary pupils"
-   }
-  },
-  {
-   "n": 15,
-   "category": "supervised",
-   "degree": "PhD",
-   "year": 2022,
-   "researcher": {
-    "ar": "محمد السيد عبدالغني",
-    "en": "Mohamed El-Sayed Abdel-Ghani"
-   },
-   "title": {
-    "ar": "فاعلية برنامج تدريس إبداعي باستخدام تطبيقات الحوسبة السحابية في تنمية مهارات تدريس اللغة الفرنسية لدى الطلاب المعلمين بالقرن الحادي والعشرين",
-    "en": "Effectiveness of a creative-teaching program using cloud-computing applications in developing French-teaching skills among 21st-century student teachers"
-   }
-  },
-  {
-   "n": 16,
-   "category": "supervised",
-   "degree": "PhD",
-   "year": 2022,
-   "researcher": {
-    "ar": "محمود مصطفى",
-    "en": "Mahmoud Mostafa"
-   },
-   "title": {
-    "ar": "فاعلية برنامج إلكتروني قائم على أبعاد التربية الجغرافية لتنمية الوعي بقضايا المياه والتفكير المستقبلي لدى طلاب المرحلة الثانوية",
-    "en": "Effectiveness of an e-program based on geographic-education dimensions to develop water-issues awareness & future thinking among secondary students"
-   }
-  },
-  {
-   "n": 17,
-   "category": "supervised",
-   "degree": "PhD",
-   "year": 2022,
-   "researcher": {
-    "ar": "ضياء عبدالرحمن",
-    "en": "Diaa Abdel-Rahman"
-   },
-   "title": {
-    "ar": "برنامج مقترح لتنمية مهارات البحث التاريخي والتفكير الناقد لدى طلاب شعبة التاريخ",
-    "en": "A proposed program to develop historical-research skills & critical thinking among history-section students"
-   }
-  },
-  {
-   "n": 18,
-   "category": "supervised",
-   "degree": "PhD",
-   "year": 2022,
-   "researcher": {
-    "ar": "أحمد مختار",
-    "en": "Ahmed Mokhtar"
-   },
-   "title": {
-    "ar": "فاعلية برنامج قائم على خرائط المعرفة المكانية في تنمية المفاهيم الجغرافية والتفكير المكاني لدى طلاب شعبة الجغرافيا",
-    "en": "Effectiveness of a spatial-knowledge-maps program in developing geographic concepts & spatial thinking among geography-section students"
-   }
-  },
-  {
-   "n": 19,
-   "category": "supervised",
-   "degree": "PhD",
-   "year": 2022,
-   "researcher": {
-    "ar": "محمد شريف",
-    "en": "Mohamed Sherif"
-   },
-   "title": {
-    "ar": "فاعلية استراتيجيات التفكير التباعدي عبر بيئة إلكترونية تشاركية في تنمية كفايات الكتابة الإبداعية لدى طلاب شعبة اللغة الفرنسية",
-    "en": "Effectiveness of divergent-thinking strategies via a collaborative e-environment on developing creative-writing competencies of French-section students"
-   }
-  },
-  {
-   "n": 20,
-   "category": "supervised",
-   "degree": "PhD",
-   "year": 2022,
-   "researcher": {
-    "ar": "محمد حسني",
-    "en": "Mohamed Hosni"
-   },
-   "title": {
-    "ar": "فاعلية برنامج تعلّم مدمج في تنمية الثقافة الجغرافية والوعي البيئي لدى طلاب الدعوة الإسلامية",
-    "en": "Effectiveness of a blended-learning program in developing geographic culture & environmental awareness among Islamic-Dawah students"
-   }
-  },
-  {
-   "n": 21,
-   "category": "supervised",
-   "degree": "PhD",
-   "year": 2022,
-   "researcher": {
-    "ar": "أحمد أبو الفضل",
-    "en": "Ahmed Abul-Fadl"
-   },
-   "title": {
-    "ar": "فاعلية تطوير برنامج إعداد معلم الجغرافيا في ضوء المعايير القومية",
-    "en": "Effectiveness of developing a geography-teacher-preparation program in light of national standards"
-   }
-  },
-  {
-   "n": 22,
-   "category": "supervised",
-   "degree": "PhD",
-   "year": 2025,
-   "researcher": {
-    "ar": "سحر علي",
-    "en": "Sahar Aly"
-   },
-   "title": {
-    "ar": "تطوير مناهج الجغرافيا في ضوء الثورة الصناعية الرابعة وأثره في مهارات التعلّم الريادي لدى طالبات الصف الأول الثانوي (كفر الشيخ)",
-    "en": "Developing geography curricula in light of the Fourth Industrial Revolution and its effect on entrepreneurial-learning skills among 1st-secondary students (Kafr El-Sheikh)"
-   }
-  },
-  {
-   "n": 23,
-   "category": "examined",
-   "degree": "MA",
-   "year": 2015,
-   "researcher": {
-    "ar": "سعد الزفتاوي",
-    "en": "Saad El-Zeftawy"
-   },
-   "title": {
-    "ar": "برنامج حاسوبي في الدراسات الاجتماعية لتنمية الحس المكاني والاتجاه لدى تلاميذ الصف الرابع الابتدائي الأزهري",
-    "en": "A computer program in social studies to develop spatial sense & attitude among 4th-primary Azhari pupils"
-   }
-  },
-  {
-   "n": 24,
-   "category": "examined",
-   "degree": "MA",
-   "year": 2016,
-   "researcher": {
-    "ar": "خالد علي",
-    "en": "Khaled Aly"
-   },
-   "title": {
-    "ar": "فاعلية الخرائط الذهنية في تنمية المفاهيم الجغرافية لدى تلاميذ المرحلة الإعدادية الأزهرية",
-    "en": "Effectiveness of mind maps in developing geographic concepts among Azhari preparatory pupils"
-   }
-  },
-  {
-   "n": 25,
-   "category": "examined",
-   "degree": "MA",
-   "year": 2016,
-   "researcher": {
-    "ar": "جاد الله حامد",
-    "en": "Gadallah Hamed"
-   },
-   "title": {
-    "ar": "أثر التفاعل بين نمط الإرشاد والأسلوب المعرفي في معمل افتراضي على مهارات إنتاج السيرجراف لدى طلاب تكنولوجيا التعليم",
-    "en": "Effect of interaction between guidance pattern & cognitive style in a virtual lab on serigraphy production skills among ed-tech students"
-   }
-  },
-  {
-   "n": 26,
-   "category": "examined",
-   "degree": "MA",
-   "year": 2017,
-   "researcher": {
-    "ar": "متولي شعبان",
-    "en": "Metwally Shaaban"
-   },
-   "title": {
-    "ar": "فاعلية استراتيجية التغيُّر المفهومي في تصحيح التصورات الخطأ للمفاهيم الجغرافية لدى تلاميذ المرحلة الإعدادية الأزهرية",
-    "en": "Effectiveness of a conceptual-change strategy in correcting misconceptions of geographic concepts among Azhari preparatory pupils"
-   }
-  },
-  {
-   "n": 27,
-   "category": "examined",
-   "degree": "MA",
-   "year": 2017,
-   "researcher": {
-    "ar": "محمد حسني",
-    "en": "Mohamed Hosni"
-   },
-   "title": {
-    "ar": "فاعلية نموذج أبعاد التعلّم لمارزانو في تنمية عادات العقل المنتجة لدى تلاميذ الصف الثالث الإعدادي الأزهري",
-    "en": "Effectiveness of Marzano's Dimensions of Learning model in developing productive habits of mind among 3rd-prep Azhari pupils"
-   }
-  },
-  {
-   "n": 28,
-   "category": "examined",
-   "degree": "MA",
-   "year": 2018,
-   "researcher": {
-    "ar": "أحمد أبو الفضل",
-    "en": "Ahmed Abul-Fadl"
-   },
-   "title": {
-    "ar": "فاعلية برمجية للخرائط الذهنية في تنمية المفاهيم الجغرافية والتفكير البصري لدى تلاميذ الحلقة الثانية من التعليم الأساسي",
-    "en": "Effectiveness of a mind-maps software in developing geographic concepts & visual thinking among 2nd-cycle basic-ed pupils"
-   }
-  },
-  {
-   "n": 29,
-   "category": "examined",
-   "degree": "MA",
-   "year": 2018,
-   "researcher": {
-    "ar": "محمود مصطفى",
-    "en": "Mahmoud Mostafa"
-   },
-   "title": {
-    "ar": "فاعلية المدونات التعليمية في تحصيل المفاهيم المورفولوجية والاتجاه لدى طلاب شعبة الجغرافيا",
-    "en": "Effectiveness of educational blogs in achieving morphological concepts & attitude among geography-section students"
-   }
-  },
-  {
-   "n": 30,
-   "category": "examined",
-   "degree": "PhD",
-   "year": 2018,
-   "researcher": {
-    "ar": "هشام حسين",
-    "en": "Hesham Hussein"
-   },
-   "title": {
-    "ar": "فاعلية نموذج البناء-التكامل في تنمية الفهم الشفهي والكتابي لدى طلاب شعبة اللغة الفرنسية",
-    "en": "Effectiveness of the construction-integration model in developing oral/written comprehension among French-section students"
-   }
-  },
-  {
-   "n": 31,
-   "category": "examined",
-   "degree": "MA",
-   "year": 2019,
-   "researcher": {
-    "ar": "حسن محمد",
-    "en": "Hassan Mohamed"
-   },
-   "title": {
-    "ar": "فاعلية وحدة مقترحة قائمة على التدريس الاستراتيجي في تنمية كفايات الفهم الشفهي لدى متعلمي شعبة اللغة الفرنسية",
-    "en": "Effectiveness of a proposed unit based on strategic teaching on developing oral-comprehension competencies among French-section learners"
-   }
-  },
-  {
-   "n": 32,
-   "category": "examined",
-   "degree": "PhD",
-   "year": 2019,
-   "researcher": {
-    "ar": "صلاح الزغيبي",
-    "en": "Salah El-Zaghibi"
-   },
-   "title": {
-    "ar": "فاعلية التقنيات الجغرافية في تنمية مهارات قراءة الخريطة واستخدامها لدى طلاب الصف الأول المتوسط بالمدينة المنورة",
-    "en": "Effectiveness of geographic techniques in developing map reading/use skills among 1st-intermediate students, Madinah"
-   }
-  },
-  {
-   "n": 33,
-   "category": "examined",
-   "degree": "PhD",
-   "year": 2019,
-   "researcher": {
-    "ar": "باسم الملاح",
-    "en": "Basem El-Mallah"
-   },
-   "title": {
-    "ar": "برنامج إثرائي مقترح في الجغرافيا للثانوية الأزهرية في ضوء التحديات المعاصرة (دمياط)",
-    "en": "A proposed enrichment program in geography for Azhari secondary in light of contemporary challenges (Damietta)"
-   }
-  },
-  {
-   "n": 34,
-   "category": "examined",
-   "degree": "PhD",
-   "year": 2019,
-   "researcher": {
-    "ar": "حامد مصطفى",
-    "en": "Hamed Mostafa"
-   },
-   "title": {
-    "ar": "فاعلية برنامج تدريبي قائم على «جوجل إيرث» في الجغرافيا (التفكير الجغرافي والاتجاه)، الصف الثاني الإعدادي",
-    "en": "Effectiveness of a Google Earth-based training program in geography (geographic thinking & attitude), 2nd-prep"
-   }
-  },
-  {
-   "n": 35,
-   "category": "examined",
-   "degree": "MA",
-   "year": 2019,
-   "researcher": {
-    "ar": "محمود عبدالعاطي",
-    "en": "Mahmoud Abdel-Aaty"
-   },
-   "title": {
-    "ar": "فاعلية التدريس المتمايز في تنمية التحصيل والقيم الاجتماعية في الدراسات الاجتماعية لدى تلاميذ الإعدادي الأزهري ذوي صعوبات التعلّم",
-    "en": "Effectiveness of differentiated instruction in developing achievement & social values in social studies among learning-disabled Azhari prep pupils"
-   }
-  },
-  {
-   "n": 36,
-   "category": "examined",
-   "degree": "MA",
-   "year": 2020,
-   "researcher": {
-    "ar": "السيد الهاشمي",
-    "en": "El-Sayed El-Hashemy"
-   },
-   "title": {
-    "ar": "استخدام مدخل السيرة في تدريس التاريخ لتنمية القيم الاجتماعية واتخاذ القرار لدى تلاميذ المرحلة الإعدادية (طنطا)",
-    "en": "Using the biography approach in teaching history to develop social values & decision-making among preparatory pupils (Tanta)"
-   }
-  },
-  {
-   "n": 37,
-   "category": "examined",
-   "degree": "MA",
-   "year": 2021,
-   "researcher": {
-    "ar": "محمد بكري",
-    "en": "Mohamed Bakry"
-   },
-   "title": {
-    "ar": "تطوير مناهج الجغرافيا في ضوء الذكاءات المتعددة وأثره في التفكير التاريخي وقيم التسامح لدى تلاميذ المرحلة الإعدادية (الزقازيق)",
-    "en": "Developing geography curricula in light of multiple intelligences and its effect on historical thinking & tolerance values among preparatory pupils (Zagazig)"
-   }
-  },
-  {
-   "n": 38,
-   "category": "examined",
-   "degree": "PhD",
-   "year": 2021,
-   "researcher": {
-    "ar": "سمير زكري",
-    "en": "Samir Zekry"
-   },
-   "title": {
-    "ar": "أثر تطوير منهج التاريخ لطلاب الثانوية الأزهرية الدولية في تنمية قيم التعايش",
-    "en": "Effect of developing the history curriculum for international Azhari secondary students on developing coexistence values"
-   }
-  },
-  {
-   "n": 39,
-   "category": "examined",
-   "degree": "PhD",
-   "year": 2021,
-   "researcher": {
-    "ar": "عبدالحميد الشبراوي",
-    "en": "Abdel-Hamid El-Shabrawy"
-   },
-   "title": {
-    "ar": "تطوير منهج التاريخ في ضوء مجالات التنوع الثقافي وأثره في قيم التواصل الحضاري لدى طلاب الصف الثاني الثانوي",
-    "en": "Developing the history curriculum in light of cultural-diversity domains and its effect on civilizational-communication values among 2nd-secondary students"
-   }
-  },
-  {
-   "n": 40,
-   "category": "examined",
-   "degree": "PhD",
-   "year": 2021,
-   "researcher": {
-    "ar": "محمد البيومي",
-    "en": "Mohamed El-Bayoumy"
-   },
-   "title": {
-    "ar": "فاعلية برنامج إنفوجرافيك عبر تطبيقات الويب التشاركية لتنمية الوعي بالبيئات المصرية والإدراك البصري المكاني لدى تلاميذ المرحلة الإعدادية",
-    "en": "Effectiveness of an infographic program via collaborative web apps to develop awareness of Egyptian environments & spatial visual perception among preparatory pupils"
-   }
-  },
-  {
-   "n": 41,
-   "category": "examined",
-   "degree": "PhD",
-   "year": 2021,
-   "researcher": {
-    "ar": "أمير عبدالرحيم",
-    "en": "Amir Abdel-Rahim"
-   },
-   "title": {
-    "ar": "تصور مقترح لمنهج الدراسات الاجتماعية للصفوف الأولى من الابتدائي وأثره في قيم المواطنة وأبعاد الأمن الفكري",
-    "en": "A proposed conception for the lower-primary social studies curriculum and its effect on citizenship values & intellectual-security dimensions"
-   }
-  },
-  {
-   "n": 42,
-   "category": "examined",
-   "degree": "MA",
-   "year": 2021,
-   "researcher": {
-    "ar": "أسماء محيي الدين",
-    "en": "Asmaa Mohieddin"
-   },
-   "title": {
-    "ar": "فاعلية كتاب إلكتروني في تنمية مهارات استخدام الخريطة لدى تلاميذ المرحلة الإعدادية في الجغرافيا (عين شمس)",
-    "en": "Effectiveness of an e-book in developing map-use skills among preparatory pupils in geography (Ain Shams)"
-   }
-  },
-  {
-   "n": 43,
-   "category": "examined",
-   "degree": "MA",
-   "year": 2022,
-   "researcher": {
-    "ar": "عبدالله الديجاوي",
-    "en": "Abdullah El-Deijawy"
-   },
-   "title": {
-    "ar": "فاعلية التعلّم المتمركز حول المهام في التاريخ في تنمية مهارات التفكير التباعدي لدى تلاميذ المرحلة الإعدادية (كفر الشيخ)",
-    "en": "Effectiveness of task-centered learning in history in developing divergent-thinking skills among preparatory pupils (Kafr El-Sheikh)"
-   }
-  },
-  {
-   "n": 44,
-   "category": "examined",
-   "degree": "PhD",
-   "year": 2022,
-   "researcher": {
-    "ar": "خالد علي",
-    "en": "Khaled Aly"
-   },
-   "title": {
-    "ar": "فاعلية برنامج التعلّم بالخدمة في تنمية مستويات التحصيل العليا والوعي بالتربية المرورية لدى طلاب الصف الأول الثانوي",
-    "en": "Effectiveness of a service-learning program in developing higher achievement levels & traffic-education awareness among 1st-secondary students"
-   }
-  },
-  {
-   "n": 45,
-   "category": "examined",
-   "degree": "MA",
-   "year": 2022,
-   "researcher": {
-    "ar": "لمياء جمال",
-    "en": "Lamia Gamal"
-   },
-   "title": {
-    "ar": "تصميم مواقف تعليمية لتنمية مهارات مواجهة المخاطر البيئية من خلال الدراسات الاجتماعية لدى تلاميذ المرحلة الإعدادية (حلوان)",
-    "en": "Designing instructional situations to develop environmental-risk-coping skills through social studies among preparatory pupils (Helwan)"
-   }
-  },
-  {
-   "n": 46,
-   "category": "examined",
-   "degree": "PhD",
-   "year": 2022,
-   "researcher": {
-    "ar": "عبد ربه بسيوني",
-    "en": "Abd Rabbo Bassiouny"
-   },
-   "title": {
-    "ar": "فاعلية تطبيقات الويب ٢٫٠ في تحقيق نواتج تعلّم الدراسات الاجتماعية: دراسة تحليلية تركيبية",
-    "en": "Effectiveness of Web 2.0 applications in achieving social-studies learning outcomes: an analytic-synthetic study"
-   }
-  },
-  {
-   "n": 47,
-   "category": "examined",
-   "degree": "PhD",
-   "year": 2022,
-   "researcher": {
-    "ar": "محمد علي",
-    "en": "Mohamed Aly"
-   },
-   "title": {
-    "ar": "فاعلية برنامج تدريبي مدمج في تنمية الكفايات التقنية والمهارات الجغرافية المرتبطة بها لدى معلمي الدراسات الاجتماعية",
-    "en": "Effectiveness of a blended-training program in developing technical competencies & related geographic skills among social studies teachers"
-   }
-  },
-  {
-   "n": 48,
-   "category": "examined",
-   "degree": "PhD",
-   "year": 2023,
-   "researcher": {
-    "ar": "هبة شمس الدين",
-    "en": "Heba Shams El-Din"
-   },
-   "title": {
-    "ar": "تصميم بيئة تعلّم إلكترونية تشاركية لتنمية التفكير الإبداعي والثقافة الرقمية في التاريخ لدى طلاب المرحلة الثانوية (طنطا)",
-    "en": "Designing a collaborative e-learning environment to develop creative thinking & digital culture in history among secondary students (Tanta)"
-   }
-  },
-  {
-   "n": 49,
-   "category": "examined",
-   "degree": "PhD",
-   "year": 2023,
-   "researcher": {
-    "ar": "أحمد السيد",
-    "en": "Ahmed El-Sayed"
-   },
-   "title": {
-    "ar": "تطوير منهج الدراسات الاجتماعية باستخدام نموذج المنهج المكعّب المدعوم بالاكتشافات الأثرية الحديثة لتنمية التفكير التاريخي والوعي الأثري لدى تلاميذ الصف الأول الإعدادي",
-    "en": "Developing the social studies curriculum using a cubic-curriculum model supported by modern archaeological discoveries to develop historical thinking & archaeological awareness among 1st-prep pupils"
-   }
-  },
-  {
-   "n": 50,
-   "category": "examined",
-   "degree": "MA",
-   "year": 2023,
-   "researcher": {
-    "ar": "فارس وشاح",
-    "en": "Fares Wishah"
-   },
-   "title": {
-    "ar": "فاعلية برنامج في التاريخ قائم على الويب كويست لتنمية أبعاد الانتماء الوطني وقيم التسامح لدى طلاب المرحلة المتوسطة بالعراق (المنصورة)",
-    "en": "Effectiveness of a WebQuest-based history program to develop national-belonging dimensions & tolerance values among intermediate students in Iraq (Mansoura)"
-   }
-  },
-  {
-   "n": 51,
-   "category": "examined",
-   "degree": "MA",
-   "year": 2023,
-   "researcher": {
-    "ar": "آية جمال",
-    "en": "Aya Gamal"
-   },
-   "title": {
-    "ar": "فاعلية استراتيجية توماس وروبنسون في تنمية مهارات التفكير التأملي وخفض الحمل المعرفي لدى تلاميذ الصف الرابع الابتدائي (الزقازيق)",
-    "en": "Effectiveness of the Thomas & Robinson strategy in developing probing-thinking skills & reducing cognitive load among 4th-primary pupils (Zagazig)"
-   }
-  },
-  {
-   "n": 52,
-   "category": "examined",
-   "degree": "PhD",
-   "year": 2023,
-   "researcher": {
-    "ar": "أميرة أبو ترك",
-    "en": "Amira Abu Tark"
-   },
-   "title": {
-    "ar": "تطوير منهج الدراسات الاجتماعية باستخدام المدخل البصري المكاني لتنمية مهارات القرن الحادي والعشرين لدى التلاميذ ضعاف السمع بالإعدادي المهني (المنوفية)",
-    "en": "Developing the social studies curriculum using the spatial-visual approach to develop 21st-century skills among hearing-impaired vocational-prep pupils (Menoufia)"
-   }
-  },
-  {
-   "n": 53,
-   "category": "examined",
-   "degree": "PhD",
-   "year": 2024,
-   "researcher": {
-    "ar": "سعيد عادل",
-    "en": "Saeed Adel"
-   },
-   "title": {
-    "ar": "فاعلية التدريس القائم على الجولات الافتراضية في تنمية التحصيل ومهارات البحث الجغرافي لدى طلاب الثانوية الأزهرية الدولية",
-    "en": "Effectiveness of virtual-tour-based teaching in developing achievement & geographic-research skills among international Azhari secondary students"
-   }
-  },
-  {
-   "n": 54,
-   "category": "examined",
-   "degree": "PhD",
-   "year": 2024,
-   "researcher": {
-    "ar": "دعاء يوسف",
-    "en": "Doaa Youssef"
-   },
-   "title": {
-    "ar": "دمج محطات التعلّم الافتراضية وميكانيكا الألعاب الرقمية في تنمية التفكير الإيجابي والثقافة الرقمية في التاريخ لدى طلاب المرحلة الثانوية",
-    "en": "Integrating virtual learning stations & digital game mechanics in developing positive thinking & digital culture in history among secondary students"
-   }
-  },
-  {
-   "n": 55,
-   "category": "examined",
-   "degree": "MA",
-   "year": 2024,
-   "researcher": {
-    "ar": "إبراهيم أبو المجد",
-    "en": "Ibrahim Abul-Magd"
-   },
-   "title": {
-    "ar": "فاعلية وحدة تعليمية مطوّرة لتنمية الثقافة الجغرافية لدى طلاب معاهد القراءات الأزهرية",
-    "en": "Effectiveness of a developed instructional unit to develop geographic culture among Azhari recitation-institute students"
-   }
-  },
-  {
-   "n": 56,
-   "category": "ongoing",
-   "degree": "PhD",
-   "year": 2024,
-   "researcher": {
-    "ar": "محمد عبدالباسط",
-    "en": "Mohamed Abdel-Basset"
-   },
-   "title": {
-    "ar": "فاعلية استراتيجية التعلّم التحويلي في تنمية مستويات التحصيل العليا والذكاء الوجداني في علم النفس لدى طلاب المرحلة الثانوية (مسجَّلة ٢٠٢٤)",
-    "en": "Effectiveness of a transformative-learning strategy in developing higher achievement levels & emotional intelligence in psychology among secondary students (registered 2024)"
-   }
-  },
-  {
-   "n": 57,
-   "category": "ongoing",
-   "degree": "PhD",
-   "year": 2024,
-   "researcher": {
-    "ar": "معتصم حداد",
-    "en": "Moutasem Haddad"
-   },
-   "title": {
-    "ar": "فاعلية بيئة تدريب قائمة على الذكاء الاصطناعي بأنماط تغذية راجعة عبر وكيل متحرك في تنمية مهارات إدارة قواعد البيانات وأخلاقيات الرقمنة لدى العاملين بوزارة الإسكان المصرية (مسجَّلة ٢٠٢٤)",
-    "en": "Effectiveness of an AI-based training environment with feedback patterns via an animated agent in developing database-management skills & digital ethics among Egyptian Housing Ministry staff (registered 2024)"
-   }
-  }
- ],
- "activities": [
-  {
-   "group": {
-    "ar": "التدريب وضمان الجودة",
-    "en": "Training & Quality Assurance"
-   },
-   "items": [
+  "credibility": [
     {
-     "ar": "مدرّب ببرنامج إعداد المراجعين الخارجيين لمؤسسات التعليم الجامعي وقبل الجامعي — الهيئة القومية لضمان جودة التعليم (٢٠٠٨–٢٠٢٣).",
-     "en": "Trainer, External Reviewers Preparation Program for higher-ed & pre-university institutions — NAQAAE (2008–2023)."
+      "ar": "جامعة الأزهر",
+      "en": "Al-Azhar University"
     },
     {
-     "ar": "رئيس فريق اعتماد ومراجع خارجي لمؤسسات التعليم قبل الجامعي — الهيئة القومية لضمان الجودة (٢٠٠٨–٢٠٠٩).",
-     "en": "Accreditation team leader & external reviewer for pre-university institutions — NAQAAE (2008–2009)."
+      "ar": "جامعة مونبلييه الثالثة",
+      "en": "Université Montpellier III"
     },
     {
-     "ar": "مدرّب ببرنامج تنمية قدرات أعضاء هيئة التدريس (ومنها دورات الترقي للأستاذية) — مركز ضمان الجودة بجامعة الأزهر (٢٠١٤–٢٠٢٤).",
-     "en": "Trainer, Faculty Capacity Development Program (incl. promotion-to-professor courses) — Al-Azhar Quality Assurance Center (2014–2024)."
+      "ar": "الهيئة القومية لضمان الجودة (NAQAAE)",
+      "en": "NAQAAE"
     },
     {
-     "ar": "مدرّب بمنصة «قدرات» التابعة لليونسكو — المكتب الإقليمي للتربية في الدول العربية، بيروت (٢٠٢١–٢٠٢٢).",
-     "en": "Trainer, UNESCO “Kodrat” platform — UNESCO Regional Bureau for Education in the Arab States, Beirut (2021–2022)."
+      "ar": "اليونسكو",
+      "en": "UNESCO"
     },
     {
-     "ar": "مدرّب ببرنامج مهارات صناعة المحتوى الرقمي للخبراء والمعلمين في الدراسات الاجتماعية — المكتب الإقليمي لليونسكو، القاهرة (٢٠٢٣).",
-     "en": "Trainer, Digital-Content-Creation Skills Program for experts & teachers in social studies — UNESCO Regional Bureau, Cairo (2023)."
-    },
-    {
-     "ar": "رئيس فريق إعداد المقرر الرقمي للتعلّم الاجتماعي والعاطفي — المكتب الإقليمي لليونسكو، القاهرة (٢٠٢٤).",
-     "en": "Head, team preparing the Social-Emotional Learning digital course — UNESCO Regional Bureau, Cairo (2024)."
-    },
-    {
-     "ar": "رئيس فريق إعداد المقرر الرقمي للمواطنة العالمية الواعية — المكتب الإقليمي لليونسكو، القاهرة (٢٠٢٤).",
-     "en": "Head, team preparing the Conscious Global Citizenship digital course — UNESCO Regional Bureau, Cairo (2024)."
-    },
-    {
-     "ar": "مدرّب مساعد بمشروع البنك الدولي لتدريب المعلمين — بني سويف (١٩٩٩–٢٠٠٠).",
-     "en": "Assistant trainer, World Bank teacher-training project — Beni Suef (1999–2000)."
+      "ar": "المنظمة العربية (ألكسو)",
+      "en": "ALECSO"
     }
-   ]
-  },
-  {
-   "group": {
-    "ar": "المشروعات والدراسات الدولية",
-    "en": "International Projects & Studies"
-   },
-   "items": [
-    {
-     "ar": "عضو فريق بحثي بمشروع «الخطة الاستشرافية لتطوير وتحسين التعليم في الوطن العربي ٢٠٢٦–٢٠٣٥» — جامعة الدول العربية / ألكسو.",
-     "en": "Research-team member, “Foresight Plan for Developing & Improving Education in the Arab World 2026–2035” — Arab League / ALECSO."
-    },
-    {
-     "ar": "عضو فريق بحثي بمشروع «تطوير المحتوى الرقمي للمناهج والموارد التعليمية بالدول الأعضاء» — مكتب التربية العربي لدول الخليج (٢٠٢٤).",
-     "en": "Research-team member, “Developing Digital Content for Curricula & Educational Resources in Member States” — ABEGS (2024)."
-    },
-    {
-     "ar": "عضو فريق بحثي بدراسة «الفاقد التعليمي خلال جائحة كوفيد-١٩ بالدول العربية» — المركز الإقليمي للجودة والتميز، السعودية (٢٠٢٤)؛ ومركز الملك عبدالعزيز، السعودية (٢٠٢٣).",
-     "en": "Research-team member, “Educational Loss During COVID-19 in Arab Countries” — UNESCO Regional Center for Quality & Excellence, Saudi Arabia (2024); and King Abdulaziz Center, Saudi Arabia (2023)."
-    },
-    {
-     "ar": "مقيّم بدراسة «مراجعة نظم اعتماد المدارس بالدول العربية» — المركز الإقليمي لليونسكو، الرياض (٢٠٢١).",
-     "en": "Evaluator, “Review of School-Accreditation Systems in Arab Countries” — UNESCO Regional Center, Riyadh (2021)."
-    },
-    {
-     "ar": "مقيّم لأبحاث الترقي — جامعة طيبة، السعودية (٢٠٢٠)؛ وجائزة التميز بجامعة دمياط (٢٠٢١–٢٠٢٢).",
-     "en": "Promotion-research evaluator — Taibah University, Saudi Arabia (2020); Damietta University excellence award (2021–2022)."
-    }
-   ]
-  },
-  {
-   "group": {
-    "ar": "الاستشارات",
-    "en": "Consulting"
-   },
-   "items": [
-    {
-     "ar": "مستشار تربوي بالمركز الاستشاري لدعم وتطوير جودة التعليم، المعادي، القاهرة (٢٠٠٧–٢٠١٤).",
-     "en": "Educational consultant, Consultative Center for Supporting & Developing Education Quality, Maadi, Cairo (2007–2014)."
-    },
-    {
-     "ar": "خبير بيئي بالمخطط الاستراتيجي العام لمدينة دمياط الجديدة (٢٠٠٧).",
-     "en": "Environment expert, Strategic Master Plan for New Damietta City (2007)."
-    }
-   ]
-  },
-  {
-   "group": {
-    "ar": "المؤتمرات والندوات",
-    "en": "Conferences & Talks"
-   },
-   "items": [
-    {
-     "ar": "مقرر جلسة، المؤتمر الدولي الحادي عشر «الذكاء الاصطناعي والمنظومة التعليمية: الطموحات والمخاطر» — الأزهر، ديسمبر ٢٠٢٤.",
-     "en": "Session rapporteur, 11th International Conference “AI & the Education System: Ambitions & Risks” — Al-Azhar, Dec 2024."
-    },
-    {
-     "ar": "متحدث، المؤتمر العالمي للصحة والسكان والتنمية البشرية المستدامة (PHCD’24) — العاصمة الإدارية، مصر، أكتوبر ٢٠٢٤.",
-     "en": "Speaker, World Conference on Health, Population & Sustainable Human Development (PHCD’24) — New Administrative Capital, Egypt, Oct 2024."
-    },
-    {
-     "ar": "متحدث، الندوة الإقليمية «تقنيات التدريس الفعّال في العصر الرقمي والتطوير المهني المستدام» — يونسكو بيروت ومكتب التربية العربي، نوفمبر ٢٠٢٠.",
-     "en": "Speaker, Regional Symposium “Effective Teaching Techniques in the Digital Age & Sustainable Professional Development” — UNESCO Beirut + ABEGS, Nov 2020."
-    },
-    {
-     "ar": "مقرر جلسة، المؤتمر الدولي «الشراكة المجتمعية وتطوير التعليم» — الأزهر، أغسطس ٢٠٢٠.",
-     "en": "Session rapporteur, International Conference “Community Partnership & Education Development” — Al-Azhar, Aug 2020."
-    },
-    {
-     "ar": "مشارك، المنتدى الإقليمي حول تربية المواطنة والقيم الإنسانية المشتركة — يونسكو بيروت ومركز الملك عبدالعزيز، الرياض، يناير ٢٠٢٠.",
-     "en": "Participant, Regional Forum on Citizenship Education & Shared Human Values — UNESCO Beirut + King Abdulaziz Center, Riyadh, Jan 2020."
-    },
-    {
-     "ar": "مشارك، المنتدى الإقليمي لدمج القيم الإنسانية المشتركة في برامج إعداد المعلم — يونسكو بيروت، عُمان، أكتوبر ٢٠١٨.",
-     "en": "Participant, Regional Forum on Integrating Shared Human Values in Teacher-Preparation Programs — UNESCO Beirut, Oman, Oct 2018."
-    },
-    {
-     "ar": "اجتماع إقليمي حول البرنامج العالمي للعمل من أجل التنمية المستدامة — يونسكو بيروت، القاهرة، مايو ٢٠١٦.",
-     "en": "Regional meeting on the Global Action Programme for Sustainable Development — UNESCO Beirut, Cairo, May 2016."
-    },
-    {
-     "ar": "المؤتمر السنوي الأول للمعلمين لتطوير التعليم في الوطن العربي — يونسكو بيروت وجامعة الدول العربية ومعهد الشرق الأوسط بالجامعة الأمريكية، يناير ٢٠١٦.",
-     "en": "1st Annual Teachers Conference for Education Development in the Arab World — UNESCO Beirut + Arab League + AUC Middle East Institute, Jan 2016."
-    },
-    {
-     "ar": "مقال: «المواطنة العالمية الواعية: خارطة طريق نحو المستقبل» — مجلة الأزهر، مايو ٢٠٢٣.",
-     "en": "Article: “Conscious Global Citizenship: A Roadmap to the Future” — Al-Azhar Magazine, May 2023."
-    }
-   ]
-  },
-  {
-   "group": {
-    "ar": "تطوير المناهج",
-    "en": "Curriculum Development"
-   },
-   "items": [
-    {
-     "ar": "مشارك في تأليف مناهج الجغرافيا (الأول/الثاني/الثالث الثانوي) للطلاب الدوليين — معاهد البحوث بالأزهر (٢٠١٩–٢٠٢٢).",
-     "en": "Co-author, geography curricula (1st/2nd/3rd secondary) for international students — Al-Azhar research institutes (2019–2022)."
-    },
-    {
-     "ar": "عضو لجنة إعداد وثيقة المعايير الأكاديمية ومصفوفات المناهج للطلاب الدوليين (الدراسات الاجتماعية) — الأزهر، أكتوبر ٢٠١٨.",
-     "en": "Member, committee drafting academic-standards document & curriculum matrices for international students (social studies) — Al-Azhar, Oct 2018."
-    }
-   ]
-  }
- ],
- "teaching": {
-  "undergraduate": [
-   {
-    "ar": "طرق تدريس الجغرافيا (الفرقة الرابعة)",
-    "en": "Geography Teaching Methods (4th yr)"
-   },
-   {
-    "ar": "طرق تدريس الدراسات الاجتماعية (الفرقة الثالثة)",
-    "en": "Social Studies Teaching Methods (3rd yr)"
-   },
-   {
-    "ar": "طرق تدريس الحاسب الآلي (الفرقة الرابعة)",
-    "en": "Computer Teaching Methods (4th yr)"
-   },
-   {
-    "ar": "أسس تصميم المنهج وتنظيمه (الفرقة الثالثة)",
-    "en": "Foundations of Curriculum Design & Organization (3rd yr)"
-   },
-   {
-    "ar": "الحاسوب في التعليم / التطبيقات التربوية (الفرقة الثالثة)",
-    "en": "The Computer in Education / Educational Applications (3rd yr)"
-   },
-   {
-    "ar": "الوسائل التعليمية ومعينات التدريس (الفرقة الثالثة)",
-    "en": "Educational Tools & Teaching Aids (3rd yr)"
-   },
-   {
-    "ar": "مدخل إلى العلوم التربوية (الفرقة الأولى)",
-    "en": "Introduction to Educational Sciences (1st yr)"
-   },
-   {
-    "ar": "التربية البيئية (الفرقة الأولى، الخدمة الاجتماعية)",
-    "en": "Environmental Education (1st yr, Social Work)"
-   }
   ],
-  "graduate": [
-   {
-    "ar": "التدريس المصغّر",
-    "en": "Microteaching"
-   },
-   {
-    "ar": "طرق تدريس الدراسات الاجتماعية (الدراسات العليا)",
-    "en": "Social Studies Teaching Methods (graduate)"
-   },
-   {
-    "ar": "المناهج (الدبلوم العام)",
-    "en": "Curriculum (General Diploma)"
-   },
-   {
-    "ar": "الوسائل التعليمية (برنامج تدريبي)",
-    "en": "Educational Tools (training program)"
-   },
-   {
-    "ar": "طرق التدريس ١–٢ (الدبلوم العام)",
-    "en": "Teaching Methods 1–2 (General Diploma)"
-   },
-   {
-    "ar": "تقويم البرامج والمقررات التعليمية (الدبلوم الخاص)",
-    "en": "Evaluating Educational Programs & Courses (Special Diploma)"
-   },
-   {
-    "ar": "الاتجاهات البحثية الحديثة في التخصص (الدكتوراه)",
-    "en": "Modern Research Trends in the Specialization (PhD)"
-   },
-   {
-    "ar": "تخطيط المناهج وتطويرها (الدبلوم الخاص)",
-    "en": "Curriculum Planning & Development (Special Diploma)"
-   }
-  ]
- },
- "memberships": {
-  "societies": [
-   {
-    "ar": "الجمعية المصرية للمناهج وطرق التدريس",
-    "en": "Egyptian Association for Curriculum & Teaching Methods"
-   },
-   {
-    "ar": "الجمعية المصرية للدراسات الاجتماعية",
-    "en": "Egyptian Association for Social Studies"
-   },
-   {
-    "ar": "هيئة الإعجاز العلمي، القاهرة",
-    "en": "Scientific Miracles Authority, Cairo"
-   }
+  "qualifications": [
+    {
+      "year": 2005,
+      "grade": {
+        "ar": "مشرّف جدًا",
+        "en": "Très Honorable"
+      },
+      "degree": {
+        "ar": "دكتوراه الفلسفة في التربية (الجغرافيا)",
+        "en": "PhD, Philosophy of Education (Geography)"
+      },
+      "institution": {
+        "ar": "جامعة مونبلييه الثالثة، فرنسا",
+        "en": "Université Montpellier III, France"
+      }
+    },
+    {
+      "year": 1997,
+      "grade": {
+        "ar": "ممتاز (مع التوصية بتبادل الرسالة)",
+        "en": "Excellent (recommended for thesis exchange)"
+      },
+      "degree": {
+        "ar": "الماجستير في التربية وعلم النفس (مناهج وطرق تدريس الجغرافيا)",
+        "en": "MA, Education & Psychology (Curriculum & Geography Teaching Methods)"
+      },
+      "institution": {
+        "ar": "جامعة الأزهر",
+        "en": "Al-Azhar University"
+      }
+    },
+    {
+      "year": 1993,
+      "grade": {
+        "ar": "جيد جدًا",
+        "en": "Very Good"
+      },
+      "degree": {
+        "ar": "الدبلوم الخاص في التربية وعلم النفس",
+        "en": "Special Diploma in Education & Psychology"
+      },
+      "institution": {
+        "ar": "جامعة عين شمس",
+        "en": "Ain Shams University"
+      }
+    },
+    {
+      "year": 1989,
+      "grade": {
+        "ar": "ممتاز (الأول على الدفعة)",
+        "en": "Excellent (first in class)"
+      },
+      "degree": {
+        "ar": "ليسانس الآداب والتربية (الجغرافيا)",
+        "en": "BA, Arts & Education (Geography)"
+      },
+      "institution": {
+        "ar": "جامعة الأزهر",
+        "en": "Al-Azhar University"
+      }
+    }
   ],
-  "boards": [
-   {
-    "ar": "مجلة التربية، جامعة دمياط",
-    "en": "Journal of Education, Damietta University"
-   },
-   {
-    "ar": "مجلة جامعة أم القرى للعلوم التربوية والنفسية",
-    "en": "Umm Al-Qura University Journal for Educational & Psychological Sciences"
-   },
-   {
-    "ar": "مجلة التربية، جامعة الأزهر (القاهرة)",
-    "en": "Journal of Education, Al-Azhar (Cairo)"
-   },
-   {
-    "ar": "مجلة التربية، جامعة الأزهر (الدقهلية)",
-    "en": "Journal of Education, Al-Azhar (Daqahlia)"
-   },
-   {
-    "ar": "مجلة الدراسات الاجتماعية، عين شمس",
-    "en": "Journal of Social Studies, Ain Shams"
-   },
-   {
-    "ar": "مجلة البحث العلمي في التربية، كلية البنات، عين شمس",
-    "en": "Journal of Scientific Research in Education, Girls College Ain Shams"
-   },
-   {
-    "ar": "مجلة المناهج المعاصرة وتكنولوجيا التعليم، طنطا",
-    "en": "Journal of Contemporary Curricula & Education Technology, Tanta"
-   }
-  ]
- }
+  "career": [
+    {
+      "period": {
+        "ar": "يوليو ٢٠١٨ – حتى الآن",
+        "en": "Jul 2018 – present"
+      },
+      "role": {
+        "ar": "أستاذ المناهج وطرق التدريس",
+        "en": "Professor of Curriculum & Instruction"
+      },
+      "org": {
+        "ar": "كلية التربية، جامعة الأزهر، القاهرة",
+        "en": "Faculty of Education, Al-Azhar University, Cairo"
+      },
+      "desc": {
+        "ar": "قيادة التدريس والبحث العلمي والإشراف على الدراسات العليا وتطوير المناهج والمشاركة في المشروعات التعليمية الدولية.",
+        "en": "Leading teaching, research, postgraduate supervision, curriculum development, and international educational projects."
+      }
+    },
+    {
+      "period": {
+        "ar": "٢٠١٣ – ٢٠١٨",
+        "en": "2013 – 2018"
+      },
+      "role": {
+        "ar": "أستاذ مساعد للمناهج وطرق التدريس",
+        "en": "Associate Professor of Curriculum & Instruction"
+      },
+      "org": {
+        "ar": "كلية التربية، جامعة الأزهر، القاهرة",
+        "en": "Faculty of Education, Al-Azhar University, Cairo"
+      },
+      "desc": {
+        "ar": "إجراء البحوث العلمية والإشراف على طلاب الدراسات العليا والإسهام في تطوير المناهج وبرامج إعداد المعلم.",
+        "en": "Conducted research, supervised graduate students, and contributed to curriculum innovation and teacher preparation programs."
+      }
+    },
+    {
+      "period": {
+        "ar": "٢٠٠٥ – ٢٠١٣",
+        "en": "2005 – 2013"
+      },
+      "role": {
+        "ar": "مدرّس المناهج وطرق التدريس",
+        "en": "Lecturer (Mudarris) in Curriculum & Instruction"
+      },
+      "org": {
+        "ar": "كلية التربية، جامعة الأزهر، القاهرة",
+        "en": "Faculty of Education, Al-Azhar University, Cairo"
+      },
+      "desc": {
+        "ar": "تدريس مقررات المرحلة الجامعية والدراسات العليا ونشر البحوث في المناهج وطرق التدريس.",
+        "en": "Taught undergraduate and postgraduate courses and published research in curriculum and teaching methods."
+      }
+    },
+    {
+      "period": {
+        "ar": "٢٠٠٠ – ٢٠٠٥",
+        "en": "2000 – 2005"
+      },
+      "role": {
+        "ar": "باحث دكتوراه بجامعة مونبلييه الثالثة",
+        "en": "PhD Researcher at Montpellier III University"
+      },
+      "org": {
+        "ar": "مونبلييه، فرنسا",
+        "en": "Montpellier III, France"
+      },
+      "desc": {
+        "ar": "إنجاز بحث الدكتوراه في تعليم الجغرافيا بجامعة مونبلييه الثالثة بفرنسا.",
+        "en": "Completed doctoral research in Geography Education at Montpellier III University, France."
+      }
+    },
+    {
+      "period": {
+        "ar": "١٩٩٧ – ٢٠٠٠",
+        "en": "1997 – 2000"
+      },
+      "role": {
+        "ar": "مدرّس مساعد",
+        "en": "Assistant Lecturer"
+      },
+      "org": {
+        "ar": "قسم المناهج وطرق التدريس، كلية التربية، جامعة الأزهر",
+        "en": "Department of Curriculum & Instruction, Faculty of Education, Al-Azhar University"
+      },
+      "desc": {
+        "ar": "دعم أنشطة التدريس والبحث العلمي في مجال المناهج وطرق التدريس.",
+        "en": "Supported teaching and research activities in curriculum and teaching methods."
+      }
+    },
+    {
+      "period": {
+        "ar": "١٩٩٤ – ١٩٩٧",
+        "en": "1994 – 1997"
+      },
+      "role": {
+        "ar": "معيد",
+        "en": "Teaching Assistant"
+      },
+      "org": {
+        "ar": "قسم المناهج وطرق التدريس، كلية التربية، جامعة الأزهر",
+        "en": "Department of Curriculum & Instruction, Faculty of Education, Al-Azhar University"
+      },
+      "desc": {
+        "ar": "المشاركة في الدعم التدريسي والتطوير الأكاديمي داخل القسم.",
+        "en": "Participated in instructional support and academic development within the department."
+      }
+    },
+    {
+      "period": {
+        "ar": "١٩٩٢ – ١٩٩٤",
+        "en": "1992 – 1994"
+      },
+      "role": {
+        "ar": "مدرّس جغرافيا بالتعليم الثانوي العام",
+        "en": "Geography Teacher in General Secondary Education"
+      },
+      "org": {
+        "ar": "مصر الجديدة، القاهرة",
+        "en": "Heliopolis, Cairo"
+      },
+      "desc": {
+        "ar": "تدريس الجغرافيا بالمرحلة الثانوية واكتساب خبرة التدريس الصفي.",
+        "en": "Taught geography at the secondary education level and developed classroom teaching experience."
+      }
+    },
+    {
+      "period": {
+        "ar": "١٩٩٠ – ١٩٩٢",
+        "en": "1990 – 1992"
+      },
+      "role": {
+        "ar": "مدرّس دراسات اجتماعية بالتعليم الأساسي",
+        "en": "Social Studies Teacher in Basic Education"
+      },
+      "org": {
+        "ar": "مصر الجديدة، القاهرة",
+        "en": "Heliopolis, Cairo"
+      },
+      "desc": {
+        "ar": "تدريس الدراسات الاجتماعية بالتعليم الأساسي وبناء الخبرة التدريسية التأسيسية.",
+        "en": "Delivered social studies instruction in basic education and built foundational teaching expertise."
+      }
+    }
+  ],
+  "skills": [
+    {
+      "ar": "توظيف الحاسوب في التعليم والعمل الأكاديمي",
+      "en": "Computer use in education & academia"
+    },
+    {
+      "ar": "التواصل العلمي والثقافي والاجتماعي",
+      "en": "Scientific, cultural & social communication"
+    },
+    {
+      "ar": "كتابة التقارير العلمية والمقترحات البحثية",
+      "en": "Scientific report & proposal writing"
+    },
+    {
+      "ar": "القيادة والتنسيق في العمل الجماعي",
+      "en": "Leadership & coordination in teamwork"
+    },
+    {
+      "ar": "التعلّم الذاتي والتطوير المهني المستمر",
+      "en": "Self-learning & continuous professional development"
+    }
+  ],
+  "books": [
+    {
+      "year": 2026,
+      "featured": true,
+      "publisher": {
+        "ar": "بيداغوجيا، بيروت",
+        "en": "Pedagogy, Beirut"
+      },
+      "title": {
+        "ar": "نموذج جديد للأهداف التعليمية وانعكاساته التطبيقية على منظومة المناهج الدراسية",
+        "en": "A New Model for Educational Objectives & Its Applied Reflections on the Curriculum System"
+      },
+      "role": {
+        "ar": "تأليف منفرد",
+        "en": "Sole author"
+      }
+    },
+    {
+      "year": 2024,
+      "featured": true,
+      "publisher": {
+        "ar": "المعرفة بلا حدود، القاهرة",
+        "en": "Unlimited Knowledge, Cairo"
+      },
+      "title": {
+        "ar": "البيئة والتربية البيئية من منظور إسلامي",
+        "en": "Environment & Environmental Education from an Islamic Perspective"
+      },
+      "role": {
+        "ar": "تأليف منفرد",
+        "en": "Sole author"
+      }
+    },
+    {
+      "year": 2023,
+      "featured": false,
+      "publisher": {
+        "ar": "الدبلوم العام، جامعة الأزهر",
+        "en": "General Diploma, Al-Azhar"
+      },
+      "title": {
+        "ar": "طرق تدريس الدراسات الاجتماعية",
+        "en": "Social Studies Teaching Methods"
+      },
+      "role": {
+        "ar": "بالاشتراك مع أعضاء القسم",
+        "en": "With dept. members"
+      }
+    },
+    {
+      "year": 2016,
+      "featured": false,
+      "publisher": {
+        "ar": "الدبلوم العام، جامعة الأزهر",
+        "en": "General Diploma, Al-Azhar"
+      },
+      "title": {
+        "ar": "التدريس المصغّر",
+        "en": "Microteaching"
+      },
+      "role": {
+        "ar": "بالاشتراك مع أعضاء القسم",
+        "en": "With dept. members"
+      }
+    },
+    {
+      "year": 2015,
+      "featured": true,
+      "publisher": {
+        "ar": "دار المسيرة، الأردن",
+        "en": "Dar Al-Masirah, Jordan"
+      },
+      "title": {
+        "ar": "الاتجاهات الحديثة في تدريس الجغرافيا",
+        "en": "Modern Trends in Teaching Geography"
+      },
+      "role": {
+        "ar": "تأليف منفرد",
+        "en": "Sole author"
+      }
+    },
+    {
+      "year": 2015,
+      "featured": false,
+      "publisher": {
+        "ar": "ضمن «الاتجاهات الحديثة في تدريس الجغرافيا»، دار المسيرة، الأردن",
+        "en": "Within “Modern Trends in Teaching Geography”, Dar Al-Masirah, Jordan"
+      },
+      "title": {
+        "ar": "التجارب العالمية المعاصرة في إعداد المعلم (التجربة الفرنسية)",
+        "en": "Contemporary Global Experiences in Teacher Preparation (The French Experience)"
+      },
+      "role": {
+        "ar": "فصل مؤلَّف",
+        "en": "Authored chapter"
+      }
+    },
+    {
+      "year": 2015,
+      "featured": false,
+      "publisher": {
+        "ar": "جامعة الأزهر",
+        "en": "Al-Azhar University"
+      },
+      "title": {
+        "ar": "التربية البيئية (الفرقة الأولى، الخدمة الاجتماعية)",
+        "en": "Environmental Education (first-year Social Work)"
+      },
+      "role": {
+        "ar": "تأليف منفرد",
+        "en": "Sole author"
+      }
+    },
+    {
+      "year": 2014,
+      "featured": false,
+      "publisher": {
+        "ar": "جامعة الأزهر",
+        "en": "Al-Azhar University"
+      },
+      "title": {
+        "ar": "طرق تدريس الجغرافيا من منظور معاصر",
+        "en": "Geography Teaching Methods from a Contemporary Perspective"
+      },
+      "role": {
+        "ar": "تأليف منفرد",
+        "en": "Sole author"
+      }
+    },
+    {
+      "year": 2012,
+      "featured": false,
+      "publisher": {
+        "ar": "المكتب الجامعي الحديث، الإسكندرية",
+        "en": "Modern University Office, Alexandria"
+      },
+      "title": {
+        "ar": "التربية البيئية من منظور إسلامي",
+        "en": "Environmental Education from an Islamic Perspective"
+      },
+      "role": {
+        "ar": "تأليف منفرد",
+        "en": "Sole author"
+      }
+    },
+    {
+      "year": 2010,
+      "featured": false,
+      "publisher": {
+        "ar": "جامعة الأزهر",
+        "en": "Al-Azhar University"
+      },
+      "title": {
+        "ar": "طرق تدريس علم النفس (الفرقة الرابعة، علم النفس)",
+        "en": "Psychology Teaching Methods (4th-year Psychology)"
+      },
+      "role": {
+        "ar": "تأليف منفرد",
+        "en": "Sole author"
+      }
+    },
+    {
+      "year": 2009,
+      "featured": false,
+      "publisher": {
+        "ar": "منشور إلكترونيًّا",
+        "en": "Published online"
+      },
+      "title": {
+        "ar": "برنامج حاسوبي لتدريب المعلمين على اجتياز اختبارات الكادر",
+        "en": "Computer Program for Training Teachers to Pass Cadre Tests"
+      },
+      "role": {
+        "ar": "تأليف منفرد",
+        "en": "Sole author"
+      }
+    },
+    {
+      "year": 2008,
+      "featured": false,
+      "publisher": {
+        "ar": "جامعة الأزهر",
+        "en": "Al-Azhar University"
+      },
+      "title": {
+        "ar": "طرق تدريس الحاسب الآلي",
+        "en": "Computer Teaching Methods"
+      },
+      "role": {
+        "ar": "بالاشتراك مع أعضاء القسم",
+        "en": "With dept. members"
+      }
+    },
+    {
+      "year": 2006,
+      "featured": false,
+      "publisher": {
+        "ar": "جامعة الأزهر",
+        "en": "Al-Azhar University"
+      },
+      "title": {
+        "ar": "طرق تدريس الجغرافيا",
+        "en": "Geography Teaching Methods"
+      },
+      "role": {
+        "ar": "بالاشتراك مع أعضاء القسم",
+        "en": "With dept. members"
+      }
+    },
+    {
+      "year": 2006,
+      "featured": false,
+      "publisher": {
+        "ar": "جامعة الأزهر",
+        "en": "Al-Azhar University"
+      },
+      "title": {
+        "ar": "الحاسوب في التعليم — تطبيقات تربوية",
+        "en": "The Computer in Education — Educational Applications"
+      },
+      "role": {
+        "ar": "بالاشتراك مع أعضاء القسم",
+        "en": "With dept. members"
+      }
+    }
+  ],
+  "publications": [
+    {
+      "year": 2017,
+      "title": {
+        "ar": "استراتيجية الفصل المقلوب وتنمية مهارات التدريس وتوكيد الذات المهني لدى الطلاب المعلمين: دراسة تجريبية",
+        "en": "The Flipped Classroom Strategy and the Development of Teaching Skills and Professional Self-Assertion among Student Teachers: An Experimental Study"
+      },
+      "venue": {
+        "ar": "مجلة التربية، كلية التربية، جامعة الأزهر، العدد ١٧٦",
+        "en": "Journal of Education, Faculty of Education, Al-Azhar — Issue 176"
+      }
+    },
+    {
+      "year": 2017,
+      "title": {
+        "ar": "فاعلية التدريس القائم على المشروعات البحثية وحلقات النقاش في تنمية مهارات البحث العلمي والتفكير المنظومي لدى الطلاب المعلمين بالأزهر",
+        "en": "Effectiveness of Teaching Based on Research Projects and Discussion Seminars in Developing Scientific Research Skills and Systemic Thinking among Student Teachers at Al-Azhar"
+      },
+      "venue": {
+        "ar": "مجلة الجمعية التربوية للدراسات الاجتماعية، عين شمس، العدد ٩٢",
+        "en": "Journal of the Educational Association for Social Studies, Ain Shams — Issue 92"
+      }
+    },
+    {
+      "year": 2015,
+      "title": {
+        "ar": "برنامج تدريبي مقترح لتنمية مهارات التدريس الإبداعي لدى معلمي الدراسات الاجتماعية وأثره في التفكير الإبداعي والمهارات الحياتية لتلاميذهم",
+        "en": "A Proposed Training Program to Develop Creative Teaching Skills among Social Studies Teachers and Its Effect on Creative Thinking and Life Skills of Their Elementary Pupils"
+      },
+      "venue": {
+        "ar": "مجلة علوم الرياضة، جامعة طرابلس، ليبيا، العدد ٢٣",
+        "en": "Journal of Sport Sciences, University of Tripoli, Libya — Issue 23"
+      }
+    },
+    {
+      "year": 2015,
+      "title": {
+        "ar": "فاعلية برنامج تدريبي مقترح قائم على التدريس المصغّر في تنمية مهارات التدريس التأملي لدى الطلاب المعلمين بكليات التربية",
+        "en": "Effectiveness of a Proposed Microteaching-Based Training Program in Developing Reflective Teaching Skills among Student Teachers in Faculties of Education"
+      },
+      "venue": {
+        "ar": "مجلة الدراسات العربية في التربية وعلم النفس، رابطة التربويين العرب، العدد ١٨٦",
+        "en": "Journal of Arab Studies in Education & Psychology, Arab Educators Association — Issue 186"
+      }
+    },
+    {
+      "year": 2014,
+      "title": {
+        "ar": "برنامج تدريبي مقترح لتنمية مهارات البحث الإجرائي التشاركي والاتجاه نحو المهنة لدى معلمي الدراسات الاجتماعية: دراسة تجريبية",
+        "en": "A Proposed Training Program for Developing Participatory Action-Research Skills and Attitude toward the Profession among Social Studies Teachers: An Experimental Study"
+      },
+      "venue": {
+        "ar": "مجلة قطاع الدراسات التربوية، جامعة الأزهر، العدد ٤",
+        "en": "Journal of the Educational Studies Sector, Al-Azhar University — Issue 4"
+      }
+    },
+    {
+      "year": 2012,
+      "title": {
+        "ar": "برنامج تدريبي مقترح لتنمية مهارات ملف الإنجاز الإلكتروني لدى معلمي الدراسات الاجتماعية وأثره في التفكير التأملي والاتجاه نحو المهنة",
+        "en": "A Proposed Training Program to Develop E-Portfolio Skills for Social Studies Teachers and Its Effect on Reflective Thinking and Attitude toward the Profession"
+      },
+      "venue": {
+        "ar": "المجلة العلمية لبحوث التربية الرياضية، جامعة طرابلس، ليبيا، العدد ١٧",
+        "en": "Scientific Journal of Physical Education Research, University of Tripoli, Libya — Issue 17"
+      }
+    },
+    {
+      "year": 2011,
+      "title": {
+        "ar": "فاعلية التدريس القائم على الذكاءات المتعددة في تنمية مستويات التحصيل العليا والاتجاه نحو الدراسات الاجتماعية لدى تلاميذ المرحلة الابتدائية بالأزهر",
+        "en": "Effectiveness of Multiple-Intelligences-Based Teaching in Developing Higher Achievement Levels and Attitude toward Social Studies among Al-Azhar Elementary Pupils"
+      },
+      "venue": {
+        "ar": "مجلة التربية، جامعة الأزهر، العدد ١٤٦ (الجزء الثالث)",
+        "en": "Journal of Education, Al-Azhar — Issue 146 (Part 3)"
+      }
+    },
+    {
+      "year": 2010,
+      "title": {
+        "ar": "فاعلية وحدة تعليمية مقترحة لتنمية الوعي بمعايير الخرائط الإلكترونية ومهاراتها التطبيقية لدى الطلاب المعلمين بالأزهر",
+        "en": "Effectiveness of a Proposed Educational Unit for Developing Awareness of Electronic-Map Standards and Their Applied Skills among Student Teachers at Al-Azhar"
+      },
+      "venue": {
+        "ar": "مجلة التربية، جامعة الأزهر، العدد ١٤٤ (الجزء الثالث)",
+        "en": "Journal of Education, Al-Azhar — Issue 144 (Part 3)"
+      }
+    },
+    {
+      "year": 2009,
+      "title": {
+        "ar": "فاعلية خرائط المفاهيم والطريقة الاستقرائية في تنمية التحصيل المعرفي للمفاهيم الجغرافية والاتجاه نحو التعلّم لدى تلاميذ الصف الأول الإعدادي",
+        "en": "Effectiveness of Concept Maps and the Inductive Method in Developing Cognitive Achievement of Geographic Concepts and Attitude toward Learning among First-Year Preparatory Pupils"
+      },
+      "venue": {
+        "ar": "مجلة كلية التربية، جامعة الأزهر، العدد ١٤٣ (الجزء الثالث)",
+        "en": "Journal of the Faculty of Education, Al-Azhar — Issue 143 (Part 3)"
+      }
+    }
+  ],
+  "theses": [
+    {
+      "n": 1,
+      "category": "supervised",
+      "degree": "PhD",
+      "year": 2013,
+      "researcher": {
+        "ar": "سامح جمعة",
+        "en": "Sameh Gomaa"
+      },
+      "title": {
+        "ar": "فاعلية أنماط متنوعة من التعلّم/التدريس بمساعدة الحاسوب في تنمية كفايات القراءة الناقدة لدى طلاب شعبة اللغة الفرنسية بكليات التربية بالأزهر",
+        "en": "Effectiveness of diverse computer-assisted learning/teaching modes in developing critical-reading competencies of French-section students in Al-Azhar faculties of education"
+      }
+    },
+    {
+      "n": 2,
+      "category": "supervised",
+      "degree": "MA",
+      "year": 2013,
+      "researcher": {
+        "ar": "سامي عبداللطيف",
+        "en": "Sami Abdellatif"
+      },
+      "title": {
+        "ar": "أثر تنويع نمط الإرشاد في البرمجيات التعليمية على تنمية مهارات استخدام المستحدثات التكنولوجية لدى معلمي التربية الخاصة",
+        "en": "Effect of guidance-pattern variation in instructional software on developing technological-innovation-use skills among special-education teachers"
+      }
+    },
+    {
+      "n": 3,
+      "category": "supervised",
+      "degree": "MA",
+      "year": 2015,
+      "researcher": {
+        "ar": "حامد مصطفى",
+        "en": "Hamed Mostafa"
+      },
+      "title": {
+        "ar": "برنامج تعليمي قائم على «جوجل إيرث» في الجغرافيا لتنمية التفكير الجغرافي والاتجاه لدى تلاميذ الصف الثاني الإعدادي",
+        "en": "A Google Earth-based instructional program in geography to develop geographic thinking and attitude among 2nd-prep students"
+      }
+    },
+    {
+      "n": 4,
+      "category": "supervised",
+      "degree": "MA",
+      "year": 2016,
+      "researcher": {
+        "ar": "محمود كامل",
+        "en": "Mahmoud Kamel"
+      },
+      "title": {
+        "ar": "فاعلية كتاب إلكتروني متعدد الوسائط في تنمية مهارات تصميم وإنتاج المكتبات الإلكترونية لدى طلاب المكتبات والمعلومات وتكنولوجيا التعليم",
+        "en": "Effectiveness of a multimedia e-book in developing e-library design & production skills among library/info & ed-tech students"
+      }
+    },
+    {
+      "n": 5,
+      "category": "supervised",
+      "degree": "MA",
+      "year": 2016,
+      "researcher": {
+        "ar": "أبو زيد السباعي",
+        "en": "Abu Zeid El-Sebaei"
+      },
+      "title": {
+        "ar": "فاعلية الرحلات الميدانية في تنمية الذكاء الطبيعي لدى طلاب شعبة الجغرافيا",
+        "en": "Effectiveness of field trips in developing naturalistic intelligence among geography-section students"
+      }
+    },
+    {
+      "n": 6,
+      "category": "supervised",
+      "degree": "MA",
+      "year": 2017,
+      "researcher": {
+        "ar": "محمود فرغلي",
+        "en": "Mahmoud Farghaly"
+      },
+      "title": {
+        "ar": "فاعلية استراتيجية الاستقصاء الإلكتروني في تنمية التحصيل وحل المشكلات في الدراسات الاجتماعية لدى تلاميذ الحلقة الثانية من التعليم الأساسي",
+        "en": "Effectiveness of a web-inquiry strategy in developing achievement and problem-solving in social studies among 2nd-cycle basic-education pupils"
+      }
+    },
+    {
+      "n": 7,
+      "category": "supervised",
+      "degree": "MA",
+      "year": 2017,
+      "researcher": {
+        "ar": "أحمد مختار",
+        "en": "Ahmed Mokhtar"
+      },
+      "title": {
+        "ar": "فاعلية برنامج قائم على المشروعات في تنمية مهارات المساحة ورسم الخرائط لدى طلاب شعبة الجغرافيا",
+        "en": "Effectiveness of a project-based program in developing surveying & mapping skills among geography-section students"
+      }
+    },
+    {
+      "n": 8,
+      "category": "supervised",
+      "degree": "PhD",
+      "year": 2018,
+      "researcher": {
+        "ar": "محمد فرج",
+        "en": "Mohamed Farag"
+      },
+      "title": {
+        "ar": "فاعلية برنامج إلكتروني مقترح للخرائط الرقمية قائم على صور الأقمار الصناعية والصور الجوية لتنمية المهارات الجغرافية والوعي التكنولوجي",
+        "en": "Effectiveness of a proposed digital-maps e-program based on satellite imagery/aerial photos to develop geographic skills & tech awareness"
+      }
+    },
+    {
+      "n": 9,
+      "category": "supervised",
+      "degree": "MA",
+      "year": 2018,
+      "researcher": {
+        "ar": "محمد علي",
+        "en": "Mohamed Aly"
+      },
+      "title": {
+        "ar": "فاعلية استراتيجية السقالات التعليمية في تنمية التحصيل وحل المشكلات البيئية في الدراسات الاجتماعية لدى تلاميذ الصف الأول الإعدادي",
+        "en": "Effectiveness of an instructional-scaffolding strategy in developing achievement & environmental problem-solving in social studies among 1st-prep pupils"
+      }
+    },
+    {
+      "n": 10,
+      "category": "supervised",
+      "degree": "PhD",
+      "year": 2019,
+      "researcher": {
+        "ar": "سعد الزفتاوي",
+        "en": "Saad El-Zeftawy"
+      },
+      "title": {
+        "ar": "فاعلية برنامج تعلّم مدمج في تنمية الوعي بالتنمية المستدامة والمهارات الحياتية في الجغرافيا لدى طلاب المرحلة الثانوية",
+        "en": "Effectiveness of a blended-learning program in developing sustainable-development awareness & life skills in geography among secondary students"
+      }
+    },
+    {
+      "n": 11,
+      "category": "supervised",
+      "degree": "MA",
+      "year": 2020,
+      "researcher": {
+        "ar": "سعيد عادل",
+        "en": "Saeed Adel"
+      },
+      "title": {
+        "ar": "فاعلية الأنشطة الإثرائية في تنمية المهارات الجغرافية لدى تلاميذ المرحلة الابتدائية",
+        "en": "Effectiveness of enrichment activities in developing geographic skills among primary pupils"
+      }
+    },
+    {
+      "n": 12,
+      "category": "supervised",
+      "degree": "PhD",
+      "year": 2021,
+      "researcher": {
+        "ar": "محمود فرغلي",
+        "en": "Mahmoud Farghaly"
+      },
+      "title": {
+        "ar": "برنامج قائم على البحث الإجرائي أثناء التربية الميدانية لتنمية المهارات الجغرافية وتقدير الذات لدى الطلاب المعلمين",
+        "en": "A program based on action research during field training to develop geographic skills & self-esteem among student teachers"
+      }
+    },
+    {
+      "n": 13,
+      "category": "supervised",
+      "degree": "PhD",
+      "year": 2021,
+      "researcher": {
+        "ar": "محمد علي",
+        "en": "Mohamed Aly"
+      },
+      "title": {
+        "ar": "برنامج قائم على التدريس المصغّر لتنمية المهارات الإلكترونية والمواطنة الرقمية لدى الطلاب المعلمين",
+        "en": "A microteaching-based program to develop e-skills & digital citizenship among student teachers"
+      }
+    },
+    {
+      "n": 14,
+      "category": "supervised",
+      "degree": "PhD",
+      "year": 2021,
+      "researcher": {
+        "ar": "متولي شعبان",
+        "en": "Metwally Shaaban"
+      },
+      "title": {
+        "ar": "فاعلية برنامج تعلّم تكيُّفي في تنمية المهارات الجغرافية والتفكير البصري لدى التلاميذ ضعاف السمع بالمرحلة الابتدائية",
+        "en": "Effectiveness of an adaptive-learning program in developing geographic skills & visual thinking among hearing-impaired primary pupils"
+      }
+    },
+    {
+      "n": 15,
+      "category": "supervised",
+      "degree": "PhD",
+      "year": 2022,
+      "researcher": {
+        "ar": "محمد السيد عبدالغني",
+        "en": "Mohamed El-Sayed Abdel-Ghani"
+      },
+      "title": {
+        "ar": "فاعلية برنامج تدريس إبداعي باستخدام تطبيقات الحوسبة السحابية في تنمية مهارات تدريس اللغة الفرنسية لدى الطلاب المعلمين بالقرن الحادي والعشرين",
+        "en": "Effectiveness of a creative-teaching program using cloud-computing applications in developing French-teaching skills among 21st-century student teachers"
+      }
+    },
+    {
+      "n": 16,
+      "category": "supervised",
+      "degree": "PhD",
+      "year": 2022,
+      "researcher": {
+        "ar": "محمود مصطفى",
+        "en": "Mahmoud Mostafa"
+      },
+      "title": {
+        "ar": "فاعلية برنامج إلكتروني قائم على أبعاد التربية الجغرافية لتنمية الوعي بقضايا المياه والتفكير المستقبلي لدى طلاب المرحلة الثانوية",
+        "en": "Effectiveness of an e-program based on geographic-education dimensions to develop water-issues awareness & future thinking among secondary students"
+      }
+    },
+    {
+      "n": 17,
+      "category": "supervised",
+      "degree": "PhD",
+      "year": 2022,
+      "researcher": {
+        "ar": "ضياء عبدالرحمن",
+        "en": "Diaa Abdel-Rahman"
+      },
+      "title": {
+        "ar": "برنامج مقترح لتنمية مهارات البحث التاريخي والتفكير الناقد لدى طلاب شعبة التاريخ",
+        "en": "A proposed program to develop historical-research skills & critical thinking among history-section students"
+      }
+    },
+    {
+      "n": 18,
+      "category": "supervised",
+      "degree": "PhD",
+      "year": 2022,
+      "researcher": {
+        "ar": "أحمد مختار",
+        "en": "Ahmed Mokhtar"
+      },
+      "title": {
+        "ar": "فاعلية برنامج قائم على خرائط المعرفة المكانية في تنمية المفاهيم الجغرافية والتفكير المكاني لدى طلاب شعبة الجغرافيا",
+        "en": "Effectiveness of a spatial-knowledge-maps program in developing geographic concepts & spatial thinking among geography-section students"
+      }
+    },
+    {
+      "n": 19,
+      "category": "supervised",
+      "degree": "PhD",
+      "year": 2022,
+      "researcher": {
+        "ar": "محمد شريف",
+        "en": "Mohamed Sherif"
+      },
+      "title": {
+        "ar": "فاعلية استراتيجيات التفكير التباعدي عبر بيئة إلكترونية تشاركية في تنمية كفايات الكتابة الإبداعية لدى طلاب شعبة اللغة الفرنسية",
+        "en": "Effectiveness of divergent-thinking strategies via a collaborative e-environment on developing creative-writing competencies of French-section students"
+      }
+    },
+    {
+      "n": 20,
+      "category": "supervised",
+      "degree": "PhD",
+      "year": 2022,
+      "researcher": {
+        "ar": "محمد حسني",
+        "en": "Mohamed Hosni"
+      },
+      "title": {
+        "ar": "فاعلية برنامج تعلّم مدمج في تنمية الثقافة الجغرافية والوعي البيئي لدى طلاب الدعوة الإسلامية",
+        "en": "Effectiveness of a blended-learning program in developing geographic culture & environmental awareness among Islamic-Dawah students"
+      }
+    },
+    {
+      "n": 21,
+      "category": "supervised",
+      "degree": "PhD",
+      "year": 2022,
+      "researcher": {
+        "ar": "أحمد أبو الفضل",
+        "en": "Ahmed Abul-Fadl"
+      },
+      "title": {
+        "ar": "فاعلية تطوير برنامج إعداد معلم الجغرافيا في ضوء المعايير القومية",
+        "en": "Effectiveness of developing a geography-teacher-preparation program in light of national standards"
+      }
+    },
+    {
+      "n": 22,
+      "category": "supervised",
+      "degree": "PhD",
+      "year": 2025,
+      "researcher": {
+        "ar": "سحر علي",
+        "en": "Sahar Aly"
+      },
+      "title": {
+        "ar": "تطوير مناهج الجغرافيا في ضوء الثورة الصناعية الرابعة وأثره في مهارات التعلّم الريادي لدى طالبات الصف الأول الثانوي (كفر الشيخ)",
+        "en": "Developing geography curricula in light of the Fourth Industrial Revolution and its effect on entrepreneurial-learning skills among 1st-secondary students (Kafr El-Sheikh)"
+      }
+    },
+    {
+      "n": 23,
+      "category": "examined",
+      "degree": "MA",
+      "year": 2015,
+      "researcher": {
+        "ar": "سعد الزفتاوي",
+        "en": "Saad El-Zeftawy"
+      },
+      "title": {
+        "ar": "برنامج حاسوبي في الدراسات الاجتماعية لتنمية الحس المكاني والاتجاه لدى تلاميذ الصف الرابع الابتدائي الأزهري",
+        "en": "A computer program in social studies to develop spatial sense & attitude among 4th-primary Azhari pupils"
+      }
+    },
+    {
+      "n": 24,
+      "category": "examined",
+      "degree": "MA",
+      "year": 2016,
+      "researcher": {
+        "ar": "خالد علي",
+        "en": "Khaled Aly"
+      },
+      "title": {
+        "ar": "فاعلية الخرائط الذهنية في تنمية المفاهيم الجغرافية لدى تلاميذ المرحلة الإعدادية الأزهرية",
+        "en": "Effectiveness of mind maps in developing geographic concepts among Azhari preparatory pupils"
+      }
+    },
+    {
+      "n": 25,
+      "category": "examined",
+      "degree": "MA",
+      "year": 2016,
+      "researcher": {
+        "ar": "جاد الله حامد",
+        "en": "Gadallah Hamed"
+      },
+      "title": {
+        "ar": "أثر التفاعل بين نمط الإرشاد والأسلوب المعرفي في معمل افتراضي على مهارات إنتاج السيرجراف لدى طلاب تكنولوجيا التعليم",
+        "en": "Effect of interaction between guidance pattern & cognitive style in a virtual lab on serigraphy production skills among ed-tech students"
+      }
+    },
+    {
+      "n": 26,
+      "category": "examined",
+      "degree": "MA",
+      "year": 2017,
+      "researcher": {
+        "ar": "متولي شعبان",
+        "en": "Metwally Shaaban"
+      },
+      "title": {
+        "ar": "فاعلية استراتيجية التغيُّر المفهومي في تصحيح التصورات الخطأ للمفاهيم الجغرافية لدى تلاميذ المرحلة الإعدادية الأزهرية",
+        "en": "Effectiveness of a conceptual-change strategy in correcting misconceptions of geographic concepts among Azhari preparatory pupils"
+      }
+    },
+    {
+      "n": 27,
+      "category": "examined",
+      "degree": "MA",
+      "year": 2017,
+      "researcher": {
+        "ar": "محمد حسني",
+        "en": "Mohamed Hosni"
+      },
+      "title": {
+        "ar": "فاعلية نموذج أبعاد التعلّم لمارزانو في تنمية عادات العقل المنتجة لدى تلاميذ الصف الثالث الإعدادي الأزهري",
+        "en": "Effectiveness of Marzano's Dimensions of Learning model in developing productive habits of mind among 3rd-prep Azhari pupils"
+      }
+    },
+    {
+      "n": 28,
+      "category": "examined",
+      "degree": "MA",
+      "year": 2018,
+      "researcher": {
+        "ar": "أحمد أبو الفضل",
+        "en": "Ahmed Abul-Fadl"
+      },
+      "title": {
+        "ar": "فاعلية برمجية للخرائط الذهنية في تنمية المفاهيم الجغرافية والتفكير البصري لدى تلاميذ الحلقة الثانية من التعليم الأساسي",
+        "en": "Effectiveness of a mind-maps software in developing geographic concepts & visual thinking among 2nd-cycle basic-ed pupils"
+      }
+    },
+    {
+      "n": 29,
+      "category": "examined",
+      "degree": "MA",
+      "year": 2018,
+      "researcher": {
+        "ar": "محمود مصطفى",
+        "en": "Mahmoud Mostafa"
+      },
+      "title": {
+        "ar": "فاعلية المدونات التعليمية في تحصيل المفاهيم المورفولوجية والاتجاه لدى طلاب شعبة الجغرافيا",
+        "en": "Effectiveness of educational blogs in achieving morphological concepts & attitude among geography-section students"
+      }
+    },
+    {
+      "n": 30,
+      "category": "examined",
+      "degree": "PhD",
+      "year": 2018,
+      "researcher": {
+        "ar": "هشام حسين",
+        "en": "Hesham Hussein"
+      },
+      "title": {
+        "ar": "فاعلية نموذج البناء-التكامل في تنمية الفهم الشفهي والكتابي لدى طلاب شعبة اللغة الفرنسية",
+        "en": "Effectiveness of the construction-integration model in developing oral/written comprehension among French-section students"
+      }
+    },
+    {
+      "n": 31,
+      "category": "examined",
+      "degree": "MA",
+      "year": 2019,
+      "researcher": {
+        "ar": "حسن محمد",
+        "en": "Hassan Mohamed"
+      },
+      "title": {
+        "ar": "فاعلية وحدة مقترحة قائمة على التدريس الاستراتيجي في تنمية كفايات الفهم الشفهي لدى متعلمي شعبة اللغة الفرنسية",
+        "en": "Effectiveness of a proposed unit based on strategic teaching on developing oral-comprehension competencies among French-section learners"
+      }
+    },
+    {
+      "n": 32,
+      "category": "examined",
+      "degree": "PhD",
+      "year": 2019,
+      "researcher": {
+        "ar": "صلاح الزغيبي",
+        "en": "Salah El-Zaghibi"
+      },
+      "title": {
+        "ar": "فاعلية التقنيات الجغرافية في تنمية مهارات قراءة الخريطة واستخدامها لدى طلاب الصف الأول المتوسط بالمدينة المنورة",
+        "en": "Effectiveness of geographic techniques in developing map reading/use skills among 1st-intermediate students, Madinah"
+      }
+    },
+    {
+      "n": 33,
+      "category": "examined",
+      "degree": "PhD",
+      "year": 2019,
+      "researcher": {
+        "ar": "باسم الملاح",
+        "en": "Basem El-Mallah"
+      },
+      "title": {
+        "ar": "برنامج إثرائي مقترح في الجغرافيا للثانوية الأزهرية في ضوء التحديات المعاصرة (دمياط)",
+        "en": "A proposed enrichment program in geography for Azhari secondary in light of contemporary challenges (Damietta)"
+      }
+    },
+    {
+      "n": 34,
+      "category": "examined",
+      "degree": "PhD",
+      "year": 2019,
+      "researcher": {
+        "ar": "حامد مصطفى",
+        "en": "Hamed Mostafa"
+      },
+      "title": {
+        "ar": "فاعلية برنامج تدريبي قائم على «جوجل إيرث» في الجغرافيا (التفكير الجغرافي والاتجاه)، الصف الثاني الإعدادي",
+        "en": "Effectiveness of a Google Earth-based training program in geography (geographic thinking & attitude), 2nd-prep"
+      }
+    },
+    {
+      "n": 35,
+      "category": "examined",
+      "degree": "MA",
+      "year": 2019,
+      "researcher": {
+        "ar": "محمود عبدالعاطي",
+        "en": "Mahmoud Abdel-Aaty"
+      },
+      "title": {
+        "ar": "فاعلية التدريس المتمايز في تنمية التحصيل والقيم الاجتماعية في الدراسات الاجتماعية لدى تلاميذ الإعدادي الأزهري ذوي صعوبات التعلّم",
+        "en": "Effectiveness of differentiated instruction in developing achievement & social values in social studies among learning-disabled Azhari prep pupils"
+      }
+    },
+    {
+      "n": 36,
+      "category": "examined",
+      "degree": "MA",
+      "year": 2020,
+      "researcher": {
+        "ar": "السيد الهاشمي",
+        "en": "El-Sayed El-Hashemy"
+      },
+      "title": {
+        "ar": "استخدام مدخل السيرة في تدريس التاريخ لتنمية القيم الاجتماعية واتخاذ القرار لدى تلاميذ المرحلة الإعدادية (طنطا)",
+        "en": "Using the biography approach in teaching history to develop social values & decision-making among preparatory pupils (Tanta)"
+      }
+    },
+    {
+      "n": 37,
+      "category": "examined",
+      "degree": "MA",
+      "year": 2021,
+      "researcher": {
+        "ar": "محمد بكري",
+        "en": "Mohamed Bakry"
+      },
+      "title": {
+        "ar": "تطوير مناهج الجغرافيا في ضوء الذكاءات المتعددة وأثره في التفكير التاريخي وقيم التسامح لدى تلاميذ المرحلة الإعدادية (الزقازيق)",
+        "en": "Developing geography curricula in light of multiple intelligences and its effect on historical thinking & tolerance values among preparatory pupils (Zagazig)"
+      }
+    },
+    {
+      "n": 38,
+      "category": "examined",
+      "degree": "PhD",
+      "year": 2021,
+      "researcher": {
+        "ar": "سمير زكري",
+        "en": "Samir Zekry"
+      },
+      "title": {
+        "ar": "أثر تطوير منهج التاريخ لطلاب الثانوية الأزهرية الدولية في تنمية قيم التعايش",
+        "en": "Effect of developing the history curriculum for international Azhari secondary students on developing coexistence values"
+      }
+    },
+    {
+      "n": 39,
+      "category": "examined",
+      "degree": "PhD",
+      "year": 2021,
+      "researcher": {
+        "ar": "عبدالحميد الشبراوي",
+        "en": "Abdel-Hamid El-Shabrawy"
+      },
+      "title": {
+        "ar": "تطوير منهج التاريخ في ضوء مجالات التنوع الثقافي وأثره في قيم التواصل الحضاري لدى طلاب الصف الثاني الثانوي",
+        "en": "Developing the history curriculum in light of cultural-diversity domains and its effect on civilizational-communication values among 2nd-secondary students"
+      }
+    },
+    {
+      "n": 40,
+      "category": "examined",
+      "degree": "PhD",
+      "year": 2021,
+      "researcher": {
+        "ar": "محمد البيومي",
+        "en": "Mohamed El-Bayoumy"
+      },
+      "title": {
+        "ar": "فاعلية برنامج إنفوجرافيك عبر تطبيقات الويب التشاركية لتنمية الوعي بالبيئات المصرية والإدراك البصري المكاني لدى تلاميذ المرحلة الإعدادية",
+        "en": "Effectiveness of an infographic program via collaborative web apps to develop awareness of Egyptian environments & spatial visual perception among preparatory pupils"
+      }
+    },
+    {
+      "n": 41,
+      "category": "examined",
+      "degree": "PhD",
+      "year": 2021,
+      "researcher": {
+        "ar": "أمير عبدالرحيم",
+        "en": "Amir Abdel-Rahim"
+      },
+      "title": {
+        "ar": "تصور مقترح لمنهج الدراسات الاجتماعية للصفوف الأولى من الابتدائي وأثره في قيم المواطنة وأبعاد الأمن الفكري",
+        "en": "A proposed conception for the lower-primary social studies curriculum and its effect on citizenship values & intellectual-security dimensions"
+      }
+    },
+    {
+      "n": 42,
+      "category": "examined",
+      "degree": "MA",
+      "year": 2021,
+      "researcher": {
+        "ar": "أسماء محيي الدين",
+        "en": "Asmaa Mohieddin"
+      },
+      "title": {
+        "ar": "فاعلية كتاب إلكتروني في تنمية مهارات استخدام الخريطة لدى تلاميذ المرحلة الإعدادية في الجغرافيا (عين شمس)",
+        "en": "Effectiveness of an e-book in developing map-use skills among preparatory pupils in geography (Ain Shams)"
+      }
+    },
+    {
+      "n": 43,
+      "category": "examined",
+      "degree": "MA",
+      "year": 2022,
+      "researcher": {
+        "ar": "عبدالله الديجاوي",
+        "en": "Abdullah El-Deijawy"
+      },
+      "title": {
+        "ar": "فاعلية التعلّم المتمركز حول المهام في التاريخ في تنمية مهارات التفكير التباعدي لدى تلاميذ المرحلة الإعدادية (كفر الشيخ)",
+        "en": "Effectiveness of task-centered learning in history in developing divergent-thinking skills among preparatory pupils (Kafr El-Sheikh)"
+      }
+    },
+    {
+      "n": 44,
+      "category": "examined",
+      "degree": "PhD",
+      "year": 2022,
+      "researcher": {
+        "ar": "خالد علي",
+        "en": "Khaled Aly"
+      },
+      "title": {
+        "ar": "فاعلية برنامج التعلّم بالخدمة في تنمية مستويات التحصيل العليا والوعي بالتربية المرورية لدى طلاب الصف الأول الثانوي",
+        "en": "Effectiveness of a service-learning program in developing higher achievement levels & traffic-education awareness among 1st-secondary students"
+      }
+    },
+    {
+      "n": 45,
+      "category": "examined",
+      "degree": "MA",
+      "year": 2022,
+      "researcher": {
+        "ar": "لمياء جمال",
+        "en": "Lamia Gamal"
+      },
+      "title": {
+        "ar": "تصميم مواقف تعليمية لتنمية مهارات مواجهة المخاطر البيئية من خلال الدراسات الاجتماعية لدى تلاميذ المرحلة الإعدادية (حلوان)",
+        "en": "Designing instructional situations to develop environmental-risk-coping skills through social studies among preparatory pupils (Helwan)"
+      }
+    },
+    {
+      "n": 46,
+      "category": "examined",
+      "degree": "PhD",
+      "year": 2022,
+      "researcher": {
+        "ar": "عبد ربه بسيوني",
+        "en": "Abd Rabbo Bassiouny"
+      },
+      "title": {
+        "ar": "فاعلية تطبيقات الويب ٢٫٠ في تحقيق نواتج تعلّم الدراسات الاجتماعية: دراسة تحليلية تركيبية",
+        "en": "Effectiveness of Web 2.0 applications in achieving social-studies learning outcomes: an analytic-synthetic study"
+      }
+    },
+    {
+      "n": 47,
+      "category": "examined",
+      "degree": "PhD",
+      "year": 2022,
+      "researcher": {
+        "ar": "محمد علي",
+        "en": "Mohamed Aly"
+      },
+      "title": {
+        "ar": "فاعلية برنامج تدريبي مدمج في تنمية الكفايات التقنية والمهارات الجغرافية المرتبطة بها لدى معلمي الدراسات الاجتماعية",
+        "en": "Effectiveness of a blended-training program in developing technical competencies & related geographic skills among social studies teachers"
+      }
+    },
+    {
+      "n": 48,
+      "category": "examined",
+      "degree": "PhD",
+      "year": 2023,
+      "researcher": {
+        "ar": "هبة شمس الدين",
+        "en": "Heba Shams El-Din"
+      },
+      "title": {
+        "ar": "تصميم بيئة تعلّم إلكترونية تشاركية لتنمية التفكير الإبداعي والثقافة الرقمية في التاريخ لدى طلاب المرحلة الثانوية (طنطا)",
+        "en": "Designing a collaborative e-learning environment to develop creative thinking & digital culture in history among secondary students (Tanta)"
+      }
+    },
+    {
+      "n": 49,
+      "category": "examined",
+      "degree": "PhD",
+      "year": 2023,
+      "researcher": {
+        "ar": "أحمد السيد",
+        "en": "Ahmed El-Sayed"
+      },
+      "title": {
+        "ar": "تطوير منهج الدراسات الاجتماعية باستخدام نموذج المنهج المكعّب المدعوم بالاكتشافات الأثرية الحديثة لتنمية التفكير التاريخي والوعي الأثري لدى تلاميذ الصف الأول الإعدادي",
+        "en": "Developing the social studies curriculum using a cubic-curriculum model supported by modern archaeological discoveries to develop historical thinking & archaeological awareness among 1st-prep pupils"
+      }
+    },
+    {
+      "n": 50,
+      "category": "examined",
+      "degree": "MA",
+      "year": 2023,
+      "researcher": {
+        "ar": "فارس وشاح",
+        "en": "Fares Wishah"
+      },
+      "title": {
+        "ar": "فاعلية برنامج في التاريخ قائم على الويب كويست لتنمية أبعاد الانتماء الوطني وقيم التسامح لدى طلاب المرحلة المتوسطة بالعراق (المنصورة)",
+        "en": "Effectiveness of a WebQuest-based history program to develop national-belonging dimensions & tolerance values among intermediate students in Iraq (Mansoura)"
+      }
+    },
+    {
+      "n": 51,
+      "category": "examined",
+      "degree": "MA",
+      "year": 2023,
+      "researcher": {
+        "ar": "آية جمال",
+        "en": "Aya Gamal"
+      },
+      "title": {
+        "ar": "فاعلية استراتيجية توماس وروبنسون في تنمية مهارات التفكير التأملي وخفض الحمل المعرفي لدى تلاميذ الصف الرابع الابتدائي (الزقازيق)",
+        "en": "Effectiveness of the Thomas & Robinson strategy in developing probing-thinking skills & reducing cognitive load among 4th-primary pupils (Zagazig)"
+      }
+    },
+    {
+      "n": 52,
+      "category": "examined",
+      "degree": "PhD",
+      "year": 2023,
+      "researcher": {
+        "ar": "أميرة أبو ترك",
+        "en": "Amira Abu Tark"
+      },
+      "title": {
+        "ar": "تطوير منهج الدراسات الاجتماعية باستخدام المدخل البصري المكاني لتنمية مهارات القرن الحادي والعشرين لدى التلاميذ ضعاف السمع بالإعدادي المهني (المنوفية)",
+        "en": "Developing the social studies curriculum using the spatial-visual approach to develop 21st-century skills among hearing-impaired vocational-prep pupils (Menoufia)"
+      }
+    },
+    {
+      "n": 53,
+      "category": "examined",
+      "degree": "PhD",
+      "year": 2024,
+      "researcher": {
+        "ar": "سعيد عادل",
+        "en": "Saeed Adel"
+      },
+      "title": {
+        "ar": "فاعلية التدريس القائم على الجولات الافتراضية في تنمية التحصيل ومهارات البحث الجغرافي لدى طلاب الثانوية الأزهرية الدولية",
+        "en": "Effectiveness of virtual-tour-based teaching in developing achievement & geographic-research skills among international Azhari secondary students"
+      }
+    },
+    {
+      "n": 54,
+      "category": "examined",
+      "degree": "PhD",
+      "year": 2024,
+      "researcher": {
+        "ar": "دعاء يوسف",
+        "en": "Doaa Youssef"
+      },
+      "title": {
+        "ar": "دمج محطات التعلّم الافتراضية وميكانيكا الألعاب الرقمية في تنمية التفكير الإيجابي والثقافة الرقمية في التاريخ لدى طلاب المرحلة الثانوية",
+        "en": "Integrating virtual learning stations & digital game mechanics in developing positive thinking & digital culture in history among secondary students"
+      }
+    },
+    {
+      "n": 55,
+      "category": "examined",
+      "degree": "MA",
+      "year": 2024,
+      "researcher": {
+        "ar": "إبراهيم أبو المجد",
+        "en": "Ibrahim Abul-Magd"
+      },
+      "title": {
+        "ar": "فاعلية وحدة تعليمية مطوّرة لتنمية الثقافة الجغرافية لدى طلاب معاهد القراءات الأزهرية",
+        "en": "Effectiveness of a developed instructional unit to develop geographic culture among Azhari recitation-institute students"
+      }
+    },
+    {
+      "n": 56,
+      "category": "ongoing",
+      "degree": "PhD",
+      "year": 2024,
+      "researcher": {
+        "ar": "محمد عبدالباسط",
+        "en": "Mohamed Abdel-Basset"
+      },
+      "title": {
+        "ar": "فاعلية استراتيجية التعلّم التحويلي في تنمية مستويات التحصيل العليا والذكاء الوجداني في علم النفس لدى طلاب المرحلة الثانوية (مسجَّلة ٢٠٢٤)",
+        "en": "Effectiveness of a transformative-learning strategy in developing higher achievement levels & emotional intelligence in psychology among secondary students (registered 2024)"
+      }
+    },
+    {
+      "n": 57,
+      "category": "ongoing",
+      "degree": "PhD",
+      "year": 2024,
+      "researcher": {
+        "ar": "معتصم حداد",
+        "en": "Moutasem Haddad"
+      },
+      "title": {
+        "ar": "فاعلية بيئة تدريب قائمة على الذكاء الاصطناعي بأنماط تغذية راجعة عبر وكيل متحرك في تنمية مهارات إدارة قواعد البيانات وأخلاقيات الرقمنة لدى العاملين بوزارة الإسكان المصرية (مسجَّلة ٢٠٢٤)",
+        "en": "Effectiveness of an AI-based training environment with feedback patterns via an animated agent in developing database-management skills & digital ethics among Egyptian Housing Ministry staff (registered 2024)"
+      }
+    }
+  ],
+  "activities": [
+    {
+      "group": {
+        "ar": "التدريب وضمان الجودة",
+        "en": "Training & Quality Assurance"
+      },
+      "items": [
+        {
+          "ar": "مدرّب ببرنامج إعداد المراجعين الخارجيين لمؤسسات التعليم الجامعي وقبل الجامعي — الهيئة القومية لضمان جودة التعليم (٢٠٠٨–٢٠٢٣).",
+          "en": "Trainer, External Reviewers Preparation Program for higher-ed & pre-university institutions — NAQAAE (2008–2023)."
+        },
+        {
+          "ar": "رئيس فريق اعتماد ومراجع خارجي لمؤسسات التعليم قبل الجامعي — الهيئة القومية لضمان الجودة (٢٠٠٨–٢٠٠٩).",
+          "en": "Accreditation team leader & external reviewer for pre-university institutions — NAQAAE (2008–2009)."
+        },
+        {
+          "ar": "مدرّب ببرنامج تنمية قدرات أعضاء هيئة التدريس (ومنها دورات الترقي للأستاذية) — مركز ضمان الجودة بجامعة الأزهر (٢٠١٤–٢٠٢٤).",
+          "en": "Trainer, Faculty Capacity Development Program (incl. promotion-to-professor courses) — Al-Azhar Quality Assurance Center (2014–2024)."
+        },
+        {
+          "ar": "مدرّب بمنصة «قدرات» التابعة لليونسكو — المكتب الإقليمي للتربية في الدول العربية، بيروت (٢٠٢١–٢٠٢٢).",
+          "en": "Trainer, UNESCO “Kodrat” platform — UNESCO Regional Bureau for Education in the Arab States, Beirut (2021–2022)."
+        },
+        {
+          "ar": "مدرّب ببرنامج مهارات صناعة المحتوى الرقمي للخبراء والمعلمين في الدراسات الاجتماعية — المكتب الإقليمي لليونسكو، القاهرة (٢٠٢٣).",
+          "en": "Trainer, Digital-Content-Creation Skills Program for experts & teachers in social studies — UNESCO Regional Bureau, Cairo (2023)."
+        },
+        {
+          "ar": "رئيس فريق إعداد المقرر الرقمي للتعلّم الاجتماعي والعاطفي — المكتب الإقليمي لليونسكو، القاهرة (٢٠٢٤).",
+          "en": "Head, team preparing the Social-Emotional Learning digital course — UNESCO Regional Bureau, Cairo (2024)."
+        },
+        {
+          "ar": "رئيس فريق إعداد المقرر الرقمي للمواطنة العالمية الواعية — المكتب الإقليمي لليونسكو، القاهرة (٢٠٢٤).",
+          "en": "Head, team preparing the Conscious Global Citizenship digital course — UNESCO Regional Bureau, Cairo (2024)."
+        },
+        {
+          "ar": "مدرّب مساعد بمشروع البنك الدولي لتدريب المعلمين — بني سويف (١٩٩٩–٢٠٠٠).",
+          "en": "Assistant trainer, World Bank teacher-training project — Beni Suef (1999–2000)."
+        }
+      ]
+    },
+    {
+      "group": {
+        "ar": "المشروعات والدراسات الدولية",
+        "en": "International Projects & Studies"
+      },
+      "items": [
+        {
+          "ar": "عضو فريق بحثي بمشروع «الخطة الاستشرافية لتطوير وتحسين التعليم في الوطن العربي ٢٠٢٦–٢٠٣٥» — جامعة الدول العربية / ألكسو.",
+          "en": "Research-team member, “Foresight Plan for Developing & Improving Education in the Arab World 2026–2035” — Arab League / ALECSO."
+        },
+        {
+          "ar": "عضو فريق بحثي بمشروع «تطوير المحتوى الرقمي للمناهج والموارد التعليمية بالدول الأعضاء» — مكتب التربية العربي لدول الخليج (٢٠٢٤).",
+          "en": "Research-team member, “Developing Digital Content for Curricula & Educational Resources in Member States” — ABEGS (2024)."
+        },
+        {
+          "ar": "عضو فريق بحثي بدراسة «الفاقد التعليمي خلال جائحة كوفيد-١٩ بالدول العربية» — المركز الإقليمي للجودة والتميز، السعودية (٢٠٢٤)؛ ومركز الملك عبدالعزيز، السعودية (٢٠٢٣).",
+          "en": "Research-team member, “Educational Loss During COVID-19 in Arab Countries” — UNESCO Regional Center for Quality & Excellence, Saudi Arabia (2024); and King Abdulaziz Center, Saudi Arabia (2023)."
+        },
+        {
+          "ar": "مقيّم بدراسة «مراجعة نظم اعتماد المدارس بالدول العربية» — المركز الإقليمي لليونسكو، الرياض (٢٠٢١).",
+          "en": "Evaluator, “Review of School-Accreditation Systems in Arab Countries” — UNESCO Regional Center, Riyadh (2021)."
+        },
+        {
+          "ar": "مقيّم لأبحاث الترقي — جامعة طيبة، السعودية (٢٠٢٠)؛ وجائزة التميز بجامعة دمياط (٢٠٢١–٢٠٢٢).",
+          "en": "Promotion-research evaluator — Taibah University, Saudi Arabia (2020); Damietta University excellence award (2021–2022)."
+        }
+      ]
+    },
+    {
+      "group": {
+        "ar": "الاستشارات",
+        "en": "Consulting"
+      },
+      "items": [
+        {
+          "ar": "مستشار تربوي بالمركز الاستشاري لدعم وتطوير جودة التعليم، المعادي، القاهرة (٢٠٠٧–٢٠١٤).",
+          "en": "Educational consultant, Consultative Center for Supporting & Developing Education Quality, Maadi, Cairo (2007–2014)."
+        },
+        {
+          "ar": "خبير بيئي بالمخطط الاستراتيجي العام لمدينة دمياط الجديدة (٢٠٠٧).",
+          "en": "Environment expert, Strategic Master Plan for New Damietta City (2007)."
+        }
+      ]
+    },
+    {
+      "group": {
+        "ar": "المؤتمرات والندوات",
+        "en": "Conferences & Talks"
+      },
+      "items": [
+        {
+          "ar": "مقرر جلسة، المؤتمر الدولي الحادي عشر «الذكاء الاصطناعي والمنظومة التعليمية: الطموحات والمخاطر» — الأزهر، ديسمبر ٢٠٢٤.",
+          "en": "Session rapporteur, 11th International Conference “AI & the Education System: Ambitions & Risks” — Al-Azhar, Dec 2024."
+        },
+        {
+          "ar": "متحدث، المؤتمر العالمي للصحة والسكان والتنمية البشرية المستدامة (PHCD’24) — العاصمة الإدارية، مصر، أكتوبر ٢٠٢٤.",
+          "en": "Speaker, World Conference on Health, Population & Sustainable Human Development (PHCD’24) — New Administrative Capital, Egypt, Oct 2024."
+        },
+        {
+          "ar": "متحدث، الندوة الإقليمية «تقنيات التدريس الفعّال في العصر الرقمي والتطوير المهني المستدام» — يونسكو بيروت ومكتب التربية العربي، نوفمبر ٢٠٢٠.",
+          "en": "Speaker, Regional Symposium “Effective Teaching Techniques in the Digital Age & Sustainable Professional Development” — UNESCO Beirut + ABEGS, Nov 2020."
+        },
+        {
+          "ar": "مقرر جلسة، المؤتمر الدولي «الشراكة المجتمعية وتطوير التعليم» — الأزهر، أغسطس ٢٠٢٠.",
+          "en": "Session rapporteur, International Conference “Community Partnership & Education Development” — Al-Azhar, Aug 2020."
+        },
+        {
+          "ar": "مشارك، المنتدى الإقليمي حول تربية المواطنة والقيم الإنسانية المشتركة — يونسكو بيروت ومركز الملك عبدالعزيز، الرياض، يناير ٢٠٢٠.",
+          "en": "Participant, Regional Forum on Citizenship Education & Shared Human Values — UNESCO Beirut + King Abdulaziz Center, Riyadh, Jan 2020."
+        },
+        {
+          "ar": "مشارك، المنتدى الإقليمي لدمج القيم الإنسانية المشتركة في برامج إعداد المعلم — يونسكو بيروت، عُمان، أكتوبر ٢٠١٨.",
+          "en": "Participant, Regional Forum on Integrating Shared Human Values in Teacher-Preparation Programs — UNESCO Beirut, Oman, Oct 2018."
+        },
+        {
+          "ar": "اجتماع إقليمي حول البرنامج العالمي للعمل من أجل التنمية المستدامة — يونسكو بيروت، القاهرة، مايو ٢٠١٦.",
+          "en": "Regional meeting on the Global Action Programme for Sustainable Development — UNESCO Beirut, Cairo, May 2016."
+        },
+        {
+          "ar": "المؤتمر السنوي الأول للمعلمين لتطوير التعليم في الوطن العربي — يونسكو بيروت وجامعة الدول العربية ومعهد الشرق الأوسط بالجامعة الأمريكية، يناير ٢٠١٦.",
+          "en": "1st Annual Teachers Conference for Education Development in the Arab World — UNESCO Beirut + Arab League + AUC Middle East Institute, Jan 2016."
+        },
+        {
+          "ar": "مقال: «المواطنة العالمية الواعية: خارطة طريق نحو المستقبل» — مجلة الأزهر، مايو ٢٠٢٣.",
+          "en": "Article: “Conscious Global Citizenship: A Roadmap to the Future” — Al-Azhar Magazine, May 2023."
+        }
+      ]
+    },
+    {
+      "group": {
+        "ar": "تطوير المناهج",
+        "en": "Curriculum Development"
+      },
+      "items": [
+        {
+          "ar": "مشارك في تأليف مناهج الجغرافيا (الأول/الثاني/الثالث الثانوي) للطلاب الدوليين — معاهد البحوث بالأزهر (٢٠١٩–٢٠٢٢).",
+          "en": "Co-author, geography curricula (1st/2nd/3rd secondary) for international students — Al-Azhar research institutes (2019–2022)."
+        },
+        {
+          "ar": "عضو لجنة إعداد وثيقة المعايير الأكاديمية ومصفوفات المناهج للطلاب الدوليين (الدراسات الاجتماعية) — الأزهر، أكتوبر ٢٠١٨.",
+          "en": "Member, committee drafting academic-standards document & curriculum matrices for international students (social studies) — Al-Azhar, Oct 2018."
+        }
+      ]
+    },
+    {
+      "group": {
+        "ar": "الدورات التدريبية والشهادات المهنية الحاصل عليها",
+        "en": "Professional training & certifications received"
+      },
+      "items": [
+        {
+          "ar": "استخدام الحاسوب في تصميم وإعداد الخرائط الجغرافية — معمل الخرائط والكارتوجرافيا، جامعة فرانسوا رابليه (تور، فرنسا)، 2001",
+          "en": "Computer use in designing geographic maps — Cartography Lab, François-Rabelais University (Tours, France), 2001"
+        },
+        {
+          "ar": "الإنترنت والتواصل العلمي (21 ساعة) — جامعة فرانسوا رابليه (تور، فرنسا)، نوفمبر 2002",
+          "en": "Internet & scientific communication (21h) — François-Rabelais University (Tours, France), Nov 2002"
+        },
+        {
+          "ar": "تحليل الوثائق في مجال العلوم الإنسانية (21 ساعة) — جامعة فرانسوا رابليه، مارس 2002",
+          "en": "Document analysis in the humanities (21h) — François-Rabelais University, Mar 2002"
+        },
+        {
+          "ar": "دراسة العلاقة بين النص والصورة (9 ساعات) — جامعة فرانسوا رابليه، مايو 2002",
+          "en": "The text–image relationship (9h) — François-Rabelais University, May 2002"
+        },
+        {
+          "ar": "أمكنة المعلومات التاريخية (25 ساعة) — قسم الآثار، جامعة فرانسوا رابليه، نوفمبر 2003",
+          "en": "Historical information places (25h) — Dept. of Archaeology, François-Rabelais University, Nov 2003"
+        },
+        {
+          "ar": "الرخصة الدولية لقيادة الحاسب (ICDL) — القاهرة، أغسطس 2007",
+          "en": "International Computer Driving Licence (ICDL) — Cairo, Aug 2007"
+        },
+        {
+          "ar": "إدارة المواقع الإلكترونية — Oracle University (Database 10g: Application)، القاهرة، 2007",
+          "en": "Web administration — Oracle University (Database 10g: Application), Cairo, 2007"
+        },
+        {
+          "ar": "التعليم الإلكتروني — Intel Teach Essential Course، القاهرة، يونيو 2008",
+          "en": "E-learning — Intel Teach Essential Course, Cairo, Jun 2008"
+        },
+        {
+          "ar": "إعداد وتدريب المدربين (TOT): تدريب مدربي المراجعين الخارجيين للتعليم قبل الجامعي — الهيئة القومية لضمان جودة التعليم والاعتماد (NAQAAE)، يوليو 2008",
+          "en": "Training of Trainers (TOT): training external-reviewer trainers for pre-university education — NAQAAE, Jul 2008"
+        },
+        {
+          "ar": "إعداد المراجعين الخارجيين لمؤسسات التعليم قبل الجامعي — NAQAAE، أغسطس 2008",
+          "en": "Preparing external reviewers for pre-university institutions — NAQAAE, Aug 2008"
+        },
+        {
+          "ar": "نظم المعلومات (IT) للمراجعين الخارجيين للتعليم قبل الجامعي — NAQAAE، سبتمبر 2008",
+          "en": "Information systems (IT) for pre-university external reviewers — NAQAAE, Sep 2008"
+        },
+        {
+          "ar": "الدورة المتقدمة للمراجعين الخارجيين — نماذج المحاكاة — NAQAAE، ديسمبر 2008",
+          "en": "Advanced external-reviewers course — simulation models — NAQAAE, Dec 2008"
+        },
+        {
+          "ar": "فنيات إعداد تقرير المراجعة الخارجية لمؤسسات التعليم قبل الجامعي — NAQAAE، يناير 2009",
+          "en": "External-review reporting techniques for pre-university institutions — NAQAAE, Jan 2009"
+        },
+        {
+          "ar": "إعداد المراجعين الخارجيين لمؤسسات التعليم العالي — NAQAAE، فبراير 2009",
+          "en": "Preparing external reviewers for higher-education institutions — NAQAAE, Feb 2009"
+        },
+        {
+          "ar": "نظم المعلومات (IT) للمراجعين الخارجيين للتعليم العالي — NAQAAE، مارس 2009",
+          "en": "Information systems (IT) for higher-education external reviewers — NAQAAE, Mar 2009"
+        },
+        {
+          "ar": "الدورة المتقدمة للمراجعين الخارجيين للتعليم العالي — نماذج المحاكاة — NAQAAE، مارس 2009",
+          "en": "Advanced higher-education external-reviewers course — simulation models — NAQAAE, Mar 2009"
+        },
+        {
+          "ar": "الدورة المكثّفة للمراجعين الخارجيين — NAQAAE، سبتمبر 2009",
+          "en": "Intensive external-reviewers course — NAQAAE, Sep 2009"
+        },
+        {
+          "ar": "خرائط المنهج ونواتج التعلم (TOT) — NAQAAE، مايو 2011",
+          "en": "Curriculum maps & learning outcomes (TOT) — NAQAAE, May 2011"
+        },
+        {
+          "ar": "الدورة المجمّعة لمراجعي التعليم العالي — NAQAAE، فبراير 2017",
+          "en": "Consolidated higher-education reviewers course — NAQAAE, Feb 2017"
+        },
+        {
+          "ar": "التقويم الإلكتروني — ريماك أوفيس للتصحيح الإلكتروني، 2022",
+          "en": "E-assessment — RemarkOffice OMR e-correction, 2022"
+        }
+      ]
+    },
+    {
+      "group": {
+        "ar": "مشروعات معمل الجغرافيا وتطوير القسم",
+        "en": "Geography Lab & department development projects"
+      },
+      "items": [
+        {
+          "ar": "تجميع وتحرير ملخصات رسائل الماجستير والدكتوراه في مناهج وطرق تدريس الدراسات الاجتماعية بالجامعات المصرية (2000–2022)",
+          "en": "Compiling & editing MA/PhD abstracts in social-studies curricula across Egyptian universities (2000–2022)"
+        },
+        {
+          "ar": "تطوير معمل الجغرافيا وتفعيل دوره في العملية التعليمية (افتُتح في فبراير 2017)",
+          "en": "Developing the Geography Lab and activating its educational role (opened Feb 2017)"
+        },
+        {
+          "ar": "إنشاء مكتبتي المعمل (الإلكترونية والورقية) والموقع الإلكتروني (2016) — أكثر من 168 رسالة علمية",
+          "en": "Establishing the lab's print & electronic libraries and website (2016) — 168+ theses"
+        },
+        {
+          "ar": "إطلاق موقع «أسرة الدراسات الاجتماعية بكلية التربية» (manahegazhar.blogspot) — يناير 2017",
+          "en": "Launching the 'Social Studies Family' website (manahegazhar.blogspot) — Jan 2017"
+        },
+        {
+          "ar": "مشروع مجلة الحائط الورقية والإلكترونية (2017) — صدر العدد الأول في ديسمبر 2018",
+          "en": "Wall-magazine project, print & electronic (2017) — first issue Dec 2018"
+        },
+        {
+          "ar": "عقد الدورات التدريبية وورش العمل لتنمية قدرات الهيئة المعاونة بالقسم (2017–2022) — أربع ورش عمل",
+          "en": "Running training courses & workshops to build teaching-assistant capacity (2017–2022) — four workshops"
+        },
+        {
+          "ar": "مشروع إثراء عمليات التعليم والتعلم وتعزيز المهارات المهنية لتطوير أداء الأستاذ الجامعي (2020)",
+          "en": "Enriching teaching/learning and professional skills for university-faculty development (2020)"
+        },
+        {
+          "ar": "مشروع التنمية المهنية الذاتية المستدامة لأعضاء هيئة تدريس الاجتماعيات — كلية التربية، جامعة الأزهر (المرحلة الثالثة 2025–2026)",
+          "en": "Sustainable self-driven professional development for social-studies faculty — Al-Azhar (Phase 3, 2025–2026)"
+        }
+      ]
+    }
+  ],
+  "teaching": {
+    "undergraduate": [
+      {
+        "ar": "طرق تدريس الجغرافيا (الفرقة الرابعة)",
+        "en": "Geography Teaching Methods (4th yr)"
+      },
+      {
+        "ar": "طرق تدريس الدراسات الاجتماعية (الفرقة الثالثة)",
+        "en": "Social Studies Teaching Methods (3rd yr)"
+      },
+      {
+        "ar": "طرق تدريس الحاسب الآلي (الفرقة الرابعة)",
+        "en": "Computer Teaching Methods (4th yr)"
+      },
+      {
+        "ar": "أسس تصميم المنهج وتنظيمه (الفرقة الثالثة)",
+        "en": "Foundations of Curriculum Design & Organization (3rd yr)"
+      },
+      {
+        "ar": "الحاسوب في التعليم / التطبيقات التربوية (الفرقة الثالثة)",
+        "en": "The Computer in Education / Educational Applications (3rd yr)"
+      },
+      {
+        "ar": "الوسائل التعليمية ومعينات التدريس (الفرقة الثالثة)",
+        "en": "Educational Tools & Teaching Aids (3rd yr)"
+      },
+      {
+        "ar": "مدخل إلى العلوم التربوية (الفرقة الأولى)",
+        "en": "Introduction to Educational Sciences (1st yr)"
+      },
+      {
+        "ar": "التربية البيئية (الفرقة الأولى، الخدمة الاجتماعية)",
+        "en": "Environmental Education (1st yr, Social Work)"
+      }
+    ],
+    "graduate": [
+      {
+        "ar": "التدريس المصغّر",
+        "en": "Microteaching"
+      },
+      {
+        "ar": "طرق تدريس الدراسات الاجتماعية (الدراسات العليا)",
+        "en": "Social Studies Teaching Methods (graduate)"
+      },
+      {
+        "ar": "المناهج (الدبلوم العام)",
+        "en": "Curriculum (General Diploma)"
+      },
+      {
+        "ar": "الوسائل التعليمية (برنامج تدريبي)",
+        "en": "Educational Tools (training program)"
+      },
+      {
+        "ar": "طرق التدريس ١–٢ (الدبلوم العام)",
+        "en": "Teaching Methods 1–2 (General Diploma)"
+      },
+      {
+        "ar": "تقويم البرامج والمقررات التعليمية (الدبلوم الخاص)",
+        "en": "Evaluating Educational Programs & Courses (Special Diploma)"
+      },
+      {
+        "ar": "الاتجاهات البحثية الحديثة في التخصص (الدكتوراه)",
+        "en": "Modern Research Trends in the Specialization (PhD)"
+      },
+      {
+        "ar": "تخطيط المناهج وتطويرها (الدبلوم الخاص)",
+        "en": "Curriculum Planning & Development (Special Diploma)"
+      }
+    ]
+  },
+  "memberships": {
+    "societies": [
+      {
+        "ar": "الجمعية المصرية للمناهج وطرق التدريس",
+        "en": "Egyptian Association for Curriculum & Teaching Methods"
+      },
+      {
+        "ar": "الجمعية المصرية للدراسات الاجتماعية",
+        "en": "Egyptian Association for Social Studies"
+      },
+      {
+        "ar": "هيئة الإعجاز العلمي، القاهرة",
+        "en": "Scientific Miracles Authority, Cairo"
+      }
+    ],
+    "boards": [
+      {
+        "ar": "مجلة التربية، جامعة دمياط",
+        "en": "Journal of Education, Damietta University"
+      },
+      {
+        "ar": "مجلة جامعة أم القرى للعلوم التربوية والنفسية",
+        "en": "Umm Al-Qura University Journal for Educational & Psychological Sciences"
+      },
+      {
+        "ar": "مجلة التربية، جامعة الأزهر (القاهرة)",
+        "en": "Journal of Education, Al-Azhar (Cairo)"
+      },
+      {
+        "ar": "مجلة التربية، جامعة الأزهر (الدقهلية)",
+        "en": "Journal of Education, Al-Azhar (Daqahlia)"
+      },
+      {
+        "ar": "مجلة الدراسات الاجتماعية، عين شمس",
+        "en": "Journal of Social Studies, Ain Shams"
+      },
+      {
+        "ar": "مجلة البحث العلمي في التربية، كلية البنات، عين شمس",
+        "en": "Journal of Scientific Research in Education, Girls College Ain Shams"
+      },
+      {
+        "ar": "مجلة المناهج المعاصرة وتكنولوجيا التعليم، طنطا",
+        "en": "Journal of Contemporary Curricula & Education Technology, Tanta"
+      }
+    ]
+  }
 }
