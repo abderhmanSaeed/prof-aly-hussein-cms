@@ -68,6 +68,40 @@ Remote verification (`git ls-remote --tags origin`):
 | `…/Domain/Entities/Content/*.cs` (9 files) | discriminator-via-constructor refinement (`ContentItem` + 8 subtypes) |
 | `.editorconfig` | add CA1725 to convention suppressions |
 
+## 4a. Migration Files Summary
+
+| File | Lines | Role |
+|---|---|---|
+| `Migrations/20260619134122_InitialCreate.cs` | 1,342 | `Up()` creates all tables, FKs, indexes, CHECKs; `Down()` drops them |
+| `Migrations/20260619134122_InitialCreate.Designer.cs` | 1,990 | migration's model snapshot (target model) |
+| `Migrations/AppDbContextModelSnapshot.cs` | 1,987 | current cumulative model snapshot |
+
+- Migration id: **`20260619134122_InitialCreate`**.
+- Created with the pinned local **`dotnet-ef` 8.0.11**; design-time context resolved via `AppDbContextFactory`.
+- Verified-applicable against SQLite (`database update` succeeded, WAL active); the throwaway DB was deleted — **no database committed**.
+
+## 4b. Database Schema Summary
+
+| Metric | Value |
+|---|---|
+| Tables created by migration | **43** (35 domain + 7 ASP.NET Identity + 1 `__EFMigrationsHistory`) |
+| Content model | 1 TPH table `ContentItem` (string discriminator `ContentType`, 8 subtypes) |
+| Translation tables | 14 (each unique on `(ParentId, Culture)` + culture CHECK) |
+| Indexes | 51 (22 unique) |
+| Foreign keys | 30 (media FKs `SET NULL`; translations/joins/events `CASCADE`) |
+| CHECK constraints | 19 (17 culture + `DefaultCulture` + `Redirect.StatusCode`) |
+| Enum storage | TEXT (all enums + discriminator) |
+| Pragmas | WAL, `foreign_keys=ON`, `synchronous=NORMAL`, `busy_timeout=5000` |
+
+Full detail in `23_Persistence_Report.md`.
+
+## 4c. Recommendations
+
+1. **Runtime must create `App_Data/` before opening SQLite** — SQLite does not create the parent folder (observed as Error 14). This is implemented in Stage 3's initializer.
+2. **Keep the local EF tool pinned** (`.config/dotnet-tools.json`) and run `dotnet tool restore` on new machines/CI so migrations stay reproducible against EF 8.
+3. **Do not commit databases** — `App_Data/` and `*.db*` remain git-ignored; backups are a separate operational concern (doc 12).
+4. **Next schema change = a new named migration**, never hand-edits; review the generated `Up/Down` before applying.
+
 ## 5. Repository State
 
 | Item | Value |
