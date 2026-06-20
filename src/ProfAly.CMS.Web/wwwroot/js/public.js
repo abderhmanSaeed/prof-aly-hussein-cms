@@ -28,6 +28,10 @@
       if (e.target.closest(".nav-menu a")) { setMenu(false); }
       else if (!e.target.closest(".nav-menu") && !e.target.closest(".nav-burger")) { setMenu(false); }
     }
+    if (e.target.closest(".back-to-top")) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
     var tab = e.target.closest(".filter-tab");
     if (tab) {
       var cat = tab.getAttribute("data-cat");
@@ -47,10 +51,15 @@
     }
   });
 
-  // Header elevation on scroll.
+  // Header elevation on scroll + back-to-top visibility (shown after scrolling down).
   var nav = document.querySelector(".site-nav");
-  if (nav) {
-    var onScroll = function () { nav.classList.toggle("scrolled", window.scrollY > 8); };
+  var toTop = document.querySelector(".back-to-top");
+  if (nav || toTop) {
+    var onScroll = function () {
+      var y = window.scrollY;
+      if (nav) nav.classList.toggle("scrolled", y > 8);
+      if (toTop) toTop.classList.toggle("show", y > 500);
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
   }

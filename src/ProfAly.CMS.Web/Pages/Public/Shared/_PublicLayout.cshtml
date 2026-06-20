@@ -86,29 +86,39 @@
     <footer class="site-footer">
         <div class="container">
             <div class="row g-4">
-                <div class="col-12 col-lg-5">
-                    <div class="brand"><span class="brand-mark" aria-hidden="true">ع</span><span class="brand-text"><span>@siteTitle</span><span class="sub">@ViewData["Tagline"]</span></span></div>
+                <div class="col-12 col-lg-4">
+                    <div class="footer-brand">
+                        <span class="brand-mark" aria-hidden="true">ع</span>
+                        <span class="brand-name">@siteTitle</span>
+                    </div>
+                    @if (ViewData["Tagline"] is string tg && !string.IsNullOrEmpty(tg)) { <p class="footer-tagline">@tg</p> }
+                    <p class="footer-built">@L["Footer_Built"]</p>
                 </div>
-                <nav class="col-6 col-lg-4" aria-label="@L["Footer_Explore"]">
-                    <h2 class="footer-h">@L["Footer_Explore"]</h2>
+                <nav class="col-12 col-md-7 col-lg-5" aria-label="@L["Footer_QuickLinks"]">
+                    <h2 class="footer-h">@L["Footer_QuickLinks"]</h2>
                     <ul class="footer-links">
-                        @foreach (var item in nav.Take(6))
+                        @foreach (var item in nav)
                         {
                             <li><a asp-page="@item.Page" asp-route-culture="@culture">@L[item.Key]</a></li>
                         }
                     </ul>
                 </nav>
-                <div class="col-6 col-lg-3">
-                    <h2 class="footer-h">@L["Contact_Intro"]</h2>
+                <div class="col-12 col-md-5 col-lg-3">
+                    <h2 class="footer-h">@L["Footer_Contact"]</h2>
                     <ul class="footer-contact">
-                        @if (ViewData["ContactEmail"] is string em && !string.IsNullOrEmpty(em)) { <li><a href="mailto:@em">@em</a></li> }
+                        @if (ViewData["ContactEmail"] is string em && !string.IsNullOrEmpty(em)) { <li><a href="mailto:@em" dir="ltr">@em</a></li> }
                         @if (ViewData["ContactPhone"] is string ph && !string.IsNullOrEmpty(ph)) { <li><a href="tel:@ph" dir="ltr">@ph</a></li> }
+                        @if (ViewData["ContactLocation"] is string loc && !string.IsNullOrEmpty(loc)) { <li class="footer-loc">@loc</li> }
                     </ul>
                 </div>
             </div>
-            <div class="footer-base">© @DateTime.UtcNow.Year @siteTitle</div>
+            <div class="footer-base">© @DateTime.UtcNow.Year @siteTitle. @L["Footer_Rights"]</div>
         </div>
     </footer>
+
+    <button class="back-to-top" type="button" aria-label="@L["Back_To_Top"]" title="@L["Back_To_Top"]">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+    </button>
 
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/public.js" asp-append-version="true"></script>

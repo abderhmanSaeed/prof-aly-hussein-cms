@@ -196,6 +196,11 @@
   <data name="Nav_Teaching" xml:space="preserve"><value>التدريس</value></data>
   <data name="Nav_Videos" xml:space="preserve"><value>الفيديو</value></data>
   <data name="Contact_SendMessage" xml:space="preserve"><value>أرسل رسالة</value></data>
+  <data name="Footer_QuickLinks" xml:space="preserve"><value>روابط سريعة</value></data>
+  <data name="Footer_Contact" xml:space="preserve"><value>للتواصل</value></data>
+  <data name="Footer_Built" xml:space="preserve"><value>موقعٌ أكاديميٌّ ثلاثي اللغة.</value></data>
+  <data name="Footer_Rights" xml:space="preserve"><value>جميع الحقوق محفوظة.</value></data>
+  <data name="Back_To_Top" xml:space="preserve"><value>العودة إلى الأعلى</value></data>
   <data name="Profile_ContactPhoto" xml:space="preserve"><value>صورة صفحة التواصل</value></data>
   <data name="Profile_ContactPhoto_Help" xml:space="preserve"><value>تظهر في صفحة التواصل العامة. إذا تُركت فارغة تُستخدم صورة الملف الرئيسة.</value></data>
 </root>

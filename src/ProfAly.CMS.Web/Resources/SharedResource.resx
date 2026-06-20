@@ -208,6 +208,11 @@
   <data name="Nav_Teaching" xml:space="preserve"><value>Teaching</value></data>
   <data name="Nav_Videos" xml:space="preserve"><value>Videos</value></data>
   <data name="Contact_SendMessage" xml:space="preserve"><value>Send a message</value></data>
+  <data name="Footer_QuickLinks" xml:space="preserve"><value>Quick Links</value></data>
+  <data name="Footer_Contact" xml:space="preserve"><value>Get in Touch</value></data>
+  <data name="Footer_Built" xml:space="preserve"><value>A trilingual academic website.</value></data>
+  <data name="Footer_Rights" xml:space="preserve"><value>All rights reserved.</value></data>
+  <data name="Back_To_Top" xml:space="preserve"><value>Back to top</value></data>
   <data name="Profile_ContactPhoto" xml:space="preserve"><value>Contact page photo</value></data>
   <data name="Profile_ContactPhoto_Help" xml:space="preserve"><value>Shown on the public Contact page. If left empty, the main profile photo is used.</value></data>
 </root>

@@ -35,8 +35,9 @@ public abstract class PublicPageModel : PageModel
         ViewData["SiteTitle"] = st?.SiteTitle ?? "Prof. Aly Hussein";
         ViewData["Tagline"] = st?.Tagline;
 
-        var profile = await Db.Profile.FirstOrDefaultAsync(cancellationToken);
+        var profile = await Db.Profile.Include(p => p.Translations).FirstOrDefaultAsync(cancellationToken);
         ViewData["ContactPhone"] = profile?.Phone;
+        ViewData["ContactLocation"] = Localized.Pick(profile?.Translations, Culture)?.Location;
         // CMS-managed Profile.Email is authoritative; SiteSettings.ContactEmail is only a
         // bootstrap fallback used until profile data exists (business rule — see report 66).
         ViewData["ContactEmail"] = ContactEmailOf(profile, settings);
