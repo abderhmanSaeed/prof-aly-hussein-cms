@@ -170,4 +170,21 @@
   <data name="YouTube_Help" xml:space="preserve"><value>الصق أي رابط يوتيوب (watch أو youtu.be أو embed أو shorts) — يُستخرج معرّف الفيديو تلقائيًا.</value></data>
   <data name="YouTube_Invalid" xml:space="preserve"><value>أدخل رابط يوتيوب صحيحًا أو معرّف فيديو من 11 حرفًا.</value></data>
   <data name="F_PublishDate" xml:space="preserve"><value>تاريخ النشر</value></data>
+
+  <data name="Hero_Experience_Title" xml:space="preserve"><value>الخبرة الأكاديمية</value></data>
+  <data name="Hero_Experience_Lead" xml:space="preserve"><value>تدرّجٌ وظيفيٌّ ممتدٌّ من التدريس المدرسي إلى الأستاذية الجامعية.</value></data>
+  <data name="Hero_Activities_Title" xml:space="preserve"><value>المشروعات والأنشطة البحثية</value></data>
+  <data name="Hero_Activities_Lead" xml:space="preserve"><value>تدريبٌ دولي، ومشروعاتٌ إقليمية، واستشاراتٌ في ضمان الجودة وتطوير التعليم.</value></data>
+  <data name="Hero_Publications_Title" xml:space="preserve"><value>الأبحاث المنشورة</value></data>
+  <data name="Hero_Publications_Lead" xml:space="preserve"><value>تسع دراسات محكَّمة في دوريات علمية مرموقة.</value></data>
+  <data name="Hero_Books_Title" xml:space="preserve"><value>المؤلَّفات الأكاديمية</value></data>
+  <data name="Hero_Books_Lead" xml:space="preserve"><value>أربعة عشر كتابًا ومؤلَّفًا في المناهج وطرق التدريس والتربية البيئية.</value></data>
+  <data name="Hero_Theses_Title" xml:space="preserve"><value>الرسائل العلمية</value></data>
+  <data name="Hero_Theses_Lead" xml:space="preserve"><value>الإشراف والمناقشة لأكثر من سبعٍ وخمسين رسالة ماجستير ودكتوراه.</value></data>
+  <data name="Hero_Teaching_Title" xml:space="preserve"><value>المقررات التدريسية</value></data>
+  <data name="Hero_Teaching_Lead" xml:space="preserve"><value>مقرراتٌ في المرحلة الجامعية والدراسات العليا في المناهج وطرق التدريس.</value></data>
+  <data name="Hero_Research_Title" xml:space="preserve"><value>الأوراق البحثية</value></data>
+  <data name="Hero_Research_Lead" xml:space="preserve"><value>أوراقٌ بحثية ومساهماتٌ علمية مختارة.</value></data>
+  <data name="Hero_Contact_Title" xml:space="preserve"><value>تواصل معي</value></data>
+  <data name="Hero_Contact_Lead" xml:space="preserve"><value>يسعدني تلقّي رسائلكم بشأن التعاون العلمي والاستشارات التربوية.</value></data>
 </root>

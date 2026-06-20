@@ -1,15 +1,16 @@
 @page "/{culture:regex(^(ar|en|fr)$)}/experience"
 @model ProfAly.CMS.Web.Pages.Public.ExperienceModel
 @{
-    ViewData["Title"] = L["Experience_Title"].Value;
-    ViewData["Description"] = L["Experience_Title"].Value;
+    ViewData["Title"] = L["Hero_Experience_Title"].Value;
+    ViewData["Description"] = L["Hero_Experience_Lead"].Value;
 }
 
 <section class="page-hero">
     <div class="container">
         <nav class="crumbs"><a asp-page="/Public/Home" asp-route-culture="@Model.Culture">@L["Nav_Home"]</a> / @L["Experience_Title"]</nav>
-        <span class="eyebrow">@L["Experience_Title"]</span>
-        <h1>@L["Experience_Title"]</h1>
+        <span class="eyebrow">@L["Hero_Experience_Title"]</span>
+        <h1>@L["Hero_Experience_Title"]</h1>
+        <p class="section-lead">@L["Hero_Experience_Lead"]</p>
     </div>
 </section>
 
@@ -36,8 +37,8 @@
                 {
                     <div class="panel">
                         <h2 class="panel-title">@L["Pub_Societies"]</h2>
-                        <ul class="chip-set" style="flex-direction:column;align-items:flex-start">
-                            @foreach (var m in Model.Societies) { <li>@(Localized.Pick(m.Translations, Model.Culture)?.Name)</li> }
+                        <ul class="course-list">
+                            @foreach (var m in Model.Societies) { <li class="course-item"><span class="course-name">@(Localized.Pick(m.Translations, Model.Culture)?.Name)</span></li> }
                         </ul>
                     </div>
                 }
@@ -45,8 +46,8 @@
                 {
                     <div class="panel">
                         <h2 class="panel-title">@L["Pub_Boards"]</h2>
-                        <ul class="chip-set" style="flex-direction:column;align-items:flex-start">
-                            @foreach (var m in Model.Boards) { <li>@(Localized.Pick(m.Translations, Model.Culture)?.Name)</li> }
+                        <ul class="course-list">
+                            @foreach (var m in Model.Boards) { <li class="course-item"><span class="course-name">@(Localized.Pick(m.Translations, Model.Culture)?.Name)</span></li> }
                         </ul>
                     </div>
                 }

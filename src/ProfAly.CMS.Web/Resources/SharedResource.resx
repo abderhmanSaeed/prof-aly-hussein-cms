@@ -182,4 +182,21 @@
   <data name="YouTube_Help" xml:space="preserve"><value>Paste any YouTube link (watch, youtu.be, embed, or shorts) — the video id is extracted automatically.</value></data>
   <data name="YouTube_Invalid" xml:space="preserve"><value>Enter a valid YouTube URL or 11-character video id.</value></data>
   <data name="F_PublishDate" xml:space="preserve"><value>Publish date</value></data>
+
+  <data name="Hero_Experience_Title" xml:space="preserve"><value>Academic Experience</value></data>
+  <data name="Hero_Experience_Lead" xml:space="preserve"><value>A career spanning school teaching to a full university professorship.</value></data>
+  <data name="Hero_Activities_Title" xml:space="preserve"><value>Research &amp; Professional Activities</value></data>
+  <data name="Hero_Activities_Lead" xml:space="preserve"><value>International training, regional projects, and consulting in quality assurance and education development.</value></data>
+  <data name="Hero_Publications_Title" xml:space="preserve"><value>Publications</value></data>
+  <data name="Hero_Publications_Lead" xml:space="preserve"><value>Nine peer-reviewed studies in respected scholarly journals.</value></data>
+  <data name="Hero_Books_Title" xml:space="preserve"><value>Academic Books</value></data>
+  <data name="Hero_Books_Lead" xml:space="preserve"><value>Fourteen books and texts on curriculum, teaching methods, and environmental education.</value></data>
+  <data name="Hero_Theses_Title" xml:space="preserve"><value>Supervised Theses</value></data>
+  <data name="Hero_Theses_Lead" xml:space="preserve"><value>Supervision and examination of more than fifty-seven master's and doctoral theses.</value></data>
+  <data name="Hero_Teaching_Title" xml:space="preserve"><value>Courses Taught</value></data>
+  <data name="Hero_Teaching_Lead" xml:space="preserve"><value>Undergraduate and graduate courses in curriculum and teaching methods.</value></data>
+  <data name="Hero_Research_Title" xml:space="preserve"><value>Research Papers</value></data>
+  <data name="Hero_Research_Lead" xml:space="preserve"><value>Selected research papers and scholarly contributions.</value></data>
+  <data name="Hero_Contact_Title" xml:space="preserve"><value>Contact</value></data>
+  <data name="Hero_Contact_Lead" xml:space="preserve"><value>I welcome your messages regarding academic collaboration and educational consulting.</value></data>
 </root>

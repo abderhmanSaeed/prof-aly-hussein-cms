@@ -170,4 +170,21 @@
   <data name="YouTube_Help" xml:space="preserve"><value>Collez n'importe quel lien YouTube (watch, youtu.be, embed ou shorts) — l'identifiant est extrait automatiquement.</value></data>
   <data name="YouTube_Invalid" xml:space="preserve"><value>Saisissez une URL YouTube valide ou un identifiant de 11 caractères.</value></data>
   <data name="F_PublishDate" xml:space="preserve"><value>Date de publication</value></data>
+
+  <data name="Hero_Experience_Title" xml:space="preserve"><value>Expérience académique</value></data>
+  <data name="Hero_Experience_Lead" xml:space="preserve"><value>Parcours académique s'étendant de l'enseignement scolaire au professorat universitaire.</value></data>
+  <data name="Hero_Activities_Title" xml:space="preserve"><value>Projets et activités de recherche</value></data>
+  <data name="Hero_Activities_Lead" xml:space="preserve"><value>Formations internationales, projets régionaux et conseil en assurance qualité et développement de l'éducation.</value></data>
+  <data name="Hero_Publications_Title" xml:space="preserve"><value>Publications</value></data>
+  <data name="Hero_Publications_Lead" xml:space="preserve"><value>Neuf études évaluées par des pairs publiées dans des revues scientifiques reconnues.</value></data>
+  <data name="Hero_Books_Title" xml:space="preserve"><value>Ouvrages académiques</value></data>
+  <data name="Hero_Books_Lead" xml:space="preserve"><value>Quatorze ouvrages académiques en curriculum, pédagogie et éducation environnementale.</value></data>
+  <data name="Hero_Theses_Title" xml:space="preserve"><value>Thèses encadrées</value></data>
+  <data name="Hero_Theses_Lead" xml:space="preserve"><value>Encadrement et évaluation de plus de cinquante-sept mémoires de master et thèses de doctorat.</value></data>
+  <data name="Hero_Teaching_Title" xml:space="preserve"><value>Cours enseignés</value></data>
+  <data name="Hero_Teaching_Lead" xml:space="preserve"><value>Cours de premier cycle et de troisième cycle en curriculum et méthodes d'enseignement.</value></data>
+  <data name="Hero_Research_Title" xml:space="preserve"><value>Articles de recherche</value></data>
+  <data name="Hero_Research_Lead" xml:space="preserve"><value>Articles de recherche et contributions scientifiques sélectionnés.</value></data>
+  <data name="Hero_Contact_Title" xml:space="preserve"><value>Contact</value></data>
+  <data name="Hero_Contact_Lead" xml:space="preserve"><value>Je serai ravi de recevoir vos messages concernant la collaboration scientifique et le conseil pédagogique.</value></data>
 </root>

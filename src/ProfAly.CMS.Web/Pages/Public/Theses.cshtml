@@ -2,8 +2,8 @@
 @using ProfAly.CMS.Domain.Enums
 @model ProfAly.CMS.Web.Pages.Public.ThesesModel
 @{
-    ViewData["Title"] = L["Theses_Title"].Value;
-    ViewData["Description"] = L["Theses_Title"].Value;
+    ViewData["Title"] = L["Hero_Theses_Title"].Value;
+    ViewData["Description"] = L["Hero_Theses_Lead"].Value;
     string Cat(RelationshipType r) => r switch { RelationshipType.Examined => "examined", RelationshipType.Ongoing => "ongoing", _ => "supervised" };
     string CatLabel(RelationshipType r) => (r == RelationshipType.Examined ? L["Rel_Examined"] : r == RelationshipType.Ongoing ? L["Rel_Ongoing"] : L["Rel_Supervised"]).Value;
 }
@@ -11,8 +11,9 @@
 <section class="page-hero">
     <div class="container">
         <nav class="crumbs"><a asp-page="/Public/Home" asp-route-culture="@Model.Culture">@L["Nav_Home"]</a> / @L["Theses_Title"]</nav>
-        <span class="eyebrow">@L["Theses_Title"]</span>
-        <h1>@L["Theses_Title"]</h1>
+        <span class="eyebrow">@L["Hero_Theses_Title"]</span>
+        <h1>@L["Hero_Theses_Title"]</h1>
+        <p class="section-lead">@L["Hero_Theses_Lead"]</p>
     </div>
 </section>
 
@@ -49,8 +50,8 @@
                                 <td data-label="@L["F_Researcher"].Value">@t?.ResearcherName</td>
                                 <td data-label="@L["F_Title"].Value">@t?.Title</td>
                                 <td data-label="@L["F_Degree"].Value"><span class="badge-deg badge-@(item.DegreeLevel == DegreeLevel.PhD ? "PhD" : "MA")">@(item.DegreeLevel == DegreeLevel.PhD ? L["Deg_PhD"] : L["Deg_Master"])</span></td>
-                                <td data-label="@L["F_Relationship"].Value">@CatLabel(item.RelationshipType)</td>
-                                <td data-label="@L["F_PublicationYear"].Value">@item.PublicationYear</td>
+                                <td data-label="@L["F_Relationship"].Value"><span class="badge-cat badge-@Cat(item.RelationshipType)">@CatLabel(item.RelationshipType)</span></td>
+                                <td data-label="@L["F_PublicationYear"].Value" class="th-year">@item.PublicationYear</td>
                             </tr>
                         }
                     </tbody>

@@ -1,15 +1,16 @@
 @page "/{culture:regex(^(ar|en|fr)$)}/books"
 @model ProfAly.CMS.Web.Pages.Public.BooksModel
 @{
-    ViewData["Title"] = L["Books_Title"].Value;
-    ViewData["Description"] = L["Books_Title"].Value;
+    ViewData["Title"] = L["Hero_Books_Title"].Value;
+    ViewData["Description"] = L["Hero_Books_Lead"].Value;
 }
 
 <section class="page-hero">
     <div class="container">
         <nav class="crumbs"><a asp-page="/Public/Home" asp-route-culture="@Model.Culture">@L["Nav_Home"]</a> / @L["Books_Title"]</nav>
-        <span class="eyebrow">@L["Books_Title"]</span>
-        <h1>@L["Books_Title"]</h1>
+        <span class="eyebrow">@L["Hero_Books_Title"]</span>
+        <h1>@L["Hero_Books_Title"]</h1>
+        <p class="section-lead">@L["Hero_Books_Lead"]</p>
     </div>
 </section>
 
