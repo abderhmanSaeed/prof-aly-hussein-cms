@@ -7,7 +7,7 @@
 
 <section class="page-hero">
     <div class="container">
-        <nav class="crumbs"><a asp-page="/Public/Home" asp-route-culture="@Model.Culture">@L["Nav_Home"]</a> / @L["Activities_Title"]</nav>
+        <nav class="crumbs"><a asp-page="/Public/Home" asp-route-culture="@Model.Culture">@L["Nav_Home"]</a> <span aria-hidden="true">/</span> <span aria-current="page">@L["Activities_Title"]</span></nav>
         <span class="eyebrow">@L["Hero_Activities_Title"]</span>
         <h1>@L["Hero_Activities_Title"]</h1>
         <p class="section-lead">@L["Hero_Activities_Lead"]</p>
@@ -17,7 +17,7 @@
 <section class="section">
     <div class="container">
         @if (Model.Groups.Count == 0) { <p class="empty-state">@L["Pub_NoItems"]</p> }
-        <div class="accordion" id="activitiesAcc">
+        <div class="accordion activities-acc" id="activitiesAcc">
             @for (var i = 0; i < Model.Groups.Count; i++)
             {
                 var g = Model.Groups[i];
@@ -33,7 +33,7 @@
                     </h3>
                     <div id="c-@g.Id" class="accordion-collapse collapse @(open ? "show" : "")" data-bs-parent="#activitiesAcc">
                         <div class="accordion-body">
-                            <ul>
+                            <ul class="act-list">
                                 @foreach (var a in items) { <li>@(Localized.Pick(a.Translations, Model.Culture)?.Text)</li> }
                             </ul>
                         </div>

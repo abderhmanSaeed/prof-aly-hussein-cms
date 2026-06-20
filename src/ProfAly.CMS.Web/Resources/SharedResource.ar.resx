@@ -187,4 +187,12 @@
   <data name="Hero_Research_Lead" xml:space="preserve"><value>أوراقٌ بحثية ومساهماتٌ علمية مختارة.</value></data>
   <data name="Hero_Contact_Title" xml:space="preserve"><value>تواصل معي</value></data>
   <data name="Hero_Contact_Lead" xml:space="preserve"><value>يسعدني تلقّي رسائلكم بشأن التعاون العلمي والاستشارات التربوية.</value></data>
+
+  <data name="Nav_Experience" xml:space="preserve"><value>الخبرة</value></data>
+  <data name="Nav_Activities" xml:space="preserve"><value>المشروعات</value></data>
+  <data name="Nav_Publications" xml:space="preserve"><value>الأبحاث</value></data>
+  <data name="Nav_Books" xml:space="preserve"><value>المؤلَّفات</value></data>
+  <data name="Nav_Theses" xml:space="preserve"><value>الرسائل</value></data>
+  <data name="Nav_Teaching" xml:space="preserve"><value>التدريس</value></data>
+  <data name="Nav_Videos" xml:space="preserve"><value>الفيديو</value></data>
 </root>

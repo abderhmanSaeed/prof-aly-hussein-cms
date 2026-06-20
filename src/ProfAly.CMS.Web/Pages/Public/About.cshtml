@@ -10,7 +10,7 @@
 
 <section class="page-hero">
     <div class="container">
-        <nav class="crumbs"><a asp-page="/Public/Home" asp-route-culture="@Model.Culture">@L["Nav_Home"]</a> / @L["Nav_About"]</nav>
+        <nav class="crumbs"><a asp-page="/Public/Home" asp-route-culture="@Model.Culture">@L["Nav_Home"]</a> <span aria-hidden="true">/</span> <span aria-current="page">@L["Nav_About"]</span></nav>
         <span class="eyebrow">@L["Nav_About"]</span>
         <h1>@p?.FullName</h1>
         <p class="section-lead">@p?.Title</p>

@@ -15,9 +15,11 @@
 <section class="page-hero">
     <div class="container">
         <nav class="crumbs">
-            <a asp-page="/Public/Home" asp-route-culture="@Model.Culture">@L["Nav_Home"]</a> /
-            <a asp-page="/Public/Videos" asp-route-culture="@Model.Culture">@L["Videos_Title"]</a> /
-            @t?.Title
+            <a asp-page="/Public/Home" asp-route-culture="@Model.Culture">@L["Nav_Home"]</a>
+            <span aria-hidden="true">/</span>
+            <a asp-page="/Public/Videos" asp-route-culture="@Model.Culture">@L["Videos_Title"]</a>
+            <span aria-hidden="true">/</span>
+            <span aria-current="page">@t?.Title</span>
         </nav>
         <h1>@t?.Title</h1>
     </div>

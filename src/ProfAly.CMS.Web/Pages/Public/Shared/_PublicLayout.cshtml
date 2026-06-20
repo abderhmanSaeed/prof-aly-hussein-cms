@@ -17,13 +17,16 @@
     var baseUrl = $"{req.Scheme}://{req.Host}";
     var siteTitle = ViewData["SiteTitle"] as string ?? "Prof. Aly Hussein";
 
+    // Research is intentionally omitted from public navigation & footer (business
+    // decision — see 64_Navigation_And_Research_Page_Review.md). The /{c}/research
+    // route still works if accessed directly; only the menu links are hidden.
     var nav = new (string Key, string Page)[]
     {
-        ("Nav_Home", "/Public/Home"), ("Nav_About", "/Public/About"), ("Experience_Title", "/Public/Experience"),
-        ("Activities_Title", "/Public/Activities"), ("Research_Title", "/Public/Research"),
-        ("Publications_Title", "/Public/Publications"), ("Books_Title", "/Public/Books"),
-        ("Theses_Title", "/Public/Theses"), ("Videos_Title", "/Public/Videos"),
-        ("Teaching_Title", "/Public/Teaching"), ("Nav_Contact", "/Public/Contact"),
+        ("Nav_Home", "/Public/Home"), ("Nav_About", "/Public/About"), ("Nav_Experience", "/Public/Experience"),
+        ("Nav_Activities", "/Public/Activities"), ("Nav_Publications", "/Public/Publications"),
+        ("Nav_Books", "/Public/Books"), ("Nav_Theses", "/Public/Theses"),
+        ("Nav_Videos", "/Public/Videos"), ("Nav_Teaching", "/Public/Teaching"),
+        ("Nav_Contact", "/Public/Contact"),
     };
 }
 <!doctype html>
@@ -71,7 +74,7 @@
                     <a class="lang-link @(c == culture ? "active" : "")" asp-page="@currentPage" asp-route-culture="@c"
                        hreflang="@c" lang="@c" aria-current="@(c == culture ? "true" : null)">@c.ToUpperInvariant()</a>
                 }
-                <button class="icon-btn nav-burger d-lg-none" type="button" aria-label="Menu" aria-controls="primary-nav" aria-expanded="false">&#9776;</button>
+                <button class="icon-btn nav-burger d-xl-none" type="button" aria-label="Menu" aria-controls="primary-nav" aria-expanded="false">&#9776;</button>
             </div>
         </nav>
     </header>
