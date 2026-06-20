@@ -19,7 +19,7 @@ public class AboutModel : PublicPageModel
     public async Task OnGetAsync()
     {
         await LoadChromeAsync();
-        Profile = await Db.Profile.Include(p => p.Photo).Include(p => p.AboutImage).Include(p => p.Translations).FirstOrDefaultAsync();
+        Profile = await Db.Profile.Include(p => p.Photo).Include(p => p.AboutImage).Include(p => p.BioImage).Include(p => p.Translations).FirstOrDefaultAsync();
         Qualifications = await Db.Qualification.Include(q => q.Translations).OrderBy(q => q.SortOrder).ToListAsync();
         Skills = await Db.Skill.Include(s => s.Translations).OrderBy(s => s.SortOrder).ToListAsync();
     }

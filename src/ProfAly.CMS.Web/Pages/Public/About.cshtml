@@ -6,6 +6,8 @@
     ViewData["Title"] = L["Nav_About"].Value;
     ViewData["Description"] = p?.ShortBio ?? p?.Positioning;
     var paras = p?.FullBio?.Split("\n\n", StringSplitOptions.RemoveEmptyEntries) ?? Array.Empty<string>();
+    // Dedicated About image, falling back to the homepage "صورة النبذة" (BioImage) when not set.
+    var aboutImage = Model.Profile?.AboutImage ?? Model.Profile?.BioImage;
 }
 
 <section class="page-hero">
@@ -21,9 +23,9 @@
     <div class="container">
         <div class="row g-4 g-lg-5">
             <div class="col-lg-7">
-                @if (Model.Profile?.AboutImage is { } aimg)
+                @if (aboutImage is not null)
                 {
-                    <div class="snapshot-photo mb-4"><img src="/uploads/@aimg.RelativePath" alt="@p?.FullName" /></div>
+                    <div class="snapshot-photo mb-4"><img src="/uploads/@aboutImage.RelativePath" alt="@p?.FullName" /></div>
                 }
                 <span class="eyebrow">@L["About_Bio"]</span>
                 <h2 class="section-title">@L["About_Bio"]</h2>
