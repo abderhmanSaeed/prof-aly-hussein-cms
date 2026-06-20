@@ -25,9 +25,13 @@ public class HomeModel : PublicPageModel
         Profile = await Db.Profile.Include(p => p.Photo).Include(p => p.BioImage).Include(p => p.Translations).FirstOrDefaultAsync();
         Credibility = await Db.Credibility.Include(c => c.Translations).OrderBy(c => c.SortOrder).ToListAsync();
         Stats = await Db.StatItem.Include(s => s.Translations).OrderBy(s => s.SortOrder).ToListAsync();
+        // Featured books first (4 on desktop). If fewer than 4 are flagged Featured,
+        // top up with the next published books by CMS order so the row stays full —
+        // featured items always lead, preserving the featuring/ordering logic.
         FeaturedBooks = await Db.ContentItem.OfType<Book>()
-            .Where(b => b.IsPublished && b.IsFeatured)
+            .Where(b => b.IsPublished)
             .Include(b => b.Translations).Include(b => b.CoverImage)
-            .OrderBy(b => b.SortOrder).Take(6).ToListAsync();
+            .OrderByDescending(b => b.IsFeatured).ThenBy(b => b.SortOrder)
+            .Take(4).ToListAsync();
     }
 }

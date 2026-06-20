@@ -15,9 +15,10 @@ public class ThesesModel : PublicPageModel
     public async Task OnGetAsync()
     {
         await LoadChromeAsync();
+        // Newest → oldest (by publication year), then curated order.
         Items = await Db.ContentItem.OfType<Thesis>().Where(x => x.IsPublished)
             .Include(x => x.Translations)
-            .OrderBy(x => x.SortOrder).ThenByDescending(x => x.PublicationYear)
+            .OrderByDescending(x => x.PublicationYear).ThenBy(x => x.SortOrder)
             .ToListAsync();
     }
 }

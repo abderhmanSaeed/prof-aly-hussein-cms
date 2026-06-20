@@ -205,4 +205,11 @@
   <data name="Profile_ContactPhoto_Help" xml:space="preserve"><value>Affichée sur la page Contact publique. Si vide, la photo principale du profil est utilisée.</value></data>
   <data name="Profile_BioImage" xml:space="preserve"><value>Image de biographie (accueil)</value></data>
   <data name="Profile_BioImage_Help" xml:space="preserve"><value>Affichée dans la section « À propos » de l'accueil. Indépendante de la photo principale.</value></data>
+  <data name="Profile_AboutImage" xml:space="preserve"><value>Image de la page À propos</value></data>
+  <data name="Profile_AboutImage_Help" xml:space="preserve"><value>Affichée dans la section biographie de la page À propos. Indépendante des autres photos.</value></data>
+  <data name="Books_SearchPlaceholder" xml:space="preserve"><value>Rechercher par titre, auteur ou éditeur…</value></data>
+  <data name="Search_Button" xml:space="preserve"><value>Rechercher</value></data>
+  <data name="Search_Clear" xml:space="preserve"><value>Effacer</value></data>
+  <data name="Pub_ViewPdf" xml:space="preserve"><value>Voir le PDF</value></data>
+  <data name="Pub_DownloadPdf" xml:space="preserve"><value>Télécharger le PDF</value></data>
 </root>

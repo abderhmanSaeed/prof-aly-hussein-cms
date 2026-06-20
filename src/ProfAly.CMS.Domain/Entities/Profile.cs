@@ -22,6 +22,11 @@ public class Profile : AuditableEntity, IValidatableEntity
 
     public MediaFile? BioImage { get; set; }
 
+    /// <summary>Dedicated image for the public About page biography section. Independent of <see cref="Photo"/> / <see cref="BioImage"/>.</summary>
+    public int? AboutImageMediaId { get; set; }
+
+    public MediaFile? AboutImage { get; set; }
+
     /// <summary>Stored as a date; formatted per culture at render (doc 10 §8b).</summary>
     public DateTime? DateOfBirth { get; set; }
 

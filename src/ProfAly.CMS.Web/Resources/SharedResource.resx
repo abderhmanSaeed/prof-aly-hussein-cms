@@ -217,4 +217,11 @@
   <data name="Profile_ContactPhoto_Help" xml:space="preserve"><value>Shown on the public Contact page. If left empty, the main profile photo is used.</value></data>
   <data name="Profile_BioImage" xml:space="preserve"><value>Biography image (homepage)</value></data>
   <data name="Profile_BioImage_Help" xml:space="preserve"><value>Shown in the homepage "About" section. Independent of the main profile photo.</value></data>
+  <data name="Profile_AboutImage" xml:space="preserve"><value>About page image</value></data>
+  <data name="Profile_AboutImage_Help" xml:space="preserve"><value>Shown on the public About page biography section. Independent of the other photos.</value></data>
+  <data name="Books_SearchPlaceholder" xml:space="preserve"><value>Search by title, author or publisher…</value></data>
+  <data name="Search_Button" xml:space="preserve"><value>Search</value></data>
+  <data name="Search_Clear" xml:space="preserve"><value>Clear</value></data>
+  <data name="Pub_ViewPdf" xml:space="preserve"><value>View PDF</value></data>
+  <data name="Pub_DownloadPdf" xml:space="preserve"><value>Download PDF</value></data>
 </root>

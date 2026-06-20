@@ -28,6 +28,11 @@ public sealed class ProfileConfiguration : IEntityTypeConfiguration<Profile>
             .HasForeignKey(x => x.BioImageMediaId)
             .OnDelete(DeleteBehavior.SetNull);
 
+        b.HasOne(x => x.AboutImage)
+            .WithMany()
+            .HasForeignKey(x => x.AboutImageMediaId)
+            .OnDelete(DeleteBehavior.SetNull);
+
         b.HasMany(x => x.Translations)
             .WithOne(t => t.Profile!)
             .HasForeignKey(t => t.ProfileId)

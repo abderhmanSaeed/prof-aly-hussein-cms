@@ -2,7 +2,7 @@
 @model ProfAly.CMS.Web.Pages.Public.PublicationsModel
 @{
     ViewData["Title"] = L["Hero_Publications_Title"].Value;
-    ViewData["Description"] = L["Hero_Publications_Lead"].Value;
+    ViewData["Description"] = L["Hero_Publications_Title"].Value;
 }
 
 <section class="page-hero">
@@ -10,7 +10,6 @@
         <nav class="crumbs"><a asp-page="/Public/Home" asp-route-culture="@Model.Culture">@L["Nav_Home"]</a> <span aria-hidden="true">/</span> <span aria-current="page">@L["Publications_Title"]</span></nav>
         <span class="eyebrow">@L["Hero_Publications_Title"]</span>
         <h1>@L["Hero_Publications_Title"]</h1>
-        <p class="section-lead">@L["Hero_Publications_Lead"]</p>
     </div>
 </section>
 
@@ -26,7 +25,14 @@
                     <div class="pub-body">
                         <h3 class="pub-title">@t?.Title</h3>
                         @if (!string.IsNullOrEmpty(t?.Journal)) { <p class="pub-venue">@t.Journal</p> }
-                        @if (!string.IsNullOrEmpty(item.ExternalUrl)) { <a href="@item.ExternalUrl" target="_blank" rel="noopener">DOI / link</a> }
+                        <div class="pub-actions">
+                            @if (item.PdfFile is { } pdf)
+                            {
+                                <a class="btn btn-outline btn-sm" href="/uploads/@pdf.RelativePath" target="_blank" rel="noopener">@L["Pub_ViewPdf"]</a>
+                                <a class="btn btn-outline btn-sm" href="/uploads/@pdf.RelativePath" download>@L["Pub_DownloadPdf"]</a>
+                            }
+                            @if (!string.IsNullOrEmpty(item.ExternalUrl)) { <a class="btn btn-outline btn-sm" href="@item.ExternalUrl" target="_blank" rel="noopener">DOI</a> }
+                        </div>
                     </div>
                 </li>
             }

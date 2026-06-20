@@ -16,6 +16,15 @@
 
 <section class="section">
     <div class="container">
+        <form class="search-bar" method="get" role="search">
+            <input type="search" name="q" value="@Model.Query" class="search-input" dir="auto"
+                   placeholder="@L["Books_SearchPlaceholder"]" aria-label="@L["Books_SearchPlaceholder"]" />
+            <button type="submit" class="btn btn-primary">@L["Search_Button"]</button>
+            @if (!string.IsNullOrEmpty(Model.Query))
+            {
+                <a class="btn btn-outline" asp-page="/Public/Books" asp-route-culture="@Model.Culture">@L["Search_Clear"]</a>
+            }
+        </form>
         @if (Model.Books.Count == 0) { <p class="empty-state">@L["Pub_NoItems"]</p> }
         <div class="card-grid">
             @foreach (var b in Model.Books)
@@ -42,7 +51,7 @@
                 @for (var i = 1; i <= Model.TotalPages; i++)
                 {
                     <a class="btn @(i == Model.PageNum ? "btn-primary" : "btn-outline")" style="margin:.2rem"
-                       asp-page="/Public/Books" asp-route-culture="@Model.Culture" asp-route-p="@i">@i</a>
+                       asp-page="/Public/Books" asp-route-culture="@Model.Culture" asp-route-q="@Model.Query" asp-route-p="@i">@i</a>
                 }
             </nav>
         }

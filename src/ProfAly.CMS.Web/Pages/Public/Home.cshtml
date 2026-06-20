@@ -99,7 +99,7 @@
     <section class="section">
         <div class="container">
             <div class="section-head center"><span class="eyebrow">@L["Pub_FeaturedBooks"]</span><h2 class="section-title">@L["Pub_FeaturedBooks"]</h2></div>
-            <div class="card-grid">
+            <div class="card-grid card-grid--4">
                 @foreach (var b in Model.FeaturedBooks)
                 {
                     var bt = Localized.Pick(b.Translations, Model.Culture);

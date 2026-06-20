@@ -35,6 +35,13 @@
                         <div class="pub-body">
                             <h3 class="pub-title">@t?.Title</h3>
                             @if (!string.IsNullOrEmpty(t?.Journal)) { <p class="pub-venue">@t.Journal</p> }
+                            @if (item.PdfFile is { } pdf)
+                            {
+                                <div class="pub-actions">
+                                    <a class="btn btn-outline btn-sm" href="/uploads/@pdf.RelativePath" target="_blank" rel="noopener">@L["Pub_ViewPdf"]</a>
+                                    <a class="btn btn-outline btn-sm" href="/uploads/@pdf.RelativePath" download>@L["Pub_DownloadPdf"]</a>
+                                </div>
+                            }
                         </div>
                     </li>
                 }

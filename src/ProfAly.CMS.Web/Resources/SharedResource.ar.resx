@@ -205,4 +205,11 @@
   <data name="Profile_ContactPhoto_Help" xml:space="preserve"><value>تظهر في صفحة التواصل العامة. إذا تُركت فارغة تُستخدم صورة الملف الرئيسة.</value></data>
   <data name="Profile_BioImage" xml:space="preserve"><value>صورة النبذة (الصفحة الرئيسة)</value></data>
   <data name="Profile_BioImage_Help" xml:space="preserve"><value>تظهر في قسم «نبذة تعريفية» بالصفحة الرئيسة. مستقلة عن صورة الملف الرئيسة.</value></data>
+  <data name="Profile_AboutImage" xml:space="preserve"><value>صورة صفحة «نبذة»</value></data>
+  <data name="Profile_AboutImage_Help" xml:space="preserve"><value>تظهر في قسم السيرة بصفحة «نبذة» العامة. مستقلة عن باقي الصور.</value></data>
+  <data name="Books_SearchPlaceholder" xml:space="preserve"><value>ابحث بالعنوان أو المؤلف أو الناشر…</value></data>
+  <data name="Search_Button" xml:space="preserve"><value>بحث</value></data>
+  <data name="Search_Clear" xml:space="preserve"><value>مسح</value></data>
+  <data name="Pub_ViewPdf" xml:space="preserve"><value>عرض الملف</value></data>
+  <data name="Pub_DownloadPdf" xml:space="preserve"><value>تنزيل الملف</value></data>
 </root>

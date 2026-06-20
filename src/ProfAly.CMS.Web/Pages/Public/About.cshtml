@@ -21,6 +21,10 @@
     <div class="container">
         <div class="row g-4 g-lg-5">
             <div class="col-lg-7">
+                @if (Model.Profile?.AboutImage is { } aimg)
+                {
+                    <div class="snapshot-photo mb-4"><img src="/uploads/@aimg.RelativePath" alt="@p?.FullName" /></div>
+                }
                 <span class="eyebrow">@L["About_Bio"]</span>
                 <h2 class="section-title">@L["About_Bio"]</h2>
                 @foreach (var para in paras) { <p>@para</p> }

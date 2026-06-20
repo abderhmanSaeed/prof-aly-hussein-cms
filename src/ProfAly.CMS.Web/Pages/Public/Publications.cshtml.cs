@@ -16,8 +16,8 @@ public class PublicationsModel : PublicPageModel
     {
         await LoadChromeAsync();
         Items = await Db.ContentItem.OfType<Publication>().Where(x => x.IsPublished)
-            .Include(x => x.Translations)
-            .OrderBy(x => x.SortOrder).ThenByDescending(x => x.PublicationYear)
+            .Include(x => x.Translations).Include(x => x.PdfFile)
+            .OrderByDescending(x => x.PublicationYear).ThenBy(x => x.SortOrder)
             .ToListAsync();
     }
 }
