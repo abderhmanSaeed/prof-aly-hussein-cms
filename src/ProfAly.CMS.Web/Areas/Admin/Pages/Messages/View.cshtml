@@ -1,0 +1,42 @@
+@page "{id:int}"
+@using System.Globalization
+@inject Microsoft.Extensions.Localization.IStringLocalizer<ProfAly.CMS.Web.SharedResource> L
+@model ProfAly.CMS.Web.Areas.Admin.Pages.Messages.ViewModel
+@{ ViewData["Title"] = (Model.Message?.Subject ?? L["Messages_Title"].Value); var m = Model.Message!; }
+
+<div class="d-flex align-items-center mb-3">
+    <a asp-page="Index" class="btn btn-sm btn-outline-secondary">&larr; @L["Messages_Title"]</a>
+</div>
+
+<div class="tile" style="max-width:820px">
+    <div class="d-flex flex-wrap align-items-start gap-2 mb-3">
+        <h1 class="page-title mb-0">@(string.IsNullOrEmpty(m.Subject) ? "—" : m.Subject)</h1>
+        <span class="badge @(m.IsRead ? "text-bg-light" : "text-bg-danger") ms-auto">@(m.IsRead ? L["Msg_Read"] : L["Msg_Unread"])</span>
+    </div>
+
+    <dl class="row mb-3">
+        <dt class="col-sm-3 text-muted">@L["Contact_Name"]</dt>
+        <dd class="col-sm-9">@m.Name</dd>
+
+        <dt class="col-sm-3 text-muted">@L["Contact_Email"]</dt>
+        <dd class="col-sm-9"><a href="mailto:@m.Email" dir="ltr">@m.Email</a></dd>
+
+        <dt class="col-sm-3 text-muted">@L["Msg_Received"]</dt>
+        <dd class="col-sm-9" dir="ltr">@m.CreatedUtc.ToString("yyyy-MM-dd HH:mm 'UTC'", CultureInfo.InvariantCulture)</dd>
+
+        @if (!string.IsNullOrEmpty(m.IpAddress))
+        {
+            <dt class="col-sm-3 text-muted">@L["Msg_IpAddress"]</dt>
+            <dd class="col-sm-9" dir="ltr">@m.IpAddress</dd>
+        }
+    </dl>
+
+    <h2 class="panel-title">@L["Contact_Message"]</h2>
+    <p style="white-space:pre-wrap">@m.Message</p>
+
+    <div class="d-flex flex-wrap gap-2 mt-4">
+        <a class="btn btn-primary" href="mailto:@m.Email?subject=@Uri.EscapeDataString("RE: " + (m.Subject ?? ""))">@L["Msg_ReplyByEmail"]</a>
+        <form method="post" asp-page-handler="MarkUnread" asp-route-id="@m.Id"><button class="btn btn-outline-secondary">@L["Msg_MarkUnread"]</button></form>
+        <form method="post" asp-page-handler="Delete" asp-route-id="@m.Id" onsubmit="return confirm('@L["ConfirmDelete"]');"><button class="btn btn-outline-danger">@L["Delete"]</button></form>
+    </div>
+</div>

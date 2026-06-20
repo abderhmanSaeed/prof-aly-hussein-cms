@@ -1,4 +1,6 @@
 @page
+@using System.Globalization
+@inject Microsoft.Extensions.Localization.IStringLocalizer<ProfAly.CMS.Web.SharedResource> L
 @model ProfAly.CMS.Web.Areas.Admin.Pages.IndexModel
 @{
     ViewData["Title"] = "Dashboard";
@@ -20,10 +22,26 @@
         <h3>Media Library</h3>
         <p>Images and PDFs with usage tracking. <span class="badge-soon">soon</span></p>
     </div>
-    <div class="tile">
-        <h3>Messages</h3>
-        <p>Contact inbox. <span class="badge-soon">soon</span></p>
-    </div>
+    <a class="tile" asp-page="/Messages/Index" style="text-decoration:none; color:inherit; display:block">
+        <h3>@L["Messages_Title"]</h3>
+        <p class="mb-2">
+            <strong style="font-size:1.6rem">@Model.TotalMessages</strong> @L["Msg_Total"]
+            @if (Model.UnreadMessages > 0) { <span class="badge text-bg-danger ms-2">@Model.UnreadMessages @L["Msg_Unread"]</span> }
+        </p>
+        @if (Model.LatestMessages.Count > 0)
+        {
+            <ul class="list-unstyled mb-0 small">
+                @foreach (var m in Model.LatestMessages)
+                {
+                    <li class="d-flex justify-content-between gap-2 @(m.IsRead ? "text-muted" : "fw-semibold")">
+                        <span class="text-truncate">@m.Name — @(string.IsNullOrEmpty(m.Subject) ? "—" : m.Subject)</span>
+                        <span class="text-muted flex-shrink-0" dir="ltr">@m.CreatedUtc.ToString("MM-dd", CultureInfo.InvariantCulture)</span>
+                    </li>
+                }
+            </ul>
+        }
+        else { <p class="text-muted mb-0 small">@L["Msg_NoMessages"]</p> }
+    </a>
     <div class="tile">
         <h3>Statistics</h3>
         <p>Views, downloads, plays, top content. <span class="badge-soon">soon</span></p>

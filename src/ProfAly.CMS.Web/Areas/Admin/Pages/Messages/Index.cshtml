@@ -1,0 +1,70 @@
+@page
+@using System.Globalization
+@inject Microsoft.Extensions.Localization.IStringLocalizer<ProfAly.CMS.Web.SharedResource> L
+@model ProfAly.CMS.Web.Areas.Admin.Pages.Messages.IndexModel
+@{ ViewData["Title"] = L["Messages_Title"].Value;
+   string TabClass(string f) => "btn btn-sm " + (string.Equals(Model.Filter, f, StringComparison.OrdinalIgnoreCase) ? "btn-primary" : "btn-outline-secondary");
+}
+
+<div class="d-flex align-items-center flex-wrap gap-2 mb-3">
+    <h1 class="page-title mb-0">@L["Messages_Title"]</h1>
+    <span class="badge text-bg-secondary">@Model.TotalCount</span>
+    @if (Model.UnreadCount > 0) { <span class="badge text-bg-danger">@Model.UnreadCount @L["Msg_Unread"]</span> }
+</div>
+
+<div class="d-flex flex-wrap gap-2 align-items-center mb-3">
+    <div class="btn-group" role="group" aria-label="@L["Msg_Filter"]">
+        <a class="@TabClass("all")" asp-route-filter="all" asp-route-q="@Model.Query">@L["Msg_All"]</a>
+        <a class="@TabClass("unread")" asp-route-filter="unread" asp-route-q="@Model.Query">@L["Msg_Unread"]</a>
+        <a class="@TabClass("read")" asp-route-filter="read" asp-route-q="@Model.Query">@L["Msg_Read"]</a>
+    </div>
+    <form method="get" class="d-flex gap-2 ms-auto" role="search">
+        <input type="hidden" name="filter" value="@Model.Filter" />
+        <input type="search" name="q" value="@Model.Query" class="form-control form-control-sm" style="width:auto"
+               placeholder="@L["Msg_SearchPlaceholder"]" aria-label="@L["Msg_SearchPlaceholder"]" />
+        <button type="submit" class="btn btn-sm btn-outline-secondary">@L["Search_Button"]</button>
+    </form>
+</div>
+
+<div class="tile p-0">
+    <table class="table mb-0 align-middle">
+        <thead>
+            <tr>
+                <th style="width:90px">@L["Msg_Status"]</th>
+                <th>@L["Contact_Name"]</th>
+                <th class="d-none d-md-table-cell">@L["Contact_Email"]</th>
+                <th>@L["Contact_Subject"]</th>
+                <th class="d-none d-lg-table-cell" style="width:170px">@L["Msg_Received"]</th>
+                <th style="width:230px">@L["Actions"]</th>
+            </tr>
+        </thead>
+        <tbody>
+        @if (Model.Items.Count == 0) { <tr><td colspan="6" class="text-muted p-3">@L["Msg_NoMessages"]</td></tr> }
+        @foreach (var m in Model.Items)
+        {
+            <tr class="@(m.IsRead ? "" : "msg-unread")">
+                <td>
+                    @if (m.IsRead) { <span class="badge text-bg-light">@L["Msg_Read"]</span> }
+                    else { <span class="badge text-bg-danger">@L["Msg_Unread"]</span> }
+                </td>
+                <td class="@(m.IsRead ? "" : "fw-bold")"><a asp-page="View" asp-route-id="@m.Id">@m.Name</a></td>
+                <td class="d-none d-md-table-cell"><a href="mailto:@m.Email" dir="ltr">@m.Email</a></td>
+                <td class="@(m.IsRead ? "" : "fw-semibold")">@(string.IsNullOrEmpty(m.Subject) ? "—" : m.Subject)</td>
+                <td class="d-none d-lg-table-cell text-muted" dir="ltr">@m.CreatedUtc.ToString("yyyy-MM-dd HH:mm", CultureInfo.InvariantCulture)</td>
+                <td>
+                    <a class="btn btn-sm btn-outline-secondary" asp-page="View" asp-route-id="@m.Id">@L["View"]</a>
+                    @if (m.IsRead)
+                    {
+                        <form method="post" asp-page-handler="MarkRead" asp-route-id="@m.Id" asp-route-read="false" class="d-inline"><button class="btn btn-sm btn-outline-secondary">@L["Msg_MarkUnread"]</button></form>
+                    }
+                    else
+                    {
+                        <form method="post" asp-page-handler="MarkRead" asp-route-id="@m.Id" asp-route-read="true" class="d-inline"><button class="btn btn-sm btn-outline-secondary">@L["Msg_MarkRead"]</button></form>
+                    }
+                    <form method="post" asp-page-handler="Delete" asp-route-id="@m.Id" class="d-inline" onsubmit="return confirm('@L["ConfirmDelete"]');"><button class="btn btn-sm btn-outline-danger">@L["Delete"]</button></form>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>

@@ -224,4 +224,18 @@
   <data name="Search_Clear" xml:space="preserve"><value>Clear</value></data>
   <data name="Pub_ViewPdf" xml:space="preserve"><value>View PDF</value></data>
   <data name="Pub_DownloadPdf" xml:space="preserve"><value>Download PDF</value></data>
+  <data name="Messages_Title" xml:space="preserve"><value>Messages</value></data>
+  <data name="Msg_Status" xml:space="preserve"><value>Status</value></data>
+  <data name="Msg_Unread" xml:space="preserve"><value>Unread</value></data>
+  <data name="Msg_Read" xml:space="preserve"><value>Read</value></data>
+  <data name="Msg_All" xml:space="preserve"><value>All</value></data>
+  <data name="Msg_Filter" xml:space="preserve"><value>Filter</value></data>
+  <data name="Msg_Received" xml:space="preserve"><value>Received</value></data>
+  <data name="Msg_MarkRead" xml:space="preserve"><value>Mark read</value></data>
+  <data name="Msg_MarkUnread" xml:space="preserve"><value>Mark unread</value></data>
+  <data name="Msg_Total" xml:space="preserve"><value>total</value></data>
+  <data name="Msg_IpAddress" xml:space="preserve"><value>IP address</value></data>
+  <data name="Msg_NoMessages" xml:space="preserve"><value>No messages.</value></data>
+  <data name="Msg_SearchPlaceholder" xml:space="preserve"><value>Search name, email or subject…</value></data>
+  <data name="Msg_ReplyByEmail" xml:space="preserve"><value>Reply by email</value></data>
 </root>
