@@ -207,4 +207,7 @@
   <data name="Nav_Theses" xml:space="preserve"><value>Theses</value></data>
   <data name="Nav_Teaching" xml:space="preserve"><value>Teaching</value></data>
   <data name="Nav_Videos" xml:space="preserve"><value>Videos</value></data>
+  <data name="Contact_SendMessage" xml:space="preserve"><value>Send a message</value></data>
+  <data name="Profile_ContactPhoto" xml:space="preserve"><value>Contact page photo</value></data>
+  <data name="Profile_ContactPhoto_Help" xml:space="preserve"><value>Shown on the public Contact page. If left empty, the main profile photo is used.</value></data>
 </root>

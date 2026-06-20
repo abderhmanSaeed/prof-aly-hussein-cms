@@ -18,6 +18,11 @@ public sealed class ProfileConfiguration : IEntityTypeConfiguration<Profile>
             .HasForeignKey(x => x.PhotoMediaId)
             .OnDelete(DeleteBehavior.SetNull);
 
+        b.HasOne(x => x.ContactPhoto)
+            .WithMany()
+            .HasForeignKey(x => x.ContactPhotoMediaId)
+            .OnDelete(DeleteBehavior.SetNull);
+
         b.HasMany(x => x.Translations)
             .WithOne(t => t.Profile!)
             .HasForeignKey(t => t.ProfileId)

@@ -12,6 +12,11 @@ public class Profile : AuditableEntity, IValidatableEntity
 
     public MediaFile? Photo { get; set; }
 
+    /// <summary>Dedicated portrait for the public Contact page (doc 05 §2). Falls back to <see cref="Photo"/> when unset.</summary>
+    public int? ContactPhotoMediaId { get; set; }
+
+    public MediaFile? ContactPhoto { get; set; }
+
     /// <summary>Stored as a date; formatted per culture at render (doc 10 §8b).</summary>
     public DateTime? DateOfBirth { get; set; }
 

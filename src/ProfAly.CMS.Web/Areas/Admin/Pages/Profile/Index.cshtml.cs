@@ -31,6 +31,7 @@ public class IndexModel : PageModel
     public InputModel Input { get; set; } = new();
 
     public string? PhotoPath { get; private set; }
+    public string? ContactPhotoPath { get; private set; }
     public Dictionary<string, string?> CvPaths { get; private set; } = new();
 
     [TempData]
@@ -48,6 +49,8 @@ public class IndexModel : PageModel
         public string? Phone { get; set; }
 
         public IFormFile? PhotoFile { get; set; }
+
+        public IFormFile? ContactPhotoFile { get; set; }
 
         public List<TranslationInput> Translations { get; set; } = new();
     }
@@ -75,6 +78,7 @@ public class IndexModel : PageModel
         Input.Email = profile?.Email;
         Input.Phone = profile?.Phone;
         PhotoPath = MediaPath(profile?.Photo);
+        ContactPhotoPath = MediaPath(profile?.ContactPhoto);
 
         Input.Translations = Cultures.Select(c =>
         {
@@ -137,6 +141,18 @@ public class IndexModel : PageModel
             profile.PhotoMediaId = result.File!.Id;
         }
 
+        if (Input.ContactPhotoFile is not null)
+        {
+            var result = await _media.UploadAsync(Input.ContactPhotoFile, MediaKind.Image);
+            if (!result.Succeeded)
+            {
+                ModelState.AddModelError("Input.ContactPhotoFile", _t[result.ErrorKey!]);
+                await ReloadMediaAsync();
+                return Page();
+            }
+            profile.ContactPhotoMediaId = result.File!.Id;
+        }
+
         if (isNew)
         {
             _db.Profile.Add(profile);
@@ -183,6 +199,7 @@ public class IndexModel : PageModel
     private async Task<ProfileEntity?> LoadAsync() =>
         await _db.Profile
             .Include(p => p.Photo)
+            .Include(p => p.ContactPhoto)
             .Include(p => p.Translations).ThenInclude(t => t.CvFile)
             .FirstOrDefaultAsync();
 
@@ -190,6 +207,7 @@ public class IndexModel : PageModel
     {
         var profile = await LoadAsync();
         PhotoPath = MediaPath(profile?.Photo);
+        ContactPhotoPath = MediaPath(profile?.ContactPhoto);
         foreach (var c in Cultures)
         {
             CvPaths[c] = MediaPath(profile?.Translations.FirstOrDefault(x => x.Culture == c)?.CvFile);

@@ -16,42 +16,79 @@
 
 <section class="section">
     <div class="container">
-        <div class="row g-5">
-            <div class="col-lg-5">
+        <div class="contact-grid">
+            <div class="contact-aside">
+                <div class="contact-photo">
+                    @if (!string.IsNullOrEmpty(Model.PhotoPath))
+                    {
+                        <img src="@Model.PhotoPath" width="500" height="450" alt="@(ViewData["SiteTitle"])" />
+                    }
+                    else
+                    {
+                        <div class="contact-photo-fallback" aria-hidden="true">ع</div>
+                    }
+                </div>
                 <div class="panel">
                     <h2 class="panel-title">@L["Contact_Intro"]</h2>
-                    <ul class="footer-contact" style="gap:.75rem">
-                        @if (!string.IsNullOrEmpty(Model.ContactEmail)) { <li><strong>@L["Contact_Email"]:</strong> <a href="mailto:@Model.ContactEmail">@Model.ContactEmail</a></li> }
-                        @if (!string.IsNullOrEmpty(Model.ContactPhoneValue)) { <li><strong>@L["Contact_Phone"]:</strong> <a href="tel:@Model.ContactPhoneValue" dir="ltr">@Model.ContactPhoneValue</a></li> }
-                        @if (!string.IsNullOrEmpty(Model.Location)) { <li><strong>@L["Contact_Location"]:</strong> @Model.Location</li> }
-                    </ul>
+                    @if (!string.IsNullOrEmpty(Model.ContactPhoneValue))
+                    {
+                        <div class="contact-row">
+                            <span class="contact-ic contact-ic-phone" aria-hidden="true"></span>
+                            <div><span class="contact-label">@L["Contact_Phone"]</span><a href="tel:@Model.ContactPhoneValue" dir="ltr">@Model.ContactPhoneValue</a></div>
+                        </div>
+                    }
+                    @if (!string.IsNullOrEmpty(Model.ContactEmail))
+                    {
+                        <div class="contact-row">
+                            <span class="contact-ic contact-ic-email" aria-hidden="true"></span>
+                            <div><span class="contact-label">@L["Contact_Email"]</span><a href="mailto:@Model.ContactEmail" dir="ltr">@Model.ContactEmail</a></div>
+                        </div>
+                    }
+                    @if (!string.IsNullOrEmpty(Model.Location))
+                    {
+                        <div class="contact-row">
+                            <span class="contact-ic contact-ic-loc" aria-hidden="true"></span>
+                            <div><span class="contact-label">@L["Contact_Location"]</span><span>@Model.Location</span></div>
+                        </div>
+                    }
+                    @if (!string.IsNullOrEmpty(Model.FacebookUrl) || !string.IsNullOrEmpty(Model.WhatsAppNumber))
+                    {
+                        <div class="contact-social">
+                            @if (!string.IsNullOrEmpty(Model.FacebookUrl)) { <a class="btn btn-outline" href="@Model.FacebookUrl" target="_blank" rel="noopener">Facebook</a> }
+                            @if (!string.IsNullOrEmpty(Model.WhatsAppNumber)) { <a class="btn btn-outline" href="https://wa.me/@Model.WhatsAppNumber.TrimStart('+')" target="_blank" rel="noopener" dir="ltr">WhatsApp</a> }
+                        </div>
+                    }
                 </div>
             </div>
-            <div class="col-lg-7">
-                @if (!string.IsNullOrEmpty(Model.StatusMessage))
-                {
-                    <div class="alert alert-success">@Model.StatusMessage</div>
-                }
-                <form method="post" class="panel">
+
+            <div>
+                <form method="post" class="form-card">
+                    <h2 class="panel-title">@L["Contact_SendMessage"]</h2>
+                    @if (!string.IsNullOrEmpty(Model.StatusMessage))
+                    {
+                        <div class="alert alert-success">@Model.StatusMessage</div>
+                    }
                     <div asp-validation-summary="All" class="alert alert-danger py-2 px-3 small" style="@(ViewData.ModelState.IsValid ? "display:none" : "")"></div>
-                    <div class="mb-3">
-                        <label asp-for="Input.Name" class="form-label">@L["Contact_Name"]</label>
-                        <input asp-for="Input.Name" class="form-control" />
-                        <span asp-validation-for="Input.Name" class="text-danger small"></span>
-                    </div>
-                    <div class="mb-3">
-                        <label asp-for="Input.Email" class="form-label">@L["Contact_Email"]</label>
-                        <input asp-for="Input.Email" class="form-control" dir="ltr" />
-                        <span asp-validation-for="Input.Email" class="text-danger small"></span>
-                    </div>
-                    <div class="mb-3">
-                        <label asp-for="Input.Subject" class="form-label">@L["Contact_Subject"]</label>
-                        <input asp-for="Input.Subject" class="form-control" />
-                    </div>
-                    <div class="mb-3">
-                        <label asp-for="Input.Message" class="form-label">@L["Contact_Message"]</label>
-                        <textarea asp-for="Input.Message" class="form-control" rows="5"></textarea>
-                        <span asp-validation-for="Input.Message" class="text-danger small"></span>
+                    <div class="form-grid">
+                        <div class="field">
+                            <label asp-for="Input.Name">@L["Contact_Name"]</label>
+                            <input asp-for="Input.Name" autocomplete="name" />
+                            <span asp-validation-for="Input.Name" class="text-danger small"></span>
+                        </div>
+                        <div class="field">
+                            <label asp-for="Input.Email">@L["Contact_Email"]</label>
+                            <input asp-for="Input.Email" type="email" dir="ltr" autocomplete="email" />
+                            <span asp-validation-for="Input.Email" class="text-danger small"></span>
+                        </div>
+                        <div class="field field-full">
+                            <label asp-for="Input.Subject">@L["Contact_Subject"]</label>
+                            <input asp-for="Input.Subject" />
+                        </div>
+                        <div class="field field-full">
+                            <label asp-for="Input.Message">@L["Contact_Message"]</label>
+                            <textarea asp-for="Input.Message"></textarea>
+                            <span asp-validation-for="Input.Message" class="text-danger small"></span>
+                        </div>
                     </div>
                     <div style="position:absolute;left:-9999px" aria-hidden="true">
                         <label>Website<input asp-for="Input.Website" tabindex="-1" autocomplete="off" /></label>

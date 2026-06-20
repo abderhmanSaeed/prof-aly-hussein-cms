@@ -2,6 +2,7 @@ using System.Globalization;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using ProfAly.CMS.Domain.Common;
+using ProfAly.CMS.Domain.Entities;
 using ProfAly.CMS.Infrastructure.Persistence;
 using ProfAly.CMS.Web.Infrastructure;
 
@@ -33,9 +34,15 @@ public abstract class PublicPageModel : PageModel
         var st = Localized.Pick(settings?.Translations, Culture);
         ViewData["SiteTitle"] = st?.SiteTitle ?? "Prof. Aly Hussein";
         ViewData["Tagline"] = st?.Tagline;
-        ViewData["ContactEmail"] = settings?.ContactEmail;
 
         var profile = await Db.Profile.FirstOrDefaultAsync(cancellationToken);
         ViewData["ContactPhone"] = profile?.Phone;
+        // CMS-managed Profile.Email is authoritative; SiteSettings.ContactEmail is only a
+        // bootstrap fallback used until profile data exists (business rule — see report 66).
+        ViewData["ContactEmail"] = ContactEmailOf(profile, settings);
     }
+
+    /// <summary>Effective public contact email: the CMS-managed <see cref="Profile.Email"/> when set, else the bootstrap <see cref="SiteSettings.ContactEmail"/>.</summary>
+    protected static string? ContactEmailOf(Profile? profile, SiteSettings? settings) =>
+        !string.IsNullOrWhiteSpace(profile?.Email) ? profile!.Email : settings?.ContactEmail;
 }
