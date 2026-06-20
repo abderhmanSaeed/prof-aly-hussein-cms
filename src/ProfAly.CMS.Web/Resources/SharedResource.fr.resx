@@ -203,4 +203,6 @@
   <data name="Back_To_Top" xml:space="preserve"><value>Retour en haut</value></data>
   <data name="Profile_ContactPhoto" xml:space="preserve"><value>Photo de la page Contact</value></data>
   <data name="Profile_ContactPhoto_Help" xml:space="preserve"><value>Affichée sur la page Contact publique. Si vide, la photo principale du profil est utilisée.</value></data>
+  <data name="Profile_BioImage" xml:space="preserve"><value>Image de biographie (accueil)</value></data>
+  <data name="Profile_BioImage_Help" xml:space="preserve"><value>Affichée dans la section « À propos » de l'accueil. Indépendante de la photo principale.</value></data>
 </root>

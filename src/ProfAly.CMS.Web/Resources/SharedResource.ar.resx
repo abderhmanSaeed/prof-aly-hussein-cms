@@ -203,4 +203,6 @@
   <data name="Back_To_Top" xml:space="preserve"><value>العودة إلى الأعلى</value></data>
   <data name="Profile_ContactPhoto" xml:space="preserve"><value>صورة صفحة التواصل</value></data>
   <data name="Profile_ContactPhoto_Help" xml:space="preserve"><value>تظهر في صفحة التواصل العامة. إذا تُركت فارغة تُستخدم صورة الملف الرئيسة.</value></data>
+  <data name="Profile_BioImage" xml:space="preserve"><value>صورة النبذة (الصفحة الرئيسة)</value></data>
+  <data name="Profile_BioImage_Help" xml:space="preserve"><value>تظهر في قسم «نبذة تعريفية» بالصفحة الرئيسة. مستقلة عن صورة الملف الرئيسة.</value></data>
 </root>

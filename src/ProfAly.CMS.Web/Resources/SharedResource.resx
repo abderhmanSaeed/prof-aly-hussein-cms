@@ -215,4 +215,6 @@
   <data name="Back_To_Top" xml:space="preserve"><value>Back to top</value></data>
   <data name="Profile_ContactPhoto" xml:space="preserve"><value>Contact page photo</value></data>
   <data name="Profile_ContactPhoto_Help" xml:space="preserve"><value>Shown on the public Contact page. If left empty, the main profile photo is used.</value></data>
+  <data name="Profile_BioImage" xml:space="preserve"><value>Biography image (homepage)</value></data>
+  <data name="Profile_BioImage_Help" xml:space="preserve"><value>Shown in the homepage "About" section. Independent of the main profile photo.</value></data>
 </root>

@@ -22,7 +22,7 @@ public class HomeModel : PublicPageModel
     {
         await LoadChromeAsync();
 
-        Profile = await Db.Profile.Include(p => p.Photo).Include(p => p.Translations).FirstOrDefaultAsync();
+        Profile = await Db.Profile.Include(p => p.Photo).Include(p => p.BioImage).Include(p => p.Translations).FirstOrDefaultAsync();
         Credibility = await Db.Credibility.Include(c => c.Translations).OrderBy(c => c.SortOrder).ToListAsync();
         Stats = await Db.StatItem.Include(s => s.Translations).OrderBy(s => s.SortOrder).ToListAsync();
         FeaturedBooks = await Db.ContentItem.OfType<Book>()

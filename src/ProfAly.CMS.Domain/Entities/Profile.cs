@@ -17,6 +17,11 @@ public class Profile : AuditableEntity, IValidatableEntity
 
     public MediaFile? ContactPhoto { get; set; }
 
+    /// <summary>Dedicated image for the homepage biography / "About" snapshot section. Independent of <see cref="Photo"/>.</summary>
+    public int? BioImageMediaId { get; set; }
+
+    public MediaFile? BioImage { get; set; }
+
     /// <summary>Stored as a date; formatted per culture at render (doc 10 §8b).</summary>
     public DateTime? DateOfBirth { get; set; }
 
