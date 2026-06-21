@@ -12,7 +12,22 @@
   --leading: 1.7; --maxw: 1200px; --radius: 14px;
   --shadow: 0 1px 2px rgba(16,24,40,.04), 0 12px 32px -12px rgba(16,24,40,.12);
   --shadow-sm: 0 1px 2px rgba(16,24,40,.05), 0 6px 18px -10px rgba(16,24,40,.10);
-  --section-pad: clamp(3.5rem, 7vw, 6.5rem); --nav-h: 76px; --radius-sm: 9px; --ease: cubic-bezier(.22,.61,.36,1);
+  --shadow-lg: 0 2px 4px rgba(16,24,40,.05), 0 24px 56px -20px rgba(16,24,40,.18);
+  --section-pad: clamp(3.5rem, 7vw, 6.5rem); --gutter: clamp(1.1rem, 4vw, 2rem); --nav-h: 76px;
+  --radius-sm: 9px; --radius-lg: 20px; --radius-pill: 999px; --ease: cubic-bezier(.22,.61,.36,1);
+  /* Motion durations (doc 86) */
+  --dur-fast: .18s; --dur: .22s; --dur-slow: .3s;
+  /* Display font alias (Latin serif / Arabic serif swap via [data-lang]) */
+  --font-display: var(--font-head);
+  /* Fluid type scale (doc 86 — design system) */
+  --fs-display: clamp(2.2rem, 5.5vw, 3.7rem);
+  --fs-h1: clamp(1.8rem, 4vw, 2.7rem);
+  --fs-h2: clamp(1.5rem, 3vw, 2.1rem);
+  --fs-h3: 1.3rem;
+  --fs-lead: 1.12rem;
+  --fs-body: 1.0625rem;
+  --fs-sm: .92rem;
+  --fs-xs: .82rem;
 }
 [data-lang="ar"] {
   --font-head: "Amiri", "Times New Roman", serif;
@@ -23,6 +38,7 @@
   --bg: #0E1512; --surface: #15201B; --surface-2: #111A16; --ink: #ECECE6; --muted: #A6B0AB;
   --line: #243029; --line-strong: #324034; --primary-050: #14241C; --accent-050: #241F12; --accent-ink: #E0C27A;
   --shadow: 0 1px 2px rgba(0,0,0,.3), 0 16px 36px -14px rgba(0,0,0,.55);
+  --shadow-lg: 0 2px 6px rgba(0,0,0,.35), 0 28px 64px -18px rgba(0,0,0,.62);
 }
 
 * { box-sizing: border-box; }
@@ -102,8 +118,14 @@ img { max-width: 100%; height: auto; display: block; }
 /* Burger visibility tracks the menu breakpoint below (not Bootstrap's xl/xxl) so the
    two never desync: hidden on the desktop one-line nav, shown when it collapses. */
 .nav-burger { display: none; }
-.lang-link { font-size: .82rem; font-weight: 600; padding: .35rem .55rem; border-radius: 8px; color: var(--muted); }
-.lang-link.active { color: var(--primary); background: var(--primary-050); }
+/* Segmented language switch (doc 86): a surface-2 track holding three pills. */
+.lang-switch { display: inline-flex; align-items: center; gap: .15rem; padding: .22rem;
+  background: var(--surface-2); border: 1px solid var(--line); border-radius: var(--radius-pill); }
+.lang-link { display: inline-grid; place-items: center; min-inline-size: 34px; min-block-size: 34px;
+  padding-inline: .5rem; border-radius: var(--radius-pill); font-size: var(--fs-xs); font-weight: 600;
+  color: var(--muted); transition: color var(--dur) var(--ease), background var(--dur) var(--ease); }
+.lang-link:hover { color: var(--primary); }
+.lang-link.active { color: var(--primary); background: var(--surface); box-shadow: var(--shadow-sm); }
 
 /* Sections */
 .section { padding-block: var(--section-pad); }

@@ -111,11 +111,14 @@
             </ul>
             <div class="nav-actions">
                 <button class="icon-btn theme-toggle" type="button" title="Theme" aria-label="Theme">&#9681;</button>
-                @foreach (var c in SupportedCultures.All)
-                {
-                    <a class="lang-link @(c == culture ? "active" : "")" asp-page="@currentPage" asp-route-culture="@c"
-                       hreflang="@c" lang="@c" aria-current="@(c == culture ? "true" : null)">@c.ToUpperInvariant()</a>
-                }
+                <div class="lang-switch" role="group">
+                    @foreach (var c in SupportedCultures.All)
+                    {
+                        var langName = c == "ar" ? L["LangArabic"].Value : c == "fr" ? L["LangFrench"].Value : L["LangEnglish"].Value;
+                        <a class="lang-link @(c == culture ? "active" : "")" asp-page="@currentPage" asp-route-culture="@c"
+                           hreflang="@c" lang="@c" title="@langName" aria-label="@langName" aria-current="@(c == culture ? "true" : null)">@c.ToUpperInvariant()</a>
+                    }
+                </div>
                 <button class="icon-btn nav-burger" type="button" aria-label="Menu" aria-controls="primary-nav" aria-expanded="false">&#9776;</button>
             </div>
         </nav>
