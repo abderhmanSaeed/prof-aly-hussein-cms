@@ -30,6 +30,7 @@ public class AppDbContext : IdentityDbContext<ApplicationUser>
     public DbSet<ContentItem> ContentItem => Set<ContentItem>();
     public DbSet<ContentItemTranslation> ContentItemTranslation => Set<ContentItemTranslation>();
     public DbSet<ContentItemCategory> ContentItemCategory => Set<ContentItemCategory>();
+    public DbSet<ContentImage> ContentImage => Set<ContentImage>();
 
     // Taxonomy
     public DbSet<Category> Category => Set<Category>();
@@ -104,7 +105,9 @@ public class AppDbContext : IdentityDbContext<ApplicationUser>
             .HasValue<Project>(ContentType.Project)
             .HasValue<Resource>(ContentType.Resource)
             .HasValue<EnrichmentItem>(ContentType.EnrichmentItem)
-            .HasValue<Video>(ContentType.Video);
+            .HasValue<Video>(ContentType.Video)
+            .HasValue<RecommendedBook>(ContentType.RecommendedBook)
+            .HasValue<Event>(ContentType.Event);
 
         // Apply all IEntityTypeConfiguration<> in this assembly.
         builder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);

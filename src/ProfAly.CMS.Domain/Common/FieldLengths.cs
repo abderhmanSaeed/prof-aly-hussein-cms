@@ -24,6 +24,7 @@ public static class FieldLengths
     public const int Publisher = 250;
     public const int AuthorshipRole = 150;
     public const int ResearcherName = 200;
+    public const int EventLocation = 250;
 
     // Content type-specific (non-translatable)
     public const int Doi = 100;
@@ -31,6 +32,8 @@ public static class FieldLengths
     public const int YouTubeVideoId = 20;
     public const int ProjectRole = 150;
     public const int ResourceType = 50;
+    public const int PurchaseUrl = 500;
+    public const int ImageCaption = 250;
 
     // Profile
     public const int FullName = 150;

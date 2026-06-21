@@ -1,0 +1,23 @@
+@model ProfAly.CMS.Web.Infrastructure.BookCardViewModel
+@*
+    Shared clickable book card (doc 82). Reused by Academic Books, Recommended Books,
+    and the homepage book rows so both sections share one card component.
+*@
+<a class="book-card" asp-page="@Model.DetailPage" asp-route-culture="@Model.Culture" asp-route-slug="@Model.Slug">
+    <div class="book-cover">
+        @if (Model.Featured) { <span class="book-flag">@L["F_Featured"]</span> }
+        @if (!string.IsNullOrEmpty(Model.CoverPath))
+        {
+            <img src="@Model.CoverPath" alt="@Model.Title" style="width:100%;height:100%;object-fit:cover" loading="lazy" />
+        }
+        else
+        {
+            <span class="initial">@Model.Initial</span>
+        }
+    </div>
+    <div class="book-info">
+        <h3 class="book-title">@Model.Title</h3>
+        @if (!string.IsNullOrEmpty(Model.Subtitle)) { <p class="book-pub">@Model.Subtitle</p> }
+        @if (!string.IsNullOrEmpty(Model.SubMeta)) { <p class="book-role">@Model.SubMeta</p> }
+    </div>
+</a>

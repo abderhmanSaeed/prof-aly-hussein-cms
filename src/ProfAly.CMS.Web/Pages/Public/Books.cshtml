@@ -29,19 +29,7 @@
         <div class="card-grid">
             @foreach (var b in Model.Books)
             {
-                var t = Localized.Pick(b.Translations, Model.Culture);
-                <article class="book-card">
-                    <div class="book-cover">
-                        @if (b.IsFeatured) { <span class="book-flag">@L["F_Featured"]</span> }
-                        @if (b.CoverImage is not null) { <img src="/uploads/@b.CoverImage.RelativePath" alt="@t?.Title" style="width:100%;height:100%;object-fit:cover" /> }
-                        else { <span class="initial">@(t?.Title?.Trim().Substring(0, 1))</span> <span class="year">@b.PublicationYear</span> }
-                    </div>
-                    <div class="book-info">
-                        <h3 class="book-title">@t?.Title</h3>
-                        <p class="book-pub">@t?.Publisher</p>
-                        <p class="book-role">@t?.AuthorshipRole</p>
-                    </div>
-                </article>
+                <partial name="Shared/_BookCard" model="Model.CardFor(b)" />
             }
         </div>
 

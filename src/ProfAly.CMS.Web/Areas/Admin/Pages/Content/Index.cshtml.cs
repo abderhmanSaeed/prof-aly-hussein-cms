@@ -18,13 +18,23 @@ public class IndexModel : PageModel
     public ContentType ContentType { get; private set; }
     public List<ContentItem> Items { get; private set; } = new();
 
-    /// <summary>The content types this module manages (doc: Books/Publications/Research only).</summary>
-    public static readonly ContentType[] Allowed = { ContentType.Book, ContentType.Publication, ContentType.ResearchPaper };
+    /// <summary>
+    /// The content types this generic module manages. Books/Publications/Research are the
+    /// academic collections; EnrichmentItem and RecommendedBook (doc 76 — Digital Resources)
+    /// reuse the same TPH plumbing (cover, PDF, external URL, categories, SEO, AR/EN/FR).
+    /// </summary>
+    public static readonly ContentType[] Allowed =
+    {
+        ContentType.Book, ContentType.Publication, ContentType.ResearchPaper,
+        ContentType.EnrichmentItem, ContentType.RecommendedBook,
+    };
 
     public string TitleKey => ContentType switch
     {
         ContentType.Publication => "Publications_Title",
         ContentType.ResearchPaper => "Research_Title",
+        ContentType.EnrichmentItem => "Enrichment_Title",
+        ContentType.RecommendedBook => "RecommendedBooks_Title",
         _ => "Books_Title",
     };
 

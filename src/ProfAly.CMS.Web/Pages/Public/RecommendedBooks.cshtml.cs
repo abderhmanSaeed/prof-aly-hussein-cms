@@ -8,26 +8,27 @@ using ProfAly.CMS.Web.Infrastructure;
 namespace ProfAly.CMS.Web.Pages.Public;
 
 [AllowAnonymous]
-public class BooksModel : PublicPageModel
+public class RecommendedBooksModel : PublicPageModel
 {
     private const int PageSize = 12;
 
-    public BooksModel(AppDbContext db) : base(db) { }
+    public RecommendedBooksModel(AppDbContext db) : base(db) { }
 
     [BindProperty(SupportsGet = true, Name = "p")]
     public int PageNum { get; set; } = 1;
 
-    /// <summary>Free-text search across title / description / author / publisher (any culture).</summary>
     [BindProperty(SupportsGet = true, Name = "q")]
     public string? Query { get; set; }
 
-    public List<Book> Books { get; private set; } = new();
+    public List<RecommendedBook> Featured { get; private set; } = new();
+    public List<RecommendedBook> Items { get; private set; } = new();
     public int TotalPages { get; private set; }
 
     public async Task OnGetAsync()
     {
         await LoadChromeAsync();
-        var query = Db.ContentItem.OfType<Book>().Where(b => b.IsPublished);
+
+        var query = Db.ContentItem.OfType<RecommendedBook>().Where(b => b.IsPublished);
 
         var q = Query?.Trim();
         if (!string.IsNullOrEmpty(q))
@@ -44,26 +45,33 @@ public class BooksModel : PublicPageModel
         TotalPages = (int)Math.Ceiling(total / (double)PageSize);
         if (PageNum < 1) { PageNum = 1; }
 
-        Books = await query
+        if (PageNum == 1 && string.IsNullOrEmpty(q))
+        {
+            Featured = await query.Where(b => b.IsFeatured)
+                .Include(b => b.Translations).Include(b => b.CoverImage)
+                .OrderBy(b => b.SortOrder).Take(3).ToListAsync();
+        }
+
+        Items = await query
             .Include(b => b.Translations).Include(b => b.CoverImage)
-            .OrderBy(b => b.SortOrder).ThenByDescending(b => b.PublicationYear)
+            .OrderBy(b => b.SortOrder).ThenBy(b => b.Id)
             .Skip((PageNum - 1) * PageSize).Take(PageSize)
             .ToListAsync();
     }
 
-    /// <summary>Maps a Book to the shared clickable-card view model (doc 82).</summary>
-    public BookCardViewModel CardFor(Book b)
+    /// <summary>Maps a RecommendedBook to the shared clickable-card view model (doc 82).</summary>
+    public BookCardViewModel CardFor(RecommendedBook b)
     {
         var t = Localized.Pick(b.Translations, Culture);
         return new BookCardViewModel
         {
             Culture = Culture,
-            DetailPage = "/Public/BookDetail",
+            DetailPage = "/Public/RecommendedBookDetail",
             Slug = t?.Slug,
             CoverPath = b.CoverImage is null ? null : "/uploads/" + b.CoverImage.RelativePath,
             Title = t?.Title,
-            Subtitle = t?.Publisher,
-            SubMeta = t?.AuthorshipRole,
+            Subtitle = t?.Authors,
+            SubMeta = t?.Publisher,
             Featured = b.IsFeatured,
         };
     }

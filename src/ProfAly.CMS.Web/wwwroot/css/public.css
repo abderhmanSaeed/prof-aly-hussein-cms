@@ -46,6 +46,8 @@ img { max-width: 100%; height: auto; display: block; }
 .btn-primary:hover { background: var(--primary-700); border-color: var(--primary-700); color: #fff; transform: translateY(-2px); }
 .btn-outline { background: transparent; color: var(--primary); border-color: var(--line-strong); }
 .btn-outline:hover { border-color: var(--primary); background: var(--primary-050); color: var(--primary); }
+.btn-accent { background: var(--accent); color: #fff; border-color: var(--accent); }
+.btn-accent:hover { background: var(--accent-600); border-color: var(--accent-600); color: #fff; transform: translateY(-2px); }
 .btn-gold { background: var(--accent); color: #1f1605; border-color: var(--accent); }
 .btn-gold:hover { background: var(--accent-600); color: #fff; }
 
@@ -66,6 +68,25 @@ img { max-width: 100%; height: auto; display: block; }
 .nav-menu a:hover { color: var(--primary); }
 .nav-menu a:hover::after, .nav-menu a.active::after { transform: scaleX(1); }
 .nav-menu a.active { color: var(--primary); font-weight: 600; }
+
+/* Digital Resources dropdown (doc 76). Desktop: hover/focus-within reveals the menu;
+   the toggle button is keyboard/click operable (JS sets aria-expanded + .open). */
+.nav-dropdown { position: relative; }
+.nav-dropdown-toggle { display: inline-flex; align-items: center; gap: .25rem; border: 0; background: none;
+  color: var(--ink); font: inherit; font-size: .9rem; font-weight: 500; padding: .5rem .6rem; border-radius: 8px; cursor: pointer; }
+.nav-dropdown-toggle:hover, .nav-dropdown-toggle.active { color: var(--primary); }
+.nav-dropdown-toggle .caret { font-size: .7rem; transition: transform .2s var(--ease); }
+.nav-dropdown-menu { position: absolute; inset-block-start: calc(100% + .25rem); inset-inline-start: 0; z-index: 1040;
+  min-inline-size: 220px; list-style: none; margin: 0; padding: .4rem; background: var(--surface);
+  border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow);
+  opacity: 0; visibility: hidden; transform: translateY(-6px); transition: opacity .18s var(--ease), transform .18s var(--ease); }
+.nav-dropdown:hover .nav-dropdown-menu, .nav-dropdown:focus-within .nav-dropdown-menu,
+.nav-dropdown.open .nav-dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+.nav-dropdown.open .nav-dropdown-toggle .caret { transform: rotate(180deg); }
+.nav-dropdown-menu a { display: block; padding: .55rem .7rem; border-radius: 8px; font-size: .9rem; }
+.nav-dropdown-menu a::after { content: none; }
+.nav-dropdown-menu a:hover { background: var(--primary-050); color: var(--primary); }
+
 .nav-actions { margin-inline-start: auto; display: flex; align-items: center; gap: .5rem; }
 .icon-btn { inline-size: 38px; block-size: 38px; border: 1px solid var(--line); border-radius: 9px; background: var(--surface); color: var(--ink); cursor: pointer; display: inline-grid; place-items: center; }
 .icon-btn:hover { border-color: var(--accent); color: var(--accent-600); }
@@ -317,6 +338,13 @@ img { max-width: 100%; height: auto; display: block; }
 .related-video span { font-size: .9rem; font-weight: 500; }
 .related-video:hover span { color: var(--primary); }
 
+/* Event gallery (doc 76). Responsive grid of thumbnails linking to the full image. */
+.event-meta li { margin-block-end: .35rem; }
+.gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: .85rem; }
+.gallery-item { display: block; border-radius: 10px; overflow: hidden; border: 1px solid var(--line); }
+.gallery-item img { inline-size: 100%; block-size: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; transition: transform .3s var(--ease); }
+.gallery-item:hover img { transform: scale(1.05); }
+
 .empty-state { color: var(--muted); text-align: center; padding: 2rem; }
 .mt-section { margin-block-start: clamp(2rem, 4vw, 3rem); }
 .text-center { text-align: center; }
@@ -344,6 +372,14 @@ img { max-width: 100%; height: auto; display: block; }
   }
   .nav-menu.open { display: flex; }
   .nav-menu a { padding: .8rem .75rem; font-size: 1rem; border-radius: 10px; }
+
+  /* In the mobile drawer the dropdown is shown inline (static, always expanded). */
+  .nav-dropdown { position: static; }
+  .nav-dropdown-toggle { inline-size: 100%; justify-content: space-between; padding: .8rem .75rem; font-size: 1rem; }
+  .nav-dropdown-menu { position: static; opacity: 1; visibility: visible; transform: none;
+    box-shadow: none; border: 0; border-radius: 0; padding: 0 0 0 .6rem; min-inline-size: 0; background: none; }
+  .nav-dropdown-menu a { padding: .65rem .75rem; font-size: .95rem; }
+  .nav-dropdown-toggle .caret { display: none; }
 }
 
 /* =====================================================================

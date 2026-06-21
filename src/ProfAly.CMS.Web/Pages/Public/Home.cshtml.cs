@@ -18,6 +18,12 @@ public class HomeModel : PublicPageModel
     public List<StatItem> Stats { get; private set; } = new();
     public List<Book> FeaturedBooks { get; private set; } = new();
 
+    // Digital Resources & Events homepage sections (doc 76).
+    public List<Video> LatestVideos { get; private set; } = new();
+    public List<EnrichmentItem> LatestEnrichment { get; private set; } = new();
+    public List<RecommendedBook> RecommendedBooks { get; private set; } = new();
+    public List<Event> FeaturedEvents { get; private set; } = new();
+
     public async Task OnGetAsync()
     {
         await LoadChromeAsync();
@@ -33,5 +39,53 @@ public class HomeModel : PublicPageModel
             .Include(b => b.Translations).Include(b => b.CoverImage)
             .OrderByDescending(b => b.IsFeatured).ThenBy(b => b.SortOrder)
             .Take(4).ToListAsync();
+
+        LatestVideos = await Db.ContentItem.OfType<Video>()
+            .Where(v => v.IsPublished)
+            .Include(v => v.Translations)
+            .OrderByDescending(v => v.IsFeatured).ThenBy(v => v.SortOrder).ThenByDescending(v => v.EventDateUtc)
+            .Take(4).ToListAsync();
+
+        LatestEnrichment = await Db.ContentItem.OfType<EnrichmentItem>()
+            .Where(e => e.IsPublished)
+            .Include(e => e.Translations).Include(e => e.CoverImage)
+            .OrderByDescending(e => e.IsFeatured).ThenBy(e => e.SortOrder)
+            .Take(4).ToListAsync();
+
+        RecommendedBooks = await Db.ContentItem.OfType<RecommendedBook>()
+            .Where(b => b.IsPublished)
+            .Include(b => b.Translations).Include(b => b.CoverImage)
+            .OrderByDescending(b => b.IsFeatured).ThenBy(b => b.SortOrder)
+            .Take(4).ToListAsync();
+
+        FeaturedEvents = await Db.ContentItem.OfType<Event>()
+            .Where(e => e.IsPublished)
+            .Include(e => e.Translations).Include(e => e.CoverImage)
+            .OrderByDescending(e => e.IsFeatured).ThenByDescending(e => e.EventDateUtc)
+            .Take(4).ToListAsync();
+    }
+
+    /// <summary>Shared clickable-card view model for an Academic Book (doc 82).</summary>
+    public BookCardViewModel CardForBook(Book b)
+    {
+        var t = Localized.Pick(b.Translations, Culture);
+        return new BookCardViewModel
+        {
+            Culture = Culture, DetailPage = "/Public/BookDetail", Slug = t?.Slug,
+            CoverPath = b.CoverImage is null ? null : "/uploads/" + b.CoverImage.RelativePath,
+            Title = t?.Title, Subtitle = t?.Publisher, Featured = b.IsFeatured,
+        };
+    }
+
+    /// <summary>Shared clickable-card view model for a Recommended Book (doc 82).</summary>
+    public BookCardViewModel CardForRecommended(RecommendedBook b)
+    {
+        var t = Localized.Pick(b.Translations, Culture);
+        return new BookCardViewModel
+        {
+            Culture = Culture, DetailPage = "/Public/RecommendedBookDetail", Slug = t?.Slug,
+            CoverPath = b.CoverImage is null ? null : "/uploads/" + b.CoverImage.RelativePath,
+            Title = t?.Title, Subtitle = t?.Authors, Featured = b.IsFeatured,
+        };
     }
 }

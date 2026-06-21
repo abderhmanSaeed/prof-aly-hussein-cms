@@ -1,4 +1,5 @@
 @page "/{culture:regex(^(ar|en|fr)$)}"
+@using System.Globalization
 @model ProfAly.CMS.Web.Pages.Public.HomeModel
 @{
     var p = Localized.Pick(Model.Profile?.Translations, Model.Culture);
@@ -102,21 +103,99 @@
             <div class="card-grid card-grid--4">
                 @foreach (var b in Model.FeaturedBooks)
                 {
-                    var bt = Localized.Pick(b.Translations, Model.Culture);
-                    <article class="book-card">
-                        <div class="book-cover">
-                            <span class="book-flag">@L["F_Featured"]</span>
-                            @if (b.CoverImage is not null) { <img src="/uploads/@b.CoverImage.RelativePath" alt="@bt?.Title" style="width:100%;height:100%;object-fit:cover" /> }
-                            else { <span class="initial">@(bt?.Title?.Trim().Substring(0, 1))</span> <span class="year">@b.PublicationYear</span> }
-                        </div>
-                        <div class="book-info">
-                            <h3 class="book-title">@bt?.Title</h3>
-                            <p class="book-pub">@bt?.Publisher</p>
-                        </div>
-                    </article>
+                    <partial name="Shared/_BookCard" model="Model.CardForBook(b)" />
                 }
             </div>
             <div class="text-center mt-section"><a class="btn btn-outline" asp-page="/Public/Books" asp-route-culture="@Model.Culture">@L["Pub_ViewAll"]</a></div>
+        </div>
+    </section>
+}
+
+@if (Model.LatestVideos.Count > 0)
+{
+    <section class="section section--alt">
+        <div class="container">
+            <div class="section-head center"><span class="eyebrow">@L["Nav_DigitalResources"]</span><h2 class="section-title">@L["Home_LatestVideos"]</h2></div>
+            <div class="card-grid card-grid--4">
+                @foreach (var v in Model.LatestVideos)
+                {
+                    var vt = Localized.Pick(v.Translations, Model.Culture);
+                    <a class="book-card" asp-page="/Public/VideoDetail" asp-route-culture="@Model.Culture" asp-route-slug="@(vt?.Slug)">
+                        <div class="book-cover" style="aspect-ratio:16/9;background:#000">
+                            <img src="@YouTube.ThumbnailUrl(v.YouTubeVideoId)" alt="@vt?.Title" style="width:100%;height:100%;object-fit:cover" loading="lazy" />
+                            <span class="video-play" aria-hidden="true">▶</span>
+                        </div>
+                        <div class="book-info"><h3 class="book-title">@vt?.Title</h3></div>
+                    </a>
+                }
+            </div>
+            <div class="text-center mt-section"><a class="btn btn-outline" asp-page="/Public/Videos" asp-route-culture="@Model.Culture">@L["Pub_ViewAll"]</a></div>
+        </div>
+    </section>
+}
+
+@if (Model.LatestEnrichment.Count > 0)
+{
+    <section class="section">
+        <div class="container">
+            <div class="section-head center"><span class="eyebrow">@L["Nav_DigitalResources"]</span><h2 class="section-title">@L["Home_LatestEnrichment"]</h2></div>
+            <div class="card-grid card-grid--4">
+                @foreach (var e in Model.LatestEnrichment)
+                {
+                    var et = Localized.Pick(e.Translations, Model.Culture);
+                    <a class="book-card" asp-page="/Public/EnrichmentDetail" asp-route-culture="@Model.Culture" asp-route-slug="@(et?.Slug)">
+                        <div class="book-cover">
+                            @if (e.CoverImage is not null) { <img src="/uploads/@e.CoverImage.RelativePath" alt="@et?.Title" style="width:100%;height:100%;object-fit:cover" loading="lazy" /> }
+                            else { <span class="initial">@(et?.Title?.Trim().Substring(0, 1))</span> }
+                        </div>
+                        <div class="book-info"><h3 class="book-title">@et?.Title</h3></div>
+                    </a>
+                }
+            </div>
+            <div class="text-center mt-section"><a class="btn btn-outline" asp-page="/Public/Enrichment" asp-route-culture="@Model.Culture">@L["Pub_ViewAll"]</a></div>
+        </div>
+    </section>
+}
+
+@if (Model.RecommendedBooks.Count > 0)
+{
+    <section class="section section--alt">
+        <div class="container">
+            <div class="section-head center"><span class="eyebrow">@L["Nav_DigitalResources"]</span><h2 class="section-title">@L["Home_RecommendedBooks"]</h2></div>
+            <div class="card-grid card-grid--4">
+                @foreach (var b in Model.RecommendedBooks)
+                {
+                    <partial name="Shared/_BookCard" model="Model.CardForRecommended(b)" />
+                }
+            </div>
+            <div class="text-center mt-section"><a class="btn btn-outline" asp-page="/Public/RecommendedBooks" asp-route-culture="@Model.Culture">@L["Pub_ViewAll"]</a></div>
+        </div>
+    </section>
+}
+
+@if (Model.FeaturedEvents.Count > 0)
+{
+    <section class="section">
+        <div class="container">
+            <div class="section-head center"><span class="eyebrow">@L["Events_Title"]</span><h2 class="section-title">@L["Home_FeaturedEvents"]</h2></div>
+            <div class="card-grid card-grid--4">
+                @foreach (var e in Model.FeaturedEvents)
+                {
+                    var et = Localized.Pick(e.Translations, Model.Culture);
+                    <a class="book-card" asp-page="/Public/EventDetail" asp-route-culture="@Model.Culture" asp-route-slug="@(et?.Slug)">
+                        <div class="book-cover" style="aspect-ratio:16/9">
+                            @if (e.IsFeatured) { <span class="book-flag">@L["F_Featured"]</span> }
+                            @if (e.CoverImage is not null) { <img src="/uploads/@e.CoverImage.RelativePath" alt="@et?.Title" style="width:100%;height:100%;object-fit:cover" loading="lazy" /> }
+                            else { <span class="initial">@(et?.Title?.Trim().Substring(0, 1))</span> }
+                        </div>
+                        <div class="book-info">
+                            <h3 class="book-title">@et?.Title</h3>
+                            @if (e.EventDateUtc is { } ed) { <p class="book-pub">@ed.ToString("d MMMM yyyy", CultureInfo.CurrentUICulture)</p> }
+                        </div>
+                    </a>
+                }
+            </div>
+            <div class="text-center mt-section"><a class="btn btn-outline" asp-page="/Public/Events" asp-route-culture="@Model.Culture">@L["Pub_ViewAll"]</a></div>
         </div>
     </section>
 }

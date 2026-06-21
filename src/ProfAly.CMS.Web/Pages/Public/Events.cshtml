@@ -1,0 +1,83 @@
+@page "/{culture:regex(^(ar|en|fr)$)}/events"
+@using System.Globalization
+@using ProfAly.CMS.Domain.Entities.Content
+@model ProfAly.CMS.Web.Pages.Public.EventsModel
+@{
+    ViewData["Title"] = L["Events_Title"].Value;
+    ViewData["Description"] = L["Events_Lead"].Value;
+}
+
+@functions {
+    string SlugOf(Event e) => Localized.Pick(e.Translations, Model.Culture)?.Slug ?? string.Empty;
+}
+
+<section class="page-hero">
+    <div class="container">
+        <nav class="crumbs"><a asp-page="/Public/Home" asp-route-culture="@Model.Culture">@L["Nav_Home"]</a> <span aria-hidden="true">/</span> <span aria-current="page">@L["Events_Title"]</span></nav>
+        <span class="eyebrow">@L["Events_Title"]</span>
+        <h1>@L["Events_Title"]</h1>
+        <p class="section-lead">@L["Events_Lead"]</p>
+    </div>
+</section>
+
+@if (Model.Featured.Count > 0)
+{
+    <section class="section section--alt">
+        <div class="container">
+            <div class="section-head"><span class="eyebrow">@L["F_Featured"]</span><h2 class="section-title">@L["Events_Featured"]</h2></div>
+            <div class="card-grid">
+                @foreach (var e in Model.Featured)
+                {
+                    var t = Localized.Pick(e.Translations, Model.Culture);
+                    <a class="book-card" asp-page="/Public/EventDetail" asp-route-culture="@Model.Culture" asp-route-slug="@SlugOf(e)">
+                        <div class="book-cover" style="aspect-ratio:16/9">
+                            <span class="book-flag">@L["F_Featured"]</span>
+                            @if (e.CoverImage is not null) { <img src="/uploads/@e.CoverImage.RelativePath" alt="@t?.Title" style="width:100%;height:100%;object-fit:cover" loading="lazy" /> }
+                            else { <span class="initial">@(t?.Title?.Trim().Substring(0, 1))</span> }
+                        </div>
+                        <div class="book-info">
+                            <h3 class="book-title">@t?.Title</h3>
+                            @if (e.EventDateUtc is { } d) { <p class="book-pub">@d.ToString("d MMMM yyyy", CultureInfo.CurrentUICulture)</p> }
+                            @if (!string.IsNullOrEmpty(t?.Location)) { <p class="book-role">@t?.Location</p> }
+                        </div>
+                    </a>
+                }
+            </div>
+        </div>
+    </section>
+}
+
+<section class="section">
+    <div class="container">
+        @if (Model.Items.Count == 0) { <p class="empty-state">@L["Pub_NoItems"]</p> }
+        <div class="card-grid">
+            @foreach (var e in Model.Items)
+            {
+                var t = Localized.Pick(e.Translations, Model.Culture);
+                <a class="book-card" asp-page="/Public/EventDetail" asp-route-culture="@Model.Culture" asp-route-slug="@SlugOf(e)">
+                    <div class="book-cover" style="aspect-ratio:16/9">
+                        @if (e.IsFeatured) { <span class="book-flag">@L["F_Featured"]</span> }
+                        @if (e.CoverImage is not null) { <img src="/uploads/@e.CoverImage.RelativePath" alt="@t?.Title" style="width:100%;height:100%;object-fit:cover" loading="lazy" /> }
+                        else { <span class="initial">@(t?.Title?.Trim().Substring(0, 1))</span> }
+                    </div>
+                    <div class="book-info">
+                        <h3 class="book-title">@t?.Title</h3>
+                        @if (e.EventDateUtc is { } d) { <p class="book-pub">@d.ToString("d MMMM yyyy", CultureInfo.CurrentUICulture)</p> }
+                        @if (!string.IsNullOrEmpty(t?.Location)) { <p class="book-role">@t?.Location</p> }
+                    </div>
+                </a>
+            }
+        </div>
+
+        @if (Model.TotalPages > 1)
+        {
+            <nav class="text-center mt-section" aria-label="Pagination">
+                @for (var i = 1; i <= Model.TotalPages; i++)
+                {
+                    <a class="btn @(i == Model.PageNum ? "btn-primary" : "btn-outline")" style="margin:.2rem"
+                       asp-page="/Public/Events" asp-route-culture="@Model.Culture" asp-route-p="@i">@i</a>
+                }
+            </nav>
+        }
+    </div>
+</section>

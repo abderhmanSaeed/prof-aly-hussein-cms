@@ -23,6 +23,30 @@
       setMenu(!(menu && menu.classList.contains("open")));
       return;
     }
+    // Digital Resources dropdown: toggle on the button (desktop click + keyboard).
+    var ddToggle = e.target.closest(".nav-dropdown-toggle");
+    if (ddToggle) {
+      var dd = ddToggle.closest(".nav-dropdown");
+      var willOpen = dd && !dd.classList.contains("open");
+      document.querySelectorAll(".nav-dropdown.open").forEach(function (d) {
+        d.classList.remove("open");
+        var t = d.querySelector(".nav-dropdown-toggle");
+        if (t) t.setAttribute("aria-expanded", "false");
+      });
+      if (dd) {
+        dd.classList.toggle("open", willOpen);
+        ddToggle.setAttribute("aria-expanded", willOpen ? "true" : "false");
+      }
+      return;
+    }
+    // Click outside an open dropdown closes it.
+    if (!e.target.closest(".nav-dropdown")) {
+      document.querySelectorAll(".nav-dropdown.open").forEach(function (d) {
+        d.classList.remove("open");
+        var t = d.querySelector(".nav-dropdown-toggle");
+        if (t) t.setAttribute("aria-expanded", "false");
+      });
+    }
     // Close the mobile menu when a link inside it is followed, or when clicking outside.
     if (menu && menu.classList.contains("open")) {
       if (e.target.closest(".nav-menu a")) { setMenu(false); }
@@ -43,9 +67,17 @@
     }
   });
 
-  // Close mobile menu on Escape (return focus to the toggle).
+  // Close mobile menu / open dropdowns on Escape (return focus to the relevant toggle).
   document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape" && menu && menu.classList.contains("open")) {
+    if (e.key !== "Escape") return;
+    var openDd = document.querySelector(".nav-dropdown.open");
+    if (openDd) {
+      openDd.classList.remove("open");
+      var t = openDd.querySelector(".nav-dropdown-toggle");
+      if (t) { t.setAttribute("aria-expanded", "false"); t.focus(); }
+      return;
+    }
+    if (menu && menu.classList.contains("open")) {
       setMenu(false);
       if (burger) burger.focus();
     }

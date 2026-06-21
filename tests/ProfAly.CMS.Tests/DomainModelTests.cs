@@ -19,6 +19,25 @@ public class DomainModelTests
         Assert.Equal(ContentType.Resource, new Resource().ContentType);
         Assert.Equal(ContentType.EnrichmentItem, new EnrichmentItem().ContentType);
         Assert.Equal(ContentType.Video, new Video().ContentType);
+        Assert.Equal(ContentType.RecommendedBook, new RecommendedBook().ContentType);
+        Assert.Equal(ContentType.Event, new Event().ContentType);
+    }
+
+    [Fact]
+    public void ContentItem_GalleryImages_DefaultEmpty()
+    {
+        // Events (and any content item) expose an ordered gallery collection (doc 76).
+        Assert.Empty(new Event().Images);
+        Assert.Empty(new RecommendedBook().Images);
+    }
+
+    [Fact]
+    public void RecommendedBook_AllowsPdfAndPurchaseUrl()
+    {
+        // RecommendedBook reuses the shared base (no extra invariants); a fully
+        // populated instance is valid.
+        var book = new RecommendedBook { PurchaseUrl = "https://example.com/buy", PdfFileId = 3, PublicationYear = 2021 };
+        Assert.Empty(book.Validate());
     }
 
     [Fact]

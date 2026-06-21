@@ -1,0 +1,36 @@
+@page "/{culture:regex(^(ar|en|fr)$)}/books/{slug}"
+@model ProfAly.CMS.Web.Pages.Public.BookDetailModel
+@{
+    ViewData["Title"] = (Model.Detail.Title) ?? L["Books_Title"].Value;
+    ViewData["Description"] = Model.Detail.Summary;
+}
+
+<section class="page-hero">
+    <div class="container">
+        <nav class="crumbs">
+            <a asp-page="/Public/Home" asp-route-culture="@Model.Culture">@L["Nav_Home"]</a>
+            <span aria-hidden="true">/</span>
+            <a asp-page="/Public/Books" asp-route-culture="@Model.Culture">@L["Books_Title"]</a>
+            <span aria-hidden="true">/</span>
+            <span aria-current="page">@Model.Detail.Title</span>
+        </nav>
+        <h1>@Model.Detail.Title</h1>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <partial name="Shared/_BookDetail" model="Model.Detail" />
+
+        @if (Model.Related.Count > 0)
+        {
+            <div class="section-head mt-section"><h2 class="section-title">@L["Books_Related"]</h2></div>
+            <div class="card-grid">
+                @foreach (var b in Model.Related)
+                {
+                    <partial name="Shared/_BookCard" model="Model.CardFor(b)" />
+                }
+            </div>
+        }
+    </div>
+</section>

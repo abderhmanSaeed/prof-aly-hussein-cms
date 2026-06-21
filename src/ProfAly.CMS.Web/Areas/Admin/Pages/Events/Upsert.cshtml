@@ -1,9 +1,9 @@
 @page
 @using Microsoft.AspNetCore.Mvc.Localization
-@model ProfAly.CMS.Web.Areas.Admin.Pages.Content.UpsertModel
+@model ProfAly.CMS.Web.Areas.Admin.Pages.Events.UpsertModel
 @inject Microsoft.Extensions.Localization.IStringLocalizer<ProfAly.CMS.Web.SharedResource> L
 @{
-    ViewData["Title"] = (Model.IsEdit ? L["Edit"].Value : L["CreateNew"].Value) + " · " + L[Model.TitleKey].Value;
+    ViewData["Title"] = (Model.IsEdit ? L["Edit"].Value : L["CreateNew"].Value) + " · " + L["Events_Title"].Value;
     var cultures = Model.Cultures;
 }
 
@@ -14,50 +14,14 @@
          style="@(ViewData.ModelState.IsValid ? "display:none" : "")"></div>
     <input type="hidden" asp-for="Input.Id" />
 
-    @if (Model.IsEnrichment)
-    {
-        <p class="text-muted small mb-2">@L["Enrichment_SourceHint"]</p>
-    }
     <div class="row g-3 mb-3">
-        @if (!Model.IsEnrichment)
-        {
-            <div class="col-md-2">
-                <label asp-for="Input.PublicationYear" class="form-label">@L["F_PublicationYear"]</label>
-                <input asp-for="Input.PublicationYear" type="number" class="form-control" dir="ltr" />
-            </div>
-        }
+        <div class="col-md-3">
+            <label asp-for="Input.EventDate" class="form-label">@L["F_EventDate"]</label>
+            <input asp-for="Input.EventDate" type="date" class="form-control" dir="ltr" />
+        </div>
         <div class="col-md-5">
-            <label asp-for="Input.ExternalUrl" class="form-label">@L["F_ExternalUrl"]</label>
-            <input asp-for="Input.ExternalUrl" class="form-control" dir="ltr" />
-        </div>
-        @if (Model.IsPaper)
-        {
-            <div class="col-md-5">
-                <label asp-for="Input.Doi" class="form-label">@L["F_Doi"]</label>
-                <input asp-for="Input.Doi" class="form-control" dir="ltr" placeholder="10.xxxx/..." />
-            </div>
-        }
-        @if (Model.IsRecommendedBook)
-        {
-            <div class="col-md-5">
-                <label asp-for="Input.PurchaseUrl" class="form-label">@L["F_PurchaseUrl"]</label>
-                <input asp-for="Input.PurchaseUrl" class="form-control" dir="ltr" placeholder="https://..." />
-            </div>
-        }
-    </div>
-
-    <div class="row g-3 mb-3">
-        <div class="col-md-4">
-            <label class="form-label">@L["F_Cover"]</label>
-            @if (!string.IsNullOrEmpty(Model.CoverPath)) { <div class="mb-1"><img src="@Model.CoverPath" alt="" style="max-height:90px;border-radius:6px" /></div> }
-            <input asp-for="Input.CoverFile" type="file" accept="image/*" class="form-control" />
-            <span asp-validation-for="Input.CoverFile" class="text-danger small"></span>
-        </div>
-        <div class="col-md-4">
-            <label class="form-label">@L["F_Pdf"]</label>
-            @if (!string.IsNullOrEmpty(Model.PdfPath)) { <div class="mb-1"><a href="@Model.PdfPath" target="_blank" rel="noopener">PDF</a></div> }
-            <input asp-for="Input.PdfFile" type="file" accept="application/pdf" class="form-control" />
-            <span asp-validation-for="Input.PdfFile" class="text-danger small"></span>
+            <label asp-for="Input.ExternalUrl" class="form-label">@L["F_ExternalLink"]</label>
+            <input asp-for="Input.ExternalUrl" class="form-control" dir="ltr" placeholder="https://..." />
         </div>
         <div class="col-md-4">
             <label asp-for="Input.CategoryIds" class="form-label">@L["F_Categories"]</label>
@@ -67,6 +31,35 @@
                     <option value="@c.Id">@c.Name</option>
                 }
             </select>
+        </div>
+    </div>
+
+    <div class="row g-3 mb-3">
+        <div class="col-md-4">
+            <label class="form-label">@L["F_Cover"]</label>
+            @if (!string.IsNullOrEmpty(Model.CoverPath)) { <div class="mb-1"><img src="@Model.CoverPath" alt="" style="max-height:90px;border-radius:6px" /></div> }
+            <input asp-for="Input.CoverFile" type="file" accept="image/*" class="form-control" />
+            <span asp-validation-for="Input.CoverFile" class="text-danger small"></span>
+        </div>
+        <div class="col-md-8">
+            <label class="form-label">@L["F_Gallery"]</label>
+            @if (Model.ExistingImages.Count > 0)
+            {
+                <div class="d-flex flex-wrap gap-3 mb-2">
+                    @foreach (var img in Model.ExistingImages)
+                    {
+                        <label class="d-inline-block text-center" style="cursor:pointer">
+                            <img src="@img.Path" alt="" style="height:70px;border-radius:6px;display:block" />
+                            <span class="small d-block mt-1">
+                                <input type="checkbox" name="Input.RemoveImageIds" value="@img.Id" /> @L["F_Remove"]
+                            </span>
+                        </label>
+                    }
+                </div>
+            }
+            <input asp-for="Input.GalleryFiles" type="file" accept="image/*" multiple class="form-control" />
+            <span asp-validation-for="Input.GalleryFiles" class="text-danger small"></span>
+            <div class="form-text">@L["F_Gallery_Hint"]</div>
         </div>
     </div>
 
@@ -106,6 +99,10 @@
                         <label asp-for="Input.Translations[i].Slug" class="form-label">@L["F_Slug"]</label>
                         <input asp-for="Input.Translations[i].Slug" class="form-control" dir="ltr" placeholder="auto" />
                     </div>
+                    <div class="col-md-6">
+                        <label asp-for="Input.Translations[i].Location" class="form-label">@L["F_EventLocation"]</label>
+                        <input asp-for="Input.Translations[i].Location" class="form-control" />
+                    </div>
                     <div class="col-12">
                         <label asp-for="Input.Translations[i].Summary" class="form-label">@L["F_Summary"]</label>
                         <textarea asp-for="Input.Translations[i].Summary" class="form-control" rows="2"></textarea>
@@ -114,40 +111,6 @@
                         <label asp-for="Input.Translations[i].Body" class="form-label">@L["F_Body"]</label>
                         <textarea asp-for="Input.Translations[i].Body" class="form-control" rows="5"></textarea>
                     </div>
-
-                    @if (Model.IsBook)
-                    {
-                        <div class="col-md-6">
-                            <label asp-for="Input.Translations[i].Publisher" class="form-label">@L["F_Publisher"]</label>
-                            <input asp-for="Input.Translations[i].Publisher" class="form-control" />
-                        </div>
-                        <div class="col-md-6">
-                            <label asp-for="Input.Translations[i].AuthorshipRole" class="form-label">@L["F_AuthorshipRole"]</label>
-                            <input asp-for="Input.Translations[i].AuthorshipRole" class="form-control" />
-                        </div>
-                    }
-                    else if (Model.IsRecommendedBook)
-                    {
-                        <div class="col-md-6">
-                            <label asp-for="Input.Translations[i].Authors" class="form-label">@L["F_Author"]</label>
-                            <input asp-for="Input.Translations[i].Authors" class="form-control" />
-                        </div>
-                        <div class="col-md-6">
-                            <label asp-for="Input.Translations[i].Publisher" class="form-label">@L["F_Publisher"]</label>
-                            <input asp-for="Input.Translations[i].Publisher" class="form-control" />
-                        </div>
-                    }
-                    else if (Model.IsPaper)
-                    {
-                        <div class="col-md-6">
-                            <label asp-for="Input.Translations[i].Journal" class="form-label">@L["F_Journal"]</label>
-                            <input asp-for="Input.Translations[i].Journal" class="form-control" />
-                        </div>
-                        <div class="col-md-6">
-                            <label asp-for="Input.Translations[i].Authors" class="form-label">@L["F_Authors"]</label>
-                            <input asp-for="Input.Translations[i].Authors" class="form-control" />
-                        </div>
-                    }
 
                     <div class="col-12"><hr class="my-2" /><span class="text-muted small">@L["Seo_Section"]</span></div>
                     <div class="col-md-4">
@@ -168,7 +131,7 @@
     </div>
 
     <button type="submit" class="btn btn-primary">@L["Save"]</button>
-    <a class="btn btn-outline-secondary" asp-page="Index" asp-route-type="@Model.Type">@L["Cancel"]</a>
+    <a class="btn btn-outline-secondary" asp-page="Index">@L["Cancel"]</a>
 </form>
 
 @section Scripts { <partial name="_ValidationScriptsPartial" /> }

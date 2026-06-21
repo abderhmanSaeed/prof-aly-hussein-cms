@@ -1,0 +1,92 @@
+@page "/{culture:regex(^(ar|en|fr)$)}/events/{slug}"
+@using System.Globalization
+@using ProfAly.CMS.Domain.Entities.Content
+@model ProfAly.CMS.Web.Pages.Public.EventDetailModel
+@{
+    var t = Localized.Pick(Model.Event?.Translations, Model.Culture);
+    ViewData["Title"] = (t?.MetaTitle ?? t?.Title) ?? L["Events_Title"].Value;
+    ViewData["Description"] = t?.MetaDescription ?? t?.Summary;
+
+    var gallery = Model.Event!.Images.Where(i => i.MediaFile is not null).OrderBy(i => i.SortOrder).ToList();
+
+    string SlugOf(Event e) => Localized.Pick(e.Translations, Model.Culture)?.Slug ?? string.Empty;
+}
+
+<section class="page-hero">
+    <div class="container">
+        <nav class="crumbs">
+            <a asp-page="/Public/Home" asp-route-culture="@Model.Culture">@L["Nav_Home"]</a>
+            <span aria-hidden="true">/</span>
+            <a asp-page="/Public/Events" asp-route-culture="@Model.Culture">@L["Events_Title"]</a>
+            <span aria-hidden="true">/</span>
+            <span aria-current="page">@t?.Title</span>
+        </nav>
+        <h1>@t?.Title</h1>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-8">
+                @if (Model.Event.CoverImage is not null)
+                {
+                    <img src="/uploads/@Model.Event.CoverImage.RelativePath" alt="@t?.Title" class="img-fluid rounded mb-4" style="width:100%;object-fit:cover" />
+                }
+
+                <ul class="event-meta list-unstyled mb-4">
+                    @if (Model.Event.EventDateUtc is { } d)
+                    {
+                        <li><strong>@L["F_EventDate"]:</strong> @d.ToString("d MMMM yyyy", CultureInfo.CurrentUICulture)</li>
+                    }
+                    @if (!string.IsNullOrEmpty(t?.Location))
+                    {
+                        <li><strong>@L["F_EventLocation"]:</strong> @t!.Location</li>
+                    }
+                </ul>
+
+                @if (!string.IsNullOrWhiteSpace(t?.Summary)) { <p class="lead">@t!.Summary</p> }
+                @if (!string.IsNullOrWhiteSpace(t?.Body))
+                {
+                    <div class="content-body">@foreach (var para in t!.Body!.Split("\n\n", StringSplitOptions.RemoveEmptyEntries)) { <p>@para</p> }</div>
+                }
+
+                @if (gallery.Count > 0)
+                {
+                    <h2 class="panel-title mt-4">@L["Events_Gallery"]</h2>
+                    <div class="gallery-grid">
+                        @foreach (var img in gallery)
+                        {
+                            <a href="/uploads/@img.MediaFile!.RelativePath" target="_blank" rel="noopener" class="gallery-item">
+                                <img src="/uploads/@img.MediaFile.RelativePath" alt="@(img.Caption ?? t?.Title)" loading="lazy" />
+                            </a>
+                        }
+                    </div>
+                }
+
+                @if (!string.IsNullOrWhiteSpace(Model.Event.ExternalUrl))
+                {
+                    <div class="mt-4">
+                        <a class="btn btn-primary" href="@Model.Event.ExternalUrl" target="_blank" rel="noopener noreferrer">@L["Action_VisitEvent"]</a>
+                    </div>
+                }
+            </div>
+            <div class="col-lg-4">
+                @if (Model.Related.Count > 0)
+                {
+                    <h2 class="panel-title">@L["Events_Related"]</h2>
+                    <div class="d-grid gap-3">
+                        @foreach (var e in Model.Related)
+                        {
+                            var rt = Localized.Pick(e.Translations, Model.Culture);
+                            <a class="related-video" asp-page="/Public/EventDetail" asp-route-culture="@Model.Culture" asp-route-slug="@SlugOf(e)">
+                                @if (e.CoverImage is not null) { <img src="/uploads/@e.CoverImage.RelativePath" alt="@rt?.Title" loading="lazy" /> }
+                                <span>@rt?.Title</span>
+                            </a>
+                        }
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>

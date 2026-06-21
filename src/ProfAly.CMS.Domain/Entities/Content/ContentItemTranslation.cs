@@ -42,6 +42,9 @@ public class ContentItemTranslation : BaseEntity, ITranslation
     /// <summary>Thesis: the student/researcher name.</summary>
     public string? ResearcherName { get; set; }
 
+    /// <summary>Event: human-readable location/venue (translatable). doc 76.</summary>
+    public string? Location { get; set; }
+
     // --- SEO ---
 
     public string? MetaTitle { get; set; }

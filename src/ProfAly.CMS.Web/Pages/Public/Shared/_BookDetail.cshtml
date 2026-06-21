@@ -1,0 +1,55 @@
+@model ProfAly.CMS.Web.Infrastructure.BookDetailViewModel
+@*
+    Shared book details body (doc 82): cover + metadata + conditional actions.
+    Reused by Academic Books and Recommended Books so both share one layout and the
+    same action buttons. Each button renders only when its field is populated.
+*@
+<div class="row g-5">
+    <div class="col-lg-4">
+        <div class="book-cover" style="aspect-ratio:3/4;max-inline-size:320px">
+            @if (!string.IsNullOrEmpty(Model.CoverPath))
+            {
+                <img src="@Model.CoverPath" alt="@Model.Title" style="width:100%;height:100%;object-fit:cover" />
+            }
+            else
+            {
+                <span class="initial">@Model.Initial</span>
+            }
+        </div>
+    </div>
+    <div class="col-lg-8">
+        @if (!string.IsNullOrEmpty(Model.Author)) { <p class="book-pub"><strong>@L["F_Author"]:</strong> @Model.Author</p> }
+        @if (!string.IsNullOrEmpty(Model.Publisher)) { <p class="book-role"><strong>@L["F_Publisher"]:</strong> @Model.Publisher</p> }
+        @if (!string.IsNullOrEmpty(Model.AuthorshipRole)) { <p class="book-role"><strong>@L["F_AuthorshipRole"]:</strong> @Model.AuthorshipRole</p> }
+        @if (Model.Year is { } yr) { <p class="book-role"><strong>@L["F_PublicationYear"]:</strong> @yr</p> }
+
+        @if (Model.Categories.Count > 0)
+        {
+            <div class="cred-row" style="justify-content:flex-start;margin-block:.5rem 1rem">
+                @foreach (var c in Model.Categories) { <span class="chip">@c</span> }
+            </div>
+        }
+
+        @if (!string.IsNullOrWhiteSpace(Model.Summary)) { <p class="lead">@Model.Summary</p> }
+        @if (!string.IsNullOrWhiteSpace(Model.Body))
+        {
+            <div class="content-body">@foreach (var para in Model.Body!.Split("\n\n", StringSplitOptions.RemoveEmptyEntries)) { <p>@para</p> }</div>
+        }
+
+        <div class="d-flex flex-wrap gap-2 mt-4">
+            @if (!string.IsNullOrEmpty(Model.PdfPath))
+            {
+                <a class="btn btn-primary" href="@Model.PdfPath" target="_blank" rel="noopener">@L[Model.PdfPreviewLabelKey]</a>
+                <a class="btn btn-outline" href="@Model.PdfPath" download="@Model.PdfName">@L["Action_DownloadPdf"]</a>
+            }
+            @if (!string.IsNullOrWhiteSpace(Model.ExternalUrl))
+            {
+                <a class="btn btn-outline" href="@Model.ExternalUrl" target="_blank" rel="noopener noreferrer">@L["Action_VisitLink"]</a>
+            }
+            @if (!string.IsNullOrWhiteSpace(Model.PurchaseUrl))
+            {
+                <a class="btn btn-accent" href="@Model.PurchaseUrl" target="_blank" rel="noopener noreferrer">@L["Action_BuyBook"]</a>
+            }
+        </div>
+    </div>
+</div>

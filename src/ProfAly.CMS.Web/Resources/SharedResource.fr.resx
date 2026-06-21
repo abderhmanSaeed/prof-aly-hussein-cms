@@ -226,4 +226,42 @@
   <data name="Msg_NoMessages" xml:space="preserve"><value>Aucun message.</value></data>
   <data name="Msg_SearchPlaceholder" xml:space="preserve"><value>Rechercher nom, e-mail ou sujet…</value></data>
   <data name="Msg_ReplyByEmail" xml:space="preserve"><value>Répondre par e-mail</value></data>
+  <!-- Digital Resources & Events (doc 76) -->
+  <data name="Nav_DigitalResources" xml:space="preserve"><value>Ressources numériques</value></data>
+  <data name="Nav_EducationalVideos" xml:space="preserve"><value>Vidéos éducatives</value></data>
+  <data name="Nav_Enrichment" xml:space="preserve"><value>Matériel d'enrichissement</value></data>
+  <data name="Nav_RecommendedBooks" xml:space="preserve"><value>Livres recommandés</value></data>
+  <data name="Nav_Events" xml:space="preserve"><value>Événements</value></data>
+  <data name="Enrichment_Title" xml:space="preserve"><value>Matériel d'enrichissement</value></data>
+  <data name="Enrichment_Lead" xml:space="preserve"><value>Matériaux et ressources sélectionnés pour approfondir l'apprentissage.</value></data>
+  <data name="Enrichment_Related" xml:space="preserve"><value>Autres matériaux</value></data>
+  <data name="Enrichment_SourceHint" xml:space="preserve"><value>Joignez un PDF, une URL externe, ou les deux — au moins l'un est recommandé.</value></data>
+  <data name="RecommendedBooks_Title" xml:space="preserve"><value>Livres recommandés</value></data>
+  <data name="RecommendedBooks_Lead" xml:space="preserve"><value>Livres recommandés par le Dr Aly Hussein.</value></data>
+  <data name="Books_Related" xml:space="preserve"><value>Autres ouvrages académiques</value></data>
+  <data name="RecommendedBooks_Related" xml:space="preserve"><value>Autres recommandations</value></data>
+  <data name="Events_Title" xml:space="preserve"><value>Événements</value></data>
+  <data name="Events_Lead" xml:space="preserve"><value>Conférences, colloques et activités.</value></data>
+  <data name="Events_Featured" xml:space="preserve"><value>Événements en vedette</value></data>
+  <data name="Events_Gallery" xml:space="preserve"><value>Galerie</value></data>
+  <data name="Events_Related" xml:space="preserve"><value>Autres événements</value></data>
+  <data name="Home_LatestVideos" xml:space="preserve"><value>Dernières vidéos</value></data>
+  <data name="Home_LatestEnrichment" xml:space="preserve"><value>Derniers matériels d'enrichissement</value></data>
+  <data name="Home_RecommendedBooks" xml:space="preserve"><value>Livres recommandés</value></data>
+  <data name="Home_FeaturedEvents" xml:space="preserve"><value>Événements à venir et en vedette</value></data>
+  <data name="F_Author" xml:space="preserve"><value>Auteur</value></data>
+  <data name="F_PurchaseUrl" xml:space="preserve"><value>URL d'achat</value></data>
+  <data name="F_EventDate" xml:space="preserve"><value>Date de l'événement</value></data>
+  <data name="F_EventLocation" xml:space="preserve"><value>Lieu</value></data>
+  <data name="F_ExternalLink" xml:space="preserve"><value>Lien externe</value></data>
+  <data name="F_Gallery" xml:space="preserve"><value>Images de la galerie</value></data>
+  <data name="F_Gallery_Hint" xml:space="preserve"><value>Sélectionnez une ou plusieurs images à ajouter à la galerie.</value></data>
+  <data name="F_Remove" xml:space="preserve"><value>Supprimer</value></data>
+  <data name="Action_PreviewPdf" xml:space="preserve"><value>Aperçu du PDF</value></data>
+  <data name="Action_DownloadPdf" xml:space="preserve"><value>Télécharger le PDF</value></data>
+  <data name="Action_VisitResource" xml:space="preserve"><value>Visiter la ressource</value></data>
+  <data name="Action_ReadPdf" xml:space="preserve"><value>Lire le PDF</value></data>
+  <data name="Action_VisitLink" xml:space="preserve"><value>Visiter le lien externe</value></data>
+  <data name="Action_BuyBook" xml:space="preserve"><value>Acheter le livre</value></data>
+  <data name="Action_VisitEvent" xml:space="preserve"><value>Page de l'événement</value></data>
 </root>

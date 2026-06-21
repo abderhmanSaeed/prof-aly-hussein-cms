@@ -20,14 +20,32 @@
     // Research is intentionally omitted from public navigation & footer (business
     // decision — see 64_Navigation_And_Research_Page_Review.md). The /{c}/research
     // route still works if accessed directly; only the menu links are hidden.
-    var nav = new (string Key, string Page)[]
+    // Top-level nav. An item with Children renders as a dropdown (its own Page is null).
+    // "Digital Resources" groups Educational Videos / Enrichment Materials / Recommended
+    // Books (doc 76); "Events" is a new top-level item.
+    var nav = new (string Key, string? Page, (string Key, string Page)[]? Children)[]
     {
-        ("Nav_Home", "/Public/Home"), ("Nav_About", "/Public/About"), ("Nav_Experience", "/Public/Experience"),
-        ("Nav_Activities", "/Public/Activities"), ("Nav_Publications", "/Public/Publications"),
-        ("Nav_Books", "/Public/Books"), ("Nav_Theses", "/Public/Theses"),
-        ("Nav_Videos", "/Public/Videos"), ("Nav_Teaching", "/Public/Teaching"),
-        ("Nav_Contact", "/Public/Contact"),
+        ("Nav_Home", "/Public/Home", null), ("Nav_About", "/Public/About", null),
+        ("Nav_Experience", "/Public/Experience", null), ("Nav_Activities", "/Public/Activities", null),
+        ("Nav_Publications", "/Public/Publications", null), ("Nav_Books", "/Public/Books", null),
+        ("Nav_Theses", "/Public/Theses", null),
+        ("Nav_DigitalResources", null, new[]
+        {
+            ("Nav_EducationalVideos", "/Public/Videos"),
+            ("Nav_Enrichment", "/Public/Enrichment"),
+            ("Nav_RecommendedBooks", "/Public/RecommendedBooks"),
+        }),
+        ("Nav_Events", "/Public/Events", null),
+        ("Nav_Teaching", "/Public/Teaching", null), ("Nav_Contact", "/Public/Contact", null),
     };
+
+    // Flattened (label, page) pairs for the footer quick-links column.
+    var footerLinks = nav.SelectMany(n => n.Children is null
+        ? new[] { (n.Key, n.Page!) }
+        : n.Children).ToArray();
+
+    bool DropdownActive((string Key, string Page)[] children) =>
+        children.Any(c => currentPage == c.Page);
 }
 <!doctype html>
 <html lang="@culture" dir="@dir" data-lang="@culture" data-theme="light">
@@ -64,7 +82,25 @@
             <ul class="nav-menu" id="primary-nav">
                 @foreach (var item in nav)
                 {
-                    <li><a class="@(currentPage == item.Page ? "active" : "")" asp-page="@item.Page" asp-route-culture="@culture" aria-current="@(currentPage == item.Page ? "page" : null)">@L[item.Key]</a></li>
+                    if (item.Children is null)
+                    {
+                        <li><a class="@(currentPage == item.Page ? "active" : "")" asp-page="@item.Page" asp-route-culture="@culture" aria-current="@(currentPage == item.Page ? "page" : null)">@L[item.Key]</a></li>
+                    }
+                    else
+                    {
+                        var ddActive = DropdownActive(item.Children);
+                        <li class="nav-dropdown">
+                            <button type="button" class="nav-dropdown-toggle @(ddActive ? "active" : "")" aria-haspopup="true" aria-expanded="false">
+                                @L[item.Key]<span class="caret" aria-hidden="true">▾</span>
+                            </button>
+                            <ul class="nav-dropdown-menu">
+                                @foreach (var child in item.Children)
+                                {
+                                    <li><a class="@(currentPage == child.Page ? "active" : "")" asp-page="@child.Page" asp-route-culture="@culture" aria-current="@(currentPage == child.Page ? "page" : null)">@L[child.Key]</a></li>
+                                }
+                            </ul>
+                        </li>
+                    }
                 }
             </ul>
             <div class="nav-actions">
@@ -97,9 +133,9 @@
                 <nav class="col-12 col-md-7 col-lg-5" aria-label="@L["Footer_QuickLinks"]">
                     <h2 class="footer-h">@L["Footer_QuickLinks"]</h2>
                     <ul class="footer-links">
-                        @foreach (var item in nav)
+                        @foreach (var item in footerLinks)
                         {
-                            <li><a asp-page="@item.Page" asp-route-culture="@culture">@L[item.Key]</a></li>
+                            <li><a asp-page="@item.Item2" asp-route-culture="@culture">@L[item.Item1]</a></li>
                         }
                     </ul>
                 </nav>

@@ -43,6 +43,11 @@ public sealed class ContentItemConfiguration : IEntityTypeConfiguration<ContentI
             .HasForeignKey(e => e.ContentItemId)
             .OnDelete(DeleteBehavior.Cascade);
 
+        b.HasMany(x => x.Images)
+            .WithOne(i => i.ContentItem!)
+            .HasForeignKey(i => i.ContentItemId)
+            .OnDelete(DeleteBehavior.Cascade);
+
         // Fast published listings per section + featured selection.
         b.HasIndex("ContentType", nameof(ContentItem.IsPublished), nameof(ContentItem.SortOrder));
         b.HasIndex("ContentType", nameof(ContentItem.IsFeatured), nameof(ContentItem.IsPublished));
@@ -94,6 +99,30 @@ public sealed class VideoConfiguration : IEntityTypeConfiguration<Video>
         b.Property(x => x.YouTubeVideoId).HasMaxLength(FieldLengths.YouTubeVideoId);
 }
 
+public sealed class RecommendedBookConfiguration : IEntityTypeConfiguration<RecommendedBook>
+{
+    public void Configure(EntityTypeBuilder<RecommendedBook> b) =>
+        b.Property(x => x.PurchaseUrl).HasMaxLength(FieldLengths.PurchaseUrl);
+}
+
+public sealed class ContentImageConfiguration : IEntityTypeConfiguration<ContentImage>
+{
+    public void Configure(EntityTypeBuilder<ContentImage> b)
+    {
+        b.HasKey(x => x.Id);
+        b.Property(x => x.Caption).HasMaxLength(FieldLengths.ImageCaption);
+
+        // Gallery image points at a MediaFile; restrict so deleting an in-use media row
+        // is blocked (the gallery link must be removed first).
+        b.HasOne(x => x.MediaFile)
+            .WithMany()
+            .HasForeignKey(x => x.MediaFileId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        b.HasIndex(x => new { x.ContentItemId, x.SortOrder });
+    }
+}
+
 public sealed class ContentItemTranslationConfiguration : IEntityTypeConfiguration<ContentItemTranslation>
 {
     public void Configure(EntityTypeBuilder<ContentItemTranslation> b)
@@ -107,6 +136,7 @@ public sealed class ContentItemTranslationConfiguration : IEntityTypeConfigurati
         b.Property(x => x.Publisher).HasMaxLength(FieldLengths.Publisher);
         b.Property(x => x.AuthorshipRole).HasMaxLength(FieldLengths.AuthorshipRole);
         b.Property(x => x.ResearcherName).HasMaxLength(FieldLengths.ResearcherName);
+        b.Property(x => x.Location).HasMaxLength(FieldLengths.EventLocation);
         b.Property(x => x.MetaTitle).HasMaxLength(FieldLengths.MetaTitle);
         b.Property(x => x.MetaDescription).HasMaxLength(FieldLengths.MetaDescription);
         b.Property(x => x.MetaKeywords).HasMaxLength(FieldLengths.MetaKeywords);

@@ -54,6 +54,9 @@ public abstract class ContentItem : AuditableEntity, IValidatableEntity
 
     public ICollection<ContentEvent> Events { get; set; } = new List<ContentEvent>();
 
+    /// <summary>Ordered gallery images (in addition to <see cref="CoverImage"/>). Used by Events. doc 76.</summary>
+    public ICollection<ContentImage> Images { get; set; } = new List<ContentImage>();
+
     /// <summary>
     /// Base invariants: publication year (if present) must be within range. Subtypes
     /// override to add their own rules and should combine results with the base set.

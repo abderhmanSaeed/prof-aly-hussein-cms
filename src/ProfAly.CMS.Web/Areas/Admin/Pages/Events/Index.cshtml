@@ -1,0 +1,52 @@
+@page
+@using Microsoft.AspNetCore.Mvc.Localization
+@using ProfAly.CMS.Domain.Common
+@model ProfAly.CMS.Web.Areas.Admin.Pages.Events.IndexModel
+@inject Microsoft.Extensions.Localization.IStringLocalizer<ProfAly.CMS.Web.SharedResource> L
+@{
+    ViewData["Title"] = L["Events_Title"].Value;
+}
+
+<div class="d-flex align-items-center mb-3">
+    <h1 class="page-title mb-0">@L["Events_Title"]</h1>
+    <a class="btn btn-primary btn-sm ms-auto" asp-page="Upsert">@L["CreateNew"]</a>
+</div>
+
+<div class="tile p-0">
+    <table class="table mb-0 align-middle">
+        <thead><tr>
+            <th style="width:54px"></th><th>@L["F_Title"]</th><th style="width:130px">@L["F_EventDate"]</th>
+            <th style="width:110px">@L["F_Published"]</th><th style="width:90px">@L["F_Featured"]</th>
+            <th style="width:60px">@L["Order"]</th><th style="width:320px">@L["Actions"]</th>
+        </tr></thead>
+        <tbody>
+        @if (Model.Items.Count == 0)
+        {
+            <tr><td colspan="7" class="text-muted p-3">@L["NoItems"]</td></tr>
+        }
+        @foreach (var item in Model.Items)
+        {
+            var title = (item.Translations.FirstOrDefault(t => t.Culture == SupportedCultures.Default) ?? item.Translations.FirstOrDefault())?.Title;
+            <tr>
+                <td>@if (item.CoverImage is not null) { <img src="/uploads/@item.CoverImage.RelativePath" alt="" style="height:38px;border-radius:4px" /> }</td>
+                <td>@title</td>
+                <td>@item.EventDateUtc?.ToString("yyyy-MM-dd")</td>
+                <td>
+                    @if (item.IsPublished) { <span class="badge text-bg-success">@L["Status_Published"]</span> }
+                    else { <span class="badge text-bg-secondary">@L["Status_Draft"]</span> }
+                </td>
+                <td>@if (item.IsFeatured) { <span class="badge text-bg-warning">★</span> }</td>
+                <td>@item.SortOrder</td>
+                <td>
+                    <a class="btn btn-sm btn-outline-secondary" asp-page="Upsert" asp-route-id="@item.Id">@L["Edit"]</a>
+                    <form method="post" asp-page-handler="TogglePublish" asp-route-id="@item.Id" class="d-inline"><button class="btn btn-sm btn-outline-secondary" title="@L["Toggle_Publish"]">⏻</button></form>
+                    <form method="post" asp-page-handler="ToggleFeature" asp-route-id="@item.Id" class="d-inline"><button class="btn btn-sm btn-outline-secondary" title="@L["Toggle_Feature"]">★</button></form>
+                    <form method="post" asp-page-handler="Move" asp-route-id="@item.Id" asp-route-dir="up" class="d-inline"><button class="btn btn-sm btn-outline-secondary" title="@L["MoveUp"]">&uarr;</button></form>
+                    <form method="post" asp-page-handler="Move" asp-route-id="@item.Id" asp-route-dir="down" class="d-inline"><button class="btn btn-sm btn-outline-secondary" title="@L["MoveDown"]">&darr;</button></form>
+                    <form method="post" asp-page-handler="Delete" asp-route-id="@item.Id" class="d-inline" onsubmit="return confirm('@L["ConfirmDelete"]');"><button class="btn btn-sm btn-outline-danger">@L["Delete"]</button></form>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>

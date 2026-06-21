@@ -14,4 +14,6 @@ public enum ContentType
     Resource = 6,
     EnrichmentItem = 7,
     Video = 8,
+    RecommendedBook = 9,
+    Event = 10,
 }
