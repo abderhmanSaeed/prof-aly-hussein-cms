@@ -174,7 +174,7 @@
   <data name="Footer_Explore" xml:space="preserve"><value>Explore</value></data>
   <data name="Research_EmptyTitle" xml:space="preserve"><value>No research papers published yet</value></data>
   <data name="Research_EmptyBody" xml:space="preserve"><value>Peer-reviewed journal articles are listed under Publications.</value></data>
-  <data name="Videos_Title" xml:space="preserve"><value>Videos</value></data>
+  <data name="Videos_Title" xml:space="preserve"><value>Educational Videos</value></data>
   <data name="Videos_Featured" xml:space="preserve"><value>Featured videos</value></data>
   <data name="Videos_Related" xml:space="preserve"><value>Related videos</value></data>
   <data name="Videos_WatchOnYouTube" xml:space="preserve"><value>Watch on YouTube</value></data>
@@ -242,13 +242,15 @@
   <data name="Nav_DigitalResources" xml:space="preserve"><value>Digital Resources</value></data>
   <data name="Nav_EducationalVideos" xml:space="preserve"><value>Educational Videos</value></data>
   <data name="Nav_Enrichment" xml:space="preserve"><value>Enrichment Materials</value></data>
-  <data name="Nav_RecommendedBooks" xml:space="preserve"><value>Recommended Books</value></data>
+  <data name="Nav_RecommendedBooks" xml:space="preserve"><value>Books Worth Reading</value></data>
   <data name="Nav_Events" xml:space="preserve"><value>Events</value></data>
+  <data name="Nav_DiverseActivities" xml:space="preserve"><value>Diverse Activities</value></data>
+  <data name="Nav_VideoClips" xml:space="preserve"><value>Video Clips</value></data>
   <data name="Enrichment_Title" xml:space="preserve"><value>Enrichment Materials</value></data>
   <data name="Enrichment_Lead" xml:space="preserve"><value>Curated materials and resources for further learning.</value></data>
   <data name="Enrichment_Related" xml:space="preserve"><value>More materials</value></data>
   <data name="Enrichment_SourceHint" xml:space="preserve"><value>Attach a PDF, an external URL, or both — at least one is recommended.</value></data>
-  <data name="RecommendedBooks_Title" xml:space="preserve"><value>Recommended Books</value></data>
+  <data name="RecommendedBooks_Title" xml:space="preserve"><value>Books Worth Reading</value></data>
   <data name="RecommendedBooks_Lead" xml:space="preserve"><value>Books recommended by Dr. Aly Hussein for reading.</value></data>
   <data name="Books_Related" xml:space="preserve"><value>More academic books</value></data>
   <data name="RecommendedBooks_Related" xml:space="preserve"><value>More recommendations</value></data>
@@ -259,7 +261,7 @@
   <data name="Events_Related" xml:space="preserve"><value>Other events</value></data>
   <data name="Home_LatestVideos" xml:space="preserve"><value>Latest Videos</value></data>
   <data name="Home_LatestEnrichment" xml:space="preserve"><value>Latest Enrichment Materials</value></data>
-  <data name="Home_RecommendedBooks" xml:space="preserve"><value>Recommended Books</value></data>
+  <data name="Home_RecommendedBooks" xml:space="preserve"><value>Books Worth Reading</value></data>
   <data name="Home_FeaturedEvents" xml:space="preserve"><value>Upcoming &amp; Featured Events</value></data>
   <data name="F_Author" xml:space="preserve"><value>Author</value></data>
   <data name="F_PurchaseUrl" xml:space="preserve"><value>Purchase URL</value></data>

@@ -21,8 +21,10 @@
     // decision — see 64_Navigation_And_Research_Page_Review.md). The /{c}/research
     // route still works if accessed directly; only the menu links are hidden.
     // Top-level nav. An item with Children renders as a dropdown (its own Page is null).
-    // "Digital Resources" groups Educational Videos / Enrichment Materials / Recommended
-    // Books (doc 76); "Events" is a new top-level item.
+    // "Digital Resources" groups Educational Videos / Enrichment Materials / Books Worth
+    // Reading; "Diverse Activities" (فعاليات متنوعة) groups Events + Video Clips (doc 84).
+    // Video Clips reuses the existing Video module (/videos) — the same target as
+    // Educational Videos; no second video system.
     var nav = new (string Key, string? Page, (string Key, string Page)[]? Children)[]
     {
         ("Nav_Home", "/Public/Home", null), ("Nav_About", "/Public/About", null),
@@ -35,7 +37,11 @@
             ("Nav_Enrichment", "/Public/Enrichment"),
             ("Nav_RecommendedBooks", "/Public/RecommendedBooks"),
         }),
-        ("Nav_Events", "/Public/Events", null),
+        ("Nav_DiverseActivities", null, new[]
+        {
+            ("Nav_Events", "/Public/Events"),
+            ("Nav_VideoClips", "/Public/Videos"),
+        }),
         ("Nav_Teaching", "/Public/Teaching", null), ("Nav_Contact", "/Public/Contact", null),
     };
 
@@ -110,7 +116,7 @@
                     <a class="lang-link @(c == culture ? "active" : "")" asp-page="@currentPage" asp-route-culture="@c"
                        hreflang="@c" lang="@c" aria-current="@(c == culture ? "true" : null)">@c.ToUpperInvariant()</a>
                 }
-                <button class="icon-btn nav-burger d-xl-none" type="button" aria-label="Menu" aria-controls="primary-nav" aria-expanded="false">&#9776;</button>
+                <button class="icon-btn nav-burger" type="button" aria-label="Menu" aria-controls="primary-nav" aria-expanded="false">&#9776;</button>
             </div>
         </nav>
     </header>

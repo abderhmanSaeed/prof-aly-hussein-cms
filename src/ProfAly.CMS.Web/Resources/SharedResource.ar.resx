@@ -162,7 +162,7 @@
   <data name="Footer_Explore" xml:space="preserve"><value>استكشف</value></data>
   <data name="Research_EmptyTitle" xml:space="preserve"><value>لا توجد أبحاث منشورة بعد</value></data>
   <data name="Research_EmptyBody" xml:space="preserve"><value>البحوث المحكَّمة في الدوريات مُدرجة ضمن صفحة المنشورات.</value></data>
-  <data name="Videos_Title" xml:space="preserve"><value>مقاطع الفيديو</value></data>
+  <data name="Videos_Title" xml:space="preserve"><value>الفيديوهات التعليمية</value></data>
   <data name="Videos_Featured" xml:space="preserve"><value>مقاطع مختارة</value></data>
   <data name="Videos_Related" xml:space="preserve"><value>مقاطع ذات صلة</value></data>
   <data name="Videos_WatchOnYouTube" xml:space="preserve"><value>المشاهدة على يوتيوب</value></data>
@@ -230,13 +230,15 @@
   <data name="Nav_DigitalResources" xml:space="preserve"><value>المصادر الرقمية</value></data>
   <data name="Nav_EducationalVideos" xml:space="preserve"><value>الفيديوهات التعليمية</value></data>
   <data name="Nav_Enrichment" xml:space="preserve"><value>المواد الإثرائية</value></data>
-  <data name="Nav_RecommendedBooks" xml:space="preserve"><value>كتب موصى بها</value></data>
+  <data name="Nav_RecommendedBooks" xml:space="preserve"><value>كتب جديرة بالقراءة</value></data>
   <data name="Nav_Events" xml:space="preserve"><value>الفعاليات</value></data>
+  <data name="Nav_DiverseActivities" xml:space="preserve"><value>فعاليات متنوعة</value></data>
+  <data name="Nav_VideoClips" xml:space="preserve"><value>مقاطع فيديو</value></data>
   <data name="Enrichment_Title" xml:space="preserve"><value>المواد الإثرائية</value></data>
   <data name="Enrichment_Lead" xml:space="preserve"><value>مواد ومصادر مختارة لمزيد من التعلّم.</value></data>
   <data name="Enrichment_Related" xml:space="preserve"><value>مواد أخرى</value></data>
   <data name="Enrichment_SourceHint" xml:space="preserve"><value>أرفِق ملف PDF أو رابطًا خارجيًا أو كليهما — يُفضَّل توفير أحدهما على الأقل.</value></data>
-  <data name="RecommendedBooks_Title" xml:space="preserve"><value>كتب موصى بها</value></data>
+  <data name="RecommendedBooks_Title" xml:space="preserve"><value>كتب جديرة بالقراءة</value></data>
   <data name="RecommendedBooks_Lead" xml:space="preserve"><value>كتب يوصي بقراءتها الدكتور علي حسين.</value></data>
   <data name="Books_Related" xml:space="preserve"><value>مؤلَّفات أكاديمية أخرى</value></data>
   <data name="RecommendedBooks_Related" xml:space="preserve"><value>توصيات أخرى</value></data>
@@ -247,7 +249,7 @@
   <data name="Events_Related" xml:space="preserve"><value>فعاليات أخرى</value></data>
   <data name="Home_LatestVideos" xml:space="preserve"><value>أحدث المقاطع</value></data>
   <data name="Home_LatestEnrichment" xml:space="preserve"><value>أحدث المواد الإثرائية</value></data>
-  <data name="Home_RecommendedBooks" xml:space="preserve"><value>كتب موصى بها</value></data>
+  <data name="Home_RecommendedBooks" xml:space="preserve"><value>كتب جديرة بالقراءة</value></data>
   <data name="Home_FeaturedEvents" xml:space="preserve"><value>الفعاليات القادمة والمميّزة</value></data>
   <data name="F_Author" xml:space="preserve"><value>المؤلِّف</value></data>
   <data name="F_PurchaseUrl" xml:space="preserve"><value>رابط الشراء</value></data>

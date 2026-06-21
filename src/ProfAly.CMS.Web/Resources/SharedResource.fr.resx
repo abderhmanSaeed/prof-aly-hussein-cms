@@ -162,7 +162,7 @@
   <data name="Footer_Explore" xml:space="preserve"><value>Explorer</value></data>
   <data name="Research_EmptyTitle" xml:space="preserve"><value>Aucun article de recherche publié pour l'instant</value></data>
   <data name="Research_EmptyBody" xml:space="preserve"><value>Les articles de revue évalués par les pairs figurent dans la page Publications.</value></data>
-  <data name="Videos_Title" xml:space="preserve"><value>Vidéos</value></data>
+  <data name="Videos_Title" xml:space="preserve"><value>Vidéos éducatives</value></data>
   <data name="Videos_Featured" xml:space="preserve"><value>Vidéos en vedette</value></data>
   <data name="Videos_Related" xml:space="preserve"><value>Vidéos similaires</value></data>
   <data name="Videos_WatchOnYouTube" xml:space="preserve"><value>Regarder sur YouTube</value></data>
@@ -230,13 +230,15 @@
   <data name="Nav_DigitalResources" xml:space="preserve"><value>Ressources numériques</value></data>
   <data name="Nav_EducationalVideos" xml:space="preserve"><value>Vidéos éducatives</value></data>
   <data name="Nav_Enrichment" xml:space="preserve"><value>Matériel d'enrichissement</value></data>
-  <data name="Nav_RecommendedBooks" xml:space="preserve"><value>Livres recommandés</value></data>
+  <data name="Nav_RecommendedBooks" xml:space="preserve"><value>Des livres à lire</value></data>
   <data name="Nav_Events" xml:space="preserve"><value>Événements</value></data>
+  <data name="Nav_DiverseActivities" xml:space="preserve"><value>Activités diverses</value></data>
+  <data name="Nav_VideoClips" xml:space="preserve"><value>Clips vidéo</value></data>
   <data name="Enrichment_Title" xml:space="preserve"><value>Matériel d'enrichissement</value></data>
   <data name="Enrichment_Lead" xml:space="preserve"><value>Matériaux et ressources sélectionnés pour approfondir l'apprentissage.</value></data>
   <data name="Enrichment_Related" xml:space="preserve"><value>Autres matériaux</value></data>
   <data name="Enrichment_SourceHint" xml:space="preserve"><value>Joignez un PDF, une URL externe, ou les deux — au moins l'un est recommandé.</value></data>
-  <data name="RecommendedBooks_Title" xml:space="preserve"><value>Livres recommandés</value></data>
+  <data name="RecommendedBooks_Title" xml:space="preserve"><value>Des livres à lire</value></data>
   <data name="RecommendedBooks_Lead" xml:space="preserve"><value>Livres recommandés par le Dr Aly Hussein.</value></data>
   <data name="Books_Related" xml:space="preserve"><value>Autres ouvrages académiques</value></data>
   <data name="RecommendedBooks_Related" xml:space="preserve"><value>Autres recommandations</value></data>
@@ -247,7 +249,7 @@
   <data name="Events_Related" xml:space="preserve"><value>Autres événements</value></data>
   <data name="Home_LatestVideos" xml:space="preserve"><value>Dernières vidéos</value></data>
   <data name="Home_LatestEnrichment" xml:space="preserve"><value>Derniers matériels d'enrichissement</value></data>
-  <data name="Home_RecommendedBooks" xml:space="preserve"><value>Livres recommandés</value></data>
+  <data name="Home_RecommendedBooks" xml:space="preserve"><value>Des livres à lire</value></data>
   <data name="Home_FeaturedEvents" xml:space="preserve"><value>Événements à venir et en vedette</value></data>
   <data name="F_Author" xml:space="preserve"><value>Auteur</value></data>
   <data name="F_PurchaseUrl" xml:space="preserve"><value>URL d'achat</value></data>
