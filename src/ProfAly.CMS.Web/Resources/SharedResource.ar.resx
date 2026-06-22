@@ -169,6 +169,8 @@
   <data name="F_YouTubeUrl" xml:space="preserve"><value>رابط يوتيوب</value></data>
   <data name="YouTube_Help" xml:space="preserve"><value>الصق أي رابط يوتيوب (watch أو youtu.be أو embed أو shorts) — يُستخرج معرّف الفيديو تلقائيًا.</value></data>
   <data name="YouTube_Invalid" xml:space="preserve"><value>أدخل رابط يوتيوب صحيحًا أو معرّف فيديو من 11 حرفًا.</value></data>
+  <data name="F_EventVideoUrl" xml:space="preserve"><value>رابط فيديو الفعالية (اختياري)</value></data>
+  <data name="EventVideo_Help" xml:space="preserve"><value>اختياري. الصق رابط يوتيوب (watch أو youtu.be أو embed أو shorts) لعرض فيديو في صفحة الفعالية. اتركه فارغًا إن لم يوجد.</value></data>
   <data name="F_PublishDate" xml:space="preserve"><value>تاريخ النشر</value></data>
 
   <data name="Hero_Experience_Title" xml:space="preserve"><value>الخبرة الأكاديمية</value></data>
@@ -233,7 +235,6 @@
   <data name="Nav_RecommendedBooks" xml:space="preserve"><value>كتب جديرة بالقراءة</value></data>
   <data name="Nav_Events" xml:space="preserve"><value>الفعاليات</value></data>
   <data name="Nav_DiverseActivities" xml:space="preserve"><value>فعاليات متنوعة</value></data>
-  <data name="Nav_VideoClips" xml:space="preserve"><value>مقاطع فيديو</value></data>
   <data name="Enrichment_Title" xml:space="preserve"><value>المواد الإثرائية</value></data>
   <data name="Enrichment_Lead" xml:space="preserve"><value>مواد ومصادر مختارة لمزيد من التعلّم.</value></data>
   <data name="Enrichment_Related" xml:space="preserve"><value>مواد أخرى</value></data>
@@ -246,6 +247,8 @@
   <data name="Events_Lead" xml:space="preserve"><value>محاضرات ومؤتمرات وأنشطة.</value></data>
   <data name="Events_Featured" xml:space="preserve"><value>فعاليات مميّزة</value></data>
   <data name="Events_Gallery" xml:space="preserve"><value>معرض الصور</value></data>
+  <data name="Events_VideoSection" xml:space="preserve"><value>فيديو الفعالية</value></data>
+  <data name="Events_PlayVideo" xml:space="preserve"><value>تشغيل الفيديو</value></data>
   <data name="Events_Related" xml:space="preserve"><value>فعاليات أخرى</value></data>
   <data name="Home_LatestVideos" xml:space="preserve"><value>أحدث المقاطع</value></data>
   <data name="Home_LatestEnrichment" xml:space="preserve"><value>أحدث المواد الإثرائية</value></data>

@@ -56,6 +56,24 @@
       window.scrollTo({ top: 0, behavior: "smooth" });
       return;
     }
+    // Event video facade: replace the thumbnail with the embedded YouTube player.
+    var facade = e.target.closest(".video-facade");
+    if (facade && facade.getAttribute("data-embed")) {
+      var frame = document.createElement("iframe");
+      var sep = facade.getAttribute("data-embed").indexOf("?") === -1 ? "?" : "&";
+      frame.src = facade.getAttribute("data-embed") + sep + "autoplay=1";
+      frame.title = facade.getAttribute("aria-label") || "";
+      frame.setAttribute("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share");
+      frame.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
+      frame.setAttribute("allowfullscreen", "");
+      facade.innerHTML = "";
+      facade.appendChild(frame);
+      facade.classList.remove("video-facade");
+      facade.removeAttribute("role");
+      facade.removeAttribute("tabindex");
+      facade.removeAttribute("aria-label");
+      return;
+    }
     var tab = e.target.closest(".filter-tab");
     if (tab) {
       var cat = tab.getAttribute("data-cat");
@@ -69,6 +87,12 @@
 
   // Close mobile menu / open dropdowns on Escape (return focus to the relevant toggle).
   document.addEventListener("keydown", function (e) {
+    // Activate the video facade with Enter/Space (it exposes role="button").
+    if ((e.key === "Enter" || e.key === " ") && e.target.classList && e.target.classList.contains("video-facade")) {
+      e.preventDefault();
+      e.target.click();
+      return;
+    }
     if (e.key !== "Escape") return;
     var openDd = document.querySelector(".nav-dropdown.open");
     if (openDd) {

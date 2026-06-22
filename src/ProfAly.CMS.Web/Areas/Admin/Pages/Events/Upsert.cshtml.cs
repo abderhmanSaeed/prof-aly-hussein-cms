@@ -33,6 +33,7 @@ public class UpsertModel : PageModel
     public bool IsEdit => Input.Id != 0;
     public IReadOnlyList<string> Cultures => SupportedCultures.All;
     public string? CoverPath { get; private set; }
+    public string? PreviewVideoId { get; private set; }
     public List<(int Id, string Name)> AllCategories { get; private set; } = new();
     public List<(int Id, string Path, string? Caption)> ExistingImages { get; private set; } = new();
 
@@ -41,6 +42,9 @@ public class UpsertModel : PageModel
         public int Id { get; set; }
         public string? EventDate { get; set; }
         public string? ExternalUrl { get; set; }
+
+        /// <summary>Optional YouTube watch/share URL (or bare id) for the event video. doc 90.</summary>
+        public string? EventVideoUrl { get; set; }
         public bool IsPublished { get; set; } = true;
         public bool IsFeatured { get; set; }
         public List<int> CategoryIds { get; set; } = new();
@@ -79,6 +83,8 @@ public class UpsertModel : PageModel
             Input.Id = entity.Id;
             Input.EventDate = entity.EventDateUtc?.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
             Input.ExternalUrl = entity.ExternalUrl;
+            Input.EventVideoUrl = string.IsNullOrEmpty(entity.VideoYouTubeId) ? null : YouTube.WatchUrl(entity.VideoYouTubeId);
+            PreviewVideoId = entity.VideoYouTubeId;
             Input.IsPublished = entity.IsPublished;
             Input.IsFeatured = entity.IsFeatured;
             Input.CategoryIds = entity.Categories.Select(c => c.CategoryId).ToList();
@@ -111,6 +117,15 @@ public class UpsertModel : PageModel
         {
             ModelState.AddModelError("Input.Translations[0].Title", _t["Field_Required"]);
         }
+
+        // Optional event video: parse the same way as the Videos module. Empty clears it.
+        string? videoId = null;
+        if (!string.IsNullOrWhiteSpace(Input.EventVideoUrl))
+        {
+            if (YouTube.TryGetVideoId(Input.EventVideoUrl, out var parsed)) { videoId = parsed; }
+            else { ModelState.AddModelError("Input.EventVideoUrl", _t["YouTube_Invalid"]); }
+        }
+        PreviewVideoId = videoId;
 
         Event entity;
         if (Input.Id == 0)
@@ -159,6 +174,7 @@ public class UpsertModel : PageModel
 
         entity.EventDateUtc = DateTime.TryParse(Input.EventDate, CultureInfo.InvariantCulture, DateTimeStyles.AssumeUniversal | DateTimeStyles.AdjustToUniversal, out var d) ? d : null;
         entity.ExternalUrl = string.IsNullOrWhiteSpace(Input.ExternalUrl) ? null : Input.ExternalUrl.Trim();
+        entity.VideoYouTubeId = videoId;
         entity.IsPublished = Input.IsPublished;
         entity.IsFeatured = Input.IsFeatured;
         entity.CoverImageId = coverId;

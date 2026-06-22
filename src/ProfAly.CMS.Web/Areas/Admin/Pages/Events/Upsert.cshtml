@@ -1,5 +1,6 @@
 @page
 @using Microsoft.AspNetCore.Mvc.Localization
+@using ProfAly.CMS.Domain.Common
 @model ProfAly.CMS.Web.Areas.Admin.Pages.Events.UpsertModel
 @inject Microsoft.Extensions.Localization.IStringLocalizer<ProfAly.CMS.Web.SharedResource> L
 @{
@@ -32,6 +33,21 @@
                 }
             </select>
         </div>
+    </div>
+
+    <div class="row g-3 mb-3">
+        <div class="col-md-8">
+            <label asp-for="Input.EventVideoUrl" class="form-label">@L["F_EventVideoUrl"]</label>
+            <input asp-for="Input.EventVideoUrl" class="form-control" dir="ltr" placeholder="https://www.youtube.com/watch?v=..." />
+            <span asp-validation-for="Input.EventVideoUrl" class="text-danger small"></span>
+            <div class="form-text">@L["EventVideo_Help"]</div>
+        </div>
+        @if (!string.IsNullOrEmpty(Model.PreviewVideoId))
+        {
+            <div class="col-md-4 d-flex align-items-end">
+                <img src="@YouTube.ThumbnailUrl(Model.PreviewVideoId)" alt="" style="width:200px;height:112px;object-fit:cover;border-radius:8px" />
+            </div>
+        }
     </div>
 
     <div class="row g-3 mb-3">

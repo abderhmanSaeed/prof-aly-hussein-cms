@@ -14,4 +14,13 @@ public class Event : ContentItem
     public Event() : base(ContentType.Event)
     {
     }
+
+    /// <summary>
+    /// Optional 11-character YouTube video id for an event recording/teaser. Stored exactly
+    /// like <see cref="Video.YouTubeVideoId"/> (id only — never uploaded); the thumbnail and
+    /// embed URLs are derived from it at render time via <see cref="Common.YouTube"/>. Kept in
+    /// its own TPH column (<c>EventVideoYouTubeId</c>) so the existing Video column is never
+    /// touched. doc 90.
+    /// </summary>
+    public string? VideoYouTubeId { get; set; }
 }

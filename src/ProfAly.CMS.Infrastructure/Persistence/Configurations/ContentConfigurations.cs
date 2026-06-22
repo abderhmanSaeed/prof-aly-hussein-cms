@@ -99,6 +99,16 @@ public sealed class VideoConfiguration : IEntityTypeConfiguration<Video>
         b.Property(x => x.YouTubeVideoId).HasMaxLength(FieldLengths.YouTubeVideoId);
 }
 
+public sealed class EventConfiguration : IEntityTypeConfiguration<Event>
+{
+    // Optional event video id lives in its own nullable TPH column so the existing Video
+    // column is left completely untouched. Same format/length as Video's id (doc 90).
+    public void Configure(EntityTypeBuilder<Event> b) =>
+        b.Property(x => x.VideoYouTubeId)
+            .HasColumnName("EventVideoYouTubeId")
+            .HasMaxLength(FieldLengths.YouTubeVideoId);
+}
+
 public sealed class RecommendedBookConfiguration : IEntityTypeConfiguration<RecommendedBook>
 {
     public void Configure(EntityTypeBuilder<RecommendedBook> b) =>

@@ -22,9 +22,9 @@
     // route still works if accessed directly; only the menu links are hidden.
     // Top-level nav. An item with Children renders as a dropdown (its own Page is null).
     // "Digital Resources" groups Educational Videos / Enrichment Materials / Books Worth
-    // Reading; "Diverse Activities" (فعاليات متنوعة) groups Events + Video Clips (doc 84).
-    // Video Clips reuses the existing Video module (/videos) — the same target as
-    // Educational Videos; no second video system.
+    // Reading. "Diverse Activities" (فعاليات متنوعة) is a plain top-level link to the
+    // Events page (/{culture}/events) — no dropdown. Video content lives solely under
+    // Digital Resources → Educational Videos; it is not duplicated here (doc 89).
     var nav = new (string Key, string? Page, (string Key, string Page)[]? Children)[]
     {
         ("Nav_Home", "/Public/Home", null), ("Nav_About", "/Public/About", null),
@@ -37,11 +37,7 @@
             ("Nav_Enrichment", "/Public/Enrichment"),
             ("Nav_RecommendedBooks", "/Public/RecommendedBooks"),
         }),
-        ("Nav_DiverseActivities", null, new[]
-        {
-            ("Nav_Events", "/Public/Events"),
-            ("Nav_VideoClips", "/Public/Videos"),
-        }),
+        ("Nav_DiverseActivities", "/Public/Events", null),
         ("Nav_Teaching", "/Public/Teaching", null), ("Nav_Contact", "/Public/Contact", null),
     };
 

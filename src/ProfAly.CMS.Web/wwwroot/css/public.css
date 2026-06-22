@@ -362,7 +362,12 @@ img { max-width: 100%; height: auto; display: block; }
 /* Videos */
 .video-embed { position: relative; aspect-ratio: 16/9; border-radius: var(--radius); overflow: hidden; background: #000; box-shadow: var(--shadow); }
 .video-embed iframe { position: absolute; inset: 0; inline-size: 100%; block-size: 100%; border: 0; }
-.book-cover .video-play {
+/* Click-to-play facade: a thumbnail + play button that swaps to the iframe on activate
+   (reuses the embed box + the book-card play button; doc 90). */
+.video-facade { cursor: pointer; padding: 0; }
+.video-embed > img { position: absolute; inset: 0; inline-size: 100%; block-size: 100%; object-fit: cover; }
+.video-facade:hover .video-play, .video-facade:focus-visible .video-play { background: var(--primary); }
+.book-cover .video-play, .video-embed .video-play {
   position: absolute; inset-block-start: 50%; inset-inline-start: 50%; transform: translate(-50%, -50%);
   inline-size: 54px; block-size: 54px; border-radius: 50%; display: grid; place-items: center;
   background: rgba(11,93,59,.85); color: #fff; font-size: 1.2rem; padding-inline-start: .15rem;

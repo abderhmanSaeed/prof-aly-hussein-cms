@@ -1,5 +1,6 @@
 @page "/{culture:regex(^(ar|en|fr)$)}/events/{slug}"
 @using System.Globalization
+@using ProfAly.CMS.Domain.Common
 @using ProfAly.CMS.Domain.Entities.Content
 @model ProfAly.CMS.Web.Pages.Public.EventDetailModel
 @{
@@ -49,6 +50,16 @@
                 @if (!string.IsNullOrWhiteSpace(t?.Body))
                 {
                     <div class="content-body">@foreach (var para in t!.Body!.Split("\n\n", StringSplitOptions.RemoveEmptyEntries)) { <p>@para</p> }</div>
+                }
+
+                @if (!string.IsNullOrWhiteSpace(Model.Event.VideoYouTubeId))
+                {
+                    <h2 class="panel-title mt-4">@L["Events_VideoSection"]</h2>
+                    <div class="video-embed video-facade" data-embed="@YouTube.EmbedUrl(Model.Event.VideoYouTubeId)"
+                         role="button" tabindex="0" aria-label="@L["Events_PlayVideo"]">
+                        <img src="@YouTube.ThumbnailUrl(Model.Event.VideoYouTubeId)" alt="@t?.Title" loading="lazy" />
+                        <span class="video-play" aria-hidden="true">▶</span>
+                    </div>
                 }
 
                 @if (gallery.Count > 0)
