@@ -22,6 +22,7 @@ public class ContactModel : PublicPageModel
     public string? ContactEmail { get; private set; }
     public string? ContactPhoneValue { get; private set; }
     public string? Location { get; private set; }
+    public string? ContactIntro { get; private set; }
     public string? PhotoPath { get; private set; }
     public string? FacebookUrl { get; private set; }
     public string? WhatsAppNumber { get; private set; }
@@ -99,7 +100,9 @@ public class ContactModel : PublicPageModel
         ContactPhoneValue = profile?.Phone;
         // CMS Profile.Email is authoritative; fall back to the bootstrap SiteSettings value.
         ContactEmail = ContactEmailOf(profile, settings);
-        Location = Localized.Pick(profile?.Translations, Culture)?.Location;
+        var tr = Localized.Pick(profile?.Translations, Culture);
+        Location = tr?.Location;
+        ContactIntro = tr?.ContactIntro;
 
         // Dedicated contact photo, falling back to the main profile photo; null → graceful placeholder.
         var media = profile?.ContactPhoto ?? profile?.Photo;

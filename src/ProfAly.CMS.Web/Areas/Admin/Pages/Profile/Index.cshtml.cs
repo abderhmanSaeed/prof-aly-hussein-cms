@@ -74,6 +74,7 @@ public class IndexModel : PageModel
         public string? MaritalStatus { get; set; }
         public string? Location { get; set; }
         public string? Languages { get; set; }
+        public string? ContactIntro { get; set; }
         public IFormFile? CvFile { get; set; }
     }
 
@@ -105,6 +106,7 @@ public class IndexModel : PageModel
                 MaritalStatus = tr?.MaritalStatus,
                 Location = tr?.Location,
                 Languages = tr?.Languages,
+                ContactIntro = tr?.ContactIntro,
             };
         }).ToList();
     }
@@ -209,6 +211,7 @@ public class IndexModel : PageModel
             tr.MaritalStatus = input.MaritalStatus;
             tr.Location = input.Location;
             tr.Languages = input.Languages;
+            tr.ContactIntro = input.ContactIntro;
 
             if (input.CvFile is not null)
             {

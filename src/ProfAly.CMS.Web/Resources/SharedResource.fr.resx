@@ -49,6 +49,7 @@
   <data name="F_Positioning" xml:space="preserve"><value>Slogan de présentation</value></data>
   <data name="F_ShortBio" xml:space="preserve"><value>Courte biographie</value></data>
   <data name="F_FullBio" xml:space="preserve"><value>Biographie complète</value></data>
+  <data name="F_ContactIntro" xml:space="preserve"><value>Intro « Me contacter »</value></data>
   <data name="F_Nationality" xml:space="preserve"><value>Nationalité</value></data>
   <data name="F_Marital" xml:space="preserve"><value>État civil</value></data>
   <data name="F_Location" xml:space="preserve"><value>Localisation</value></data>

@@ -79,6 +79,13 @@ public class ProfileTranslation : BaseEntity, ITranslation
 
     public string? Languages { get; set; }
 
+    /// <summary>
+    /// Dedicated rich-text intro for the public Contact page's details panel.
+    /// Independent of <see cref="ShortBio"/> so the Contact section can be
+    /// authored and formatted separately. Optional; the panel hides it when null.
+    /// </summary>
+    public string? ContactIntro { get; set; }
+
     /// <summary>Per-culture CV PDF (doc 03 §2.1) — enables "Download CV" per language.</summary>
     public int? CvFileId { get; set; }
 

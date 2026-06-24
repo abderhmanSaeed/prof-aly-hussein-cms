@@ -49,6 +49,7 @@
   <data name="F_Positioning" xml:space="preserve"><value>السطر التعريفي</value></data>
   <data name="F_ShortBio" xml:space="preserve"><value>نبذة مختصرة</value></data>
   <data name="F_FullBio" xml:space="preserve"><value>السيرة الكاملة</value></data>
+  <data name="F_ContactIntro" xml:space="preserve"><value>نبذة تواصل معي</value></data>
   <data name="F_Nationality" xml:space="preserve"><value>الجنسية</value></data>
   <data name="F_Marital" xml:space="preserve"><value>الحالة الاجتماعية</value></data>
   <data name="F_Location" xml:space="preserve"><value>الموقع</value></data>

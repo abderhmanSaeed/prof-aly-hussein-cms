@@ -3,13 +3,13 @@
 @model ProfAly.CMS.Web.Pages.Public.HomeModel
 @{
     var p = Localized.Pick(Model.Profile?.Translations, Model.Culture);
-    var bioFirst = p?.FullBio?.Split("\n\n", StringSplitOptions.RemoveEmptyEntries).FirstOrDefault() ?? p?.ShortBio;
+    var hasBio = !string.IsNullOrWhiteSpace(p?.FullBio) || !string.IsNullOrWhiteSpace(p?.ShortBio);
     var photo = Model.Profile?.Photo is null ? null : "/uploads/" + Model.Profile.Photo.RelativePath;
     var bioImage = Model.Profile?.BioImage is null ? null : "/uploads/" + Model.Profile.BioImage.RelativePath;
     var badge = Model.Stats.FirstOrDefault();
     var badgeText = badge is null ? null : Localized.Pick(badge.Translations, Model.Culture)?.Label;
     ViewData["Title"] = p?.FullName ?? "Prof. Aly Hussein";
-    ViewData["Description"] = p?.Positioning ?? p?.ShortBio;
+    ViewData["Description"] = BioContent.PlainText(p?.Positioning) ?? BioContent.PlainText(p?.ShortBio);
 }
 
 <section class="hero">
@@ -19,7 +19,7 @@
                 <span class="hero-eyebrow"><span class="dot" aria-hidden="true"></span><span>@ViewData["Tagline"]</span></span>
                 <h1 class="hero-name">@p?.FullName</h1>
                 <p class="hero-title">@p?.Title</p>
-                <p class="hero-positioning">@p?.Positioning</p>
+                <p class="hero-positioning">@BioContent.RenderInline(p?.Positioning)</p>
                 <div class="hero-cta">
                     <a class="btn btn-primary" asp-page="/Public/Publications" asp-route-culture="@Model.Culture">@L["Hero_CtaResearch"]</a>
                     <a class="btn btn-outline" asp-page="/Public/Contact" asp-route-culture="@Model.Culture">@L["Hero_CtaContact"]</a>
@@ -75,7 +75,7 @@
     </section>
 }
 
-@if (!string.IsNullOrWhiteSpace(bioFirst))
+@if (hasBio)
 {
     <section class="section section--alt">
         <div class="container">
@@ -87,7 +87,7 @@
                 <div class="snapshot-text">
                     <span class="eyebrow">@L["Pub_AboutShort"]</span>
                     <h2 class="section-title">@L["Pub_AboutShort"]</h2>
-                    <p>@bioFirst</p>
+                    <div class="content-body">@BioContent.RenderTeaser(p?.FullBio, p?.ShortBio)</div>
                     <a class="btn btn-outline" asp-page="/Public/About" asp-route-culture="@Model.Culture">@L["Pub_ReadBio"]</a>
                 </div>
             </div>
@@ -204,7 +204,7 @@
     <div class="container">
         <div class="cta-band">
             <h2>@p?.FullName</h2>
-            <p>@p?.Positioning</p>
+            <p>@BioContent.RenderInline(p?.ContactIntro)</p>
             <a class="btn btn-gold" asp-page="/Public/Contact" asp-route-culture="@Model.Culture">@L["Hero_CtaContact"]</a>
         </div>
     </div>

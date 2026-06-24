@@ -61,6 +61,7 @@
   <data name="F_Positioning" xml:space="preserve"><value>Positioning line</value></data>
   <data name="F_ShortBio" xml:space="preserve"><value>Short bio</value></data>
   <data name="F_FullBio" xml:space="preserve"><value>Full biography</value></data>
+  <data name="F_ContactIntro" xml:space="preserve"><value>Contact Me intro</value></data>
   <data name="F_Nationality" xml:space="preserve"><value>Nationality</value></data>
   <data name="F_Marital" xml:space="preserve"><value>Marital status</value></data>
   <data name="F_Location" xml:space="preserve"><value>Location</value></data>

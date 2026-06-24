@@ -10,6 +10,24 @@
 <h1 class="page-title">@L["Profile_Title"]</h1>
 <p class="page-sub">@L["DefaultLangNote"]</p>
 
+<style>
+    /* Rich-text editor for the bio fields. Every rule is scoped under the
+       .rte-wrap container so it cannot affect any global/site styles, and all
+       colors reuse the admin design tokens from admin.css (no Bootstrap
+       blue/gray defaults). The bound <textarea> stays in the form (visually
+       hidden) so model binding/validation are unchanged; without JS it falls
+       back to a normal textarea. */
+    .rte-wrap .rte-source { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
+    .rte-wrap .rte-toolbar { display: flex; flex-wrap: wrap; gap: .25rem; padding: .35rem; background: var(--surface-2); border: 1px solid var(--line); border-bottom: 0; border-radius: var(--radius) var(--radius) 0 0; }
+    .rte-wrap .rte-btn { min-width: 2rem; padding: .15rem .55rem; font-size: .9rem; line-height: 1.4; color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 8px; cursor: pointer; }
+    .rte-wrap .rte-btn:hover { border-color: var(--accent); color: var(--accent-600); }
+    .rte-wrap .rte-sep { width: 1px; margin: 0 .25rem; background: var(--line); }
+    .rte-wrap .rte-editor { min-height: 4rem; padding: .5rem .75rem; overflow: auto; background: var(--surface); color: var(--ink); border: 1px solid var(--line); border-radius: 0 0 var(--radius) var(--radius); line-height: 1.6; }
+    .rte-wrap .rte-editor:focus { outline: 0; border-color: var(--primary); box-shadow: 0 0 0 .15rem var(--primary-050); }
+    .rte-wrap .rte-editor p { margin: 0 0 .5rem; }
+    .rte-wrap .rte-editor ul, .rte-wrap .rte-editor ol { margin: 0 0 .5rem; padding-inline-start: 1.5rem; }
+</style>
+
 @if (!string.IsNullOrEmpty(Model.StatusMessage))
 {
     <div class="alert alert-success py-2 px-3">@Model.StatusMessage</div>
@@ -110,15 +128,15 @@
                     </div>
                     <div class="col-md-12">
                         <label asp-for="Input.Translations[i].Positioning" class="form-label">@L["F_Positioning"]</label>
-                        <input asp-for="Input.Translations[i].Positioning" class="form-control" />
+                        <textarea asp-for="Input.Translations[i].Positioning" class="form-control rte" rows="2"></textarea>
                     </div>
                     <div class="col-md-12">
                         <label asp-for="Input.Translations[i].ShortBio" class="form-label">@L["F_ShortBio"]</label>
-                        <textarea asp-for="Input.Translations[i].ShortBio" class="form-control" rows="2"></textarea>
+                        <textarea asp-for="Input.Translations[i].ShortBio" class="form-control rte" rows="2"></textarea>
                     </div>
                     <div class="col-md-12">
                         <label asp-for="Input.Translations[i].FullBio" class="form-label">@L["F_FullBio"]</label>
-                        <textarea asp-for="Input.Translations[i].FullBio" class="form-control" rows="5"></textarea>
+                        <textarea asp-for="Input.Translations[i].FullBio" class="form-control rte" rows="5"></textarea>
                     </div>
                     <div class="col-md-3">
                         <label asp-for="Input.Translations[i].Nationality" class="form-label">@L["F_Nationality"]</label>
@@ -135,6 +153,10 @@
                     <div class="col-md-3">
                         <label asp-for="Input.Translations[i].Languages" class="form-label">@L["F_Languages"]</label>
                         <input asp-for="Input.Translations[i].Languages" class="form-control" />
+                    </div>
+                    <div class="col-md-12">
+                        <label asp-for="Input.Translations[i].ContactIntro" class="form-label">@L["F_ContactIntro"]</label>
+                        <textarea asp-for="Input.Translations[i].ContactIntro" class="form-control rte" rows="3"></textarea>
                     </div>
                     <div class="col-md-12">
                         <label class="form-label">@L["Profile_Cv"]</label>
@@ -155,4 +177,91 @@
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
+    <script>
+        // Lightweight rich-text editor (no external dependency): a contenteditable
+        // surface + execCommand toolbar, syncing HTML back into the bound textarea.
+        (function () {
+            var BUTTONS = [
+                { cmd: "bold", label: "B", title: "Bold", css: "font-weight:700" },
+                { cmd: "italic", label: "I", title: "Italic", css: "font-style:italic" },
+                { cmd: "underline", label: "U", title: "Underline", css: "text-decoration:underline" },
+                { sep: true },
+                { cmd: "insertUnorderedList", label: "• ≡", title: "Bullet list" },
+                { cmd: "insertOrderedList", label: "1. ≡", title: "Numbered list" },
+                { sep: true },
+                { cmd: "justifyLeft", label: "←", title: "Align left" },
+                { cmd: "justifyCenter", label: "↔", title: "Align center" },
+                { cmd: "justifyRight", label: "→", title: "Align right" },
+                { sep: true },
+                { cmd: "removeFormat", label: "✗", title: "Clear formatting" }
+            ];
+
+            function looksLikeHtml(s) { return /<(p|br|div|span|strong|b|em|i|u|ol|ul|li|h[1-6]|a)\b/i.test(s); }
+
+            function toEditorHtml(value) {
+                if (!value) { return ""; }
+                if (looksLikeHtml(value)) { return value; }
+                // Legacy plain text: preserve paragraphs/line breaks for editing.
+                var esc = value.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+                return esc.split(/\n{2,}/).map(function (p) {
+                    return "<p>" + p.replace(/\n/g, "<br>") + "</p>";
+                }).join("");
+            }
+
+            function enhance(textarea) {
+                var wrap = document.createElement("div");
+                wrap.className = "rte-wrap";
+
+                var toolbar = document.createElement("div");
+                toolbar.className = "rte-toolbar";
+                toolbar.setAttribute("dir", "ltr");
+
+                var editor = document.createElement("div");
+                editor.className = "rte-editor";
+                editor.contentEditable = "true";
+                editor.setAttribute("role", "textbox");
+                editor.setAttribute("aria-multiline", "true");
+                editor.style.minHeight = (parseInt(textarea.getAttribute("rows"), 10) >= 5) ? "9rem" : "4rem";
+                editor.innerHTML = toEditorHtml(textarea.value);
+
+                var dirty = false;
+                function sync() { if (dirty) { textarea.value = editor.innerHTML; } }
+
+                BUTTONS.forEach(function (b) {
+                    if (b.sep) { var s = document.createElement("span"); s.className = "rte-sep"; toolbar.appendChild(s); return; }
+                    var btn = document.createElement("button");
+                    btn.type = "button";
+                    btn.className = "rte-btn";
+                    btn.title = b.title;
+                    btn.textContent = b.label;
+                    if (b.css) { btn.setAttribute("style", b.css); }
+                    // Keep the selection when the button is pressed.
+                    btn.addEventListener("mousedown", function (e) { e.preventDefault(); });
+                    btn.addEventListener("click", function () {
+                        editor.focus();
+                        document.execCommand(b.cmd, false, null);
+                        dirty = true;
+                        sync();
+                    });
+                    toolbar.appendChild(btn);
+                });
+
+                editor.addEventListener("input", function () { dirty = true; sync(); });
+                editor.addEventListener("blur", sync);
+
+                textarea.parentNode.insertBefore(wrap, textarea);
+                wrap.appendChild(toolbar);
+                wrap.appendChild(editor);
+                wrap.appendChild(textarea);
+                textarea.classList.add("rte-source");
+                textarea.setAttribute("tabindex", "-1");
+                textarea.setAttribute("aria-hidden", "true");
+
+                var form = textarea.closest("form");
+                if (form) { form.addEventListener("submit", sync); }
+            }
+
+            document.querySelectorAll("textarea.rte").forEach(enhance);
+        })();
+    </script>
 }

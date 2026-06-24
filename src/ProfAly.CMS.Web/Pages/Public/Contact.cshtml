@@ -30,6 +30,10 @@
                 </div>
                 <div class="panel">
                     <h2 class="panel-title">@L["Contact_Intro"]</h2>
+                    @if (!string.IsNullOrWhiteSpace(Model.ContactIntro))
+                    {
+                        <div class="content-body">@BioContent.Render(Model.ContactIntro)</div>
+                    }
                     @if (!string.IsNullOrEmpty(Model.ContactPhoneValue))
                     {
                         <div class="contact-row">

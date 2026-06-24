@@ -4,8 +4,7 @@
 @{
     var p = Localized.Pick(Model.Profile?.Translations, Model.Culture);
     ViewData["Title"] = L["Nav_About"].Value;
-    ViewData["Description"] = p?.ShortBio ?? p?.Positioning;
-    var paras = p?.FullBio?.Split("\n\n", StringSplitOptions.RemoveEmptyEntries) ?? Array.Empty<string>();
+    ViewData["Description"] = BioContent.PlainText(p?.ShortBio) ?? BioContent.PlainText(p?.Positioning);
     // Dedicated About image, falling back to the homepage "صورة النبذة" (BioImage) when not set.
     var aboutImage = Model.Profile?.AboutImage ?? Model.Profile?.BioImage;
 }
@@ -29,7 +28,7 @@
                 }
                 <span class="eyebrow">@L["About_Bio"]</span>
                 <h2 class="section-title">@L["About_Bio"]</h2>
-                @foreach (var para in paras) { <p>@para</p> }
+                <div class="content-body">@BioContent.Render(p?.FullBio)</div>
             </div>
             <div class="col-lg-5 about-aside">
                 <div class="panel">
