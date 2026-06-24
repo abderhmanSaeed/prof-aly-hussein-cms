@@ -54,9 +54,16 @@
             <span asp-validation-for="Input.CoverFile" class="text-danger small"></span>
         </div>
         <div class="col-md-4">
-            <label class="form-label">@L["F_Pdf"]</label>
-            @if (!string.IsNullOrEmpty(Model.PdfPath)) { <div class="mb-1"><a href="@Model.PdfPath" target="_blank" rel="noopener">PDF</a></div> }
-            <input asp-for="Input.PdfFile" type="file" accept="application/pdf" class="form-control" />
+            <label class="form-label">@(Model.IsEnrichment ? L["F_Document"] : L["F_Pdf"])</label>
+            @if (!string.IsNullOrEmpty(Model.PdfPath)) { <div class="mb-1"><a href="@Model.PdfPath" target="_blank" rel="noopener">@(Model.IsEnrichment ? L["F_Document"].Value : "PDF")</a></div> }
+            @if (Model.IsEnrichment)
+            {
+                <input asp-for="Input.PdfFile" type="file" accept=".pdf,.doc,.docx,.ppt,.pptx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.ms-powerpoint,application/vnd.openxmlformats-officedocument.presentationml.presentation" class="form-control" />
+            }
+            else
+            {
+                <input asp-for="Input.PdfFile" type="file" accept="application/pdf" class="form-control" />
+            }
             <span asp-validation-for="Input.PdfFile" class="text-danger small"></span>
         </div>
         <div class="col-md-4">

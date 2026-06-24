@@ -31,6 +31,7 @@
   <data name="Upload_TooLarge" xml:space="preserve"><value>حجم الملف كبير جدًا.</value></data>
   <data name="Upload_InvalidType_Image" xml:space="preserve"><value>يُسمح فقط بصور JPG أو PNG أو WebP.</value></data>
   <data name="Upload_InvalidType_Pdf" xml:space="preserve"><value>يُسمح فقط بملفات PDF.</value></data>
+  <data name="Upload_InvalidType_Document" xml:space="preserve"><value>يُسمح فقط بملفات PDF أو Word ‏(.doc، .docx) أو PowerPoint ‏(.ppt، .pptx).</value></data>
   <data name="Upload_Failed" xml:space="preserve"><value>تعذّر رفع الملف.</value></data>
 
   <data name="Profile_Title" xml:space="preserve"><value>الملف الشخصي</value></data>
@@ -85,6 +86,7 @@
   <data name="F_ExternalUrl" xml:space="preserve"><value>رابط خارجي</value></data>
   <data name="F_Cover" xml:space="preserve"><value>صورة الغلاف</value></data>
   <data name="F_Pdf" xml:space="preserve"><value>ملف PDF</value></data>
+  <data name="F_Document" xml:space="preserve"><value>مستند ‏(PDF / Word / PowerPoint)</value></data>
   <data name="F_Categories" xml:space="preserve"><value>التصنيفات</value></data>
   <data name="F_Published" xml:space="preserve"><value>منشور</value></data>
   <data name="F_Featured" xml:space="preserve"><value>مميَّز</value></data>

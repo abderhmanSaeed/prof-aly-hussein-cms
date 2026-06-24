@@ -169,7 +169,9 @@ public class UpsertModel : PageModel
         }
         if (Input.PdfFile is not null)
         {
-            var r = await _media.UploadAsync(Input.PdfFile, MediaKind.Pdf);
+            // Enrichment Items accept PDF + Word + PowerPoint; other types stay PDF-only.
+            var fileKind = ct == ContentType.EnrichmentItem ? MediaKind.Document : MediaKind.Pdf;
+            var r = await _media.UploadAsync(Input.PdfFile, fileKind);
             if (!r.Succeeded) { ModelState.AddModelError("Input.PdfFile", _t[r.ErrorKey!]); }
             else { pdfId = r.File!.Id; }
         }

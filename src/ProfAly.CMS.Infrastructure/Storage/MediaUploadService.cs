@@ -21,6 +21,9 @@ public sealed class MediaUploadService : IMediaUploadService
     private static readonly string[] ImageExtensions = { ".jpg", ".jpeg", ".png", ".webp" };
     private static readonly string[] PdfExtensions = { ".pdf" };
 
+    // Enrichment documents: PDF plus Microsoft Word and PowerPoint formats.
+    private static readonly string[] DocumentExtensions = { ".pdf", ".doc", ".docx", ".ppt", ".pptx" };
+
     public MediaUploadService(IFileStorage storage, AppDbContext db, IOptions<FileStorageOptions> options)
     {
         _storage = storage;
@@ -39,9 +42,12 @@ public sealed class MediaUploadService : IMediaUploadService
             return MediaUploadResult.Fail("Upload_Empty");
         }
 
-        var (allowedExtensions, maxBytes, invalidTypeKey) = kind == MediaKind.Pdf
-            ? (PdfExtensions, _options.MaxPdfBytes, "Upload_InvalidType_Pdf")
-            : (ImageExtensions, _options.MaxImageBytes, "Upload_InvalidType_Image");
+        var (allowedExtensions, maxBytes, invalidTypeKey) = kind switch
+        {
+            MediaKind.Pdf => (PdfExtensions, _options.MaxPdfBytes, "Upload_InvalidType_Pdf"),
+            MediaKind.Document => (DocumentExtensions, _options.MaxDocumentBytes, "Upload_InvalidType_Document"),
+            _ => (ImageExtensions, _options.MaxImageBytes, "Upload_InvalidType_Image"),
+        };
 
         if (file.Length > maxBytes)
         {
@@ -102,6 +108,10 @@ public sealed class MediaUploadService : IMediaUploadService
             ".webp" => read >= 12 && h[0] == (byte)'R' && h[1] == (byte)'I' && h[2] == (byte)'F' && h[3] == (byte)'F'
                        && h[8] == (byte)'W' && h[9] == (byte)'E' && h[10] == (byte)'B' && h[11] == (byte)'P',
             ".pdf" => h[0] == 0x25 && h[1] == 0x50 && h[2] == 0x44 && h[3] == 0x46,
+            // Office Open XML (.docx/.pptx) are ZIP containers: "PK\x03\x04".
+            ".docx" or ".pptx" => h[0] == 0x50 && h[1] == 0x4B && h[2] == 0x03 && h[3] == 0x04,
+            // Legacy Office (.doc/.ppt) are OLE2 compound files: D0 CF 11 E0 (A1 B1 1A E1).
+            ".doc" or ".ppt" => h[0] == 0xD0 && h[1] == 0xCF && h[2] == 0x11 && h[3] == 0xE0,
             _ => false,
         };
     }
@@ -112,6 +122,10 @@ public sealed class MediaUploadService : IMediaUploadService
         ".png" => "image/png",
         ".webp" => "image/webp",
         ".pdf" => "application/pdf",
+        ".doc" => "application/msword",
+        ".docx" => "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        ".ppt" => "application/vnd.ms-powerpoint",
+        ".pptx" => "application/vnd.openxmlformats-officedocument.presentationml.presentation",
         _ => "application/octet-stream",
     };
 

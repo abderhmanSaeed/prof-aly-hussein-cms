@@ -15,4 +15,7 @@ public sealed class FileStorageOptions
     public long MaxImageBytes { get; set; } = 5 * 1024 * 1024;   // 5 MB
 
     public long MaxPdfBytes { get; set; } = 25 * 1024 * 1024;    // 25 MB
+
+    /// <summary>Limit for Enrichment document uploads (PDF / Word / PowerPoint).</summary>
+    public long MaxDocumentBytes { get; set; } = 50 * 1024 * 1024;  // 50 MB
 }

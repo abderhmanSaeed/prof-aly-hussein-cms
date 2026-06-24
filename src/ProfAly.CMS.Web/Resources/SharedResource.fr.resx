@@ -31,6 +31,7 @@
   <data name="Upload_TooLarge" xml:space="preserve"><value>Le fichier est trop volumineux.</value></data>
   <data name="Upload_InvalidType_Image" xml:space="preserve"><value>Seules les images JPG, PNG ou WebP sont autorisées.</value></data>
   <data name="Upload_InvalidType_Pdf" xml:space="preserve"><value>Seuls les fichiers PDF sont autorisés.</value></data>
+  <data name="Upload_InvalidType_Document" xml:space="preserve"><value>Seuls les fichiers PDF, Word (.doc, .docx) ou PowerPoint (.ppt, .pptx) sont autorisés.</value></data>
   <data name="Upload_Failed" xml:space="preserve"><value>Le fichier n'a pas pu être téléversé.</value></data>
 
   <data name="Profile_Title" xml:space="preserve"><value>Profil</value></data>
@@ -85,6 +86,7 @@
   <data name="F_ExternalUrl" xml:space="preserve"><value>Lien externe</value></data>
   <data name="F_Cover" xml:space="preserve"><value>Image de couverture</value></data>
   <data name="F_Pdf" xml:space="preserve"><value>Fichier PDF</value></data>
+  <data name="F_Document" xml:space="preserve"><value>Document (PDF / Word / PowerPoint)</value></data>
   <data name="F_Categories" xml:space="preserve"><value>Catégories</value></data>
   <data name="F_Published" xml:space="preserve"><value>Publié</value></data>
   <data name="F_Featured" xml:space="preserve"><value>Mis en avant</value></data>
