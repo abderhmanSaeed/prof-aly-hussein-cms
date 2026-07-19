@@ -79,3 +79,6 @@ logs/
 
 # ---- Local credentials (never commit; contains a password) ----
 docs/32_Admin_Login_Credentials.md
+
+# ---- Deployment build artifacts (produced by deploy/publish.sh) ----
+deploy/artifacts/

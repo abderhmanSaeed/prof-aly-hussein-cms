@@ -1,0 +1,64 @@
+# =============================================================================
+# systemd unit — Prof. Aly Hussein CMS (ASP.NET Core 8 / Kestrel)
+#
+# Install:
+#   sudo cp deploy/profalycms.service /etc/systemd/system/profalycms.service
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable --now profalycms
+#
+# Secrets (admin password, etc.) live in the EnvironmentFile below, NOT here.
+# See docs/91_Production_Deployment_Guide.md.
+# =============================================================================
+[Unit]
+Description=Prof. Aly Hussein CMS (ASP.NET Core 8, Kestrel)
+Documentation=file:///var/www/profalycms/current
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+# The published app is exposed through the "current" symlink so releases can be
+# swapped atomically and rolled back (see deploy/update.sh).
+WorkingDirectory=/var/www/profalycms/current
+ExecStart=/usr/bin/dotnet /var/www/profalycms/current/ProfAly.CMS.Web.dll
+
+# Restart on failure with a small backoff.
+Restart=always
+RestartSec=10
+# ASP.NET Core handles SIGINT for graceful shutdown.
+KillSignal=SIGINT
+TimeoutStopSec=30
+SyslogIdentifier=profalycms
+
+# Run as an unprivileged, dedicated service account (created during setup).
+User=profalycms
+Group=profalycms
+
+# ---- Environment ----------------------------------------------------------
+# Non-secret runtime configuration:
+Environment=ASPNETCORE_ENVIRONMENT=Production
+# Kestrel listens on loopback only; Nginx terminates TLS and reverse-proxies here.
+Environment=ASPNETCORE_URLS=http://127.0.0.1:5000
+# Trust X-Forwarded-* from the local Nginx proxy (real client IP + https scheme).
+# This makes rate-limiting see the real client IP and HSTS/HTTPS detection correct.
+Environment=ASPNETCORE_FORWARDEDHEADERS_ENABLED=true
+Environment=DOTNET_NOLOGO=true
+Environment=DOTNET_PRINT_TELEMETRY_MESSAGE=false
+# Secrets (e.g. AdminAccount__Password) are loaded from this file (chmod 600):
+EnvironmentFile=/etc/profalycms/profalycms.env
+
+# ---- Sandboxing / hardening ----------------------------------------------
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=full
+ProtectControlGroups=true
+ProtectKernelModules=true
+ProtectKernelTunables=true
+RestrictSUIDSGID=true
+LockPersonality=true
+# The only location the service is allowed to write to (SQLite DB, uploads, logs,
+# in-app backups all live under shared/):
+ReadWritePaths=/var/www/profalycms/shared
+
+[Install]
+WantedBy=multi-user.target

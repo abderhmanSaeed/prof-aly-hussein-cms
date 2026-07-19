@@ -1,6 +1,12 @@
 # Normalize line endings: store text as LF in the repo, check out per-platform.
 * text=auto
 
+# Shell scripts and Linux service/config files MUST stay LF on every platform,
+# otherwise they break when run on the Ubuntu server (bad interpreter: /bin/bash^M).
+*.sh                        text eol=lf
+deploy/profalycms.service   text eol=lf
+deploy/profalycms.conf      text eol=lf
+
 # Explicit text types
 *.cs        text
 *.cshtml    text
