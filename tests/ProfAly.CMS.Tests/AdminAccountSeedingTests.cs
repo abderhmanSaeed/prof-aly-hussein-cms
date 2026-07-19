@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Data.Sqlite;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using ProfAly.CMS.Infrastructure;
 using ProfAly.CMS.Infrastructure.Identity;
@@ -12,14 +13,15 @@ namespace ProfAly.CMS.Tests;
 /// <summary>
 /// Verifies the administrator initialization flow the way Production runs it: the real
 /// <see cref="DatabaseInitializer"/> + seeders wired through <c>AddInfrastructure</c>,
-/// against a throwaway temp SQLite file, with the password supplied ONLY through
-/// configuration (as appsettings.Production.json / the AdminAccount__Password env var do —
-/// User Secrets are never loaded outside Development).
+/// against a throwaway temp SQLite file. The bootstrap password is supplied ONLY through the
+/// <c>AdminAccount__Password</c> environment variable (as the server-side EnvironmentFile does) —
+/// never from a source-controlled file. User Secrets are not loaded outside Development.
 /// </summary>
 public class AdminAccountSeedingTests : IDisposable
 {
     private const string Email = "admin@aly-hussein.local";
     private const string Password = "Admin#2026Dev";
+    private const string EnvVarName = "AdminAccount__Password"; // "__" binds to AdminAccount:Password
 
     private readonly string _dir;
     private readonly string _dbPath;
@@ -29,24 +31,41 @@ public class AdminAccountSeedingTests : IDisposable
         _dir = Path.Combine(Path.GetTempPath(), "profaly-admin-" + Guid.NewGuid().ToString("N"));
         Directory.CreateDirectory(_dir);
         _dbPath = Path.Combine(_dir, "app.db");
+        // Start from a known-clean state so a stray env var can never leak into a test.
+        Environment.SetEnvironmentVariable(EnvVarName, null);
     }
 
-    private ServiceProvider BuildProvider(string? adminPassword)
+    /// <summary>Sets (or clears) the bootstrap-password environment variable for the next build.</summary>
+    private static void SetPasswordEnv(string? value) =>
+        Environment.SetEnvironmentVariable(EnvVarName, value);
+
+    /// <summary>
+    /// Builds the provider the way the web host does: email comes from configuration
+    /// (appsettings), the password comes ONLY from environment variables via
+    /// <see cref="ConfigurationBuilder.AddEnvironmentVariables()"/>.
+    /// </summary>
+    private ServiceProvider BuildProvider(CapturingLoggerProvider? logCapture = null)
     {
         var config = new ConfigurationBuilder()
             .AddInMemoryCollection(new Dictionary<string, string?>
             {
                 ["ConnectionStrings:DefaultConnection"] = $"Data Source={_dbPath}",
-                ["AdminAccount:Email"] = Email,
-                ["AdminAccount:Password"] = adminPassword,
+                ["AdminAccount:Email"] = Email, // password intentionally NOT set here
                 ["Seed:ImportStaticContent"] = "false",
                 ["Backup:Enabled"] = "false", // keep the test hermetic (no backup files)
             })
+            .AddEnvironmentVariables() // AdminAccount__Password is read from here, if present
             .Build();
 
         var services = new ServiceCollection();
         services.AddSingleton<IConfiguration>(config); // the web host registers this automatically
-        services.AddLogging();
+        services.AddLogging(b =>
+        {
+            if (logCapture is not null)
+            {
+                b.AddProvider(logCapture);
+            }
+        });
         services.AddInfrastructure(config);
         return services.BuildServiceProvider();
     }
@@ -58,10 +77,12 @@ public class AdminAccountSeedingTests : IDisposable
     }
 
     [Fact]
-    public async Task FreshProductionStartup_CreatesAdmin_FromConfig_AndLoginPasswordValidates()
+    public async Task FreshProductionStartup_CreatesAdmin_FromEnvironmentVariable_AndLoginPasswordValidates()
     {
-        // Empty database + password only in configuration = the clean-VPS scenario.
-        using var sp = BuildProvider(Password);
+        // Empty database + password ONLY in the environment variable = the clean-VPS scenario.
+        SetPasswordEnv(Password);
+
+        using var sp = BuildProvider();
         await RunStartupAsync(sp);
 
         using var scope = sp.CreateScope();
@@ -78,8 +99,9 @@ public class AdminAccountSeedingTests : IDisposable
     [Fact]
     public async Task SecondStartup_DoesNotDuplicate_Reset_OrOverwrite_TheExistingAdmin()
     {
-        // First boot creates the admin.
-        using var sp1 = BuildProvider(Password);
+        // First boot creates the admin from the env var.
+        SetPasswordEnv(Password);
+        using var sp1 = BuildProvider();
         await RunStartupAsync(sp1);
 
         string originalHash;
@@ -89,10 +111,11 @@ public class AdminAccountSeedingTests : IDisposable
             originalHash = (await users.FindByEmailAsync(Email))!.PasswordHash!;
         }
 
-        // A later restart — even if the configured password CHANGED — must not touch the
-        // existing account (no duplicate, no hash regeneration, no password reset).
+        // A later restart — even if the env-var password CHANGED — must not touch the existing
+        // account (no duplicate, no hash regeneration, no password reset).
         SqliteConnection.ClearAllPools();
-        using var sp2 = BuildProvider("Totally#Different#2027");
+        SetPasswordEnv("Totally#Different#2027");
+        using var sp2 = BuildProvider();
         await RunStartupAsync(sp2);
 
         using var scope2 = sp2.CreateScope();
@@ -102,26 +125,34 @@ public class AdminAccountSeedingTests : IDisposable
         var admin = await users2.FindByEmailAsync(Email);
         Assert.Equal(originalHash, admin!.PasswordHash);                        // hash NOT regenerated
         Assert.True(await users2.CheckPasswordAsync(admin, Password));          // original password still works
-        Assert.False(await users2.CheckPasswordAsync(admin, "Totally#Different#2027")); // config change ignored
+        Assert.False(await users2.CheckPasswordAsync(admin, "Totally#Different#2027")); // env change ignored
     }
 
     [Fact]
-    public async Task WithoutAnyConfiguredPassword_AdminIsSkipped_NotCreated()
+    public async Task WithoutEnvironmentVariablePassword_AdminIsSkipped_AndWarns()
     {
-        // Documents the pre-fix failure mode: no password in any Production config source
-        // (User Secrets absent) → seeding is skipped and there is NO admin to log in as.
-        using var sp = BuildProvider(adminPassword: null);
+        // No AdminAccount__Password in the environment and none in source config
+        // (User Secrets are never loaded here) → seeding must skip and warn, not invent a password.
+        SetPasswordEnv(null);
+        var logs = new CapturingLoggerProvider();
+
+        using var sp = BuildProvider(logs);
         await RunStartupAsync(sp);
 
         using var scope = sp.CreateScope();
         var users = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
-        Assert.Null(await users.FindByEmailAsync(Email));
+        Assert.Null(await users.FindByEmailAsync(Email)); // no admin created
+
+        Assert.Contains(logs.Warnings, w =>
+            w.Contains("Password", StringComparison.OrdinalIgnoreCase) &&
+            w.Contains("skipping", StringComparison.OrdinalIgnoreCase));
     }
 
     [Fact]
     public void IdentitySecurity_LockoutRolesAndHashing_AreConfigured()
     {
-        using var sp = BuildProvider(Password);
+        SetPasswordEnv(Password);
+        using var sp = BuildProvider();
         using var scope = sp.CreateScope();
         var options = scope.ServiceProvider.GetRequiredService<IOptions<IdentityOptions>>().Value;
 
@@ -142,8 +173,38 @@ public class AdminAccountSeedingTests : IDisposable
 
     public void Dispose()
     {
+        // Never leak the process-wide env var to other tests.
+        Environment.SetEnvironmentVariable(EnvVarName, null);
         SqliteConnection.ClearAllPools();
         try { Directory.Delete(_dir, recursive: true); } catch { /* temp cleanup best-effort */ }
         GC.SuppressFinalize(this);
+    }
+
+    /// <summary>Minimal in-memory logger provider that records warning-level messages.</summary>
+    private sealed class CapturingLoggerProvider : ILoggerProvider
+    {
+        public List<string> Warnings { get; } = new();
+
+        public ILogger CreateLogger(string categoryName) => new Capturing(this);
+
+        public void Dispose() { }
+
+        private sealed class Capturing : ILogger
+        {
+            private readonly CapturingLoggerProvider _owner;
+            public Capturing(CapturingLoggerProvider owner) => _owner = owner;
+
+            public IDisposable? BeginScope<TState>(TState state) where TState : notnull => null;
+            public bool IsEnabled(LogLevel logLevel) => true;
+
+            public void Log<TState>(LogLevel logLevel, EventId eventId, TState state,
+                Exception? exception, Func<TState, Exception?, string> formatter)
+            {
+                if (logLevel == LogLevel.Warning)
+                {
+                    _owner.Warnings.Add(formatter(state, exception));
+                }
+            }
+        }
     }
 }

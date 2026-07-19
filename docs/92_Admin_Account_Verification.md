@@ -44,8 +44,8 @@ existing account. So:
 
 | Value | Source | Notes |
 |-------|--------|-------|
-| Email | `AdminAccount:Email` in `appsettings.json` = `admin@aly-hussein.local` | applies in all environments |
-| Password | `AdminAccount:Password` via **configuration binding** (`AdminAccountOptions`) | never hardcoded |
+| Email | `AdminAccount:Email` in `appsettings.json` / `appsettings.Production.json` = `admin@aly-hussein.local` | applies in all environments |
+| Password | `AdminAccount:Password` via **configuration binding** (`AdminAccountOptions`) | never hardcoded, never committed |
 
 Password precedence (highest wins), per ASP.NET Core configuration order:
 
@@ -53,9 +53,12 @@ Password precedence (highest wins), per ASP.NET Core configuration order:
 appsettings.json  <  appsettings.Production.json  <  [User Secrets — Development only]  <  Environment variables
 ```
 
-- **Not hardcoded** — the seeder skips creation (with a warning) if no password is configured.
-- **User Secrets** hold the password in **Development** only (`AdminAccount:Password = Admin#2026Dev`).
-- In **Production**, `AdminAccount__Password` (environment variable) overrides everything if set.
+- **Not hardcoded and never stored in source control** — the seeder skips creation (with a
+  warning) if no password is configured.
+- **Development:** the password comes from **User Secrets** (`AdminAccount:Password = Admin#2026Dev`).
+- **Production:** the password comes **only** from the `AdminAccount__Password` **environment
+  variable** (the server-side EnvironmentFile). No source-controlled file contains a password —
+  `appsettings.Production.json` holds only the email.
 
 ---
 
@@ -94,36 +97,44 @@ the Stage 91 template, the seeded password would be *that* value, not `Admin#202
 
 ---
 
-## 6. The fix (minimum, safe change)
+## 6. The fix (minimum, safe change — env-var-only, no committed secret)
 
-Provide the intended first-run password through **production configuration** instead of User
-Secrets, exactly as requested. Added an `AdminAccount` section to
-`src/ProfAly.CMS.Web/appsettings.Production.json`:
+The bootstrap password is supplied **only** through the server-side environment variable
+`AdminAccount__Password` (the systemd `EnvironmentFile` `/etc/profalycms/profalycms.env`). **No
+source-controlled file contains a password.** `src/ProfAly.CMS.Web/appsettings.Production.json`
+holds only the email:
 
 ```json
 "AdminAccount": {
-  "Email": "admin@aly-hussein.local",
-  "Password": "Admin#2026Dev"
+  "Email": "admin@aly-hussein.local"
 }
 ```
 
-This is the **default used only to seed an empty database on first startup**. It is still
-overridable by the `AdminAccount__Password` environment variable (which takes precedence), so
-operators can supply/rotate the secret via the systemd `EnvironmentFile` without editing source.
+The operator sets the password once, before the first deployment (the deployment guide marks it
+**required**):
 
-No application/business logic was changed. The `SuperAdminSeeder` already enforced every safety
-requirement; only configuration was added.
+```bash
+# /etc/profalycms/profalycms.env   (chmod 640, root:profalycms)
+AdminAccount__Password=Admin#2026Dev
+```
 
-### After the fix — simulated production startup
+If the variable is **absent** on first startup, `SuperAdminSeeder` logs a clear warning
+(*"AdminAccount:Password is not configured; skipping Super Admin seeding…"*) and creates **no**
+admin — it never falls back to a hardcoded or committed password.
+
+No application/business logic was changed. `SuperAdminSeeder` already enforced the skip-with-warning
+behaviour and every safety requirement; only configuration and docs changed.
+
+### After the fix — production startup
 
 > **Will I be able to log in with `admin@aly-hussein.local` / `Admin#2026Dev`?**
 >
-> ### YES ✅
+> ### YES ✅ — once `AdminAccount__Password=Admin#2026Dev` is set in the env file (a required, documented first-deploy step).
 
-**Why:** on first Production startup of an empty database, `AdminAccount:Password` now resolves to
-`Admin#2026Dev` from `appsettings.Production.json` (User Secrets not required, no env var required),
-so `SuperAdminSeeder` creates the account with that password, in the `SuperAdmin` role. Identity's
-password hasher validates the credential on sign-in.
+**Why:** on first Production startup of an empty database, `AdminAccount:Password` resolves from the
+`AdminAccount__Password` environment variable, so `SuperAdminSeeder` creates the account with that
+password, in the `SuperAdmin` role. Identity's password hasher validates the credential on sign-in.
+(User Secrets are irrelevant in Production; the secret never lives in source.)
 
 ---
 
@@ -143,35 +154,46 @@ Verified by test `SecondStartup_DoesNotDuplicate_Reset_OrOverwrite_TheExistingAd
 
 ## 8. Fresh-server behavior (verified at runtime)
 
-Ran the **real application host** in `ASPNETCORE_ENVIRONMENT=Production` (with
-`--no-launch-profile` so no Development override, and **no** `AdminAccount__Password` env var and
-**no** User Secrets) against a fresh temp database. Log excerpt:
+Ran the **real application host** in `ASPNETCORE_ENVIRONMENT=Production` (with `--no-launch-profile`
+so no Development override, and **no** User Secrets) against a fresh temp database, both with and
+without the environment variable. EF `Information` command logs were suppressed (Production
+`Warning` level), confirming the runs were genuinely in the Production environment.
+
+**With `AdminAccount__Password=Admin#2026Dev` set (the documented first-deploy step):**
 
 ```
-DatabaseInitializer  Applying 8 pending migration(s): ...
-RoleSeeder           Created role 'SuperAdmin'.
-SuperAdminSeeder     Created Super Admin 'admin@aly-hussein.local'.
-DatabaseInitializer  Database initialization complete.
+RoleSeeder        Created role 'SuperAdmin'.
+SuperAdminSeeder  Created Super Admin 'admin@aly-hussein.local'.
 ```
 
-EF `Information` command logs were suppressed (Production `Warning` level), confirming the run was
-genuinely in the Production environment. The admin was created — proving the password was sourced
-from `appsettings.Production.json`, not User Secrets.
+→ admin created from the environment variable (no committed password involved).
+
+**Without any `AdminAccount__Password` (misconfiguration):**
+
+```
+RoleSeeder        Created role 'SuperAdmin'.
+SuperAdminSeeder  AdminAccount:Password is not configured; skipping Super Admin seeding.
+                  Set it via the AdminAccount__Password environment variable or user-secrets.
+```
+
+→ the role is created but **no admin is seeded**, and a clear warning is logged. No hardcoded or
+committed password is ever used.
 
 ---
 
 ## 9. Identity login / lockout / hashing / roles (verified)
 
 Covered by `tests/ProfAly.CMS.Tests/AdminAccountSeedingTests.cs` (4 tests, all pass), which run the
-real `AddInfrastructure` + `DatabaseInitializer` seeding path:
+real `AddInfrastructure` + `DatabaseInitializer` seeding path with the password supplied **only via
+the `AdminAccount__Password` environment variable** (`AddEnvironmentVariables()`):
 
 | Check | Result |
 |-------|--------|
-| Admin created from config on empty DB | ✅ |
+| Admin created from the **environment variable** on empty DB | ✅ |
 | `CheckPasswordAsync(admin, "Admin#2026Dev")` (the exact check sign-in performs) | ✅ true |
 | Admin is in role `SuperAdmin` | ✅ |
 | Second startup: no duplicate, hash unchanged, original password still valid | ✅ |
-| No configured password → admin skipped (documents the old failure) | ✅ |
+| **No** env var (and no committed password) → admin skipped **with a warning** (asserted from captured logs) | ✅ |
 | Lockout: `MaxFailedAccessAttempts=5`, `DefaultLockoutTimeSpan=15min`, `AllowedForNewUsers=true` | ✅ unchanged |
 | Password policy: length 10, digit + uppercase + non-alphanumeric required | ✅ unchanged |
 | Password hasher registered (Identity PBKDF2) | ✅ |
@@ -185,13 +207,12 @@ Login is protected by the same lockout and rate-limiting introduced in Stage 90;
 ```
 URL:      https://<your-domain>/account/login
 Email:    admin@aly-hussein.local
-Password: Admin#2026Dev
+Password: Admin#2026Dev   (set via AdminAccount__Password in the server-side env file)
 ```
 
-**Rotate the password after the first login** (or override it before first boot via the
-`AdminAccount__Password` environment variable in `/etc/profalycms/profalycms.env`). The default in
-`appsettings.Production.json` only ever seeds an empty database — it is never re-applied to an
-existing account.
+Set `AdminAccount__Password=Admin#2026Dev` in `/etc/profalycms/profalycms.env` **before the first
+startup**, then **rotate the password after the first login**. The password only ever seeds an empty
+database — it is never re-applied to an existing account, and it is never stored in source control.
 
 ---
 
@@ -199,31 +220,29 @@ existing account.
 
 | File | Change |
 |------|--------|
-| `src/ProfAly.CMS.Web/appsettings.Production.json` | Added `AdminAccount` (email + first-run password) so Production can seed the admin without User Secrets. |
-| `docs/91_Production_Deployment_Guide.md` | Env-file `AdminAccount__Password` is now an optional override (commented); clarified first-run password source + rotation. |
-| `tests/ProfAly.CMS.Tests/AdminAccountSeedingTests.cs` | **New** — verifies the production seeding path, login credential, idempotency, and Identity security settings. |
+| `src/ProfAly.CMS.Web/appsettings.Production.json` | Holds **only** `AdminAccount:Email`. No password — a comment documents that the bootstrap password comes solely from the `AdminAccount__Password` env var. |
+| `docs/91_Production_Deployment_Guide.md` | Env-file `AdminAccount__Password` is now **required** for the first deploy; clarified that it is the only password source and never stored in source. |
+| `tests/ProfAly.CMS.Tests/AdminAccountSeedingTests.cs` | **New** — verifies the **environment-variable** seeding path, login credential, idempotency, the skip-with-warning behaviour, and Identity security settings. |
 | `docs/92_Admin_Account_Verification.md` | **New** — this report. |
 
 No source/business logic was changed. `SuperAdminSeeder`, `RoleSeeder`, `DatabaseInitializer`,
-`Program.cs`, and the Identity configuration are untouched.
+`Program.cs`, and the Identity configuration are untouched — only configuration/docs/tests.
 
 ---
 
 ## Why this is production-safe
 
-- **Admin always exists after first startup** — the password now has a guaranteed Production
-  source (`appsettings.Production.json`), so seeding never silently skips on a clean VPS.
+- **No committed secret** — no source-controlled file contains an administrator password;
+  `appsettings.Production.json` holds only the email. The password comes solely from the
+  server-side `AdminAccount__Password` environment variable (EnvironmentFile, chmod 640).
+- **Fails safe, never insecure** — if the env var is missing on first startup, the seeder logs a
+  clear warning and creates no admin; it never falls back to a hardcoded or committed password.
 - **No recreation / no overwrite** — creation is gated on `FindByEmailAsync`; existing users and
-  their password hashes are never touched.
-- **No dependency on User Secrets** — the production password comes from production configuration
-  (or the `AdminAccount__Password` env var), never from the dev-only secret store.
-- **Works on a clean Ubuntu VPS** — verified by a real Production run with no env var and no User
-  Secrets present.
+  their password hashes are never touched, even if the env-var value later changes.
+- **No dependency on User Secrets** — those load only in Development; Production uses the env var.
+- **Works on a clean Ubuntu VPS** — verified by real Production runs, both with the env var (admin
+  created) and without it (skipped + warned).
 - **Existing data untouched** — no `app.db` reset/delete; migrations are additive; a startup
-  backup precedes them; verification used only temp databases.
-- **Override + rotation path** — the env var overrides the default before first boot, and the
-  password can be changed from the admin UI afterwards.
-
-> Security note: the default password lives in `appsettings.Production.json`, which is a tracked
-> file. Treat it as a bootstrap credential: prefer setting `AdminAccount__Password` in the
-> server-side env file (chmod 640) and/or rotate immediately after the first login.
+  backup precedes them; all verification used throwaway temp databases.
+- **Rotation path** — change the password from the admin UI after first login; the bootstrap value
+  only ever seeds an empty database.

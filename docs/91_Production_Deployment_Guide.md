@@ -128,23 +128,24 @@ sudo find /var/www/profalycms/shared -type f -exec chmod 640 {} \;
 sudo tee /etc/profalycms/profalycms.env >/dev/null <<'EOF'
 # Secrets for profalycms.service (loaded by systemd EnvironmentFile).
 #
-# OPTIONAL: override the first-run Super Admin password. If this line is left
-# commented out, the app seeds the admin using the default in
-# appsettings.Production.json (see docs/92_Admin_Account_Verification.md) so a
-# clean deploy always has a working login. If you set it here, THIS value becomes
-# the seeded password instead (it overrides appsettings.Production).
-# It only ever affects an EMPTY database on first run — never an existing account.
-#AdminAccount__Password=CHANGE_ME_TO_A_STRONG_PASSWORD
+# REQUIRED for the first deployment: the bootstrap Super Admin password. It is the
+# ONLY source of the admin password (never stored in source control). Set a strong
+# value BEFORE the first startup of an empty database. If it is missing on first
+# startup, the app logs a warning and creates NO admin (you would be unable to log
+# in until you set it and restart). It only ever seeds an EMPTY database — an
+# existing admin account is never modified.
+AdminAccount__Password=CHANGE_ME_TO_A_STRONG_PASSWORD
 EOF
 sudo chown root:profalycms /etc/profalycms/profalycms.env
 sudo chmod 640 /etc/profalycms/profalycms.env
 ```
 
-> The admin **email** is set in `appsettings.json` (`AdminAccount:Email`). The first-run
-> **password** comes from `appsettings.Production.json` by default, and can be overridden by
-> the `AdminAccount__Password` environment variable above. In either case it is only used to
-> **seed** the account on the first startup of an empty database — an existing admin is never
-> modified. Rotate the password from the admin UI after the first login.
+> The admin **email** is set in `appsettings.json` / `appsettings.Production.json`
+> (`AdminAccount:Email`). The bootstrap **password** comes **only** from the
+> `AdminAccount__Password` environment variable in this server-side env file — it is never
+> stored in any source-controlled file. It is used solely to **seed** the account on the first
+> startup of an empty database; an existing admin is never modified. Rotate the password from
+> the admin UI after the first login.
 
 ---
 
@@ -403,7 +404,7 @@ sudo systemctl reload nginx        # after Nginx config changes
 | 502 Bad Gateway | Kestrel down or wrong port: `systemctl status profalycms`, `journalctl -u profalycms -n 100`. Confirm it listens on `127.0.0.1:5000` (`ss -ltnp | grep 5000`). |
 | Service won't start | `journalctl -u profalycms -n 100`. Common: `dotnet` path wrong, missing runtime (`dotnet --list-runtimes`), or `current` symlink missing (deploy first). |
 | 500 on every page | App exception — see app logs in `shared/Logs/…log` and journald. Verify `App_Data` symlink resolves and `app.db` is writable by `profalycms`. |
-| Admin can't log in | The Super Admin is seeded on the first startup of an empty DB from `appsettings.Production.json` (or the `AdminAccount__Password` override). Check the startup log for "Created Super Admin"; see docs/92_Admin_Account_Verification.md. |
+| Admin can't log in | The Super Admin is seeded on the first startup of an empty DB from the `AdminAccount__Password` env var. If it was unset on first boot, no admin was created — set it in `/etc/profalycms/profalycms.env` and restart. Check the startup log for "Created Super Admin" or the "not configured; skipping" warning; see docs/92_Admin_Account_Verification.md. |
 | DB "readonly"/locked | Ownership/permissions: `chown -R profalycms:profalycms shared/App_Data`; ensure the dir (not just the file) is writable (WAL needs to create `-wal`/`-shm`). |
 | Uploads rejected / 413 | `client_max_body_size` in Nginx (60m) vs app caps (`FileStorage:Max*Bytes`). Raise both if larger files are needed. |
 | TLS errors / cert not found | `certbot certificates`; confirm `ssl_certificate` paths in `profalycms.conf` match `/etc/letsencrypt/live/<domain>/`. `nginx -t`. |
@@ -429,8 +430,9 @@ sudo systemctl reload nginx        # after Nginx config changes
 
 ## Notes
 
-- The first-run admin password defaults from `appsettings.Production.json` and can be overridden
-  by the `AdminAccount__Password` env var; rotate it after first login. It only seeds an empty DB.
+- No credentials are stored in source control. The bootstrap admin password comes only from the
+  `AdminAccount__Password` env var in the server-side env file; rotate it after first login. It
+  only seeds an empty DB and never modifies an existing admin.
 - The app never resets or recreates the database; migrations are additive and a startup backup
   precedes them.
 - Deployments are atomic (symlink swap) and health-gated with automatic rollback.
