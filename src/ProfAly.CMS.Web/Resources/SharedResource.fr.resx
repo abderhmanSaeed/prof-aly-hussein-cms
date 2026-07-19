@@ -203,7 +203,7 @@
   <data name="Contact_SendMessage" xml:space="preserve"><value>Envoyer un message</value></data>
   <data name="Footer_QuickLinks" xml:space="preserve"><value>Liens rapides</value></data>
   <data name="Footer_Contact" xml:space="preserve"><value>Contact</value></data>
-  <data name="Footer_Built" xml:space="preserve"><value>Un site académique trilingue.</value></data>
+  <data name="Footer_Built" xml:space="preserve"><value>Site académique.</value></data>
   <data name="Footer_Rights" xml:space="preserve"><value>Tous droits réservés.</value></data>
   <data name="Back_To_Top" xml:space="preserve"><value>Retour en haut</value></data>
   <data name="Profile_ContactPhoto" xml:space="preserve"><value>Photo de la page Contact</value></data>
