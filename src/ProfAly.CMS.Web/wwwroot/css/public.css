@@ -71,23 +71,27 @@ img { max-width: 100%; height: auto; display: block; }
 .site-nav { position: sticky; inset-block-start: 0; z-index: 1030; background: color-mix(in srgb, var(--surface) 92%, transparent);
   backdrop-filter: blur(10px); border-block-end: 1px solid var(--line); }
 /* Header spans a little wider than the 1200px content column so all nav items fit
-   on a single line (the shared .container cap was squeezing them into 2 lines). */
-.nav-inner { display: flex; align-items: center; gap: 1rem; min-block-size: var(--nav-h); max-width: 1440px; }
-.brand { display: flex; align-items: center; gap: .6rem; font-weight: 700; }
+   on a single line (the shared .container cap was squeezing them into 2 lines).
+   Three balanced columns — 1fr | auto | 1fr — keep the two side columns equal, so the
+   middle (nav) column is always centred in the header itself, not merely between the
+   brand and the controls. This makes the nav dead-centre regardless of how wide the
+   brand or controls are, and works identically in LTR and RTL (grid columns follow the
+   inline direction; justify-self is flow-relative). max-width is a little wider so the
+   longer French menu also fits on one centred line at common desktop widths. */
+.nav-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
+  column-gap: 1rem; min-block-size: var(--nav-h); max-width: 1560px; }
+.brand { grid-column: 1; justify-self: start; display: flex; align-items: center; gap: .6rem; font-weight: 700; }
 .brand-mark { inline-size: 44px; block-size: 44px; border-radius: 12px; display: grid; place-items: center;
   background: linear-gradient(140deg, var(--primary), var(--primary-300)); color: #fff;
   font-family: var(--font-head); font-size: 1.5rem; font-weight: 700; box-shadow: inset 0 0 0 1.5px rgba(255,255,255,.16); }
 .brand-text { display: flex; flex-direction: column; line-height: 1.2; white-space: nowrap; }
 .brand-text .sub { font-size: .72rem; color: var(--muted); font-weight: 500; }
-/* The menu is a bounded flex region between the brand and the actions: it grows to
-   fill the middle and centres its items inside that region (justify-content) rather
-   than being a content-sized box centred by auto-margins. Auto-margin centring let a
-   wide menu (e.g. the longer French labels) spill past the language switcher; a
-   grown, bounded box is walled off by the flex layout so it can never overlap the
-   brand or actions. EN/AR are visually unchanged — their items still centre in the
-   same span. When the labels are too wide to fit this region, public.js collapses the
-   header to the hamburger drawer (.nav-collapsed) instead of overflowing. */
-.nav-menu { display: flex; flex: 1 1 auto; min-inline-size: 0; justify-content: center; gap: .1rem; list-style: none; padding: 0; flex-wrap: nowrap; }
+/* The menu sits in the centre grid column and lays its items out in a single centred
+   row. margin:0 clears the <ul>'s default block-end margin, which would otherwise make
+   align-items:center centre the margin-box and float the links a few px above the rest.
+   If the labels are too wide for the row (e.g. French on a narrow desktop), public.js
+   collapses the header to the hamburger drawer (.nav-collapsed) instead of overflowing. */
+.nav-menu { grid-column: 2; justify-self: center; display: flex; justify-content: center; gap: .1rem; list-style: none; margin: 0; padding: 0; flex-wrap: nowrap; }
 /* Every item (link AND dropdown toggle) is the same full-height chip: the whole
    chip is the hover/click target (≥44px, accessible), all items share one baseline,
    and labels never wrap. Typography/colours unchanged. */
@@ -120,11 +124,11 @@ img { max-width: 100%; height: auto; display: block; }
 .nav-dropdown-menu a::after { content: none; }
 .nav-dropdown-menu a:hover { background: var(--primary-050); color: var(--primary); }
 
-/* margin-inline-start:auto pins the actions to the trailing edge when the menu is out
-   of flow (the mobile/collapsed drawer sets .nav-menu to position:absolute). On the
-   desktop row the growing .nav-menu (flex:1 1 auto) already consumes the free space,
-   so this auto-margin resolves to 0 there and does not affect the menu's width. */
-.nav-actions { margin-inline-start: auto; display: flex; align-items: center; gap: .5rem; }
+/* Controls occupy the trailing grid column and align to the trailing edge (justify-self
+   is flow-relative, so this is the right edge in LTR and the left edge in RTL). Explicit
+   grid-column:3 keeps them pinned there even when the menu is out of flow (the mobile /
+   collapsed drawer sets .nav-menu to position:absolute). */
+.nav-actions { grid-column: 3; justify-self: end; display: flex; align-items: center; gap: .5rem; }
 .icon-btn { inline-size: 38px; block-size: 38px; border: 1px solid var(--line); border-radius: 9px; background: var(--surface); color: var(--ink); cursor: pointer; display: inline-grid; place-items: center; }
 .icon-btn:hover { border-color: var(--accent); color: var(--accent-600); }
 /* Burger visibility tracks the menu breakpoint below (not Bootstrap's xl/xxl) so the
@@ -411,18 +415,6 @@ img { max-width: 100%; height: auto; display: block; }
    collapsed and there is room under the name — matches the static design. */
 .brand-text .sub { display: none; }
 @media (min-width: 768px) and (max-width: 1439.98px) { .brand-text .sub { display: block; } }
-
-/* French labels ("Ressources numériques", "Activités diverses", "Enseignement"…) are
-   wider than their EN/AR counterparts and would otherwise overflow the one-line desktop
-   menu. Tighten only the French top-level items' horizontal padding so the full menu
-   fits on one line instead of collapsing to the hamburger. Scoped to the desktop layout
-   (≥1440px) so the mobile drawer keeps its comfortable tap padding, and to
-   `.nav-menu > li >` so the dropdown panel items are untouched. Font size, weight and the
-   44px min target height are unchanged, so readability and accessibility are preserved. */
-@media (min-width: 1440px) {
-  [data-lang="fr"] .nav-menu > li > a,
-  [data-lang="fr"] .nav-dropdown-toggle { padding-inline: .2rem; }
-}
 
 /* Desktop horizontal menu appears at xl (≥1200px); below that the hamburger
    drawer is used (matches the static breakpoint). No width range loses the nav. */

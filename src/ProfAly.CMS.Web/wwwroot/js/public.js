@@ -5,6 +5,7 @@
   var burger = document.querySelector(".nav-burger");
   var menu = document.querySelector(".nav-menu");
   var siteNav = document.querySelector(".site-nav");
+  var navInner = document.querySelector(".nav-inner");
 
   function setMenu(open) {
     if (!menu || !burger) return;
@@ -19,13 +20,14 @@
   // it adapts automatically to the selected language and text length.
   var desktopNav = window.matchMedia("(min-width: 1440px)");
   function syncNavFit() {
-    if (!siteNav || !menu) return;
+    if (!siteNav || !navInner) return;
     // Measure the natural single-line fit with our own class removed, then decide.
     var wasCollapsed = siteNav.classList.contains("nav-collapsed");
     siteNav.classList.remove("nav-collapsed");
-    // scrollWidth (content) vs clientWidth (the bounded flex region) — >1px means the
-    // items cannot fit on one line. Only meaningful on the desktop horizontal layout.
-    var overflowing = desktopNav.matches && menu.scrollWidth - menu.clientWidth > 1;
+    // The nav sits in the centre grid column; when its labels are too wide the whole
+    // header row overflows its container. scrollWidth > clientWidth (by >1px) means the
+    // three sections cannot share one line. Only meaningful on the desktop layout.
+    var overflowing = desktopNav.matches && navInner.scrollWidth - navInner.clientWidth > 1;
     siteNav.classList.toggle("nav-collapsed", overflowing);
     // Leaving the collapsed state? Make sure the drawer isn't left open.
     if (wasCollapsed && !overflowing) setMenu(false);
