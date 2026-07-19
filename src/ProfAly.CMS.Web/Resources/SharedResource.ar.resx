@@ -256,7 +256,7 @@
   <data name="Home_LatestVideos" xml:space="preserve"><value>أحدث المقاطع</value></data>
   <data name="Home_LatestEnrichment" xml:space="preserve"><value>أحدث المواد الإثرائية</value></data>
   <data name="Home_RecommendedBooks" xml:space="preserve"><value>كتب جديرة بالقراءة</value></data>
-  <data name="Home_FeaturedEvents" xml:space="preserve"><value>الفعاليات القادمة والمميّزة</value></data>
+  <data name="Home_FeaturedEvents" xml:space="preserve"><value>الفعاليات</value></data>
   <data name="F_Author" xml:space="preserve"><value>المؤلِّف</value></data>
   <data name="F_PurchaseUrl" xml:space="preserve"><value>رابط الشراء</value></data>
   <data name="F_EventDate" xml:space="preserve"><value>تاريخ الفعالية</value></data>

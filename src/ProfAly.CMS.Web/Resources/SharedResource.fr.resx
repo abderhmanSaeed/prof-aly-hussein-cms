@@ -256,7 +256,7 @@
   <data name="Home_LatestVideos" xml:space="preserve"><value>Dernières vidéos</value></data>
   <data name="Home_LatestEnrichment" xml:space="preserve"><value>Derniers matériels d'enrichissement</value></data>
   <data name="Home_RecommendedBooks" xml:space="preserve"><value>Des livres à lire</value></data>
-  <data name="Home_FeaturedEvents" xml:space="preserve"><value>Événements à venir et en vedette</value></data>
+  <data name="Home_FeaturedEvents" xml:space="preserve"><value>Événements</value></data>
   <data name="F_Author" xml:space="preserve"><value>Auteur</value></data>
   <data name="F_PurchaseUrl" xml:space="preserve"><value>URL d'achat</value></data>
   <data name="F_EventDate" xml:space="preserve"><value>Date de l'événement</value></data>

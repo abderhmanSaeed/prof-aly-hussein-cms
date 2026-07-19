@@ -4,12 +4,35 @@
 
   var burger = document.querySelector(".nav-burger");
   var menu = document.querySelector(".nav-menu");
+  var siteNav = document.querySelector(".site-nav");
 
   function setMenu(open) {
     if (!menu || !burger) return;
     menu.classList.toggle("open", open);
     burger.setAttribute("aria-expanded", open ? "true" : "false");
   }
+
+  // Responsive header: above the CSS breakpoint the nav is a single horizontal row.
+  // If the localized labels are too wide to fit that row (e.g. the longer French
+  // strings), collapse to the same hamburger drawer instead of letting items overlap
+  // the brand or language switcher. Language-agnostic: it measures the actual fit, so
+  // it adapts automatically to the selected language and text length.
+  var desktopNav = window.matchMedia("(min-width: 1440px)");
+  function syncNavFit() {
+    if (!siteNav || !menu) return;
+    // Measure the natural single-line fit with our own class removed, then decide.
+    var wasCollapsed = siteNav.classList.contains("nav-collapsed");
+    siteNav.classList.remove("nav-collapsed");
+    // scrollWidth (content) vs clientWidth (the bounded flex region) — >1px means the
+    // items cannot fit on one line. Only meaningful on the desktop horizontal layout.
+    var overflowing = desktopNav.matches && menu.scrollWidth - menu.clientWidth > 1;
+    siteNav.classList.toggle("nav-collapsed", overflowing);
+    // Leaving the collapsed state? Make sure the drawer isn't left open.
+    if (wasCollapsed && !overflowing) setMenu(false);
+  }
+  syncNavFit();
+  window.addEventListener("resize", syncNavFit, { passive: true });
+  window.addEventListener("load", syncNavFit); // re-check once web fonts have settled
 
   document.addEventListener("click", function (e) {
     if (e.target.closest(".theme-toggle")) {
