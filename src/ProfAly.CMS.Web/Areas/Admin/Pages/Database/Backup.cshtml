@@ -1,0 +1,82 @@
+@page
+@using System.Globalization
+@model ProfAly.CMS.Web.Areas.Admin.Pages.Database.BackupModel
+@{
+    ViewData["Title"] = "Database — Backup & Restore";
+
+    static string FormatBytes(long bytes)
+    {
+        string[] units = { "B", "KB", "MB", "GB" };
+        double size = bytes;
+        var unit = 0;
+        while (size >= 1024 && unit < units.Length - 1) { size /= 1024; unit++; }
+        return $"{size.ToString(unit == 0 ? "0" : "0.0", CultureInfo.InvariantCulture)} {units[unit]}";
+    }
+}
+
+<div class="d-flex align-items-center flex-wrap gap-2 mb-3">
+    <h1 class="page-title mb-0">Database — Backup &amp; Restore</h1>
+    <span class="badge text-bg-secondary">@Model.Backups.Count backups</span>
+    <span class="badge text-bg-light">@FormatBytes(Model.TotalBytes) total</span>
+</div>
+
+@if (!string.IsNullOrEmpty(Model.StatusMessage))
+{
+    <div class="alert @(Model.StatusIsError ? "alert-danger" : "alert-success")" role="alert">
+        @Model.StatusMessage
+    </div>
+}
+
+<div class="tile mb-3">
+    <div class="d-flex flex-wrap gap-2 align-items-center">
+        <form method="post" asp-page-handler="Create" class="d-inline">
+            <button type="submit" class="btn btn-primary">Create Backup Now</button>
+        </form>
+        <p class="text-muted mb-0 ms-2">
+            Creates a verified, timestamped snapshot of the live SQLite database in
+            <code>App_Data/Backups</code>. Backups are also taken automatically at startup and before content imports.
+        </p>
+    </div>
+</div>
+
+<div class="tile p-0">
+    <table class="table mb-0 align-middle">
+        <thead>
+            <tr>
+                <th>File</th>
+                <th style="width:180px">Created (UTC)</th>
+                <th style="width:130px">Reason</th>
+                <th style="width:110px">Size</th>
+                <th style="width:230px">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        @if (Model.Backups.Count == 0)
+        {
+            <tr><td colspan="5" class="text-muted p-3">No backups found yet.</td></tr>
+        }
+        @foreach (var b in Model.Backups)
+        {
+            <tr>
+                <td class="text-break"><code>@b.FileName</code></td>
+                <td class="text-muted" dir="ltr">@b.CreatedUtc.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture)</td>
+                <td><span class="badge text-bg-light">@b.Reason</span></td>
+                <td dir="ltr">@FormatBytes(b.SizeBytes)</td>
+                <td>
+                    <a class="btn btn-sm btn-outline-secondary"
+                       asp-page-handler="Download" asp-route-fileName="@b.FileName">Download</a>
+                    <form method="post" asp-page-handler="Restore" asp-route-fileName="@b.FileName" class="d-inline"
+                          onsubmit="return confirm('Restore this backup? The current database will be overwritten. A pre-restore safety backup is taken automatically.');">
+                        <button type="submit" class="btn btn-sm btn-outline-danger">Restore</button>
+                    </form>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
+
+<p class="text-muted small mt-3">
+    Restoring replaces the live database and takes effect immediately. A safety backup of the
+    current state is always created first, so a restore can itself be undone.
+</p>

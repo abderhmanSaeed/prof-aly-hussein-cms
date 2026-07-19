@@ -3,11 +3,13 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.RateLimiting;
 using ProfAly.CMS.Infrastructure.Identity;
 
 namespace ProfAly.CMS.Web.Pages.Account;
 
 [AllowAnonymous]
+[EnableRateLimiting("login")]
 public class LoginModel : PageModel
 {
     private readonly SignInManager<ApplicationUser> _signInManager;

@@ -2,6 +2,7 @@ using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging.Abstractions;
+using ProfAly.CMS.Application.Abstractions;
 using ProfAly.CMS.Domain.Entities;
 using ProfAly.CMS.Infrastructure.Persistence;
 using ProfAly.CMS.Infrastructure.Persistence.Backup;
@@ -110,6 +111,100 @@ public class DatabaseSafetyTests : IDisposable
         // Second run must be a no-op (once-only) → counts unchanged.
         var afterSecond = await RunImportAndCount();
         Assert.Equal(afterFirst, afterSecond);
+    }
+
+    [Fact]
+    public async Task Backup_IsVerified_AndAppearsInList_WithMetadata()
+    {
+        await using (var ctx = NewContext())
+        {
+            await ctx.Database.MigrateAsync();
+        }
+
+        await using var ctx2 = NewContext();
+        var backup = new SqliteDatabaseBackupService(ctx2, Config(import: false), NullLogger<SqliteDatabaseBackupService>.Instance);
+
+        var path = await backup.CreateBackupAsync("manual");
+        Assert.NotNull(path);
+
+        var fileName = Path.GetFileName(path!);
+        Assert.True(await backup.VerifyBackupAsync(fileName), "a freshly created backup must pass integrity verification");
+
+        var list = backup.ListBackups();
+        var entry = Assert.Single(list);
+        Assert.Equal(fileName, entry.FileName);
+        Assert.Equal("manual", entry.Reason);
+        Assert.True(entry.SizeBytes > 0);
+    }
+
+    [Fact]
+    public async Task Restore_RecoversPreviousState_AndTakesSafetyBackup()
+    {
+        // Arrange: a database that contains a known marker row.
+        await using (var ctx = NewContext())
+        {
+            await ctx.Database.MigrateAsync();
+            ctx.SystemSetting.Add(new SystemSetting { Key = "restore.probe", Value = "original" });
+            await ctx.SaveChangesAsync();
+        }
+
+        // Back up the good state.
+        string backupFileName;
+        await using (var ctx = NewContext())
+        {
+            var svc = new SqliteDatabaseBackupService(ctx, Config(import: false), NullLogger<SqliteDatabaseBackupService>.Instance);
+            var path = await svc.CreateBackupAsync("pre-change");
+            backupFileName = Path.GetFileName(path!);
+        }
+
+        // Simulate a bad manual edit: mutate the live database.
+        SqliteConnection.ClearAllPools();
+        await using (var ctx = NewContext())
+        {
+            var row = await ctx.SystemSetting.FirstAsync(s => s.Key == "restore.probe");
+            row.Value = "corrupted";
+            await ctx.SaveChangesAsync();
+        }
+
+        // Act: restore from the backup.
+        BackupRestoreResult result;
+        await using (var ctx = NewContext())
+        {
+            var svc = new SqliteDatabaseBackupService(ctx, Config(import: false), NullLogger<SqliteDatabaseBackupService>.Instance);
+            result = await svc.RestoreAsync(backupFileName);
+        }
+
+        // Assert: restore succeeded, took a safety backup, and the original value is back.
+        Assert.True(result.Success, result.Message);
+        Assert.NotNull(result.SafetyBackupPath);
+
+        SqliteConnection.ClearAllPools();
+        await using (var ctx = NewContext())
+        {
+            var row = await ctx.SystemSetting.FirstAsync(s => s.Key == "restore.probe");
+            Assert.Equal("original", row.Value);
+        }
+    }
+
+    [Fact]
+    public async Task ResolveBackupPathForDownload_RejectsTraversalAndUnknownFiles()
+    {
+        await using (var ctx = NewContext())
+        {
+            await ctx.Database.MigrateAsync();
+        }
+
+        await using var ctx2 = NewContext();
+        var backup = new SqliteDatabaseBackupService(ctx2, Config(import: false), NullLogger<SqliteDatabaseBackupService>.Instance);
+        await backup.CreateBackupAsync("manual");
+
+        Assert.Null(backup.ResolveBackupPathForDownload("../app.db"));
+        Assert.Null(backup.ResolveBackupPathForDownload("..\\app.db"));
+        Assert.Null(backup.ResolveBackupPathForDownload("nope.db"));
+        Assert.Null(backup.ResolveBackupPathForDownload("app-does-not-exist.db"));
+
+        var real = backup.ListBackups().Single().FileName;
+        Assert.NotNull(backup.ResolveBackupPathForDownload(real));
     }
 
     public void Dispose()

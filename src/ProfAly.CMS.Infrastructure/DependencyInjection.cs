@@ -51,8 +51,13 @@ public static class DependencyInjection
         services.AddScoped<IDataSeeder, SiteSettingsSeeder>();
         services.AddScoped<IDataSeeder, StaticContentImporter>();
 
-        // Database connectivity health check (endpoint mapped in the web host).
-        services.AddHealthChecks().AddCheck<DatabaseHealthCheck>("database", tags: new[] { "ready" });
+        // Health checks (endpoint mapped in the web host): database connectivity plus
+        // upload/backup folder accessibility. The pipeline itself reporting Healthy also
+        // confirms the application process is running.
+        services.AddHealthChecks()
+            .AddCheck<DatabaseHealthCheck>("database", tags: new[] { "ready" })
+            .AddCheck<UploadFolderHealthCheck>("uploads", tags: new[] { "ready" })
+            .AddCheck<BackupFolderHealthCheck>("backups", tags: new[] { "ready" });
     }
 
     private static void AddIdentity(IServiceCollection services)
